@@ -54,3 +54,6 @@ build-iPhoneSimulator/
 
 # Ignore cassette files
 /specs/cassettes/
+
+# Ignore slack token verification
+slack_token_verification_test.rb
