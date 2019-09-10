@@ -1,4 +1,5 @@
 require_relative 'test_helper'
+require 'pry'
 
 describe "user class" do
     describe "constructor intialize " do
@@ -26,7 +27,16 @@ describe "user class" do
         end
         
         it "should return instances of User" do
-            #expect(@user).must_be_kind_of User
+          slack_id = 4
+          name = "Dom"
+          real_name = "Dominic Tareto"
+          slacker = User.new(slack_id, name, real_name)
+
+          user_list = User.list
+          user_list.each do |user|
+            expect(user).must_be_instance_of User
+          end
+
         end
     end
     
