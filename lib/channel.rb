@@ -21,15 +21,14 @@ module Slack
       query_parameters = {
         token: ENV["SLACK_TOKEN"],
       }
-      response = Channel.get(url, query_parameters)
-      channels = []
-
+      response = Channel.get(url, query: query_parameters)
+      channels_array = []
+      puts response.code
       response["channels"].each do |channel|
-        name = channel["name"]
-        slack_id = channel["id"]
-        topic = channel["topic"]["value"]
-        member_count = channel["members"].length
+        channel_hash = { "name" => channel["name"], "slack id" => channel["id"], "topic" => channel["topic"]["value"], "member count" => channel["members"].length }
+        channels_array << channel_hash
       end
+      return channels_array
     end
 
     def details
