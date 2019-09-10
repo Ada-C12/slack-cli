@@ -23,7 +23,7 @@ module Slack
       }
       response = Channel.get(url, query: query_parameters)
       channels_array = []
-      puts response.code
+
       response["channels"].each do |channel|
         channel_hash = { "name" => channel["name"], "slack id" => channel["id"], "topic" => channel["topic"]["value"], "member count" => channel["members"].length }
         channels_array << channel_hash
