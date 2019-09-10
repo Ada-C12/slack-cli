@@ -5,17 +5,11 @@ class User < Recipient
     def initialize(slack_id, name, real_name)
         super(slack_id, name) 
         @real_name = real_name
+        @@users_list << self
     end
 
     def self.list
-        @@users_list << self
-        return @@users_list
+      return @@users_list
     end
-
-
-
-
-
-
 
 end
