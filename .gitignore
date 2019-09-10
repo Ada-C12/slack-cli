@@ -54,3 +54,6 @@ build-iPhoneSimulator/
 
 # Ignore cassette files
 /specs/cassettes/
+
+# Ignore my set-up test
+/lib/set_up/
