@@ -1,24 +1,44 @@
 #!/usr/bin/env ruby
 
-require 'dotenv'
-require 'httparty'
+require_relative 'workspace'
 
-Dotenv.load
+COMMANDS = ['list users', 'list channels', 'quit']
 
-KEY = ENV["SLACK_API_KEY"]
-URL = "https://slack.com/api/conversations.list"
+def show_commands
+  puts "Available commands:"
+  puts COMMANDS
+end
+
+def get_command
+  input = gets.chomp.downcase until COMMANDS.include? input
+  return input
+end
 
 def main
-  puts "Welcome to the Ada Slack CLI!"
+  puts "Welcome to the Ada Slack CLI!\n"
 
-  # TODO project
+  workspace = Workspace.new
+  workspace.show_details
 
-  query_params = {
-    token: KEY,
-  }
+  while true
+    show_commands
+    command = get_command
 
-  response = HTTParty.get URL, query: query_params
-  puts response
+    case command
+      when 'quit'
+        break
+        
+      when 'list users'
+        workspace.users.each do |user|
+          puts user.details
+        end
+        
+      when 'list channels'
+        workspace.channels.each do |channel|
+          puts channel.details
+        end
+    end
+  end
 
   puts "Thank you for using the Ada Slack CLI"
 end
