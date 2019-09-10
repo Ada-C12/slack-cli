@@ -24,4 +24,8 @@ class User < Recipient
       self.new(user_info) 
     end
   end
+
+  def details
+    return "Username: #{name}, Real name: #{real_name}, Slack id: #{slack_id}"
+  end
 end
