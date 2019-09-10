@@ -1,5 +1,4 @@
 
-module PrimeDirective
   class Recipient
     attr_reader :slack_id, :name
     
@@ -21,4 +20,3 @@ module PrimeDirective
     end
     
   end
-end

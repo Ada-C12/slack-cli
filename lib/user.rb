@@ -1,5 +1,4 @@
 
-module PrimeDirective
   class User < Recipient
     attr_reader :real_name, :status_text, :status_emoji
     
@@ -21,4 +20,3 @@ module PrimeDirective
     end
     
   end
-end

@@ -1,5 +1,4 @@
 
-module PrimeDirective
   class Channel < Recipient
     attr_reader :topic, :member_count
     
@@ -20,4 +19,3 @@ module PrimeDirective
     end
     
   end
-end

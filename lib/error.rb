@@ -1,5 +1,4 @@
 
-module PrimeDirective
   class SlackApiError < Exception
     # attr_reader
     
@@ -10,4 +9,3 @@ module PrimeDirective
 
     
   end
-end
