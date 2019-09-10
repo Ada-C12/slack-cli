@@ -28,7 +28,7 @@ def list_channels
   method_url = "https://slack.com/api/channels.list"
   query_params = {
     # key: ENV["SLACK-TOKEN"]
-    token: "xoxp-741657849778-756645927222-757736307830-f34cbca9bdbe14b7faed9993862f15a6"
+    token: "NEW TOKEN"
   }
   response = HTTParty.get(method_url, query: query_params)
 
