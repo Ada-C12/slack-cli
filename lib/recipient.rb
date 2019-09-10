@@ -5,4 +5,8 @@ class Recipient
     @slack_id = slack_id
     @name = name
   end
+ 
+  def self.list
+    []
+  end 
 end
