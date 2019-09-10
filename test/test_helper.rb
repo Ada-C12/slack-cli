@@ -7,7 +7,10 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
+require 'webmock/minitest'
+require 'dotenv'
 require 'vcr'
+Dotenv.load
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
