@@ -2,7 +2,7 @@
 require "dotenv"
 require "httparty"
 require "awesome_print"
-
+require_relative "factory"
 Dotenv.load
 
 def main
@@ -16,15 +16,16 @@ def main
       puts "list_channels"
     when "2" || "list users"
       puts "list_users"
+      factory = Factory.new
+      puts factory.list_users
     when "3" || "quit"
+      puts "Thank you for using the Ada Slack CLI"
       exit
     end
     puts "What would you like to do? Please select an option"
-    puts "1.List Channels\n 2. List Users\n 3.Quit"
+    puts "1. List Channels\n2. List Users\n3. Quit"
     user_selection = gets.chomp.downcase
   end
-
-  puts "Thank you for using the Ada Slack CLI"
 end
 
 main if __FILE__ == $PROGRAM_NAME
