@@ -18,7 +18,7 @@ describe Workspace do
       assert_nil(@workspace.selected)
     end
 
-    xit 'populates users and channels' do
+    it 'populates users and channels' do
       expect(@workspace.channels.first).must_be_instance_of Channel
       expect(@workspace.users.first).must_be_instance_of User
     end

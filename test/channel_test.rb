@@ -28,6 +28,12 @@ describe Channel do
   describe "#details method" do    
   end
   
-  describe " .list method" do
+  describe ".list method" do
+    it 'returns a list of channel instances' do
+      VCR.use_cassette('Channel_list') do
+        expect(Channel.list).must_be_instance_of Array
+        expect(Channel.list.sample).must_be_instance_of Channel
+      end
+    end
   end
 end

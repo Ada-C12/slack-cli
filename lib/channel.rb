@@ -1,4 +1,5 @@
 require_relative 'recipient'
+require 'dotenv'
 
 class Channel < Recipient
   attr_reader :topic, :member_count
@@ -8,8 +9,20 @@ class Channel < Recipient
     @topic = topic
     @member_count = member_count
   end
-
+  
   def self.list
-    []
+    Dotenv.load
+    params = { token: ENV['SLACK_API_KEY'] }
+    
+    response = self.get('https://slack.com/api/channels.list', params)
+    
+    response['channels'].map do |channel|
+      channel_info = { slack_id: channel['id'], 
+        name: channel['name'],
+        topic: channel['topic']['value'],
+        member_count: channel['num_members']
+      }
+      self.new(channel_info) 
+    end
   end
 end
