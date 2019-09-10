@@ -7,9 +7,10 @@ Dotenv.load
 
 def main
 url = "https://slack.com/api/channels.list"
-key = ENV["SLACK_TOKEN"]
+key = ENV['SLACK_TOKEN']
 
-response = HTTParty.get(url, query:{token: key})
+
+response = HTTParty.get(url, query: {token: key})
 
 
   puts "Welcome to the Ada Slack CLI!"
@@ -17,6 +18,7 @@ response = HTTParty.get(url, query:{token: key})
   # TODO project
 
   puts "Thank you for using the Ada Slack CLI"
+  puts response
 end
 
 main if __FILE__ == $PROGRAM_NAME
