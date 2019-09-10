@@ -20,6 +20,6 @@ if response['ok'] == false
     puts "Something went wrong: #{response['error']}"
 else
   response["channels"].each do |channel|
-    p channel["name"]
+    p "Channel: #{channel["name"]}"
   end
 end
