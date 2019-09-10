@@ -1,3 +1,5 @@
+require 'httparty'
+
 class User < Recipient
     attr_reader :slack_id, :name, :real_name
     @@users_list = []
