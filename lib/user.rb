@@ -10,18 +10,21 @@ class User < Recipient
     @real_name = real_name
   end
 
-   def self.get_raw_data
+  def details
+    return {id: id, name: name, real_name: real_name}
+  end
+
+
+
+
+
+  def self.get_raw_data
     url = "https://slack.com/api/users.list"
-    query_params = { token: KEY }
-    response = HTTParty.get(url, query: query_params)
+    params = { token: KEY }
+    response = self.get(url, params)
     p response["ok"]
     sleep(0.5)
     return response
-  end
-
-  
-  def details
-    
   end
 
   def self.list
@@ -53,12 +56,20 @@ class User < Recipient
     return all_ids
   end
 
-  def self.users_in_array
+  def self.users_in_giant_hash
     real_names = self.get_real_names
     names = self.get_names
-    ids = self.ids
-    array = []
-    if real_names
+    ids = self.get_ids
+    results = {}
+    unless (real_names.length == names.length) && (names.length == ids.length)
+      raise ArgumentError, "All the arrays should have same length!"
+    end
+
+    ids.length.times do |index|
+      results[ids[index]] = { name: names[index], real_name: real_names[index]}
+    end
+    return results
+  end
 
   
  

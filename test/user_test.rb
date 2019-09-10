@@ -6,9 +6,9 @@ let (:response) { User.get_raw_data }
 it "Does User.new() work?" do
 end
 
-it "Does User.list() work?" do
-  response = User.list
-  # ap response
+it "Does User.get() work?" do
+
+  puts User.get_raw_data
 end
 
 it "Does get_raw_data work?" do
@@ -39,4 +39,10 @@ it "Does get_ids work?" do
   assert(all_ids[1] == "UN5R2S6GL")
   assert(all_ids[2] == "UN69JD3V3")
 end
+
+it "Does users_in_giant_hash work?" do
+  giant_hash = User.users_in_giant_hash
+  assert (giant_hash == {"USLACKBOT"=>{:name=>"slackbot", :real_name=>"Slackbot"}, "UN5R2S6GL"=>{:name=>"carolinewukaplan", :real_name=>"carolinewukaplan"}, "UN69JD3V3"=>{:name=>"eaball35", :real_name=>"Emily Ball"}})
+end
+
 end
