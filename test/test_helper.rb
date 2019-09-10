@@ -15,3 +15,9 @@ VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
   config.hook_into :webmock
 end
+
+require_relative '../lib/channel'
+require_relative '../lib/recepient'
+require_relative '../lib/user'
+require_relative '../lib/workspace'
+require_relative '../lib/slack'
