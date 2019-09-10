@@ -1,32 +1,27 @@
 require_relative 'test_helper'
 
-describe "User" do
+describe "Channel" do
   before do
-    @user = Slack::User.new(
+    @channel = Slack::Channel.new(
       slack_id: 1, 
       name: "taro", 
-      real_name: "taro the corgi", 
-      status_text: "borking", 
-      status_emoji: ":boop:"
+      topic: " ", 
+      member_count: 1
     )
   end
   
   describe 'constructor' do
     it "will initialize an instance of User" do
-      expect(@user).must_be_kind_of Slack::User
+      expect(@channel).must_be_kind_of Slack::Channel
     end
   end
   
   describe "details" do
     it "will return details for a user" do
-      expect(@user.details).must_equal "Slack id: 1, Name: taro, Real name: taro the corgi, Status: borking :boop:"
+      expect(@channel.details).must_equal "Slack id: 1, Name: taro, Topic:  , Member_count: 1"
     end
   end
   
   #maybe self.parse_response?
   
 end
-
-
-
-
