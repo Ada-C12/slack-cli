@@ -2,7 +2,9 @@ require 'httparty'
 
 class Recipient
   attr_reader :slack_id, :name
-  
+
+  class SlackApiError < Exception; end
+
   def initialize(slack_id:, name:)
     @slack_id = slack_id
     @name = name
@@ -13,7 +15,10 @@ class Recipient
   end
 
   def self.get(url, params)
-    HTTParty.get(url, query: params).parsed_response
+    response = HTTParty.get(url, query: params)
+    raise SlackApiError unless response['ok']
+
+    return response.parsed_response
   end
 
   def details

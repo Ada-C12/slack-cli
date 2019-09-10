@@ -36,5 +36,11 @@ describe Recipient do
         expect(response['channels']).must_be_instance_of Array
       end
     end
+
+    it "raises SlackApiError if response status is not success" do 
+      VCR.use_cassette('Recipient_get_bad_requests') do
+        expect {Recipient.get(@url, {})}.must_raise Recipient::SlackApiError
+      end
+    end
   end
 end
