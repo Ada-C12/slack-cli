@@ -14,9 +14,4 @@ describe "Recipient Class" do
     xdescribe "send message method" do
         it "Should send a message to"
     end
-
-
-
-
-
 end

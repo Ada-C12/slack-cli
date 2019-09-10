@@ -6,10 +6,9 @@ class Recipient
         @name = name
     end
 
-
-
-
-
+    def self.list
+        raise NotImplementedError, "Implement me in a child class!"
+    end
 
 
 
