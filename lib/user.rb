@@ -30,14 +30,13 @@ module Slack
         username = each_member["name"]
         real_name = each_member["real_name"]
         slack_id = each_member["id"]
-        all_users << self.new(username: username, real_name: real_name, slack_id: slack_id)
+        all_users << User.new(username: username, real_name: real_name, slack_id: slack_id)
       end
     return all_users
     end
 
-
   end
 end
 
-# user = Slack::User.new(name: "spengler", real_name: "Bob Spengler", slack_id: "W012A3CDE")
-# ap user.get_api
+# user = Slack::User.new(username: "spengler", real_name: "Bob Spengler", slack_id: "W012A3CDE")
+# ap user.list
