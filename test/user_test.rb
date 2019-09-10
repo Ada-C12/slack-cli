@@ -7,6 +7,7 @@ describe "User" do
     VCR.use_cassette("user") do 
       @response = @user.get_api
       @list = @user.list
+      @print_list = @user.print_list
     end
   end
 
@@ -21,10 +22,6 @@ describe "User" do
 
   describe ".get_api" do 
     it "returns a instance of HTTParty::Response" do
-      # user = Slack::User.new(username: "spengler", real_name: "Bob Spengler", slack_id: "W012A3CDE")
-      # VCR.use_cassette("user") do 
-      #   @response = user.get_api
-      # end
       expect(@response).must_be_kind_of HTTParty::Response
       expect(@response["members"]).must_be_kind_of Array
       expect(@response["members"][0]["name"]).wont_be_nil
@@ -42,7 +39,12 @@ describe "User" do
     it "returns an array with the correct length" do
       expect(@list.length).must_equal 7
     end
-    
+  end
+
+  describe ".print_list" do 
+    it "displays the username, real name, and Slack ID for all users of workspace" do
+      expect(@print_list).must_be_kind_of String
+    end
   end
   
   
