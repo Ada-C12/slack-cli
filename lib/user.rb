@@ -1,5 +1,3 @@
-
-
 module SlackCLI
   class User < Recipient
     
@@ -8,7 +6,6 @@ module SlackCLI
       super(slack_id, name)
       @real_name = real_name
     end
-    
     
     def self.get
       url = "https://slack.com/api/users.list"

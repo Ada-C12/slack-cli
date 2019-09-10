@@ -11,7 +11,7 @@ require_relative "channel"
 Dotenv.load
 
 PUMPKIN_SPICE = SlackCLI::Workspace.new()
-MAIN_MENU = ["List Users", "List Channels", "Quit"]
+MAIN_MENU = ["List Users", "List Channels", "Select User", "Select Channel", "Details", "Quit"]
 
 def print_users
   puts "\n"
@@ -30,32 +30,49 @@ def print_workplace_stats()
 end
 
 def print_menu()
+  puts "\n"
   MAIN_MENU.each_with_index do |menu_item, index|
     puts "#{index + 1}. #{menu_item}"
   end
+  puts "\n"
 end
 
 def main
-  puts "Welcome to the Ada Slack CLI!\n\n"
+  puts "Welcome to the Ada Slack CLI!"
+  puts "\n"
   # lists number of users and channels
   print_workplace_stats()
-  puts "\n"
   
   again = true
   while again
     # lists menu options
     print_menu()  
-    print "\nWhat would you like to do: "
+    print "What would you like to do: "
     answer = gets.chomp.downcase
     
     case answer
     when "list users", "1", "one"
       print_users()
-      puts "\n"
+      
     when  "list channels", "2", "two"
       print_channels()
-      puts "\n"
-    when "quit", "3", "three", "exit"
+      
+    when "select user", "3", "three"
+      print "Please enter the name or Slack ID of the user you want to select: "
+      search_term = gets.chomp
+      
+      result = PUMPKIN_SPICE.find_user(search_term)
+      
+      if result
+        puts "#{result.name} was found and selected."
+      else
+        puts "No user was found."
+      end
+    when "select channel", "4", "four"
+      puts "four"
+    when "details", "5", "five"
+      puts "five"
+    when "quit", "6", "six", "exit"
       again = false
     end
   end

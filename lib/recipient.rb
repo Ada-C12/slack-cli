@@ -11,8 +11,12 @@ module SlackCLI
       raise NotImplementedError
     end
     
+    def details
+      raise NotImplementedError
+    end
+    
     def self.list
-      
+      raise NotImplementedError
     end
   end
   
