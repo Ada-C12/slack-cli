@@ -2,6 +2,7 @@ require_relative 'user'
 require_relative 'channel'
 require 'dotenv'
 require 'httparty'
+require 'table_print'
 
 Dotenv.load
 
@@ -20,15 +21,14 @@ module Slack
     end
     
     def list_users
-      @users.each do |user|
-        puts "User name: #{user.name}, Real name: #{user.real_name}, Slack ID: #{user.slack_id}"
-      end
+      tp @users, :real_name, :slack_id, :user_name => {:display_method => :name}
+      
     end
     
     def list_channels
-      @channels.each do |channel|
-        puts "Channel name: #{channel.name}, Topic: #{channel.topic}, Member count: #{channel.member_count}, Slack ID: #{channel.slack_id}"
-      end
+      
+      tp @channels, :name, :member_count, :slack_id, :topic => {:width => 50}
+      
     end
   end
 end
