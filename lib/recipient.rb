@@ -1,3 +1,5 @@
+require 'httparty'
+
 class Recipient
   attr_reader :slack_id, :name
   
@@ -8,5 +10,13 @@ class Recipient
  
   def self.list
     []
-  end 
+  end
+
+  def self.get(url, params)
+    HTTParty.get(url, query: params).parsed_response
+  end
+
+  def details
+    raise NotImplementedError, "template method"
+  end
 end

@@ -22,6 +22,19 @@ describe Recipient do
   describe "#send_message method" do    
   end
   
-  describe " .get method" do
+  describe ".get method" do
+    before do
+      Dotenv.load
+      @url = 'https://slack.com/api/channels.list'
+      @params = { token: ENV["SLACK_API_KEY"] }
+    end
+    
+    it 'returns a hash' do
+      VCR.use_cassette('Recipient_get') do
+        response = Recipient.get(@url, @params)
+        expect(response).must_be_instance_of Hash
+        expect(response['channels']).must_be_instance_of Array
+      end
+    end
   end
 end
