@@ -18,7 +18,8 @@ response = HTTParty.get(url, query: {token: key})
   # TODO project
 
   puts "Thank you for using the Ada Slack CLI"
-  puts response["channels"].first.['id']
+  puts response["channels"].first.keys
+  
 end
 
 main if __FILE__ == $PROGRAM_NAME
