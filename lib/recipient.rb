@@ -1,3 +1,5 @@
+require 'httparty'
+
 module SlackCLI
   class Recipient
     attr_reader :slack_id, :name
@@ -6,6 +8,11 @@ module SlackCLI
       @slack_id = slack_id
       @name = name
     end
-    
+
+    def self.get(url)
+      key = ENV["API_TOKEN"]
+      response = HTTParty.get(url, query: {token: key })
+    end
+
   end
 end
