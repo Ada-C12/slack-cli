@@ -19,6 +19,19 @@ describe "Channel" do
       expect(new_channel.class < SlackCLI::Recipient).must_equal true
     end
 
+  describe "self.list" do
+    it "creates a list of all channels" do
+      VCR.use_cassette("list_channels") do
+        channel_list = SlackCLI::Channel.list
+
+        expect(channel_list).must_be_instance_of Array
+        expect(channel_list.first).must_be_instance_of SlackCLI::Channel
+      end
+
+    end
+
+  end
+
 
 
   end
