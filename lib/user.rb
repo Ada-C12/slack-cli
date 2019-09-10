@@ -1,16 +1,33 @@
-BASE_URL = "https://slack.com/api/users.list"
-TOKEN = ENV["API_TOKEN"]
+require_relative 'recipient'
+require 'httparty'
+require 'dotenv'
 
-query = {
-  token: TOKEN
-}
+Dotenv.load
 
-response = HTTParty.get(BASE_URL, query: query)
+class User < Recipient
+  attr_reader :id, :username, :real_name
 
-class User
   def initialize(id, username, real_name)
-    @id = id
+    super(id, name)
     @username = username
     @real_name = real_name
   end
+
+  def details
+  end
+
+
+  def self.list
+    # BASE_URL = "https://slack.com/api/users.list"
+    # TOKEN = ENV["SLACK_TOKEN"]
+  
+    # query = {
+    # token: TOKEN
+    # }
+  
+    # response = HTTParty.get(BASE_URL, query: query)
+  
+  end
 end
+
+
