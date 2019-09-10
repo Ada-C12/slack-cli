@@ -11,6 +11,7 @@ require 'vcr'
 
 require_relative '../lib/recipient'
 require_relative '../lib/user'
+require_relative '../lib/channel'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
