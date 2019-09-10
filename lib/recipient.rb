@@ -16,6 +16,8 @@ module SlackCLI
     def send_message
     end
 
-    def self.get(URL, query)
-      response = HTTParty.get(URL, query)
+    def self.get(url, query)
+      response = HTTParty.get(url, query)
     end
+  end
+end
