@@ -3,10 +3,9 @@ require 'httparty'
 require 'dotenv'
 Dotenv.load('../.env')
 require 'awesome_print'
-KEY = ENV['KEY']
 
 CHANNELS_URL = "https://slack.com/api/channels.list"
-USERS_LIST = "https://slack.com/api/users.list"
+KEY = ENV['KEY']
 #CHAT_URL = "https://slack.com/api/chat.postMessage"
 
 def main
