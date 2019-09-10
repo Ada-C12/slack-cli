@@ -12,6 +12,8 @@ module SlackCLI
     def self.get(url)
       key = ENV["API_TOKEN"]
       response = HTTParty.get(url, query: {token: key })
+
+      return response
     end
 
   end

@@ -14,7 +14,6 @@ module SlackCLI
     end
 
     def self.list
-      
       response = self.get("https://slack.com/api/users.list")
   
       users = response["members"].map do |member|
@@ -22,12 +21,10 @@ module SlackCLI
         name = member["name"]
         real_name = member["real_name"]
           
-        SlackCLI::User.new(slack_id: slack_id, name: name, real_name: real_name
-  
+        SlackCLI::User.new(slack_id: slack_id, name: name, real_name: real_name)
       end
   
       return users
-      
     end
     
   end
