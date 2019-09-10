@@ -25,4 +25,8 @@ class Channel < Recipient
       self.new(channel_info) 
     end
   end
+
+  def details
+    return "Channel's name: #{name}, Topic: #{topic}, Slack id: #{slack_id}, Member count: #{member_count}"
+  end
 end
