@@ -11,6 +11,25 @@ KEY = ENV['KEY']
 def main
   puts "Welcome to the Ada Slack CLI!"
 
+  puts "Would you like to view: List Users, List Channels, or Quit?" # add number options?
+  user_input = gets.chomp.split.map(&:capitalize).join(' ')
+  
+  while user_input != "List Users" && user_input != "List Channels" && user_input != "Quit"
+  puts "\nIncorrect input!! Please select:  List Users, List Channels, or Quit"
+  user_input = gets.chomp.split.map(&:capitalize).join(' ')
+  end
+end
+
+
+
+
+
+
+
+
+
+  
+
   response = HTTParty.get("#{CHANNELS_URL}?token=#{KEY}")
   response_data = JSON.parse(response.body)
   ap response_data
