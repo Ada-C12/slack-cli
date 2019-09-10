@@ -22,7 +22,7 @@ module SlackCli
     
       users = response.parsed_response["members"]
       i = 0
-      all_slack_users = []
+      all_users = []
       users.each do |user|
         user_hash = {}
         user_name = response.parsed_response["members"][i]["name"]
@@ -34,7 +34,7 @@ module SlackCli
         all_slack_users.push(user_hash)
         i += 1
       end 
-      ap all_slack_users
+      ap all_users
     end 
 
   end 
