@@ -9,4 +9,9 @@ class Workspace
     @users = User.list
     @selected = nil
   end
+
+  def show_details
+    puts channels.map(&:details).join('\n')
+    puts users.map(&:details).join('\n')
+  end
 end

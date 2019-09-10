@@ -32,10 +32,6 @@ describe Workspace do
     
   end
 
-  describe '#show_details' do
-    
-  end
-
   describe '#send_message' do
     
   end
