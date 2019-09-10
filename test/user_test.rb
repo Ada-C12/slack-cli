@@ -9,6 +9,7 @@ describe "User class" do
         all_users = SlackCLI::User.all
         
         expect(all_users).must_be_instance_of Array
+        expect(all_users.length).must_equal 8
         
         all_users.each do |user|
           expect(user).must_be_instance_of SlackCLI::User
