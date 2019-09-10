@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+require "httparty"
+require "dotenv"
+require "awesome_print"
 
 def main
   puts "Welcome to the Ada Slack CLI!"
