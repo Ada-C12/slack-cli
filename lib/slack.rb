@@ -1,3 +1,7 @@
+require_relative "user"
+# require_relative ""
+# require_relative ""
+
 def main
   
   puts "Welcome to the Ada Slack CLI!"
@@ -10,8 +14,17 @@ def main
 
   command = gets.chomp.downcase
 
-  if command == "quit"
+  # loop through if user inputs  aljdflkasdf
+  # if command == "quit"
+  #   exit
+  # elsif command == "list users"
+  # elseif 
+  case command
+  when "quit"
     exit
+  when "list users"
+    Slack::User.print_list
+  when "list channels"
   end
 
  
