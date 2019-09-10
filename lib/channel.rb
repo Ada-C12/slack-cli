@@ -8,4 +8,8 @@ class Channel < Recipient
     @topic = topic
     @member_count = member_count
   end
+
+  def self.list
+    []
+  end
 end

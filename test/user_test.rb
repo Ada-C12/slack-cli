@@ -28,6 +28,12 @@ describe User do
   describe "#details method" do    
   end
   
-  describe " .list method" do
+  describe ".list method" do
+    it 'returns a list of user instances' do
+      VCR.use_cassette('User_list') do
+        expect(User.list).must_be_instance_of Array
+        expect(User.list.sample).must_be_instance_of User
+      end
+    end
   end
 end

@@ -9,7 +9,7 @@ class Recipient
   end
  
   def self.list
-    []
+    raise NotImplementedError, "template method"
   end
 
   def self.get(url, params)

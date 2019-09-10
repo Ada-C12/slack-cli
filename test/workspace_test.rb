@@ -2,7 +2,9 @@ require_relative 'test_helper'
 
 describe Workspace do
   before do
-    @workspace = Workspace.new
+    VCR.use_cassette('workspace') do
+      @workspace = Workspace.new
+    end
   end
   
   describe 'Constructor' do
