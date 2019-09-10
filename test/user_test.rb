@@ -7,9 +7,13 @@ describe "User" do
       name = "SlackBot"
       real_name = "Mr. Slack Bot"
 
-      new_recipient = SlackCLI::User.new(slack_id: slack_id, name: name, real_name: real_name)
+      new_recipient = SlackCLI::User.new(
+        slack_id: slack_id, 
+        name: name, 
+        real_name: real_name
+      )
 
-      expect(new_recipient.superclass).must_equal SlackCLI::Recipient
+      expect(new_recipient.class < SlackCLI::Recipient).must_equal true
     end
 
 
