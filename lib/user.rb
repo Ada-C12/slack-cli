@@ -5,6 +5,7 @@ class User < Recipient
   attr_reader :real_name
   
   def initialize(id:, name:, real_name:)
+    # making instances in workspace.rb
     @id = id
     @name = name
     @real_name = real_name
@@ -13,10 +14,6 @@ class User < Recipient
   def details
     return {id: id, name: name, real_name: real_name}
   end
-
-
-
-
 
   def self.get_raw_data
     url = "https://slack.com/api/users.list"
