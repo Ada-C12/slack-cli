@@ -6,8 +6,8 @@ class Workspace
   attr_reader :users, :channels, :selected
   
   def initialize
-    @users = Users.get(url, params) # to-do
-    @channels = Channels.get(url, params) # to-do
+    @users = Users.get # to-do
+    @channels = Channels.get # to-do
     @selected = nil
     
   end

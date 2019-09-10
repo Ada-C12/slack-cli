@@ -2,11 +2,11 @@
 require 'dotenv'
 require 'httparty'
 require 'awesome_print'
+require_relative 'workspace'
 
 Dotenv.load
 
-URL = "https://slack.com/api/conversations.list"
-KEY = ENV['SLACK_API_TOKEN']
+
 
 def main
   
@@ -15,10 +15,11 @@ def main
   }
   puts "Welcome to the Ada Slack CLI!"
   
-  # TODO project
+  
   response = HTTParty.get(URL, query: query_param)
-  puts response
+  
   puts "Thank you for using the Ada Slack CLI"
+  return response
 end
 
 main if __FILE__ == $PROGRAM_NAME

@@ -3,14 +3,39 @@ require_relative 'recipient'
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
   
-  def initialize(slack_id, name)
+  def initialize(slack_id, name, real_name, status_text, status_emoji)
     
     super (slack_id, name)
-    @real_name = nil
-    @status_text = nil
-    @status_emoji = nil
+    @real_name = real_name
+    @status_text = status_text
+    @status_emoji = status_emoji
+    
+    
   end
   
+  def self.get
+    URL = "https://slack.com/api/users.list"
+    KEY = ENV['SLACK_API_TOKEN']
+    query_param = {
+      key = KEY
+    }
+    response = HTTParty.get(URL, query: query_param )
+    
+    users = []
+    response["members"].each do |member|
+      
+      name =  member["name"]
+      slack_id = member["id"],
+      real_name = member["real_name"],
+      status_text = member["status_text"],
+      status_emoji = member["status_emoji"]
+      
+      users << self.new(slack_id, name, real_name, status_text, status_emoji)
+      
+    end
+    return users 
+    
+  end
   
   private
   def details
