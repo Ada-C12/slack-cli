@@ -92,4 +92,67 @@ http_interactions:
         Chio","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"ge49485fcc1e","image_24":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-512.png","status_text_canonical":"","team":"TN69AJ2SU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568071504,"has_2fa":false}],"cache_ts":1568152701,"response_metadata":{"next_cursor":""}}'
     http_version: 
   recorded_at: Tue, 10 Sep 2019 21:58:21 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?token=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '53'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 10 Sep 2019 22:20:28 GMT
+      Server:
+      - Apache
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Accepted-Oauth-Scopes:
+      - users:read
+      Vary:
+      - Accept-Encoding
+      X-Slack-Req-Id:
+      - 20f75c8f-3574-4730-aa28-4fd46fb2a055
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-w4yr
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 34f8ef0e4c880df0650a814412a26ea6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - aRIdDylMz4as-VzhPbmdRU6z4r2hGWce4CZrb4vDzKHWLYWr-Onb_g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"not_authed"}'
+    http_version: 
+  recorded_at: Tue, 10 Sep 2019 22:20:28 GMT
 recorded_with: VCR 5.0.0

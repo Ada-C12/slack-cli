@@ -1,9 +1,12 @@
 module SlackCLI
   class Workspace
     
+    attr_reader :users, :channels, :selected
+    
     def initialize
-      @all_users = Users.all
-      
+      @users = SlackCLI::User.all
+      @channels = SlackCLI::Channel.all
+      @selected = nil
     end
     
     
