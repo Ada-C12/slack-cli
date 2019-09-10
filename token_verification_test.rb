@@ -1,6 +1,3 @@
-# channels_list documentation: https://api.slack.com/methods/channels.list
-# users_list: https://api.slack.com/methods/users.list
-# chat.postMessage: https://api.slack.com/methods/chat.postMessage
 require 'dotenv' 
 require 'httparty'
 
@@ -18,9 +15,11 @@ query_parameters = {
 }
 
 response = HTTParty.get(URL, query: query_parameters)
-p response
-# use HTTParty to send a GET request to the channels.list endpoint
-# Check that the request completed successfully 
-# If the request wasn't completed successfully, print relevant info to console
-# Loop through results and print out name of each channel
-# Both partners should be able to sucessfully run this script
+
+if response['ok'] == false
+    puts "Something went wrong: #{response['error']}"
+else
+  response["channels"].each do |channel|
+    p channel["name"]
+  end
+end
