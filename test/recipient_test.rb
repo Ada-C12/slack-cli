@@ -6,7 +6,7 @@ describe "Recipient" do
       slack_id = "TD83838H"
       name = "SlackBot"
 
-      new_recipient = SlackCLI::Recipient.new(slack_id, name)
+      new_recipient = SlackCLI::Recipient.new(slack_id: slack_id, name: name)
 
       expect(new_recipient).must_be_instance_of SlackCLI::Recipient
     end
