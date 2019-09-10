@@ -8,10 +8,12 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
+require 'httparty'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require_relative '../lib/acceptor'
+require_relative '../lib/user'
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
