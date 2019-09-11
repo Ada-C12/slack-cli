@@ -2,7 +2,6 @@ require 'httparty'
 require 'dotenv'
 require_relative 'recipient'
 
-
 Dotenv.load
 
 module SlackCLI

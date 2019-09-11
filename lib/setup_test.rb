@@ -5,7 +5,7 @@ Dotenv.load
 url = "https://slack.com/api/channels.list?"
 
 query_parameters = {
-  token: ENV['SLACK_API_TOKEN']
+  token: ENV['SLACK_TOKEN']
 }
 
 response = HTTParty.get(url, query: query_parameters)

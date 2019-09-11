@@ -82,4 +82,67 @@ http_interactions:
         photos and conversation about fuzzy bunnies.","creator":"UN69SEW21","last_set":1568147658},"previous_names":[],"num_members":6},{"id":"CN85KGEJ3","name":"slack-cli","is_channel":true,"created":1568071832,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN85KFVNK","name_normalized":"slack-cli","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTG87PC2","UN69SEW21","UN69SF69K","UN69TR3N1","UN85KFVNK","UN85LNJMV"],"topic":{"value":"CLI","creator":"UN69TR3N1","last_set":1568151925},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":6}],"response_metadata":{"next_cursor":""}}'
     http_version: 
   recorded_at: Tue, 10 Sep 2019 23:33:17 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/channels.list?token=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '53'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 11 Sep 2019 19:46:52 GMT
+      Server:
+      - Apache
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Accepted-Oauth-Scopes:
+      - channels:read
+      Vary:
+      - Accept-Encoding
+      X-Slack-Req-Id:
+      - d3852359-d770-412c-a348-361bd3b73fb5
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-j2wg
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2e20768704c71ff3ce2e677251d27f3c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - "-7P7A0EFK6dXte7jW14jUxqt4sFR9rx8vT8mPmdpkX7Se_JEjnQhrQ=="
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"not_authed"}'
+    http_version: 
+  recorded_at: Wed, 11 Sep 2019 19:46:52 GMT
 recorded_with: VCR 5.0.0
