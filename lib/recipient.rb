@@ -23,9 +23,9 @@ module Slack
     end
     
     def self.get(url)     
-      response = HTTParty.get(url, query: {token: ENV['SLACK_API_TOKEN']}
+      response = HTTParty.get(url, query: {token: ENV['SLACK_API_TOKEN']})
       
-      reponse
+      return reponse
     end
-  end 
-end
+  end  
+end 
