@@ -9,9 +9,20 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 
+require_relative "../lib/recipient"
+require_relative "../lib/user"
+require_relative "../lib/channel"
+require_relative "../lib/workspace"
+require_relative "../lib/slack"
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-VCR.configure do |config|
-  config.cassette_library_dir = "test/cassettes"
-  config.hook_into :webmock
-end
+# VCR.configure do |config|
+#   config.cassette_library_dir = "test/cassettes"
+#   config.hook_into :webmock
+
+#   config.filter_sensitive_data("SLACK_API_TOKEN") do
+#     END["SLACK_API_TOKEN"]
+#   end 
+# end
+
