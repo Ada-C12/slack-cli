@@ -35,13 +35,12 @@ class Channel < Recipient
     
   end
   
-  private
   def details
     
   end
   
   def self.list
-    
+    return @name
   end
   
 end

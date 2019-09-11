@@ -1,5 +1,7 @@
 require 'httparty'
-require_relative 'recipient'
+require_relative 'channel'
+require_relative 'user'
+require_relative 'workspace'
 
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
@@ -38,13 +40,17 @@ class User < Recipient
     
   end
   
-  private
   def details
     
   end
   
   def self.list
-    
+    users = self.get
+    user_info = ""
+    users.each_with_index do |user, index|
+      user_info += "User #{index + 1}'s name is #{user.name}, real name is #{user.real_name}, and slack id is #{user.slack_id}.\n"
+    end
+    return user_info
   end
   
 end

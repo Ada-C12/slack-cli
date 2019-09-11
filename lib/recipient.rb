@@ -16,18 +16,17 @@ class Recipient
     
   end
   
-  def self.get(url, params)
+  def self.get(url, params: {token: KEY})
     
     response = HTTParty.get(url, query: params)
   end
   
-  private
   def details
     
   end
   
   def self.list
-    
+    return @name
   end
   
 end
