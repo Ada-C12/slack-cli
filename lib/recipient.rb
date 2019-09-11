@@ -1,4 +1,7 @@
 require 'httparty'
+require 'dotenv'
+
+Dotenv.load
 
 module SlackCLI
   class Recipient

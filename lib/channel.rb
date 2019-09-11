@@ -1,4 +1,4 @@
-require "awesome_print"
+require_relative 'recipient'
 
 module SlackCLI
   class Channel < Recipient

@@ -1,8 +1,6 @@
+require_relative 'recipient'
 require 'httparty'
-require 'awesome_print'
-require 'dotenv'
 
-Dotenv.load
 
 module SlackCLI
   class User < Recipient
