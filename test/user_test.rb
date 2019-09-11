@@ -22,6 +22,17 @@ describe "User" do
     
     #   expect(new_user).must_be_kind_of SlackBot::User
     # end
+  end
+  
+  describe "#list" do
+    before do
+      VCR.use_cassette("user-list") do
+        @new_users = SlackBot::User.list
+      end
+    end
     
+    it "returns an instance of an Array" do
+      expect(@new_users).must_be_kind_of Array
+    end
   end
 end

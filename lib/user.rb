@@ -23,7 +23,7 @@ module SlackBot
         user[:real_name] = member["real_name"]
         user[:slack_id] = member["id"]
         
-        users << user_hash
+        users << user
       end
       
       return users

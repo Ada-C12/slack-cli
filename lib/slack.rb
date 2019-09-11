@@ -1,9 +1,13 @@
 require 'dotenv'
 require 'httparty'
+require_relative 'recipient'
+require_relative 'channel'
+require_relative 'user'
+require_relative 'workspace'
 
 Dotenv.load
 
-!/usr/bin/env ruby
+# !/usr/bin/env ruby
 
 # unless ENV['SLACK_TOKEN']
 #   puts "Could not load API key, please store in the environment variable 'SLACK_TOKEN'"

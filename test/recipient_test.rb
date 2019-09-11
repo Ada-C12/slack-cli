@@ -18,4 +18,18 @@ describe "Recipient class" do
     end
   end
   
+  describe "#self.get" do
+    before do
+      VCR.use_cassette("recipient-get") do
+        
+        @new_users = SlackBot::Recipient.get("https://slack.com/api/users.list")
+        @new_channels = SlackBot::Recipient.get("https://slack.com/api/conversations.list")
+      end
+    end
+    
+    it "returns an instance of HTTParty::Response" do
+      expect(@new_users).must_be_kind_of HTTParty::Response
+      expect(@new_channels).must_be_kind_of HTTParty::Response
+    end
+  end
 end

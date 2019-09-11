@@ -13,7 +13,6 @@ module SlackBot
       end 
     end
     
-    
     def self.get(url)
       return response = HTTParty.get(url, query: {token: ENV["SLACK_TOKEN"]})
     end
