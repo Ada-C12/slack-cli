@@ -11,16 +11,19 @@ def main
   puts "\n#{channels_count} channels and #{users_count} users loaded"
   
   choice = ""
-  until choice == "quit" || choice == "3"
+  until choice == "3" || choice == "quit"
     puts "\nWhat would you like to do?"
     menu_options
     print "Action: " 
     choice = gets.chomp.downcase
+    
     case choice
     when "1","list users"
-      list_users
+      list_users(workspace)
     when "2","list channels"
-      list_channels
+      list_channels(workspace)
+    when "6","quit"
+      break
     else 
       puts "That option does not exist"
     end
@@ -33,18 +36,21 @@ def menu_options
   numbered_options = [
     ["1", "list users"], 
     ["2", "list channels"], 
-    ["3", "quit"]
+    ["3", "select user"],
+    ["4", "select channel"],
+    ["5", "details"],
+    ["6","quit"]
   ]
   menu_table = Terminal::Table.new :headings => ["#", "Action"], :rows => numbered_options
   puts menu_table
 end
 
-def list_users
-  # list users
+def list_users(workspace)
+  tp workspace.users, :slack_id, :name, :real_name
 end
 
-def list_channels
-  # list channels
+def list_channels(workspace)
+  tp workspace.channels, :slack_id, :name, :topic, :member_count
 end
 
 
