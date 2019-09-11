@@ -1,4 +1,4 @@
-# require_relative 'recipient'
+require_relative 'recipient'
 require 'httparty'
 require  'dotenv'
 # require 'awesome_print'
@@ -6,20 +6,20 @@ require  'dotenv'
 
 Dotenv.load
 
+URL = "https://slack.com/api/channels.list"
+KEY = ENV['SLACK_TOKEN']
 
-class Channel
+
+class Channel < Recipient
   attr_reader :topic, :member_count
   
-  URL = "https://slack.com/api/channels.list"
-  KEY = ENV['SLACK_TOKEN']
-  
-  
   def initialize(slack_id:, name:, topic:, member_count:)
-    super(slack_id, name)
+    super(slack_id: slack_id, name: name)
     @topic = topic
     @member_count = member_count
   end
   
+
   def details
     
     
