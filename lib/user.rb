@@ -8,8 +8,18 @@ class User < Recipient
     @status_emoji = status_emoji
   end
   
-  # def details
-  # end
+  def details
+    details = """
+    User Details:
+    Slack ID: #{@slack_id}
+    Username: #{@name}
+    Real Name: #{@real_name}
+    Status Text: #{@status_text}
+    Status Emoji: #{@status_emoji}
+    """
+
+    return details
+  end
   
   def self.list
     response = self.get("https://slack.com/api/users.list", ENV["SLACK_TOKEN"])
