@@ -5,17 +5,16 @@ Dotenv.load
 
 module SlackCLI
   class Recipient
-
-    attr_reader
-
+    attr_reader :slack_id, :name 
+    
     def initialize(slack_id, name)
       @slack_id = slack_id
       @name = name
     end
-
+    
     def send_message
     end
-
+    
     def self.get(url, query)
       response = HTTParty.get(url, query)
     end

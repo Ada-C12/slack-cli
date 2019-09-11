@@ -1,22 +1,57 @@
 require 'httparty'
 require 'dotenv'
+require 'table_print'
 require_relative 'user'
 require_relative 'channel'
+require_relative 'recipient'
 
 Dotenv.load
 
 module SlackCLI
   class Workspace
+    attr_accessor :users, :channels, :selected
+    
     CHANNEL_URL = 'https://slack.com/api/channels.list'
     USER_URL = 'https://slack.com/api/users.list'
-    query_parameters = {
+    GET_PARAMETERS = {
       token: ENV['SLACK_KEY']
     }
-    attr_accessor :users, :channels, :selected
+    
     def initialize
-      @users = User.get(USER_URL, query_parameters).json_parse
-      @channels = Channel.get(CHANNEL_URL, query_parameters).json_parse
+      @users = SlackCLI::User.json_parse(SlackCLI::User.get(USER_URL, query: GET_PARAMETERS))
+      @channels = SlackCLI::Channel.json_parse(SlackCLI::Channel.get(CHANNEL_URL, query: GET_PARAMETERS))
       @selected = nil
+      
+      puts "Workspace loaded! #{users.length} users and #{channels.length} channels available."
     end
-  end
+    
+    def list_users
+      users_hash_array = []
+      @users.each do |user|
+        user_hash = {
+          "slack_id" => user.slack_id,
+          "display name" => user.name, 
+          "real name" => user.real_name, 
+          "status text" => user.status_text,
+          "status emoji" => user.status_emoji
+        }
+        users_hash_array << user_hash
+      end 
+      tp users_hash_array 
+    end
+    
+    def list_channels
+      channels_hash_array = []
+      @channels.each do |channel|
+        channel_hash = {
+          "slack_id" => channel.slack_id,
+          "name" => channel.name, 
+          "topic" => channel.topic,
+          "member_count" => channel.member_count
+        }
+        channels_hash_array << channel_hash
+      end 
+      tp channels_hash_array 
+    end
+  end 
 end

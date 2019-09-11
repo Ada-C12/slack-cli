@@ -30,7 +30,7 @@ describe 'Channel.get' do
   end
 end
 
-describe 'json_parse' do
+describe 'Channel.json_parse' do
   before do
     VCR.use_cassette("channels.list") do
       query_parameters = {
