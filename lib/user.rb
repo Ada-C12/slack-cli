@@ -1,4 +1,6 @@
-
+require_relative 'recipient'
+  
+  
   class User < Recipient
     attr_reader :real_name, :status_text, :status_emoji
     
