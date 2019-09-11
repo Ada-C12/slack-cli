@@ -22,7 +22,7 @@ module Slack
       @channels.each do |channel|
         if [channel.name, channel.slack_id].include?(identifier)
           @selected = channel
-          return
+          return @selected
         end
       end
       raise SlackApiError
@@ -38,7 +38,7 @@ module Slack
         #   return
         if [user.name, user.slack_id].include?(identifier)
           @selected = user
-          return
+          return @selected
         end
       end
       raise SlackApiError

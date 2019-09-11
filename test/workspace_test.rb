@@ -47,4 +47,21 @@ describe "Channel.list method" do
 end
 
 describe "show_details method" do
+  before do
+    VCR.use_cassette("channels_list") do
+      @channel_array = Slack::Channel.list
+      @workspace = Slack::Workspace.new
+    end
+  end
+
+  it "returns the selected channel's details" do
+    # p @workspace.select_channel("fuzzy_bunnies").inspect
+    @workspace.select_channel("fuzzy_bunnies")
+    expect(@workspace.show_details).must_be_kind_of String
+  end
+
+  it "returns the selected user's details" do
+    @workspace.select_user("idhallie")
+    expect(@workspace.show_details).must_be_kind_of String
+  end
 end
