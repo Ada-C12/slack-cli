@@ -16,9 +16,17 @@ response = HTTParty.get(url, query: {token: key})
   puts "Welcome to the Ada Slack CLI!"
 
   # TODO project
+  # user_input = gets.chomp.downcase
+  # case user_input
+  # when "list users"
+  # when "list channels"
+  # when "quit"
+  # when 
+  # end
+
 
   puts "Thank you for using the Ada Slack CLI"
-  puts response['members'].first.keys
+  # puts response['members'].first.keys
 
 end
 

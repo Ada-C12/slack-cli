@@ -1,8 +1,8 @@
 # require_relative 'recipient'
 require 'httparty'
 require  'dotenv'
-require 'awesome_print'
-require 'table_print'
+# require 'awesome_print'
+# require 'table_print'
 
 Dotenv.load
 
@@ -62,4 +62,4 @@ class Channel
 end
 
 
-print a = Channel.list
+# print a = Channel.list
