@@ -18,6 +18,7 @@ def main
     puts "Please select an option:
     -list users
     -list channels
+    -select user
     -quit"
     input = gets.chomp.downcase
 
@@ -29,6 +30,13 @@ def main
       channel_array = Slack::Channel.list
       tp channel_array
     when "select user"
+      puts "Enter a username or slack id: "
+      identifier = gets.chomp
+      begin
+        workspace.select_user(identifier)
+      rescue
+        puts "We couldn't find this user!"
+      end
     when "quit"
       exit
     end
