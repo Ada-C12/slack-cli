@@ -17,4 +17,19 @@ describe "User" do
       expect(@user).must_be_kind_of User
     end
   end
+
+  describe "self.get" do
+    it "gets response from server (JSON)" do
+      VCR.use_cassette("user") do
+        #Arrange
+        url = "https://slack.com/api/users.list"
+        query = {token: ENV['SLACK_TOKEN']}
+        #Act
+        response = User.get(url, query)
+
+        #Assert
+        expect(response).must_be_instance_of HTTParty::Response
+      end
+    end
+  end
 end

@@ -6,12 +6,10 @@ Dotenv.load
 
 describe "Recipient" do
   before do
-    VCR.use_cassette("location_find") do
     slack_id = "1232452"
     name = "Dominique"
     @recipient = Recipient.new(slack_id, name)
     # @response = Recipient.get_information(URL,)
-    end
   end
 
   describe "Recipient instantiation" do
@@ -40,19 +38,18 @@ describe "Recipient" do
     end
   end
 
+  describe "self.get" do
+    it "gets response from server (JSON)" do
+      VCR.use_cassette("recipient") do
+        #Arrange
+        url = "https://slack.com/api/channels.list"
+        query = {token: ENV['SLACK_TOKEN']}
+        #Act
+        response = Recipient.get(url, query)
+
+        #Assert
+        expect(response).must_be_instance_of HTTParty::Response
+      end
+    end
+  end
 end
-
-  # describe "get_information" do
-  #   it "gets response from server (JSON)" do
-  #     #Arrange
-  #     url = "https://slack.com/api/channels.list"
-  #     query = {token: ENV['SLACK_TOKEN']}
-  #     #Act
-  #     response = Recipient.get_information(url, query)
-
-  #     #Assert
-  #     expect(response).must_be_instance_of HTTParty::Response
-  #   end
-  # end
-
-# end

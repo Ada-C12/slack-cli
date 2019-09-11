@@ -6,10 +6,10 @@ class Recipient
     @name = name
   end
 
-  # def self.get_information(url, query)
-  #   response = HTTParty.get(url, query: query)
-  #   return response
-  # end
+  def self.get(url, query)
+    response = HTTParty.get(url, query: query)
+    return response
+  end
 
   def self.details
     raise NotImplementedError, 'Implement me in a child class!'
