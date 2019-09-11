@@ -5,7 +5,7 @@ http_interactions:
     uri: https://slack.com/api/chat.postMessage
     body:
       encoding: UTF-8
-      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20channel&channel=CMUR2JTNX
+      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20user&channel=UMUR43REX&as_user=false&username=slackbot&icon_emoji=%3Ajack_o_lantern%3A
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
@@ -21,13 +21,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 11 Sep 2019 21:37:29 GMT
+      - Wed, 11 Sep 2019 22:09:08 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 95a249f1-86a2-435a-9b10-7bd1b2d07428
+      - c5431400-d20b-4237-8bfa-6749be069f12
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -53,28 +53,27 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-iuw2
+      - haproxy-www-xqej
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 5d89a565ccf3467bf90667ebfc36953c.cloudfront.net (CloudFront)
+      - 1.1 34f8ef0e4c880df0650a814412a26ea6.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19
+      - SEA19-C1
       X-Amz-Cf-Id:
-      - cUVDp7pWrlPjG2jX4-wOH78qcU_nsf-g3MFVsMo0cdv6loKJrZEraQ==
+      - T4_YFveiA2dq7sOShHf3E17eoMhI64SxZ1a99te9BxvG-QcMXMYIRg==
     body:
       encoding: UTF-8
-      string: '{"ok":true,"channel":"CMUR2JTNX","ts":"1568237849.000400","message":{"type":"message","subtype":"bot_message","text":"I''m
-        a message to a channel","ts":"1568237849.000400","username":"Leaves - Dianna
-        - API Project","bot_id":"BMW7Z23K5"}}'
+      string: '{"ok":true,"channel":"DN85DBHQX","ts":"1568239748.001300","message":{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a user","ts":"1568239748.001300","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"}}'
     http_version: 
-  recorded_at: Wed, 11 Sep 2019 21:37:29 GMT
+  recorded_at: Wed, 11 Sep 2019 22:09:08 GMT
 - request:
     method: post
     uri: https://slack.com/api/chat.postMessage
     body:
       encoding: UTF-8
-      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20user&channel=UMUR43REX
+      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20channel&channel=CMUR2JTNX&as_user=false&username=slackbot&icon_emoji=%3Ajack_o_lantern%3A
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
@@ -90,13 +89,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 11 Sep 2019 21:37:29 GMT
+      - Wed, 11 Sep 2019 22:09:08 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - d4c42c7a-6e95-4ac4-bbc5-247e1bb2c432
+      - 0ab7d678-cb9b-41da-ade9-1e2824451b49
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -122,20 +121,19 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-7kp7
+      - haproxy-www-5nvv
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 fa751ee53e2bf18781ae98b293ff9375.cloudfront.net (CloudFront)
+      - 1.1 aabd01c4a20dae837d162bd972422efc.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19
+      - SEA19-C1
       X-Amz-Cf-Id:
-      - sNgTfAmNOlcc7k16c1E5MD-y5qDg5Ljy5sqhMm7uPkdsBwDwJRo9TA==
+      - 7rgqKdc8zL6JE6FZxdHFOh4bKVixR5d3p8eXuVKF_P8XkfiXPrF84w==
     body:
       encoding: UTF-8
-      string: '{"ok":true,"channel":"DN85DBHQX","ts":"1568237849.000200","message":{"type":"message","subtype":"bot_message","text":"I''m
-        a message to a user","ts":"1568237849.000200","username":"Leaves - Dianna
-        - API Project","bot_id":"BMW7Z23K5"}}'
+      string: '{"ok":true,"channel":"CMUR2JTNX","ts":"1568239748.001400","message":{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568239748.001400","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"}}'
     http_version: 
-  recorded_at: Wed, 11 Sep 2019 21:37:29 GMT
+  recorded_at: Wed, 11 Sep 2019 22:09:09 GMT
 recorded_with: VCR 5.0.0

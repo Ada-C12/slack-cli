@@ -10,7 +10,7 @@ require_relative "channel"
 Dotenv.load
 
 PUMPKIN_SPICE = SlackCLI::Workspace.new()
-MAIN_MENU = ["List Users", "List Channels", "Select User", "Select Channel", "Details", "Send Message", "Quit"]
+MAIN_MENU = ["List Users", "List Channels", "Select User", "Select Channel", "Details", "Send Message", "Change Bot Settings", "Quit"]
 
 def print_users
   puts "\n"
@@ -47,6 +47,8 @@ def get_message()
   end
 end
 
+
+
 def main
   puts "Welcome to the Ada Slack CLI!"
   puts
@@ -79,7 +81,18 @@ def main
     when "send message", "6", "six"
       get_message()
       
-    when "quit", "7", "seven", "exit"
+    when "change bot settings", "7", "seven"
+      print "Please enter the bot's new name: "
+      name = gets.chomp
+      PUMPKIN_SPICE.bot_name = name
+      puts "The bot's new name is #{name}!"
+      
+      print "Please enter the bot's new avatar: "
+      avatar = gets.chomp
+      PUMPKIN_SPICE.bot_avatar = avatar
+      puts "The bot's new avatar is #{avatar}!"
+      
+    when "quit", "8", "eight", "exit"
       again = false
     end
   end

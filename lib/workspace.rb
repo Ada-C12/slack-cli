@@ -2,11 +2,14 @@ module SlackCLI
   class Workspace
     
     attr_reader :users, :channels, :selected
+    attr_accessor :bot_name, :bot_avatar
     
     def initialize
       @users = SlackCLI::User.all
       @channels = SlackCLI::Channel.all
       @selected = nil
+      @bot_name = "slackbot"
+      @bot_avatar = "t-rex"
     end
     
     def find_user(search_term)
@@ -43,17 +46,26 @@ module SlackCLI
         return nil
       end
       
+      bot_avatar_symbol = ":#{bot_avatar}:"
+      
       response = HTTParty.post(
         "https://slack.com/api/chat.postMessage",
         body: {
           token: ENV["SLACK_API_TOKEN"],
           text: message_text,
-          channel: selected.slack_id
+          channel: selected.slack_id,
+          as_user: false,
+          username: bot_name,
+          icon_emoji: bot_avatar_symbol
         },
         headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
       )
       
       return response
+    end
+    
+    def change_settings
+      
     end
     
     # Console methods
