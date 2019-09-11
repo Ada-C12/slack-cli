@@ -4,7 +4,7 @@ class Channel < Recipient
   attr_reader :topic, :member_count
   
   def initialize(id:, name:, topic:, member_count:)
-    # making instances in workspace.rb
+    super(id: id, name: name)
     @topic = topic
     @member_count = member_count
   end
@@ -15,21 +15,18 @@ class Channel < Recipient
   
   
   
-  def self.get_raw_data
-    url = "https://slack.com/api/channels.list"
+  def self.get
+    url = "https://slack.com/api/conversations.list"
     params = { token: KEY }
-    response = self.get(url, params)
+    response = super(url, params)
     p response["ok"]
     sleep(0.5)
     return response
   end
   
-  def self.list
-    
-  end
   
   def self.get_topics
-    response = (self.list)["channels"]
+    response = (self.get)["channels"]
     all_topics = response.map do |channel_info|
       channel_info["topic"]["value"]
     end
@@ -37,23 +34,23 @@ class Channel < Recipient
   end
   
   def self.get_names
-    response = (self.list)["channels"]
+    response = (self.get)["channels"]
     all_channel_names = response.map do |channel_info|
       channel_info["name"]
     end
     return all_channel_names
   end
-
+  
   def self.get_member_counts
-    response = (self.list)["channels"]
-    members_counts = response.map do |channel_info|
-      channel_info["members"].length
+    response = (self.get)["channels"]
+    member_counts = response.map do |channel_info|
+      ap channel_info["num_members"]
     end
-    return members_counts
+    return member_counts
   end
-
+  
   def self.get_ids
-    response = (self.list)["channels"]
+    response = (self.get)["channels"]
     all_channel_ids = response.map do |channel_info|
       channel_info["id"]
     end
@@ -61,21 +58,33 @@ class Channel < Recipient
   end
   
   
-  
-  def self.channels_in_giant_hash
+  def self.load_all
     names = self.get_names
     ids = self.get_ids
-    member_counts = self.get_member_counts
-    topics = self.get_topics
-    results = {}
-    unless (ids.length == names.length) && (names.length == topics.length) && (topics.length == member_counts.length)
-      raise ArgumentError, "All the arrays should have same length!"
-    end
-  
-    ids.length.times do |index|
-      results[ids[index]] = { name: names[index], topic: topics[index], member_count: member_counts[index]}
-    end
-    return results
+    # member_counts = self.get_member_counts
+    # topics = self.get_topics
+    all_channels = []
+
+    ap names
+    ap ids
+    #   ap member_counts
+    #   ap topics
+    
+    # unless (ids.length == names.length) && (names.length == topics.length) && (topics.length == member_counts.length)
+    #   raise ArgumentError, "All the arrays should have same length!"
+    # end
+    
+    # ids.length.times do |index|
+    #   ap names[index]
+    #   ap ids[index]
+    #   ap member_counts[index]
+    #   ap topics[index]
+      # new_channel = Channel.new(name: names[index], id: ids[index], member_count:[index], topic:[index])
+      # ap new_channel
+      # all_channels << new_channel
+    # end
+    
+    return all_channels
   end
   
   
