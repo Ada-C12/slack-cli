@@ -18,7 +18,7 @@ module SlackCLI
     #factory method for producing individual users from json
     def self.json_parse(json)
       users = []
-      json["users"].each do|users|
+      json["users"].each do|user|
         new_user = SlackCLI::User.new(user["id"], user["profile"]["display_name"], user["profile"]["real_name"], user["profile"]["status_text"], user["profile"]["status_emoji"])
         users << new_user
       end
