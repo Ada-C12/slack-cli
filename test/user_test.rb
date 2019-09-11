@@ -11,3 +11,12 @@ describe "Class User" do
     expect(user.real_name).must_be_kind_of String
   end
 end 
+
+describe "method self.list" do 
+  it "is an instance of HTTParty" do
+    VCR.use_cassette("user-info") do
+      user_list = Slack::User.list
+      expect(user_list).must_be_kind_of Array
+    end
+  end 
+end

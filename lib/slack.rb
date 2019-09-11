@@ -1,6 +1,11 @@
 require "dotenv"
 require "httparty"
 
+require_relative "recipient"
+require_relative "workspace"
+require_relative "user"
+require_relative "channel"
+
 Dotenv.load
 
 #!/usr/bin/env ruby

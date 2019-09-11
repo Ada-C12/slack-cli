@@ -11,3 +11,12 @@ describe "Class Channel" do
     expect(channel.name).must_be_kind_of String
   end
 end 
+
+describe "method self.list" do 
+  it "is an instance of HTTParty" do
+    VCR.use_cassette("channel-info") do
+      channel_list = Slack::Channel.list
+      expect(channel_list).must_be_kind_of Array
+    end
+  end 
+end

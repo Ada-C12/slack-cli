@@ -11,3 +11,19 @@ describe "Class Recipient" do
     expect(recipient).must_be_kind_of Slack::Recipient
   end
 end 
+
+describe "method self.get" do 
+  it "is returns instance of HTTParty" do
+    VCR.use_cassette("recipient-info") do
+      user = Slack::Recipient.get("https://slack.com/api/users.list")
+      expect(user).must_be_kind_of HTTParty::Response
+    end
+  end 
+  
+  it "is returns an instance of HTTParty" do
+    VCR.use_cassette("recipient-info") do
+      channel = Slack::Recipient.get("https://slack.com/api/conversations.list")
+      expect(channel).must_be_kind_of HTTParty::Response
+    end
+  end 
+end

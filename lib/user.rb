@@ -1,4 +1,4 @@
-require_relative "../lib/recipient"
+require_relative "recipient"
 require "httparty"
 require 'pry'
 
@@ -20,7 +20,7 @@ module Slack
       # response = HTTParty.get(URL_USERS, query: {token: ENV['SLACK_API_TOKEN']})
       #p response
       
-      reponse = User.get("https://slack.com/api/users.list")
+      response = User.get("https://slack.com/api/users.list")
       users = []
       
       response["members"].each do |user|
