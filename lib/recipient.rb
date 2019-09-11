@@ -11,7 +11,7 @@ class Recipient
 
 
   def self.get(url, query)
-    return HTTParty.get(url, query: query)
+    return HTTParty.get(url, query)
   end
 
 

@@ -6,12 +6,12 @@ require 'dotenv'
 Dotenv.load
 
 class Workspace
-  attr_reader 
+  attr_reader :users, :channels, :selected
 
   def initialize
     @users = User.list
-    @channels
-    @selected 
+    @channels = Channel.list
+    @selected = nil
   end
 
   def select_channel
