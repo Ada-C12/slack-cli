@@ -30,6 +30,7 @@ describe "User class" do
       @response = HTTParty.get(BASE_URL, query: @query)
 
     expect(@response["members"][0]["id"]).must_equal "USLACKBOT"
+    expect(@response["members"][0]["name"]).must_equal "slackbot"
     expect(@response["members"][0]["real_name"]).must_equal "Slackbot"
 
     end

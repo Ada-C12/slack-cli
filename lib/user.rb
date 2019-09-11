@@ -6,10 +6,10 @@ Dotenv.load
 
 class User < Recipient
   attr_reader :id, :username, :real_name
+  
 
   def initialize(id, username, real_name)
     super(id, name)
-    @username = username
     @real_name = real_name
   end
 
