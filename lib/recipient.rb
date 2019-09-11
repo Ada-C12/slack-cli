@@ -3,13 +3,8 @@ require 'HTTParty'
 module SlackCLI
   
   class Recipient
-
-    
-    def is_valid?(value)
-      if value.nil?
-        raise ArgumentError
-      end
-      return value
+    def self.list_channels
+  
     end
     
     def self.get(url)
@@ -52,4 +47,3 @@ end
 # end
 
 
-  

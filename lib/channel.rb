@@ -1,14 +1,28 @@
-require 'HTTParty'
-require_relative 'recipient.rb'
+require 'dotenv'
+require 'httparty'
+require 'awesome_print'
+require_relative 'recipient'
+require 'table_print'
+
+Dotenv.load
+# we are returning an array of channels (2x what we are expecting)
 module SlackCLI
   class Channel < Recipient
-    
-    attr_reader :topic, :member_count, :slack_id, :name
-    def initialize(slack_id:, name:, topic:, member_count:)
-      super(slack_id, name)
-      @topic = topic
-      @member_count = member_count
+    def self.list_channels
+      response = HTTParty.get("https://slack.com/api/channels.list?token=#{ENV['SLACK_TOKEN']}")
+      array_of_channels = []
+      
+      response["channels"].each do |channel|
+        info_hash = {}
+        info_hash["id"] = channel["id"]
+        info_hash["name"] =  channel["name"]
+        info_hash["topic"] = channel["topic"]["value"]
+        info_hash["member_count"] =  channel["members"].length
+        array_of_channels << info_hash
+      end
+      return response["channels"]
     end
-    
   end
 end
+
+ap SlackCLI::Channel.list_channels
