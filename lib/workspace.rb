@@ -6,7 +6,8 @@ require 'awesome_print'
 
 module Slack
   class Workspace
-    URL = "https://slack.com/api/users.list"
+    USER_URL = "https://slack.com/api/users.list"
+    # URL2 = 
     
     attr_reader :users, :channels, :selected
 
@@ -16,20 +17,16 @@ module Slack
       @selected = []
     end
 
-    # call user api method - OR MAYBE NOT B/C LIST CALLS GET_API
-      # TO-DO: should we make get_api a class method in User?
-      # TO-DO: decide on how this interacts with the CLI
-    # end 
-    
-    def get_api
+    def get_api(url)
       query_parameters = {
         token: ENV['SLACK_TOKEN']
       }
-      return HTTParty.get(URL, query: query_parameters)
+      return HTTParty.get(url, query: query_parameters)
     end
 
     def user_list
-      api_members = self.get_api["members"]
+      api_user_response = get_api(USER_URL)
+      api_members = api_user_response["members"]
       api_members.each do |each_member|
         username = each_member["name"]
         real_name = each_member["real_name"]
@@ -38,11 +35,15 @@ module Slack
       end
     end
 
-    # call user list method
-    # users = Slack::User.list #store the return value of .list inside of the users 
-    # iterate through users and call instance variables on user
-      # for each user in users, puts user.username, user.real_name, user.slack_id
-    # end
+    def print_user_list
+      user_counter = 0
+      result = ''
+      @users.each do |each_user|
+        user_counter += 1
+        result = result + "User #{user_counter} - username: #{each_user.username}, real name: #{each_user.real_name}, Slack ID: #{each_user.slack_id}\n"
+      end
+      return result
+    end
 
     # def select_user
       # code
@@ -63,6 +64,6 @@ module Slack
   end 
 end 
 
-hello = Slack::Workspace.new
-hello.user_list
-ap hello.users
+# hello = Slack::Workspace.new
+# hello.user_list
+# puts hello.print_user_list
