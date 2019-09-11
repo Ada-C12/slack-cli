@@ -31,7 +31,7 @@ describe "Channel class" do
       @response = HTTParty.get(BASE_URL, query: @query)
       #binding.pry
 
-    expect(@response["channels"][0]["id"]).must_equal "CJAMGE6R1"
+    expect(@response["channels"][0]["id"]).must_equal "CN9N9ECF8"
     expect(@response["channels"][0]["name"]).must_equal "random"
     expect(@response["channels"][0]["topic"]["value"]).must_equal "Non-work banter and water cooler conversation"
     expect(@response["channels"][0]["num_members"]).must_equal 102
