@@ -7,7 +7,7 @@ describe "slack attributes and behaviors" do
   
   it "is a test, maybe?"
   VCR.use_cassette("slack_info") do
-    
+
   end
   
 end
