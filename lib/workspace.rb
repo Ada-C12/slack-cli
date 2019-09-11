@@ -14,7 +14,7 @@ module SlackCLI
     }
     attr_accessor :users, :channels, :selected
     def initialize
-      @users = []
+      @users = User.get(USER_URL, query_parameters).json_parse
       @channels = Channel.get(CHANNEL_URL, query_parameters).json_parse
       @selected = nil
     end
