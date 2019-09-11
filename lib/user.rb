@@ -15,21 +15,18 @@ class User < Recipient
     return {id: id, name: name, real_name: real_name}
   end
 
-  def self.get_raw_data
+  def self.get
     url = "https://slack.com/api/users.list"
     params = { token: KEY }
-    response = self.get(url, params)
-    p response["ok"]
+    response = super(url, params)
+
+    puts response["ok"]
     sleep(0.5)
     return response
   end
 
-  def self.list
-    
-  end
-
   def self.get_real_names
-    response = (self.list)["members"]
+    response = (self.get)["members"]
     all_real_names = response.map do |member_info|
       member_info["real_name"]
     end
@@ -37,7 +34,7 @@ class User < Recipient
   end
 
   def self.get_names
-    response = (self.list)["members"]
+    response = (self.get)["members"]
     all_names = response.map do |member_info|
       member_info["name"]
     end
@@ -45,31 +42,30 @@ class User < Recipient
   end
 
   def self.get_ids
-    response = (self.list)["members"]
+    response = (self.get)["members"]
     all_ids = response.map do |member_info|
       member_info["id"]
     end
     return all_ids
   end
 
-  def self.users_in_giant_hash
+  def self.load_users
     real_names = self.get_real_names
     names = self.get_names
     ids = self.get_ids
-    results = {}
+    all_users = []
+    
     unless (real_names.length == names.length) && (names.length == ids.length)
       raise ArgumentError, "All the arrays should have same length!"
     end
 
     ids.length.times do |index|
-      results[ids[index]] = { name: names[index], real_name: real_names[index]}
+      new_user = User.new(id: ids[index], name: names[index], real_name: real_names[index])
+      all_users << new_user
     end
-    return results
-  end
 
-  
- 
-  
+    return all_users
+  end
 
   
 end
