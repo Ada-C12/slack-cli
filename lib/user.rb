@@ -30,7 +30,7 @@ module Slack
         username = each_member["name"]
         real_name = each_member["real_name"]
         slack_id = each_member["id"]
-        all_users << User.new(username: username, real_name: real_name, slack_id: slack_id)
+        all_users << Slack::User.new(username: username, real_name: real_name, slack_id: slack_id)
       end
       return all_users
     end
