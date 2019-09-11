@@ -1,4 +1,4 @@
-require_relative 'Recepient'
+require_relative 'recepient'
 CHANNELS_URL = "https://slack.com/api/channels.list"
 
 module Slack
