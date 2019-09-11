@@ -17,6 +17,8 @@ def main
     when "quit"
       exit
     when "list users", "users"
+      puts
+      puts "Listing Users..."
       workspace.users.each do |user|
         puts
         puts "Username: #{user.name}" 
@@ -27,6 +29,8 @@ def main
       puts "Do you want to list users, list channels, or quit?"
       search = gets.chomp.downcase
     when "list channels", "channels"
+      puts
+      "Listing Channels..."
       workspace.channels.each do |channel|
         puts
         puts "Channel name: #{channel.name}"

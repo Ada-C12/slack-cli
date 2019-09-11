@@ -1,5 +1,3 @@
-
-
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
   
@@ -22,3 +20,4 @@ class User < Recipient
     return members
   end
 end
+

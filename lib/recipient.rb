@@ -24,11 +24,11 @@ class Recipient
   end
   
   def details
-    
+    raise NotImplementedError.new "Implement me in a child class!"
   end
   
   def self.list
-    raise NotImplementedError.new "Implement me in a child class"
+    raise NotImplementedError.new "Implement me in a child class!"
   end
   
   

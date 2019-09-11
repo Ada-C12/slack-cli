@@ -49,7 +49,6 @@ describe "list method" do
   it "returns accurate information" do
     VCR.use_cassette("list_users") do 
       results = User.list
-      p results
       
       info = [
         {slack_id: "USLACKBOT", name: "slackbot", real_name: "Slackbot"},
