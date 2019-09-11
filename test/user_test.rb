@@ -6,7 +6,7 @@ describe 'can create a user' do
   }
   it 'creates a user' do
     expect(user).must_be_instance_of SlackCLI::User
-    expect(user.status_text).must_equal 'cute puppies'
+    expect(user.status_text).must_equal 'napping'
   end
 end
 
@@ -45,7 +45,7 @@ describe 'User.json_parse' do
     expect(@users).must_be_kind_of Array
   end
   
-  it 'creates an array of Channels' do
+  it 'creates an array of Users' do
     expect(@users[0]).must_be_instance_of SlackCLI::User
   end
 end
