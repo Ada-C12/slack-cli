@@ -48,7 +48,7 @@ class Channel
       channel['num_members']
     end
     
-    @slack_id = channels.map do |channel|
+    slack_id = channels.map do |channel|
       channel['id']
     end
     
@@ -56,7 +56,7 @@ class Channel
       puts "Name: #{name[i]},\n
       Topic: #{topic[i]},\n
       Member count: #{member_count[i]},\n
-      Slack ID: #{@slack_id[i]}"
+      Slack ID: #{slack_id[i]}"
     end
   end
 end
