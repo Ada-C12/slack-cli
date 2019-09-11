@@ -10,9 +10,7 @@ require 'minitest/skip_dsl'
 require 'vcr'
 require "dotenv"
 require "httparty"
-# require 'table_print'
 require_relative "../lib/recipient"
-require_relative "../lib/slack"
 require_relative "../lib/user"
 require_relative "../lib/workspace"
 require_relative "../lib/channel"

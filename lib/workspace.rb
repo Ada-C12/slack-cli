@@ -24,7 +24,6 @@ module SlackCLI
     end
     
     def find_channel(search_term)
-      
       found_channel = channels.find do |channel|
         channel.name == search_term.downcase || channel.slack_id == search_term.upcase
       end

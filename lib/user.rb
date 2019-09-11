@@ -2,7 +2,8 @@ module SlackCLI
   class User < Recipient
     
     attr_reader :real_name
-    def initialize(slack_id, name, real_name)
+    
+    def initialize(slack_id:, name:, real_name:)
       super(slack_id, name)
       @real_name = real_name
     end
@@ -23,13 +24,10 @@ module SlackCLI
         name = member["name"]
         real_name = member["real_name"]
         
-        users << SlackCLI:: User.new(slack_id, name, real_name)
+        users << SlackCLI:: User.new(slack_id: slack_id, name: name, real_name: real_name)
         
       end
       return users
-      
     end
   end
 end
-
-

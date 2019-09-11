@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require "dotenv"
 require "httparty"
-
 require 'table_print'
 require_relative "recipient"
 require_relative "user"
@@ -73,30 +72,31 @@ def main
   while again
     # lists menu options
     print_menu()  
-    print "What would you like to do: "
-      answer = gets.chomp.downcase
-      
-      case answer
-      when "list users", "1", "one"
-        print_users()
-        
-      when  "list channels", "2", "two"
-        print_channels()
-        
-      when "select user", "3", "three"
-        select_user
-        
-      when "select channel", "4", "four"
-        select_channel
-      when "details", "5", "five"
-        puts "five"
-      when "quit", "6", "six", "exit"
-        again = false
-      end
-    end
+    print "What would you like to do? "
+    answer = gets.chomp.downcase
     
-    puts "\nThank you for using the Ada Slack CLI"
+    case answer
+    when "list users", "1", "one"
+      print_users()
+      
+    when  "list channels", "2", "two"
+      print_channels()
+      
+    when "select user", "3", "three"
+      select_user
+      
+    when "select channel", "4", "four"
+      select_channel
+      
+    when "details", "5", "five"
+      puts "five"
+      
+    when "quit", "6", "six", "exit"
+      again = false
+    end
   end
   
-  main if __FILE__ == $PROGRAM_NAME
-  
+  puts "\nThank you for using the Ada Slack CLI"
+end
+
+main if __FILE__ == $PROGRAM_NAME

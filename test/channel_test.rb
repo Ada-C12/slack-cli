@@ -1,10 +1,9 @@
 require_relative "test_helper"
 
-describe "Channel class" do
+describe "Channel class" do  
   
   describe "Self.all method" do
     it "Returns a list of all channels" do
-      
       VCR.use_cassette("channels") do
         all_channels = SlackCLI::Channel.all
         
@@ -16,7 +15,5 @@ describe "Channel class" do
         end
       end
     end
-    
-    
   end
 end
