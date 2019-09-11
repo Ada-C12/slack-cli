@@ -5,7 +5,7 @@ http_interactions:
     uri: https://slack.com/api/chat.postMessage
     body:
       encoding: UTF-8
-      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20user&channel=UMUR43REX&as_user=false&username=slackbot&icon_emoji=%3Ajack_o_lantern%3A
+      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20user&channel=UMUR43REX&as_user=false&username=Slackbot&icon_emoji=%3Ajack_o_lantern%3A
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
@@ -21,13 +21,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 11 Sep 2019 22:09:08 GMT
+      - Wed, 11 Sep 2019 22:53:19 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - c5431400-d20b-4237-8bfa-6749be069f12
+      - 96f69f59-7bf7-4cdb-ab8c-2e85fbcb5e2e
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -53,27 +53,27 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-xqej
+      - haproxy-www-1zz5
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 34f8ef0e4c880df0650a814412a26ea6.cloudfront.net (CloudFront)
+      - 1.1 eab8a154a09e69260fbfe4df90182b2f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - T4_YFveiA2dq7sOShHf3E17eoMhI64SxZ1a99te9BxvG-QcMXMYIRg==
+      - tAf4tq0KGOgEdwlkO7mMcny4L8HfzoNmNwhOMjI3p45ScSfMgoxOdQ==
     body:
       encoding: UTF-8
-      string: '{"ok":true,"channel":"DN85DBHQX","ts":"1568239748.001300","message":{"type":"message","subtype":"bot_message","text":"I''m
-        a message to a user","ts":"1568239748.001300","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"}}'
+      string: '{"ok":true,"channel":"DN85DBHQX","ts":"1568242399.002200","message":{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a user","ts":"1568242399.002200","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"}}'
     http_version: 
-  recorded_at: Wed, 11 Sep 2019 22:09:08 GMT
+  recorded_at: Wed, 11 Sep 2019 22:53:19 GMT
 - request:
     method: post
     uri: https://slack.com/api/chat.postMessage
     body:
       encoding: UTF-8
-      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20channel&channel=CMUR2JTNX&as_user=false&username=slackbot&icon_emoji=%3Ajack_o_lantern%3A
+      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20channel&channel=CMUR2JTNX&as_user=false&username=Slackbot&icon_emoji=%3Ajack_o_lantern%3A
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
@@ -89,13 +89,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 11 Sep 2019 22:09:08 GMT
+      - Wed, 11 Sep 2019 22:53:19 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 0ab7d678-cb9b-41da-ade9-1e2824451b49
+      - c8a9835d-d292-44d1-a8c2-66e761cff889
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -121,19 +121,19 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-5nvv
+      - haproxy-www-gxt6
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 aabd01c4a20dae837d162bd972422efc.cloudfront.net (CloudFront)
+      - 1.1 be082a2326b7d49643607b097f1e7181.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - 7rgqKdc8zL6JE6FZxdHFOh4bKVixR5d3p8eXuVKF_P8XkfiXPrF84w==
+      - Yx7NY0Lm2Fxz64Q7W09FthNyejcey7V-N1571aYgh9P56RU-yEVjnQ==
     body:
       encoding: UTF-8
-      string: '{"ok":true,"channel":"CMUR2JTNX","ts":"1568239748.001400","message":{"type":"message","subtype":"bot_message","text":"I''m
-        a message to a channel","ts":"1568239748.001400","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"}}'
+      string: '{"ok":true,"channel":"CMUR2JTNX","ts":"1568242399.002300","message":{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568242399.002300","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"}}'
     http_version: 
-  recorded_at: Wed, 11 Sep 2019 22:09:09 GMT
+  recorded_at: Wed, 11 Sep 2019 22:53:19 GMT
 recorded_with: VCR 5.0.0

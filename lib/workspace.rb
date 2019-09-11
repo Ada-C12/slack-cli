@@ -1,15 +1,20 @@
+require 'json'
+
 module SlackCLI
   class Workspace
     
     attr_reader :users, :channels, :selected
     attr_accessor :bot_name, :bot_avatar
     
-    def initialize
+    def initialize()
       @users = SlackCLI::User.all
       @channels = SlackCLI::Channel.all
       @selected = nil
-      @bot_name = "slackbot"
-      @bot_avatar = "t-rex"
+      
+      settings = File.read("bot-settings.json")
+      settings_hash = JSON.parse(settings)
+      @bot_name = settings_hash["bot_name"]
+      @bot_avatar = settings_hash["bot_avatar"]
     end
     
     def find_user(search_term)
@@ -64,8 +69,12 @@ module SlackCLI
       return response
     end
     
-    def change_settings
+    def save_settings
+      settings_hash = {bot_name: bot_name, bot_avatar: bot_avatar}
       
+      File.open("bot-settings.json", "w") do |f|
+        f.write(settings_hash.to_json)  
+      end
     end
     
     # Console methods

@@ -93,6 +93,7 @@ def main
       puts "The bot's new avatar is #{avatar}!"
       
     when "quit", "8", "eight", "exit"
+      PUMPKIN_SPICE.save_settings
       again = false
     end
   end

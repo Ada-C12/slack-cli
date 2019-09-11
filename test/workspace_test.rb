@@ -27,6 +27,18 @@ describe "Workspace class" do
     end
   end
   
+  describe "load_bot_settings" do
+    
+    it "sets the workplace's username" do
+      expect(@workspace.bot_name).must_equal "Slackbot"
+    end
+    
+    it "sets the workplace's icon emoji" do
+      expect(@workspace.bot_avatar).must_equal "jack_o_lantern"
+    end
+    
+  end
+  
   describe "find_user method" do
     it "Finds the correct user from username" do 
       user = @workspace.find_user("slackbot")
