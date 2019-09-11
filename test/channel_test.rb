@@ -34,5 +34,17 @@ describe "Channel" do
     end
   end
   
+  describe "self.list" do
+    it "prints correct info for channels in a table" do
+      VCR.use_cassette("load_users") do
+        channels = Channel.list
+        
+        expect(channels).must_be_kind_of TablePrint::Returnable
+        
+      end
+    end
+    
+  end
+  
   
 end

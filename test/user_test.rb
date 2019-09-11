@@ -1,4 +1,6 @@
 require_relative 'test_helper'
+require 'pry'
+require 'table_print'
 
 describe "User" do
   describe "intialize" do
@@ -40,7 +42,8 @@ describe "User" do
       VCR.use_cassette("load_users") do
         users = User.list
         
-        expect(users).must_equal "User 1's name is slackbot, real name is Slackbot, and slack id is USLACKBOT.\nUser 2's name is kemp.bri, real name is Brianna, and slack id is UMUR2C1QB.\nUser 3's name is kristy.hisaw, real name is kristy.hisaw, and slack id is UN5R1N5A8."
+        expect(users).must_be_kind_of TablePrint::Returnable
+        
       end
     end
     

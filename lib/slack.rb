@@ -3,6 +3,7 @@ require 'dotenv'
 require 'httparty'
 require 'awesome_print'
 require_relative 'workspace'
+require 'table_print'
 
 Dotenv.load
 
@@ -21,11 +22,9 @@ def main
   until input == "quit" do
     
     if input == "list channels"
-      workspace.channels.each do |channel|
-        puts channel.name
-      end
+      tp Channel.list 
     elsif input == "list users"
-      puts User.list
+      tp User.list
     end
     
     input = gets.chomp

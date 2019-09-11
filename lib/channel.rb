@@ -40,7 +40,7 @@ class Channel < Recipient
   end
   
   def self.list
-    return @name
+    tp self.get, :name, :slack_id, :topic, :member_count
   end
   
 end
