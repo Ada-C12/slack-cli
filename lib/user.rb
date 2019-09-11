@@ -25,8 +25,7 @@ class User < Recipient
   end
 
   def self.list
-    response = get_raw_data
-    return response
+    
   end
 
   def self.get_real_names
