@@ -5,6 +5,7 @@ end
 
 require 'minitest'
 require 'minitest/autorun'
+require 'awesome_print'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
