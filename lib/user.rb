@@ -16,24 +16,24 @@ module Slack
 
     URL = "https://slack.com/api/users.list"
 
-    def self.get_api
-      query_parameters = {
-        token: ENV['SLACK_TOKEN']
-      }
-      return HTTParty.get(URL, query: query_parameters)
-    end
+    # def self.get_api
+    #   query_parameters = {
+    #     token: ENV['SLACK_TOKEN']
+    #   }
+    #   return HTTParty.get(URL, query: query_parameters)
+    # end
 
-    def self.list
-      all_users = []
-      api_members = self.get_api["members"]
-      api_members.each do |each_member|
-        username = each_member["name"]
-        real_name = each_member["real_name"]
-        slack_id = each_member["id"]
-        all_users << Slack::User.new(username: username, real_name: real_name, slack_id: slack_id)
-      end
-      return all_users
-    end
+    # def self.list
+    #   all_users = []
+    #   api_members = self.get_api["members"]
+    #   api_members.each do |each_member|
+    #     username = each_member["name"]
+    #     real_name = each_member["real_name"]
+    #     slack_id = each_member["id"]
+    #     all_users << Slack::User.new(username: username, real_name: real_name, slack_id: slack_id)
+    #   end
+    #   return all_users
+    # end
 
     # def print_list
     #   all_users = self.list

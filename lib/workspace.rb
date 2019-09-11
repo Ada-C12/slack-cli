@@ -2,9 +2,14 @@ require_relative "user"
 require_relative "channel"
 require_relative "acceptor"
 
+require 'awesome_print'
+
 module Slack
   class Workspace
-    # attr_reader
+    URL = "https://slack.com/api/users.list"
+    
+    attr_reader :users, :channels, :selected
+
     def initialize
       @users = []
       @channels = []
@@ -17,7 +22,6 @@ module Slack
     # end 
     
     def get_api
-      URL = "https://slack.com/api/users.list"
       query_parameters = {
         token: ENV['SLACK_TOKEN']
       }
@@ -58,3 +62,7 @@ module Slack
 
   end 
 end 
+
+hello = Slack::Workspace.new
+hello.user_list
+ap hello.users
