@@ -8,7 +8,7 @@ require_relative "recipient"
 
 module Slack
   class User < Recipient
-    def initialize
+    def initialize(name:, slack_id:)
       super(name, slack_id)
       @real_name = real_name
     end

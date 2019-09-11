@@ -10,7 +10,7 @@ module Slack
   class Channel < Recipient
     attr_reader :topic, :member_count
 
-    def initialize
+    def initialize(name:, slack_id:)
       super(name, slack_id)
       @topic = topic
       @member_count = member_count
