@@ -16,14 +16,14 @@ module Slack
 
     URL = "https://slack.com/api/users.list"
 
-    def get_api
+    def self.get_api
       query_parameters = {
         token: ENV['SLACK_TOKEN']
       }
       return HTTParty.get(URL, query: query_parameters)
     end
 
-    def list
+    def self.list
       all_users = []
       api_members = self.get_api["members"]
       api_members.each do |each_member|
@@ -35,17 +35,17 @@ module Slack
       return all_users
     end
 
-    def print_list
-      all_users = self.list
-      user_counter = 0
-      result = nil
-      all_users.each do |each_user|
-        user_counter += 1
-        result = result + "User #{user_counter} - username: #{each_user.username}, real name: #{each_user.real_name}, Slack ID: #{each_user.slack_id}\n"
-        print result
-      end
-      return result
-    end
+    # def print_list
+    #   all_users = self.list
+    #   user_counter = 0
+    #   result = nil
+    #   all_users.each do |each_user|
+    #     user_counter += 1
+    #     result = result + "User #{user_counter} - username: #{each_user.username}, real name: #{each_user.real_name}, Slack ID: #{each_user.slack_id}\n"
+    #     print result
+    #   end
+    #   return result
+    # end
   end
 end
 
