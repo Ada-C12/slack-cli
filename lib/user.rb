@@ -30,6 +30,7 @@ module Slack
     end
 
     def details
+      return "\nreal name: #{real_name}, user name: #{name}, slack_id: #{slack_id}"
     end
   end
 end

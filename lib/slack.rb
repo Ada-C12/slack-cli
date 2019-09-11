@@ -15,10 +15,12 @@ def main
 
   input = ""
   until input == "quit"
-    puts "Please select an option:
+    puts "\nPlease select an option:
     -list users
     -list channels
     -select user
+    -select channel
+    -show details
     -quit"
     input = gets.chomp.downcase
 
@@ -30,18 +32,27 @@ def main
       channel_array = Slack::Channel.list
       tp channel_array
     when "select user"
-      puts "Enter a username or slack id: "
+      puts "\nEnter a username or slack id: "
       identifier = gets.chomp
       begin
         workspace.select_user(identifier)
-      rescue
-        puts "We couldn't find this user!"
+      rescue SlackApiError
+        puts "\nWe couldn't find this user!"
       end
+    when "select channel"
+      puts "\nEnter a username or slack id: "
+      identifier = gets.chomp
+      begin
+        workspace.select_channel(identifier)
+      rescue SlackApiError
+        puts "\nWe couldn't find the channel!"
+      end
+    when "show details"
+      puts "#{workspace.show_details}"
     when "quit"
       exit
     end
   end
-  # TODO project
 
   puts "Thank you for using the Ada Slack CLI"
 end

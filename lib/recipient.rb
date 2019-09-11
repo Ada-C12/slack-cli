@@ -15,6 +15,17 @@ module Slack
     end
 
     def send_message(message)
+      body = {
+        token: key,
+        channel: slack_id,
+        text: message,
+      }
+
+      response = HTTParty.post(MESSAGE_URL, body: body)
+
+      if response["ok"] != true
+        raise StandardError, "Invalid request. Error is #{response.code}: #{response.message}"
+      end
     end
 
     private
