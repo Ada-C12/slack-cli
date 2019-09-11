@@ -16,7 +16,7 @@ module SlackCLI
       channels = response["channels"].map do |channel|
         slack_id = channel["id"]
         name = channel["name"]
-        topic = channel["topic"]
+        topic = channel["topic"]["value"]
         member_count = channel["members"].length
 
         SlackCLI::Channel.new(slack_id: slack_id, name: name, topic: topic, member_count: member_count)
@@ -24,5 +24,8 @@ module SlackCLI
       
       return channels
     end
+
+    # def details
+    # end
   end
 end
