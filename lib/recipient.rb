@@ -11,15 +11,21 @@ module Slack
       @name = name
     end
     
-    # def send_message(message)
+    # def details
+    #  raise NotImplementedError, 'Implement me in a child class!'
+    # end 
+    
+    # def self.list
+    #   raise NotImplementedError, 'Implement me in a child class!'
     # end
     
-    # def self.get(url, query)
-    #   query_parameters  = {
-    #     token: ENV['SLACK_API_TOKEN']
-    #   }    
-    #   return response = HTTParty.get(URL, query: query_parameters)
+    def send_message(message)
+    end
     
-    # end 
+    def self.get(url)     
+      response = HTTParty.get(url, query: {token: ENV['SLACK_API_TOKEN']}
+      
+      reponse
+    end
   end 
 end

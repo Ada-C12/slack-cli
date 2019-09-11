@@ -1,6 +1,5 @@
 module Slack
   class Workspace
-    
     attr_reader :users, :channels, :selected
     
     def initialize(users, channels, selected)
