@@ -7,8 +7,17 @@ class Channel < Recipient
     @member_count = member_count
   end
   
-  # def details
-  # end
+  def details
+    details = """
+    Channel Details:
+    Slack ID: #{@slack_id}
+    Name: #{@name}
+    Topic: #{@topic}
+    Member Count: #{@member_count}
+    """
+
+    return details
+  end
   
   def self.list
     response = self.get("https://slack.com/api/channels.list", ENV["SLACK_TOKEN"])
