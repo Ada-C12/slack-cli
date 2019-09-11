@@ -18,6 +18,14 @@ class Workspace
       puts self.send(recipient).map(&:details).join("\n")
     end
   end
+
+  def select_user name: nil, slack_id: nil
+    @selected = find_recipient list: users, name: name, slack_id: slack_id
+  end
+
+  def select_channel name: nil, slack_id: nil
+    @selected = find_recipient list: channels, name: name, slack_id: slack_id
+  end
   
   def find_recipient(list:, name: nil, slack_id: nil)
     raise ArgumentError unless name || slack_id

@@ -25,11 +25,49 @@ describe Workspace do
   end
   
   describe '#select_channel' do
-    
+    before do    
+      @user_name = "calopter"
+      @user_id = "UN8G3G4VC"
+      @users = @workspace.users
+
+      @channel_name = "random"
+      @channel_id = "CMURJLBUK"
+      @channels = @workspace.channels
+    end
+
+    it 'sets @selected to the found channel' do
+      @workspace.select_channel name: @channel_name
+      channel = @workspace.find_recipient(list: @channels, name: @channel_name)
+      
+      expect(@workspace.selected).must_equal channel
+    end
+
+    it 'sets selected to nil if no channel found' do
+      @workspace.select_channel name: "TOFU"
+      
+      assert_nil(@workspace.selected)
+    end
   end
   
   describe '#select_user' do
-    
+    before do    
+      @user_name = "calopter"
+      @user_id = "UN8G3G4VC"
+      @users = @workspace.users
+   end
+
+    it 'sets @selected to the found user' do
+      @workspace.select_user name: @user_name
+      user = @workspace.find_recipient(list: @users, name: @user_name)
+      
+      expect(@workspace.selected).must_equal user
+    end
+
+    it 'sets selected to nil if no user found' do
+      @workspace.select_user name: "TOFU"
+      
+      assert_nil(@workspace.selected)
+    end
   end
   
   describe '#send_message' do
