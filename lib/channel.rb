@@ -12,9 +12,5 @@ class Channel < Recipient
   def self.list
     return @@channels_list
   end
-
-
-
-
 end
 
