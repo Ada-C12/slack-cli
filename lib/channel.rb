@@ -4,6 +4,7 @@ CHANNELS_URL = "https://slack.com/api/channels.list"
 module Slack
   class Channel
     attr_reader :name, :topic, :member_count, :slack_id
+    CHANNELS_LIST = "https://slack.com/api/channels.list"
     
     def initialize(name, topic, member_count, slack_id)
       @name = name
@@ -11,9 +12,8 @@ module Slack
       @member_count = member_count
       @slack_id = slack_id
     end
-
-    def list_channel
-      CHANNELS_LIST = "https://slack.com/api/channels.list"
+    
+    def self.list_channel
       query = {
         token: ENV["SLACK_API_TOKEN"]
       }
@@ -32,9 +32,8 @@ module Slack
     end 
   end
 end
-    
-      
-      
-      
-      
-      
+
+
+
+
+
