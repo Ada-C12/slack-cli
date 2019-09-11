@@ -1,10 +1,10 @@
 require_relative "test_helper"
 
 describe "Channel" do
+  before do
+    @channel = Channel.new(topic: "cool_things", member_count: 5, slack_id: "4321", name: "ThisIsAPlace")
+  end
   describe "#initialize" do
-    before do
-      @channel = Channel.new(topic: "cool_things", member_count: 5, slack_id: "4321", name: "ThisIsAPlace")
-    end
     it "creates instance of Channel" do
       VCR.use_cassette("initialize_channel") do
         expect(@channel).must_be_kind_of Channel
@@ -33,6 +33,19 @@ describe "Channel" do
         expect(@channel.name).must_be_kind_of String
         expect(@channel.name).must_equal "ThisIsAPlace"
       end
+    end
+  end
+  
+  describe "#details" do
+    it "must return something" do
+      expect (@channel.details).wont_be_nil
+    end
+
+    it "must return accurate info" do
+      expect (@channel.details).must_include "cool_things"
+      expect (@channel.details).must_include "5"
+      expect (@channel.details).must_include "4321"
+      expect (@channel.details).must_include "ThisIsAPlace"
     end
   end
   
@@ -66,7 +79,7 @@ describe "Channel" do
           
           expect(result.topic).must_be_kind_of String
           expect(result.topic).must_equal info[index][:topic]
-
+          
           expect(result.member_count).must_be_kind_of Integer
           expect(result.member_count).must_equal info[index][:member_count]
         end
