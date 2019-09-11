@@ -12,7 +12,8 @@ def main
   # TO-DO: Display total count of users and channels
   workspace = Slack::Workspace.new
   workspace.user_list
-  puts "Darn Cute Puppers has #{workspace.users.count} users."
+  workspace.channel_list
+  puts "Darn Cute Puppers has #{workspace.users.count} users and #{workspace.channels.count} channels."
 
   prompt = "Please select from the following options: 
   List Users
@@ -28,9 +29,9 @@ def main
     when "list users"
       puts workspace.print_user_list
       break
-    # when "list channels"
-      # TO-DO: call print_list method for channel
-      # break - to avoid asking for more input
+    when "list channels"
+      puts workspace.print_channel_list
+      break 
     else
       puts "Error: Invalid selection. Returning to main menu...."
       puts prompt

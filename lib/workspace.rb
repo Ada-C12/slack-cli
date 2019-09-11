@@ -7,7 +7,7 @@ require 'awesome_print'
 module Slack
   class Workspace
     USER_URL = "https://slack.com/api/users.list"
-    # URL2 = 
+    CHANNEL_URL = "https://slack.com/api/channels.list" 
     
     attr_reader :users, :channels, :selected
 
@@ -44,6 +44,29 @@ module Slack
       end
       return result
     end
+
+    def channel_list
+      api_channel_response = get_api(CHANNEL_URL)
+      api_channels = api_channel_response["channels"]
+      api_channels.each do |each_channel|
+        channel_name = each_channel["name"]
+        topic = each_channel["topic"]["value"]
+        member_count = each_channel["num_members"]
+        slack_id = each_channel["id"]
+        @channels << Channel.new(channel_name: channel_name, topic: topic, member_count: member_count, slack_id: slack_id)
+      end
+    end
+
+    def print_channel_list
+      channel_counter = 0
+      result = ''
+      @channels.each do |each_channel|
+        channel_counter += 1
+        result = result + "Channel #{channel_counter} - channel name: #{each_channel.channel_name}, topic: #{each_channel.topic}, member count: #{each_channel.member_count}, Slack ID: #{each_channel.slack_id}\n"
+      end
+      return result
+    end
+
 
     # def select_user
       # code
