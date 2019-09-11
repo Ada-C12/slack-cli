@@ -3,7 +3,9 @@ require_relative 'test_helper'
 describe "Workspace" do
   describe "initialize" do
     before do
-      @new_workspace = SlackCLI::Workspace.new()
+      VCR.use_cassette("new_workspace") do
+        @new_workspace = SlackCLI::Workspace.new
+      end
     end
     it "can initialize" do
       expect(@new_workspace).must_be_instance_of SlackCLI::Workspace
