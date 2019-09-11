@@ -29,14 +29,11 @@ def main
         break
         
       when 'list users'
-        workspace.users.each do |user|
-          puts user.details
-        end
+        workspace.show_details :users
         
       when 'list channels'
-        workspace.channels.each do |channel|
-          puts channel.details
-        end
+        workspace.show_details :channels
+        
     end
   end
 

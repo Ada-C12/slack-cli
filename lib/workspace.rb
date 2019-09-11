@@ -10,10 +10,12 @@ class Workspace
     @selected = nil
   end
 
-  def show_details
-    puts "Channels:"
-    puts channels.map(&:details).join("\n")
-    puts "Users:"
-    puts users.map(&:details).join("\n")
+  def show_details *recipients
+    recipients = [:channels, :users] if recipients.empty?
+    
+    recipients.each do |recipient|
+      puts recipient.capitalize
+      puts self.send(recipient).map(&:details).join("\n")
+    end
   end
 end
