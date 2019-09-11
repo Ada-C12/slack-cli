@@ -22,5 +22,20 @@ module SlackCLI
       
       return selected
     end
+    
+    def find_channel(search_term)
+      
+      found_channel = channels.find do |channel|
+        channel.name == search_term.downcase || channel.slack_id == search_term.upcase
+      end
+      
+      if found_channel
+        @selected = found_channel
+      else
+        @selected = nil
+      end
+      
+      return selected
+    end
   end
 end

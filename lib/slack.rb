@@ -37,6 +37,32 @@ def print_menu()
   puts "\n"
 end
 
+def select_user
+  print "Please enter the name or Slack ID of the user you want to select: "
+  search_term = gets.chomp
+  
+  result = PUMPKIN_SPICE.find_user(search_term)
+  
+  if result
+    puts "The user #{result.name} was found and selected."
+  else
+    puts "No user was found."
+  end
+end
+
+def select_channel
+  print "Please enter the name or Slack ID of the channel you want to select: "
+  search_term = gets.chomp
+  
+  result = PUMPKIN_SPICE.find_channel(search_term)
+  
+  if result
+    puts "The channel #{result.name} was found and selected."
+  else
+    puts "No channel was found."
+  end
+end
+
 def main
   puts "Welcome to the Ada Slack CLI!"
   puts "\n"
@@ -48,36 +74,29 @@ def main
     # lists menu options
     print_menu()  
     print "What would you like to do: "
-    answer = gets.chomp.downcase
-    
-    case answer
-    when "list users", "1", "one"
-      print_users()
+      answer = gets.chomp.downcase
       
-    when  "list channels", "2", "two"
-      print_channels()
-      
-    when "select user", "3", "three"
-      print "Please enter the name or Slack ID of the user you want to select: "
-      search_term = gets.chomp
-      
-      result = PUMPKIN_SPICE.find_user(search_term)
-      
-      if result
-        puts "#{result.name} was found and selected."
-      else
-        puts "No user was found."
+      case answer
+      when "list users", "1", "one"
+        print_users()
+        
+      when  "list channels", "2", "two"
+        print_channels()
+        
+      when "select user", "3", "three"
+        select_user
+        
+      when "select channel", "4", "four"
+        select_channel
+      when "details", "5", "five"
+        puts "five"
+      when "quit", "6", "six", "exit"
+        again = false
       end
-    when "select channel", "4", "four"
-      puts "four"
-    when "details", "5", "five"
-      puts "five"
-    when "quit", "6", "six", "exit"
-      again = false
     end
+    
+    puts "\nThank you for using the Ada Slack CLI"
   end
   
-  puts "\nThank you for using the Ada Slack CLI"
-end
-
-main if __FILE__ == $PROGRAM_NAME
+  main if __FILE__ == $PROGRAM_NAME
+  
