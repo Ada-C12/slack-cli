@@ -19,6 +19,26 @@ describe Slack::Recipient do
     it "raises an error if neither URL or parameters are provided" do
       expect{Slack::Recipient.new()}.must_raise ArgumentError
     end
+    
+    it "will raise an error when invalid token" do
+      VCR.use_cassette("recipient_test") do
+        exception = expect{
+          Slack::Recipient.get("https://slack.com/api/users.list", query: {token: "bad token"})
+        }.must_raise SlackApiError
+        
+        expect(exception.message).must_equal "Invalid API request with code 200 and message invalid_auth."
+      end
+    end
+    
+    it "will raise an error when invalid url" do
+      VCR.use_cassette("recipient_test") do
+        exception = expect{
+          Slack::Recipient.get("https://slack.com/api/users.invalid", query: {token: ENV['SLACK_TOKEN']})
+        }.must_raise SlackApiError
+        
+        expect(exception.message).must_equal "Invalid API request with code 200 and message unknown_method."
+      end
+    end
   end
   
   describe "abstract methods" do
@@ -36,5 +56,4 @@ describe Slack::Recipient do
       expect{Slack::Recipient.parse_response(nil)}.must_raise NotImplementedError
     end
   end
-  
 end

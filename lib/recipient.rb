@@ -1,3 +1,5 @@
+class SlackApiError < StandardError ; end
+
 module Slack
   class Recipient
     attr_reader :slack_id, :name
@@ -9,6 +11,10 @@ module Slack
     
     def self.get(url, parameters)
       response = HTTParty.get(url, parameters)
+      
+      unless response.code == 200 && response["ok"]
+        raise SlackApiError, "Invalid API request with code #{response.code} and message #{response["error"]}."
+      end
       
       return self.parse_response(response)
     end

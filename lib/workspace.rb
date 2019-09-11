@@ -8,15 +8,15 @@ Dotenv.load
 
 module Slack
   class Workspace
-    attr_reader :users, :channels, :selected
+    attr_accessor :selected
+    attr_reader :users, :channels
     
-    CHANNELS_URL = "https://slack.com/api/channels.list"
-    USERS_URL = "https://slack.com/api/users.list" 
+    BASE_URL = "https://slack.com/api/"
     TOKEN = ENV['SLACK_TOKEN']
     
     def initialize
-      @users = Slack::User.get(USERS_URL, query: {token: TOKEN})
-      @channels = Slack::Channel.get(CHANNELS_URL, query: {token: TOKEN})
+      @users = Slack::User.get("#{BASE_URL}/users.list", query: {token: TOKEN})
+      @channels = Slack::Channel.get("#{BASE_URL}/channels.list", query: {token: TOKEN})
       @selected = nil
     end
     
@@ -32,7 +32,7 @@ module Slack
     def select_user(requested_user)
       found_user = @users.find {|user| user.name == requested_user || user.slack_id == requested_user}
       
-      unless found_user == [] 
+      unless found_user == nil
         @selected = found_user
       end
       
@@ -42,15 +42,32 @@ module Slack
     def select_channel(requested_channel)
       found_channel = @channels.find {|channel| channel.name == requested_channel || channel.slack_id == requested_channel}
       
-      unless found_channel == [] 
+      unless found_channel == nil
         @selected = found_channel
       end
       
       return found_channel
     end
     
-    def show_selected_details
+    def send_message(message)
+      response = HTTParty.post(
+        "#{BASE_URL}/chat.postMessage",
+        body: {
+          token: TOKEN,
+          channel: selected.slack_id,
+          text: message
+        }
+      )
+      
+      unless response.code == 200 && response["ok"]
+        raise SlackApiError, "Error when sending message to #{selected.name}. Invalid API request with code #{response.code} and message #{response["error"]}."
+      end
+      
+      return true
     end
+    
+    #def show_selected_details
+    # end
     
   end
 end

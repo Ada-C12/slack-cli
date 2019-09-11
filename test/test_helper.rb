@@ -10,6 +10,7 @@ require 'minitest/skip_dsl'
 require 'webmock/minitest'
 require 'dotenv'
 require 'vcr'
+require 'httparty'
 
 Dotenv.load
 
