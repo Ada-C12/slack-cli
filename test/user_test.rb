@@ -17,13 +17,16 @@ describe "user class" do
     
     describe "self.list method" do
         it "should return an array of users" do
-            slack_id = 4
-            name = "Dom"
-            real_name = "Dominic Tareto"
-            slacker = User.new(slack_id, name, real_name)
+            VCR.use_cassette("user_list") do
+                slack_id = 4
+                name = "Dom"
+                real_name = "Dominic Tareto"
+                slacker = User.new(slack_id, name, real_name)
             
-            expect(User.list).must_be_kind_of Array
-            #expect(list).must_be_kind_of Array
+                response = User.list
+                expect(response).must_be_kind_of Array
+                #expect(list).must_be_kind_of Array
+            end
         end
         
         it "should return instances of User" do
