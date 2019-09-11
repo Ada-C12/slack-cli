@@ -118,6 +118,7 @@ As a user at the input prompt...
 - For selecting both users and channels, if no user/channel has that name or ID, the program should let me know and return to the main command loop.
 - When I type `details`, the program should print out details for the currently selected recipient. What information is printed depends on whether it's a channel or a user.
   - If no recipient is currently selected, the program should let me know and return to the main command prompt.
+  - This is intentionally left open-ended. As a guide, think through what a user of slack would want to know about the Recipient. (hint: look at users.info and channels.info documentation to see what things you can learn about each of them.)
 
 ### Wave 3 - Sending Messages
 
