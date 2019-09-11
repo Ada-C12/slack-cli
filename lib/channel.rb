@@ -13,6 +13,10 @@ module Slack
     end
     
     def details
+      # channel_id
+      # name
+      # topic
+      # member_count
     end
     
     

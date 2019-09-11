@@ -24,12 +24,6 @@ module Slack
       return user_list
     end
     
-    def select(user_name: nil, slack_id: nil)
-      #returns the user object that goes with passed in user_name?
-      
-      # error when no user exists
-      
-    end
     
     def details
       #depends on getting the select object?
