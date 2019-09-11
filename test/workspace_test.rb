@@ -97,4 +97,55 @@ describe "Workspace class" do
       expect(@workspace.selected).must_be_nil
     end
   end  
+  
+  describe "send_message" do
+    
+    it "sends a message to a user" do
+      VCR.use_cassette("send_message") do
+        @workspace.find_user("sabrina")
+        message_text = "I'm a message to a user"
+        
+        response = @workspace.send_message(message_text)
+        
+        expect(response["ok"]).must_equal true
+        expect(response["message"]["text"]).must_equal message_text
+      end
+    end
+    
+    it "sends a message to a channel" do
+      VCR.use_cassette("send_message") do
+        @workspace.find_channel("random")
+        message_text = "I'm a message to a channel"
+        
+        response = @workspace.send_message(message_text)
+        
+        expect(response["ok"]).must_equal true
+        expect(response["message"]["text"]).must_equal message_text
+      end
+    end
+    
+    it "returns channel_not_found for a nonexistent user" do
+      VCR.use_cassette("send_message") do
+        @workspace.find_user("goblin")
+        message_text = "I won't get sent to a user"
+        
+        response = @workspace.send_message(message_text)
+        
+        expect(response).must_be_nil
+      end
+    end
+    
+    it "returns channel_not_found for a nonexistent channel" do
+      VCR.use_cassette("send_message") do
+        @workspace.find_user("goblin")
+        message_text = "I won't get sent to a channel"
+        
+        response = @workspace.send_message(message_text)
+        
+        expect(response).must_be_nil
+      end
+    end
+    
+  end
+  
 end

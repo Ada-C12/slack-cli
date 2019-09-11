@@ -10,7 +10,7 @@ require_relative "channel"
 Dotenv.load
 
 PUMPKIN_SPICE = SlackCLI::Workspace.new()
-MAIN_MENU = ["List Users", "List Channels", "Select User", "Select Channel", "Details", "Quit"]
+MAIN_MENU = ["List Users", "List Channels", "Select User", "Select Channel", "Details", "Send Message", "Quit"]
 
 def print_users
   puts "\n"
@@ -23,9 +23,7 @@ def print_channels
 end
 
 def print_workplace_stats()
-  user_count = PUMPKIN_SPICE.users.length
-  channel_count = PUMPKIN_SPICE.channels.length
-  puts "This workplace has #{user_count} users and #{channel_count} channels."
+  puts PUMPKIN_SPICE.get_workplace_stats()
 end
 
 def print_menu()
@@ -36,42 +34,16 @@ def print_menu()
   puts "\n"
 end
 
-def select_user
-  print "Please enter the name or Slack ID of the user you want to select: "
-  search_term = gets.chomp
-  
-  result = PUMPKIN_SPICE.find_user(search_term)
-  
+def get_message()
   puts
-  if result
-    puts "The user #{result.name} was found and selected."
+  if PUMPKIN_SPICE.selected
+    print "Please enter a message: "
+    message = gets.chomp
+    
+    PUMPKIN_SPICE.send_message(message)
   else
-    puts "No user was found."
-  end
-end
-
-def select_channel
-  print "Please enter the name or Slack ID of the channel you want to select: "
-  search_term = gets.chomp
-  
-  result = PUMPKIN_SPICE.find_channel(search_term)
-  
-  puts
-  if result
-    puts "The channel #{result.name} was found and selected."
-  else
-    puts "No channel was found."
-  end
-end
-
-def print_details()
-  puts
-  if PUMPKIN_SPICE.selected.class == SlackCLI::User
-    tp PUMPKIN_SPICE.selected, "name", "real_name", "slack_id"
-  elsif PUMPKIN_SPICE.selected.class == SlackCLI::Channel
-    tp PUMPKIN_SPICE.selected, "name", {"topic" => {:width => 60}}, "member_count", "slack_id"
-  else
-    puts "There is no recipient selected."
+    puts
+    puts "You need to select a recipient."
   end
 end
 
@@ -96,15 +68,18 @@ def main
       print_channels()
       
     when "select user", "3", "three"
-      select_user
+      PUMPKIN_SPICE.select_user
       
     when "select channel", "4", "four"
-      select_channel
+      PUMPKIN_SPICE.select_channel
       
     when "details", "5", "five"
-      print_details()
+      PUMPKIN_SPICE.print_details()
       
-    when "quit", "6", "six", "exit"
+    when "send message", "6", "six"
+      get_message()
+      
+    when "quit", "7", "seven", "exit"
       again = false
     end
   end
