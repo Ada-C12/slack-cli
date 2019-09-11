@@ -15,10 +15,10 @@ describe "Channel class" do
       
       @response = HTTParty.get(BASE_URL, query: @query)
 
-      id = "CJAMGE6R1"
+      id = "CN9N9ECF8"
       name = "random"
       topic = "Non-work banter and water cooler conversation"
-      member_count = 102
+      member_count = 2
       channel = Channel.new(id, name, topic, member_count)
       
       expect(channel).must_be_instance_of Channel
@@ -31,10 +31,10 @@ describe "Channel class" do
       @response = HTTParty.get(BASE_URL, query: @query)
       #binding.pry
 
-    expect(@response["channels"][0]["id"]).must_equal "CN9N9ECF8"
-    expect(@response["channels"][0]["name"]).must_equal "random"
-    expect(@response["channels"][0]["topic"]["value"]).must_equal "Non-work banter and water cooler conversation"
-    expect(@response["channels"][0]["num_members"]).must_equal 102
+    expect(@response["channels"][2]["id"]).must_equal "CN9N9ECF8"
+    expect(@response["channels"][2]["name"]).must_equal "random"
+    expect(@response["channels"][2]["topic"]["value"]).must_equal "Non-work banter and water cooler conversation"
+    expect(@response["channels"][2]["num_members"]).must_equal 2
     end
   end
 

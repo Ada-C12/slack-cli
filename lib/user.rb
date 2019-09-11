@@ -26,6 +26,7 @@ class User < Recipient
     # iterate through response["members"]
     reponse["members"].map do |member|
       self.new(user["id"], member["name"], member["real_name"])
+    end
   
   end
 
