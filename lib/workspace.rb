@@ -16,6 +16,7 @@ class Workspace
     recipients.each do |recipient|
       puts recipient.capitalize
       puts self.send(recipient).map(&:details).join("\n")
+      puts
     end
   end
 
@@ -33,5 +34,10 @@ class Workspace
     return list.find do |recipient| 
       name ? recipient.name == name : recipient.slack_id == slack_id  
     end 
+  end
+
+  def show_selected
+    puts selected ? selected.details : "No recipient was selected"
+    puts
   end
 end
