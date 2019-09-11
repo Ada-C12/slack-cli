@@ -9,17 +9,12 @@ module SlackCLI
       @member_count = member_count
     end
     
-    def self.get
-      url = "https://slack.com/api/channels.list"
-      query = { token: ENV["SLACK_API_TOKEN"] }
-      response = HTTParty.get(url, query: query)      
-      return response["channels"]
-    end
-    
     def self.all
       channels = []
       
-      self.get().each do |channel|
+      response = Channel.get("channels.list")
+      
+      response["channels"].each do |channel|
         slack_id = channel["id"]
         name = channel["name"]
         topic = channel["topic"]["value"]

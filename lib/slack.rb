@@ -42,6 +42,7 @@ def select_user
   
   result = PUMPKIN_SPICE.find_user(search_term)
   
+  puts
   if result
     puts "The user #{result.name} was found and selected."
   else
@@ -55,6 +56,7 @@ def select_channel
   
   result = PUMPKIN_SPICE.find_channel(search_term)
   
+  puts
   if result
     puts "The channel #{result.name} was found and selected."
   else
@@ -62,9 +64,20 @@ def select_channel
   end
 end
 
+def print_details()
+  puts
+  if PUMPKIN_SPICE.selected.class == SlackCLI::User
+    tp PUMPKIN_SPICE.selected, "name", "real_name", "slack_id"
+  elsif PUMPKIN_SPICE.selected.class == SlackCLI::Channel
+    tp PUMPKIN_SPICE.selected, "name", {"topic" => {:width => 60}}, "member_count", "slack_id"
+  else
+    puts "There is no recipient selected."
+  end
+end
+
 def main
   puts "Welcome to the Ada Slack CLI!"
-  puts "\n"
+  puts
   # lists number of users and channels
   print_workplace_stats()
   
@@ -89,7 +102,7 @@ def main
       select_channel
       
     when "details", "5", "five"
-      puts "five"
+      print_details()
       
     when "quit", "6", "six", "exit"
       again = false

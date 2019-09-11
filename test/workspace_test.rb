@@ -56,7 +56,7 @@ describe "Workspace class" do
     end
     
     it "Changes selected to nil if no user found" do
-      user = @workspace.find_user("garbage")
+      @workspace.find_user("garbage")
       
       expect(@workspace.selected).must_be_nil
     end
@@ -92,7 +92,7 @@ describe "Workspace class" do
     end
     
     it "Changes selected to nil if no user found" do
-      channel = @workspace.find_channel("garbage")
+      @workspace.find_channel("garbage")
       
       expect(@workspace.selected).must_be_nil
     end

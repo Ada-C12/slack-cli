@@ -8,18 +8,12 @@ module SlackCLI
       @real_name = real_name
     end
     
-    def self.get
-      url = "https://slack.com/api/users.list"
-      query = { token: ENV["SLACK_API_TOKEN"] }
-      response = HTTParty.get(url, query: query)
-      
-      return response["members"]
-    end
-    
     def self.all
       users = []
       
-      self.get().each do |member|
+      response = User.get("users.list")
+      
+      response["members"].each do |member|
         slack_id = member["id"]
         name = member["name"]
         real_name = member["real_name"]
