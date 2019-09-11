@@ -3,10 +3,10 @@ require_relative 'test_helper'
 describe "User Class" do
   describe "New instance of Slack::User" do
     before do  
-      #VCR.use_cassette("lists_users") do 
-      @user = Slack::User.new("UMTG0S5D0", "samantha.collares", "Samantha Collares")
-      @user_test_list = @user.list
-      #end
+      VCR.use_cassette("lists_users") do 
+        @user = Slack::User.new("UMTG0S5D0", "samantha.collares", "Samantha Collares")
+        @user_test_list = @user.list
+      end
     end
     
     it "is of the class User" do 
