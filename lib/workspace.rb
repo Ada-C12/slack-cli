@@ -7,9 +7,11 @@ module Slack
     attr_reader :users, :channels, :selected
 
     def initialize
-      @users = users
-      @channels = channels
-      @selected = selected
+      @users = Slack::User.list.map do |user_obj|
+        Slack::User.new(name: user_obj["user name"], slack_id: user_obj["slack id"], real_name: user_obj["real name"])
+      end
+      @channels = nil
+      @selected = nil
     end
 
     def select_channel

@@ -11,6 +11,8 @@ require_relative "recipient"
 def main
   puts "Welcome to the Ada Slack CLI!"
 
+  workspace = Slack::Workspace.new
+
   input = ""
   until input == "quit"
     puts "Please select an option:
@@ -26,6 +28,7 @@ def main
     when "list channels"
       channel_array = Slack::Channel.list
       tp channel_array
+    when "select user"
     when "quit"
       exit
     end
