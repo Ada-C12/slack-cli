@@ -6,7 +6,7 @@ module Slack
     
     attr_reader :topic, :member_count
     
-    def initialize(topic, member_count)
+    def initialize(slack_id, name, topic, member_count)
       super(slack_id, name)
       @topic = topic
       @member_count = member_count
@@ -17,13 +17,11 @@ module Slack
     
     def list
       url = "https://slack.com/api/channels.list"
-      
-      KEY = ENV["SLACK_TOKEN"]
       query_parameters = {
-        token: KEY
+        token: ENV["SLACK_TOKEN"]
       }
       
-      channel_objects = self.get(url, query: query_parameters)
+      channel_objects = Recipient.get(url, query: query_parameters)
       
       channel_list = []
       channel_objects["channels"].each do |channel|

@@ -1,4 +1,3 @@
-require 'httparty'
 
 module Slack
   class Recipient 
