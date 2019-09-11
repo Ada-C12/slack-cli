@@ -1,11 +1,33 @@
-#!/usr/bin/env ruby
+require 'dotenv'
+require 'httparty'
 
-def main
-  puts "Welcome to the Ada Slack CLI!"
+Dotenv.load
 
-  # TODO project
+# !/usr/bin/env ruby
 
-  puts "Thank you for using the Ada Slack CLI"
-end
+# unless ENV['SLACK_TOKEN']
+#   puts "Could not load API key, please store in the environment variable 'SLACK_TOKEN'"
+#   exit
+# end
 
-main if __FILE__ == $PROGRAM_NAME
+## Check to see if the unless statement needs a conditional.
+
+
+URL = "https://slack.com/api/users.list"
+
+response = HTTParty.get(URL, query: {token: ENV['SLACK_TOKEN']})
+
+p response
+
+# def main
+#   puts "Welcome to the Ada Slack CLI!"
+
+#   # TODO project
+
+#   puts "Thank you for using the Ada Slack CLI"
+# end
+
+# main if __FILE__ == $PROGRAM_NAME
+
+
+
