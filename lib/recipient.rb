@@ -3,16 +3,7 @@ require 'HTTParty'
 module SlackCLI
   
   class Recipient
-    
-    attr_reader :slack_id, :name
-    
-    def initialize(slack_id:, name:)
-      slack_id = is_valid?(slack_id)
-      name = is_valid?(name)
-      
-      @slack_id = slack_id 
-      @name = name
-    end
+
     
     def is_valid?(value)
       if value.nil?
@@ -21,15 +12,15 @@ module SlackCLI
       return value
     end
     
-    def self.get
-      url = 'https://slack.com/api/channels.list'
-      query_params = {
-      token: ENV['SLACK_TOKEN']}
-      response = HTTParty.get(url, params: query_params)
-      unless response.code == 200
-        raise SearchError.new("Cannot find channels")
-      end
-      return response
+    def self.get(url)
+      # # url = 'https://slack.com/api/channels.list'
+      # query_params = {
+      # token: ENV['SLACK_TOKEN']}
+      # response = HTTParty.get(url, params: query_params)
+      # unless response.code == 200
+      #   raise SearchError.new("Cannot find channels")
+      # end
+      # return response
     end
     
   end
@@ -59,3 +50,6 @@ end
 #   hash_of_ids["name"] = name
 #   array_of_channels << hash_of_ids
 # end
+
+
+  
