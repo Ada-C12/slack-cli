@@ -12,5 +12,21 @@ module SlackBot
       @status_emoji = status_emoji || nil
       
     end
+    
+    def self.list
+      response = User.get("https://slack.com/api/users.list")
+      users = []
+      
+      response["members"].each do |member|
+        user = {}
+        user[:user_name] = member["name"]
+        user[:real_name] = member["real_name"]
+        user[:slack_id] = member["id"]
+        
+        users << user_hash
+      end
+      
+      return users
+    end
   end
 end

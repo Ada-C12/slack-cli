@@ -23,6 +23,5 @@ describe "User" do
     #   expect(new_user).must_be_kind_of SlackBot::User
     # end
     
-    
   end
 end

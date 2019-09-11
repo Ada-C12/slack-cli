@@ -14,7 +14,6 @@ describe "Recipient class" do
     end
     
     it "raises an argument error if no name is supplied" do
-      
       expect{SlackBot::Recipient.new(slack_id: "ABC123EFG")}.must_raise ArgumentError
     end
   end
