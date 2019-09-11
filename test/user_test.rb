@@ -25,4 +25,11 @@ describe "User" do
       expect(@user_array[0]["slack id"]).must_be_instance_of String
     end
   end
+
+  describe "User details method" do
+    it "will return details about the selected user" do
+      test_user = Slack::User.new(name: "Franky", slack_id: "FRANKRUS", real_name: "Frankenstein")
+      expect(test_user.details).must_equal "\nreal name: Frankenstein, user name: Franky, slack_id: FRANKRUS"
+    end
+  end
 end

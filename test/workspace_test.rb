@@ -22,3 +22,29 @@ describe "User.list method" do
     expect(@workspace.selected.is_a?(Slack::User)).must_equal true
   end
 end
+
+describe "Channel.list method" do
+  before do
+    VCR.use_cassette("channels_list") do
+      @channel_array = Slack::Channel.list
+      @workspace = Slack::Workspace.new
+    end
+  end
+
+  it "channels is a list of type Channel" do
+    expect(@workspace.channels.all? { |channel| channel.is_a?(Slack::Channel) }).must_equal true
+  end
+
+  it "will select a channel by name" do
+    @workspace.select_channel("fuzzy_bunnies")
+    expect(@workspace.selected.is_a?(Slack::Channel)).must_equal true
+  end
+
+  it "will select a channel by slack_id" do
+    @workspace.select_channel("CN759T0MA")
+    expect(@workspace.selected.is_a?(Slack::Channel)).must_equal true
+  end
+end
+
+describe "show_details method" do
+end

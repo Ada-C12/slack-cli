@@ -25,7 +25,7 @@ module Slack
           return
         end
       end
-      raise SlackApiError, "This channel does not exist"
+      raise SlackApiError
     end
 
     def select_user(identifier)
@@ -41,7 +41,7 @@ module Slack
           return
         end
       end
-      raise SlackApiError, "This user does not exist"
+      raise SlackApiError
     end
 
     def show_details
