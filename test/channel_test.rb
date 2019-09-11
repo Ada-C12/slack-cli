@@ -10,7 +10,7 @@ describe "Channel Class" do
         #   token: KEY
         # }
         # channel_objects = self.get(url, query: query_parameters)
-        channel = Slack::Channel.new(14, "Morgan", "general", 5)
+        channel = Slack::Channel.new("CMUR2JTNX", "random", {"value"=>"", "creator"=>"", "last_set"=>0}, 7)
         @test_list = channel.list
       end
     end

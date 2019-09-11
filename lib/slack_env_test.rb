@@ -21,9 +21,11 @@ channel_objects = HTTParty.get(url, query: query_parameters)
 # end
 
 
-channel_list = []
-channel_objects["channels"].each do |channel|
-  channel_list << channel["name"]
-end
+p channel_objects["channels"]
 
-puts channel_list
+# channel_list = []
+# channel_objects["channels"].each do |channel|
+#   channel_list << channel["name"]
+# end
+
+# puts channel_list

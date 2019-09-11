@@ -21,7 +21,7 @@ module Slack
         token: ENV["SLACK_TOKEN"]
       }
       
-      channel_objects = Recipient.get(url, query: query_parameters)
+      channel_objects = Recipient.get(url, query_parameters)
       
       channel_list = []
       channel_objects["channels"].each do |channel|
