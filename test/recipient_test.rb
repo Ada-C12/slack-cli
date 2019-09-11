@@ -20,22 +20,22 @@ describe "Recipient" do
     end
   end
 
-  describe "get_information" do
+  describe "self.details" do
     it "raises an error if invoked directly (without subclassing)" do
       url = "https://slack.com/api/channels.list"
       query = {token: 347358792354398}
 
       expect {
-      Recipient.get_information(url, query)
+      Recipient.details
       }.must_raise NotImplementedError
     end
   end
 
-  describe "list_information" do
+  describe "self.list" do
     it "raises an error if invoked directly (without subclassing)" do
       
       expect {
-        Recipient.get_list
+        Recipient.list
         }.must_raise NotImplementedError
     end
   end

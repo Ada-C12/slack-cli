@@ -11,11 +11,11 @@ class Recipient
   #   return response
   # end
 
-  def self.get_information(url, query)
+  def self.details
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
-  def self.get_list
+  def self.list
     raise NotImplementedError, 'Implement me in a child class!'
   end
 end
