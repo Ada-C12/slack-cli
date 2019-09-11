@@ -4,11 +4,11 @@ require 'awesome_print'
 Dotenv.load 
 
 module SlackCli
-  class Server
-    attr_reader :slack_id, :name
+  class Recipient
+    attr_reader :id, :name
 
-    def initialize(slack_id:, name:)
-      @slack_id = slack_id
+    def initialize(id:, name:)
+      @id = id
       @name = name
     end 
 
