@@ -5,24 +5,26 @@ module Slack
   class User < Recipient 
     attr_reader :real_name
     
-    def initialize(real_name)
+    def initialize(slack_id, name, real_name)
       super(slack_id, name)
       @real_name = real_name
     end
     
-    def details
-    end
+    # def details
+    # end
     
     def list
       url = "https://slack.com/api/users.list"
-      
-      KEY = ENV["SLACK_TOKEN"]
       query_parameters = {
-        token: KEY
+        token: ENV["SLACK_TOKEN"]
       }
+      user_objects = Recipient.get(url, query_parameters)
       
-      list = self.get(url, query: query_parameters) 
-      
+      user_list = []
+      user_objects["members"].each do |name|
+        user_list << name["real_name"]
+      end
+      return user_list
     end
     
     

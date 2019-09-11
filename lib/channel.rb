@@ -15,6 +15,7 @@ module Slack
     def details
     end
     
+    
     def list
       url = "https://slack.com/api/channels.list"
       query_parameters = {
@@ -22,14 +23,11 @@ module Slack
       }
       
       channel_objects = Recipient.get(url, query_parameters)
-      
       channel_list = []
       channel_objects["channels"].each do |channel|
         channel_list << channel["name"]
       end
-      
       return channel_list
-      
     end
     
     
