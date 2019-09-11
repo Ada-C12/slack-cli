@@ -8,10 +8,10 @@ require_relative 'channel'
 Dotenv.load
 def main
   puts "Welcome to the Ada Slack CLI!"
-  
+
   puts SlackCLI::Channel.new(01, "zadie", "cute puppies", 2)
-  puts SlackCLI::User.new(01, "zadie", "cute puppy", "runnign around")
-  
+  puts SlackCLI::User.new(01, "zadie", "cute puppy", "running around")
+
   puts "Thank you for using the Ada Slack CLI"
 end
 

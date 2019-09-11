@@ -21,3 +21,6 @@ module SlackCLI
     end
   end
 end
+
+# details and self.list are abstract class methods
+#   raise NotImplementedError, 'Implement me in a child class!'
