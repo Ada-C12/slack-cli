@@ -10,28 +10,18 @@ class Recipient
   end
 
 
-  def self.get(url, params)
+  def self.get(url, query)
+    return HTTParty.get(url, query: query)
   end
 
 
   # ABSTRACT METHODS
   def details
+    raise NotImplementedError, "Implement me in a child class!"
   end
 
-
   def self.list
-  #   BASE_URL = 
-  #   TOKEN = ENV["SLACK_TOKEN"]
-
-  #   query = {
-  #   token: TOKEN
-  #   }
-
-  # response = HTTParty.get(BASE_URL, query: query)
-
-  # response["slackbot"]["members".first]["id"]
-
-
+    raise NotImplementedError, "Implement me in a child class!"
   end
 end
 
