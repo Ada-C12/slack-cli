@@ -21,7 +21,6 @@ class User < Recipient
     response = User.get("https://slack.com/api/users.list", {token: ENV['SLACK_TOKEN']})
     response["members"].each do |member|
       new_user = User.new(member["id"], member["name"], member["real_name"])
-      # binding.pry 
       users_list << new_user
     end
     return users_list
