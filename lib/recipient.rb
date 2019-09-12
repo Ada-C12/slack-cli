@@ -2,11 +2,10 @@
 module Slack
   class  Recipient
     attr_reader :name, :id
-    
     def initialize(name, id)
       @name = name
       @id = id
     end
     
-  end#end of class
-end#end of module
+  end
+end
