@@ -5,7 +5,6 @@ require 'awesome_print'
 require_relative './user'
 require_relative './channel'
 Dotenv.load('../.env')
-# require 'pry'
 
 KEY = ENV['KEY']
 
@@ -14,20 +13,22 @@ KEY = ENV['KEY']
 #CHAT_URL = "https://slack.com/api/chat.postMessage"
 
 def main
-  # binding.pry
   users = Slack::User.list_users
   channels = Slack::Channel.list_channels
   puts "Welcome to the Ada Slack CLI!"
   puts "There are #{users.length} users and #{channels.length} channels."
   
+  # start while loop, until "quit", review solar system
   puts "Would you like to view: List Users, List Channels, or Quit?" # add number options?
   user_input = gets.chomp.split.map(&:capitalize).join(' ')
   
   # when case to display user_input choices
-when user_input == List Users
-  puts "User count: #{users.length}, User Name: #{user_name}, Real name: #{real_name}, and Slack ID: #{slack_iD}."
-when user_input == List Channels
-  puts "Channel's name: #{channel}, Topic: #{topic}, Member Count: #{member count}, and Slack ID: #{slack_id}."
+  case user_input 
+  when "List Users"
+    puts "User count: #{users.length}, User Name: #{user_name}, Real name: #{real_name}, and Slack ID: #{slack_iD}."
+  when "List Channels"
+    puts "Channel's name: #{channel}, Topic: #{topic}, Member Count: #{member count}, and Slack ID: #{slack_id}."
+  end
   
   # Wave 2: additional options 
   puts "Please select user."
@@ -61,5 +62,8 @@ when user_input == List Channels
       puts "Thank you for using the Ada Slack CLI"
     end
     
+    
+    # wave 3 
+    # when recepient selected: type out message 
     main if __FILE__ == $PROGRAM_NAME
     

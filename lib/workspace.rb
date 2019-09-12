@@ -7,6 +7,10 @@ module Slack
       @users = []
       @channels = []
     end
+
+# create method for 'select user/channel'. If recepient of selection does not exist, raise exception/nil 
+# tests needed 
+
   end
 end 
 
