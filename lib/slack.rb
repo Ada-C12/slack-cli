@@ -20,16 +20,17 @@ def main
     if user_answer == 1
       Channel.printed_channels_list
     elsif user_answer == 2
-      User.printed_users_list
+      puts User.printed_users_list
     elsif user_answer == 3
-      User.printed_users_list
+      puts User.printed_users_list
       puts "Please enter a username or Slack ID:"
       desired_person = gets.chomp
-      if User.printed_users_list.include?(desired_person)
-        return User.select_user_details(desired_person)
-      else
-        puts "That username or Slack ID is invalid"
-      end
+      puts User.select_user_details(desired_person)
+      # if User.printed_users_list.include?(desired_person)
+      #   return User.select_user_details(desired_person)
+      # else
+      #   puts "That username or Slack ID is invalid"
+      # end
     elsif user_answer == 4      
       # Channel.printed_users_list
       # puts "Please enter a channel name or Slack ID"
