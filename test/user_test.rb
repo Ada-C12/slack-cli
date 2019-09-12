@@ -12,4 +12,20 @@ describe "User class" do
       end 
     end
   end
+  
+  describe "User details" do 
+    
+    before do 
+      VCR.use_cassette("list_users") do
+        @users = Slack::User.list_users
+      end 
+    end
+    
+    it "returns user details: username, name, slack_id" do 
+      user = @users.first 
+      # user.details 
+      expected_output = "The name is #{user.name}, the user name is #{user.user_name}, and the slack id is #{user.slack_id}"
+      expect(user.details).must_equal expected_output 
+    end
+  end 
 end
