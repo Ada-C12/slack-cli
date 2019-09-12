@@ -13,6 +13,7 @@ module Slack
     end
     
     def select_user(user_name: nil, slack_id: nil)
+      
       #returns the user object that goes with passed in user_name?
       
       # error when no user exists

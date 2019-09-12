@@ -1,7 +1,9 @@
-require 'httparty'
+
 require 'dotenv'
-require 'awesome_print'
 Dotenv.load
+require 'awesome_print'
+require 'httparty'
+require_relative 'user'
 
 
 url = "https://slack.com/api/users.list"
@@ -10,17 +12,22 @@ query_parameters = {
 }
 user_objects = HTTParty.get(url, query: query_parameters)
 
+user = Slack::User.new("UMTG0S5D0", "samantha.collares", "Samantha Collares")
+
+user_list = user.list 
+p user_list.length
 
 # user_objects["members"].each do |member|
 #   p "The id is: #{member["id"]}"
 #   p "The name is: #{member["name"]}"
 # end
 
-p user_objects
-p user_objects.class
-p user_objects["members"][1]["id"]
-p user_objects["members"][1]["real_name"]
-p user_objects["members"][1]["name"]
+# p user_objects
+# p user_objects.class
+# p user_objects["members"][1]["id"]
+# p user_objects["members"][1]["real_name"]
+# p user_objects["members"][1]["name"]
+# p 
 
 # user_list = []
 # user_objects["members"].each do |user|
