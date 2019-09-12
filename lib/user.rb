@@ -9,6 +9,7 @@ require 'awesome_print'
 Dotenv.load
 
 class User < Recipient
+  
   attr_accessor :slack_id
   
   URL = "https://slack.com/api/users.list"
@@ -31,19 +32,20 @@ class User < Recipient
   
   
   def self.list
-    response = HTTParty.get(URL, query: {token: KEY})
-    members = response["members"]
+    
+    response = self.get("https://slack.com/api/users.list")["members"]
+    # response = HTTParty.get(URL, query: {token: KEY})
+    # members = response["members"]
+    # binding.pry
     
     users = []
-    
-    members.each do |member|
+    response.each do |member|
       user = self.new(slack_id: member["id"], real_name: member["real_name"], user_name: member["name"])
-      binding.pry
       users << user
       
       #tp and self.get
     end
-    return users
+    
     # users.each do |user| 
     #   puts use
     # end

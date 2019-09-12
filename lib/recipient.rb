@@ -7,11 +7,13 @@ Dotenv.load
 class Recipient
   attr_reader :slack_id, :name
   
+  KEY = ENV['SLACK_TOKEN']
+  
   def initialize(slack_id:, name:)
     @slack_id = slack_id
     @name = name
     
-   
+    
   end
   
   
@@ -22,7 +24,7 @@ class Recipient
   
   
   def self.get(url)
-    HTTParty.get(url, query: {token: TOKEN})
+    HTTParty.get(url, query: {token: KEY})
   end
   
   
@@ -37,10 +39,10 @@ class Recipient
     
     
   end
-
   
-  private
-  TOKEN = ENV['SLACK_TOKEN']
-
-
+  
+  
+  
+  
+  
 end
