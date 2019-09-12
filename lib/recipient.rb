@@ -16,8 +16,26 @@ class Recipient
     @name = name
   end
   
-  def send_message(message)
-    
+  def send_message(message, channel)
+    response = HTTParty.post(
+      BASE_URL + "chat.postMessage", 
+      body:  {
+        token: KEY, 
+        text: message, 
+        channel: channel
+        as_user: true
+      },
+      headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+    )
+    if response["ok"] == true
+      return true
+      puts response["ok"]
+      puts response["error"]
+    else 
+      puts response["ok"]
+      puts response["error"]
+      return false
+    end
   end
   
   def self.get
