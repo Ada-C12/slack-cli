@@ -33,13 +33,15 @@ class User < Recipient
 
   def self.select_user(desired_person)
 
-    #if they choose name go to hash and return namex
-      #self.printed_users_list.each do |user|
-      #user["User Name"] == desired_person
-      return desired_person
-    #elsif they id go to hash and return id
-
-
+    self.printed_users_list.each do |user|
+      if user["User Name"] == desired_person
+        return desired_person
+      elsif user["Slack ID"] == desired_person
+        return desired_person
+      else
+        return nil
+      end
+    end
   end
 
 end
