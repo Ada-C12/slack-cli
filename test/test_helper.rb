@@ -14,7 +14,10 @@ Dotenv.load
 
 
 require 'vcr'
-require_relative 'recipient_test'
+require_relative '../lib/channel'
+require_relative '../lib/user'
+require_relative '../lib/recipient'
+# require_relative 'recipient_test'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -23,11 +26,11 @@ VCR.configure do |config|
   config.hook_into :webmock
   
   config.default_cassette_options = {
-  :record => :new_episodes,
-  :match_requests_on => [:method, :uri, :body],
-}
-config.filter_sensitive_data("<SLACK_TOKEN>") do
-  ENV["SLACK_TOKEN"]
-end
+    :record => :new_episodes,
+    :match_requests_on => [:method, :uri, :body],
+  }
+  config.filter_sensitive_data("<SLACK_TOKEN>") do
+    ENV["SLACK_TOKEN"]
+  end
 end
 

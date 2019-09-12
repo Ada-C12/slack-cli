@@ -1,14 +1,9 @@
-require 'dotenv'
-require 'httparty'
-require 'awesome_print'
 require_relative 'recipient'
-# require_relative 'channel'
-require 'table_print'
-
 Dotenv.load
 
 module SlackCLI
   class User < Recipient
+    
     def self.list_users
       response = HTTParty.get("https://slack.com/api/users.list?token=#{ENV['SLACK_TOKEN']}")
       array_of_users = []
@@ -24,4 +19,3 @@ module SlackCLI
   end
 end
 
-tp SlackCLI::User.list_users

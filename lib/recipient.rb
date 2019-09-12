@@ -1,10 +1,13 @@
 require 'HTTParty'
+require 'dotenv'
+require 'table_print'
+
 
 module SlackCLI
   
   class Recipient
     def self.list_channels
-  
+      
     end
     
     def self.get(url)

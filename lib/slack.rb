@@ -5,6 +5,8 @@ require 'awesome_print'
 require_relative 'recipient'
 require_relative 'user'
 require_relative 'channel'
+require "table_print"
+
 Dotenv.load
 
 def main
@@ -16,11 +18,9 @@ def main
   
   until selection == "3" 
     if selection == "1"
-      # method to list users in workspace
-      # SlackCLI.list_users
-      puts "You selected 1"
+      tp SlackCLI::User.list_users
     elsif selection == "2"
-      puts "you selected 2"
+      tp SlackCLI::Channel.list_channels
     end
     puts options
     selection = gets.chomp

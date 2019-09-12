@@ -1,5 +1,6 @@
-require_relative '../lib/recipient'
+# require_relative '../lib/recipient'
 require_relative 'test_helper'
+# require 'vcr'
 
 describe "Recipient" do
   
