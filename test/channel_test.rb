@@ -22,7 +22,22 @@ describe "Channel" do
       
       expect(new_channel).must_be_kind_of SlackBot::Channel
     end
+  end
+  
+  describe "#list" do
+    before do
+      VCR.use_cassette("channel-list") do
+        @new_channels = SlackBot::Channel.list
+      end
+    end
     
+    it "returns an array" do
+      expect(@new_channels).must_be_kind_of Array
+    end
     
+    it "returns an array of Channel Instances" do
+      expect(@new_channel.first).must_be_kind_of SlackBot::Channel
+      expect(@new_channel.last).must_be_kind_of SlackBot::Channel
+    end
   end
 end

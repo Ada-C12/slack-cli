@@ -15,18 +15,20 @@ module SlackBot
     
     def self.list
       response = Channel.get("https://slack.com/api/conversations.list")
-      channels = []
+      channel_list = []
       
       response["channels"].each do |channel|
-        channel_hash = {}
-        channel_hash[:channel_name] = channel["name"]
-        channel_hash[:topic] = channel["topic"]["value"]
-        channel_hash[:member_count] = channel["num_members"]
-        channel_hash[:slack_id] = channel["id"]
+        channel_list << Channel.new(
+          slack_id: channel["id"],
+          name: channel["name"],
+          topic: channel["topic"]["value"],
+          member_count: channel["num_members"]
+        )
         
-        channels << channel_hash
       end
-      return channels
+      # require "pry"
+      # binding.pry
+      return channel_list
     end
   end
 end
