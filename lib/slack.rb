@@ -24,13 +24,13 @@ def main
     if option == "list users"
       puts @workspace.users
     elsif option == "list channels"
-      return @workspace.channels
+      puts @workspace.channels
     elsif option == "select user"
-      return @workspace.select_user(option)
+      puts @workspace.select_user(option)
     elsif option == "select channel"
-      return @workspace.select_channel(option)
+      puts @workspace.select_channel(option)
     elsif option == "details"
-      return @workspace.show_details
+      puts@workspace.show_details
     elsif main 
     else 
       option == "quit"
