@@ -28,4 +28,4 @@ VCR.configure do |config|
   config.filter_sensitive_data("<SLACK_API_TOKEN>") do
     ENV["SLACK_API_TOKEN"]
   end
-  
+end
