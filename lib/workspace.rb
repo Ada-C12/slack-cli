@@ -79,29 +79,46 @@ class Workspace
     
   end
   
+  def show_all_recipients(array_of_recipient_objs:, enumerate:true)
+    if enumerate
+      headings = [""]
+    else
+      headings = []
+    end
+    all_keys = array_of_recipient_objs[0].details.keys
+    all_keys.each do |key|
+      headings << key.to_s.upcase
+    end
+    
+    rows_in_array = []
+    count = 0
+    array_of_recipient_objs.each do |recipient_obj|
+      if enumerate
+        row = ["#{(count+65).chr}"]
+      else
+        row = []
+      end
+      details = recipient_obj.details
+      details.each do |key, value|
+        row << value
+      end
+      
+      rows_in_array << row
+      count += 1
+    end
+    
+    return Terminal::Table.new(headings: headings , rows: rows_in_array)
+  end
+  
   def menu_action(choice)
     choice = choice.upcase
     
     case choice
     when "A", "LIST USERS"
-      rows_in_array = []
-      get_all_users_details.each_with_index do |user_hash, index|
-        row = ["#{(index+65).chr}", "#{user_hash[:id]}", "#{user_hash[:name]}", "#{user_hash[:real_name]}"]
-        rows_in_array << row
-      end
-      
-      puts Terminal::Table.new(headings: ["", "ID", "NAME", "REAL NAME"] , rows: rows_in_array)
+      puts show_all_recipients(array_of_recipient_objs: all_users)
       
     when "B", "LIST CHANNELS"
-      puts get_all_channels_details
-      rows_in_array = []
-      get_all_channels_details.each_with_index do |channel_hash, index|
-        row = ["#{(index+65).chr}", "#{channel_hash[:id]}", "#{channel_hash[:name]}", "#{channel_hash[:topic]}", "#{channel_hash[:member_count]}"]
-        rows_in_array << row
-      end
-      
-      puts Terminal::Table.new(headings: ["", "ID", "NAME", "TOPICS", "MEMBER COUNT"] , rows: rows_in_array)
-      
+      puts show_all_recipients(array_of_recipient_objs: all_channels)
       
     when "C", "SEND MESSAGE"
       puts "can't do that yet haha"
@@ -116,6 +133,8 @@ class Workspace
         puts exception.message
         return false
       end
+      
+      puts "SUCCESS:  User  = #{user.name}"
       
     when "E", "SELECT CHANNEL"
       print "Please enter a channel's name or id: "
@@ -132,20 +151,13 @@ class Workspace
       
     when "F", "DETAILS"
       puts "SHOWING DETAILS"
+      
+      
+      puts show_all_recipients(array_of_recipient_objs:[@entity], enumerate: false)
       begin
-        if @entity.class == User
-        user_result = @entity.details
-        row = ["#{user_result[:id]}", "#{user_result[:name]}", "#{user_result[:real_name]}"]
-        
-        puts Terminal::Table.new(headings: ["ID", "NAME", "REAL NAME"] , rows: [row])
-        
-      elsif @entity.class == Channel
-        channel_result = @entity.details
-        row = ["#{channel_result[:id]}", "#{channel_result[:name]}", "#{channel_result[:topic]}",  "#{channel_result[:member_count]}"]
-        puts Terminal::Table.new(headings: ["ID", "NAME", "TOPIC", "MEMBER COUNT"] , rows: [row])
-      else
-        raise ArgumentError.new("No entity selected")
-      end
+        unless (entity.class == User) || (entity.class == Channel)
+          raise ArgumentError.new("No user or channel selected")
+        end
       rescue => exception
         puts exception.message
       end
