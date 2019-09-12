@@ -44,6 +44,11 @@ def main
       user_criteria = gets.chomp
       workspace.select_user(user_criteria)
       user_input = nil
+    when "select channel"
+      print "Enter a Channel Name or Slack ID: "
+      channel_criteria = gets.chomp
+      workspace.select_channel(channel_criteria)
+      user_input = nil
     when "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit

@@ -11,7 +11,20 @@ module SlackBot
       @selected = nil
     end
     
-    def select_channel
+    def select_channel(criteria)
+      @channels.each do |channel|
+        if channel.name == criteria.downcase
+          @selected = channel
+          return puts "Channel #{@selected.name} is selected"
+        end
+      end
+      @channels.each do |channel|
+        if channel.slack_id == criteria.upcase
+          @selected = channel
+          return puts "Channel #{@selected.name} is selected"
+        end
+      end
+      raise ArgumentError, "Invalid Enty: No such channel."
     end
     
     def select_user(criteria)
