@@ -21,6 +21,7 @@ def main
     -select user
     -select channel
     -show details
+    -send message
     -quit"
     input = gets.chomp.downcase
 
@@ -49,6 +50,10 @@ def main
       end
     when "show details"
       puts "#{workspace.show_details}"
+    when "send message"
+      puts "What do you want to send?"
+      message = gets.chomp
+      workspace.send_message(message)
     when "quit"
       exit
     end

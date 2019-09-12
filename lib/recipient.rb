@@ -1,5 +1,6 @@
 require "httparty"
 require "dotenv"
+MESSAGE_URL = "https://slack.com/api/chat.postMessage"
 
 module Slack
   class Recipient
@@ -14,17 +15,27 @@ module Slack
       return HTTParty.get(url, params)
     end
 
-    def send_message(message)
-      body = {
-        token: key,
-        channel: slack_id,
-        text: message,
-      }
+    MESSAGE_URL = "https://slack.com/api/chat.postMessage"
 
-      response = HTTParty.post(MESSAGE_URL, body: body)
+    def post_message(message)
+      if @selected.is_a?(Slack::Channel)
+        body = {
+          token: ENV["SLACK_TOKEN"],
+          channel: slack_id,
+          text: message,
+        }
 
-      if response["ok"] != true
-        raise StandardError, "Invalid request. Error is #{response.code}: #{response.message}"
+        response = HTTParty.post(MESSAGE_URL, body: body)
+
+        if response["ok"] != true
+          raise StandardError, "Invalid request. Error is #{response.code}: #{response.message}"
+        end
+        # else
+        #   body = {
+        #     token: ENV["SLACK_TOKEN"],
+        #     channel: slack_id,
+        #     text: message,
+        #   }
       end
     end
 

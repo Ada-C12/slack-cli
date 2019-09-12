@@ -50,9 +50,9 @@ module Slack
       end
     end
 
-    def send_message
+    def send_message(message)
       if @selected
-        @selected.send_message(send_message)
+        @selected.post_message(message)
       else
         return nil
       end
