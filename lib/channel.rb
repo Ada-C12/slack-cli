@@ -1,13 +1,10 @@
 require_relative 'recipient'
-require 'httparty'
-require  'dotenv'
-# require 'awesome_print'
-# require 'table_print'
+# require 'httparty'
+# require  'dotenv'
 
-Dotenv.load
+# Dotenv.load
 
-URL = "https://slack.com/api/conversations.list"
-KEY = ENV['SLACK_TOKEN']
+
 
 
 class Channel < Recipient
@@ -19,7 +16,7 @@ class Channel < Recipient
     @member_count = member_count
   end
   
-
+  
   def details
     
     
@@ -27,37 +24,41 @@ class Channel < Recipient
   
   
   def self.list
-    response = HTTParty.get(URL, query: {token: KEY})
-    
-    @name = []
-    @topic = []
-    @member_count = []
-    @slack_id = []
+    channels = self.get("https://slack.com/api/conversations.list")["channels"]
 
-    channels = response["channels"]
-    
-    name = channels.map do |channel|
-      channel['name']
+    channels.map do |channel|
+      name = channel["name"]
+      topic = channel["topic"]["value"]
+      member_count = channel["num_members"]
+      slack_id = channel["id"]
+
+      
     end
+    return channels
+    # channels = response["channels"]
     
-    topic = channels.map do |channel|
-      channel['topic']['value']
-    end
+    # name = channels.map do |channel|
+    #   channel['name']
+    # end
     
-    member_count = channels.map do |channel|
-      channel['num_members']
-    end
+    # topic = channels.map do |channel|
+    #   channel['topic']['value']
+    # end
     
-    slack_id = channels.map do |channel|
-      channel['id']
-    end
+    # member_count = channels.map do |channel|
+    #   channel['num_members']
+    # end
     
-    name.length.times do |i|
-      puts "Name: #{name[i]},\n
-      Topic: #{topic[i]},\n
-      Member count: #{member_count[i]},\n
-      Slack ID: #{slack_id[i]}"
-    end
+    # slack_id = channels.map do |channel|
+    #   channel['id']
+    # end
+    
+    # name.length.times do |i|
+    #   puts "Name: #{name[i]},\n
+    #   Topic: #{topic[i]},\n
+    #   Member count: #{member_count[i]},\n
+    #   Slack ID: #{slack_id[i]}"
+    # end
   end
 end
 
