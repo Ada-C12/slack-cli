@@ -15,6 +15,10 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
   config.hook_into :webmock
+
+  config.filter_sensitive_data "<SLACK_TOKEN>" do 
+    ENV("SLACK_TOKEN")
+  end
 end
 
 require_relative '../lib/channel'
