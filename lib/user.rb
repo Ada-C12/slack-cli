@@ -53,10 +53,6 @@ class User < Recipient
     ids = self.get_ids
     all_users = []
     
-    unless (real_names.length == names.length) && (names.length == ids.length)
-      raise ArgumentError, "All the arrays should have same length!"
-    end
-    
     ids.length.times do |index|
       new_user = User.new(id: ids[index], name: names[index], real_name: real_names[index])
       all_users << new_user
