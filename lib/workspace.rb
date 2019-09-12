@@ -1,5 +1,6 @@
 require "dotenv"
 require "httparty"
+require "uri"
 Dotenv.load
 
 require_relative "recipient"
@@ -56,8 +57,40 @@ class Workspace
       raise ArgumentError, "No recipient is currently selected."
     end
     @current_recipient.load_details
+    ap @current_recipient
   end
   
+  def send_message(message, cats)
+    id = @current_recipient.id
+  # this whole method probably needs gentle refactoring
+    # this one prints cats with the text!
+    if cats == "yes"
+      cat_block = '[{"type": "image", "alt_text": "cat", "image_url": "https://cataas.com/cat/says/' + URI.encode(message) + '"}]'
+      new_message = HTTParty.post(@message_url, 
+        headers: { "Content-Type" => "application/x-www-form-urlencoded" }, 
+        body: { 
+          "token" => TOKEN,
+          "channel" => id, 
+          "text" => message,
+          "blocks" => cat_block
+        }
+      )
+    # this one prints regular text!
+    else
+      new_message = HTTParty.post(@message_url, 
+        headers: { "Content-Type" => "application/x-www-form-urlencoded" }, 
+        body: { 
+          "token" => TOKEN,
+          "channel" => id, 
+          "text" => message
+        }
+      )
+    end
+    
+    new_message
+  end
+  
+  #  maaaaaaaaaybe we don't need these methods? we'll see!!
   # def select_user(id)
   #   User.set_as_recipient(id)
   # end
