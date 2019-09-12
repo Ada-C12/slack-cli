@@ -6,7 +6,7 @@ require  'dotenv'
 
 Dotenv.load
 
-URL = "https://slack.com/api/channels.list"
+URL = "https://slack.com/api/conversations.list"
 KEY = ENV['SLACK_TOKEN']
 
 
@@ -62,4 +62,4 @@ class Channel < Recipient
 end
 
 
-# print a = Channel.list
+print a = Channel.list
