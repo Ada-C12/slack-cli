@@ -11,24 +11,24 @@ describe "instances of channel initiate " do
   
   it "verifies that attempting to initialize an instance of Channel without appropriate data throws an ArgumentError" do
     integer_name = 00132
+    expect{
     test_channel = Channel.new(name: integer_name, slack_id: @test_slack_id, topic: @test_topic, member_count: @test_member_count)
+    }.must_raise ArgumentError 
     
-    expect{ test_channel }.must_raise ArgumentError 
+    integer_slack_id = 13
+    expect{
+      @test_channel = Channel.new(name: @test_name, slack_id: integer_slack_id, topic: @test_topic, member_count: @test_member_count)
+    }.must_raise ArgumentError 
     
-    # integer_slack_id = 13
-    # expect{
-    #   @test_channel = Channel.new(name: @test_name, slack_id: integer_slack_id, topic: @test_topic, member_count: @test_member_count)
-    # }.must_raise ArgumentError 
+    array_topic = ["awesome", "pawsome"]  
+    expect{
+      @test_channel = Channel.new(name: @test_name, slack_id: @test_slack_id, topic: array_topic , member_count: @test_member_count)
+    }.must_raise ArgumentError 
     
-    # array_topic = ["awesome", "pawsome"]  
-    # expect{
-    #   @test_channel = Channel.new(name: @test_name, slack_id: @test_slack_id, topic: array_topic , member_count: @test_member_count)
-    # }.must_raise ArgumentError 
-    
-    # integer_member_count = 99443  
-    # expect{
-    #   @test_channel = Channel.new(name: @test_name, slack_id: @test_slack_id, topic: @test_topic, member_count: integer_member_count)
-    # }.must_raise ArgumentError    
+    string_member_count = "99443"  
+    expect{
+      @test_channel = Channel.new(name: @test_name, slack_id: @test_slack_id, topic: @test_topic, member_count: string_member_count)
+    }.must_raise ArgumentError    
   end
 end
 
