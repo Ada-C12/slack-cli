@@ -5,6 +5,7 @@ require_relative "user"
 require "dotenv"
 Dotenv.load
 require 'table_print'
+require 'pry'
 
 def main
   puts"Welcome to the Ada Slack CLI!"
@@ -26,20 +27,11 @@ def main
       puts "Please enter a username or Slack ID:"
       desired_person = gets.chomp
       puts User.select_user_details(desired_person)
-      # if User.printed_users_list.include?(desired_person)
-      #   return User.select_user_details(desired_person)
-      # else
-      #   puts "That username or Slack ID is invalid"
-      # end
     elsif user_answer == 4      
-      # Channel.printed_users_list
-      # puts "Please enter a channel name or Slack ID"
-      # desired_channel = gets.chomp
-      # if Channel.printed_channels_list.include?(desired_name)
-      #   return details on desired channel NEW METHOD
-      # else
-      #   puts "Not a valid selection."
-      # end
+      Channel.printed_channels_list
+      puts "Please enter a channel name or Slack ID"
+      desired_channel = gets.chomp
+      puts Channel.select_channel_details(desired_channel)
     end
     
     puts "Select an option by number:"

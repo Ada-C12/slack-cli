@@ -34,18 +34,15 @@ class Channel < Recipient
       channels_array << {"name" => channel["name"],"topic" => channel["purpose"]["value"], "Member Count"=> channel["num_members"], "Slack ID"=> channel["id"]}
     end
     
-    puts channels_array
+    return channels_array
   end
 
-  def self.select_channel(desired_channel)
-
+  def self.select_channel_details(desired_channel)
     self.printed_channels_list.each do |channel|
       if channel["name"] == desired_channel
-        return desired_channel
+        return channel
       elsif channel["Slack ID"] == desired_channel
-        return desired_channel
-      else
-        return nil
+        return channel
       end
     end
   end
