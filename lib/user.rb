@@ -2,7 +2,7 @@ require 'httparty'
 require 'dotenv'
 Dotenv.load
 require 'pry'
-
+require 'table_print'
 class User < Recipient
   attr_reader :slack_id, :name, :real_name
   @@users_list = []
@@ -23,14 +23,12 @@ class User < Recipient
     return response
   end
   
-  def printed_channels_list
+  def self.printed_users_list
     users_array = []
-
     self.list["members"].each do |member|
       users_array << member["name"]
     end
-
-    return users_array
+    puts users_array
   end
 
 end

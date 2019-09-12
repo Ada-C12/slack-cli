@@ -2,6 +2,8 @@ require 'httparty'
 require 'dotenv'
 Dotenv.load
 require 'pry'
+require_relative 'recipient'
+require 'table_print'
 
 class Channel < Recipient
   attr_reader :slack_id, :name, :topic, :member_count
@@ -25,7 +27,7 @@ class Channel < Recipient
     return response
   end
 
-  def printed_channels_list
+  def self.printed_channels_list
     channels_array = []
 
     self.list["channels"].each do |channel|

@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 require "httparty"
+require_relative "channel"
+require_relative "user"
 require "dotenv"
 Dotenv.load
+require 'table_print'
 
 def main
   puts"Welcome to the Ada Slack CLI!"
@@ -15,11 +18,9 @@ def main
   
   while user_answer != 3
     if user_answer == 1
-      # call list method
-      puts "this is answer 1"
+      Channel.printed_channels_list
     elsif user_answer == 2
-      # call user method
-      puts "this is answer 2"
+      User.printed_users_list
     end
     
     puts "Select an option by number:"
