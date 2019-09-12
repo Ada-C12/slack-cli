@@ -1,65 +1,32 @@
-# require_relative 'recipient'
-require 'httparty'
-require  'dotenv'
-require 'awesome_print'
-require 'table_print'
-
-Dotenv.load
+require_relative 'recipient'
 
 
-class Channel
+class Channel < Recipient
   attr_reader :topic, :member_count
   
-  URL = "https://slack.com/api/channels.list"
-  KEY = ENV['SLACK_TOKEN']
-  
-  
   def initialize(slack_id:, name:, topic:, member_count:)
-    super(slack_id, name)
+    super(slack_id: slack_id, name: name)
     @topic = topic
     @member_count = member_count
   end
+  
   
   def details
     
     
   end
   
-  
+  # Collab with Paige and Angele
   def self.list
-    response = HTTParty.get(URL, query: {token: KEY})
-    
-    @name = []
-    @topic = []
-    @member_count = []
-    @slack_id = []
+    channels = self.get("https://slack.com/api/conversations.list")["channels"]
 
-    channels = response["channels"]
-    
-    name = channels.map do |channel|
-      channel['name']
-    end
-    
-    topic = channels.map do |channel|
-      channel['topic']['value']
-    end
-    
-    member_count = channels.map do |channel|
-      channel['num_members']
-    end
-    
-    @slack_id = channels.map do |channel|
-      channel['id']
-    end
-    
-    name.length.times do |i|
-      puts "Name: #{name[i]},\n
-      Topic: #{topic[i]},\n
-      Member count: #{member_count[i]},\n
-      Slack ID: #{@slack_id[i]}"
+    channels.map do |channel|
+      name = channel["name"]
+      topic = channel["topic"]["value"]
+      member_count = channel["num_members"]
+      slack_id = channel["id"]
+
+      Channel.new(slack_id: slack_id, name: name, topic: topic, member_count: member_count)
     end
   end
 end
-
-
-print a = Channel.list

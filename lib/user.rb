@@ -22,7 +22,10 @@ class User < Recipient
   end
   
   def details
-    #print out the details of the selected recipient
+    
+    #real_name
+    #status_text
+    #status_emoji
     
   end
   
@@ -35,6 +38,7 @@ class User < Recipient
     
     members.each do |member|
       user = self.new(slack_id: member["id"], real_name: member["real_name"], user_name: member["name"])
+      binding.pry
       users << user
       
       #tp and self.get
