@@ -1,12 +1,40 @@
-# require_relative 'channel'
-# require_relative 'user'
+require_relative 'channel'
+require_relative 'user'
 
-# module SlackBot
-#   class Workspace
-#     attr_reader :users, :channels, :selected
-#     @users = User.list
-#     @channels = Channel.list
-#     @selected = selected
-#   end
-
-# end
+module SlackBot
+  class Workspace
+    attr_reader :users, :channels, :selected
+    
+    def initialize
+      @users = User.list
+      @channels = Channel.list
+      @selected = nil
+    end
+    
+    def select_channel
+    end
+    
+    def select_user(criteria)
+      @users.each do |user|
+        if user.name == criteria.downcase
+          @selected = user
+          return puts "User #{@selected.name} is selected"
+        end
+      end
+      @users.each do |user|
+        if user.slack_id == criteria.upcase
+          @selected = user
+          return puts "User #{@selected.name} is selected"
+        end 
+      end
+      raise ArgumentError, "Invalid Enty: No such user."
+    end
+    
+    def details
+      
+    end
+    
+    def send_message
+    end
+  end
+end
