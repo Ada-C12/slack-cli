@@ -10,9 +10,14 @@ describe "Recipient" do
 
       expect(new_recipient).must_be_instance_of SlackCLI::Recipient
     end
+  end
 
-
-
+  describe "self.get" do
+    it "raises an error if the API returns an error response" do
+      VCR.use_cassette("recipient_gets") do
+        response = 
+      end
+    end
   end
 
 end

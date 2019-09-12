@@ -4,6 +4,7 @@ require 'dotenv'
 Dotenv.load
 
 module SlackCLI
+  class SlackApiError < StandardError; end
   class Recipient
     attr_reader :slack_id, :name
 
@@ -15,6 +16,10 @@ module SlackCLI
     def self.get(url)
       key = ENV["API_TOKEN"]
       response = HTTParty.get(url, query: {token: key })
+      
+      if response.include? response["error"]
+        raise SlackCLI::SlackApiError
+      end
 
       return response
     end
