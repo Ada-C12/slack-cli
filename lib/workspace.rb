@@ -18,7 +18,7 @@ class Workspace
       channel = channels.find {|channel| channel.name == name_or_id}
     end
     if channel == nil
-      raise ArgumentError.new("Channel does not exist")
+      return "Channel does not exist"
     end
     @selected = channel
   end
@@ -29,12 +29,15 @@ class Workspace
       user = users.find {|user| user.name == name_or_id}
     end
     if user == nil
-      raise ArgumentError.new("User does not exist")
+      return "User does not exist"
     end
     @selected = user
   end
   
   def show_details
+    if @selected == nil
+      return "Please select a user or channel."
+    end
     @selected.details 
   end
   

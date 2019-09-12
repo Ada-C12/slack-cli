@@ -17,7 +17,7 @@ def main
   puts "There are #{workspace.channels.length} channels"
   puts "There are #{workspace.users.length} users"
   
-  puts "What would you like to do? These are your option:  _____"
+  puts "What would you like to do? These are your option:  _____"  
   input = gets.chomp
   until input == "quit" do
     
@@ -28,7 +28,7 @@ def main
     elsif input == "select user"
       
     end
-    
+    puts "What would you like to do? These are your option:  _____"  
     input = gets.chomp
   end
   
