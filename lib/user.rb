@@ -15,7 +15,7 @@ module SlackCli
       @id = id 
     end 
 
-    def list
+    def self.list
       method_url = "https://slack.com/api/users.list"
       query_params = {
         token: ENV["SLACK_TOKEN"]
@@ -36,7 +36,7 @@ module SlackCli
         all_users.push(user_hash)
         i += 1
       end 
-      return all_users
+      ap all_users
     end 
   end 
 end 

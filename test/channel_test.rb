@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-describe "user class tests" do 
+describe "channel instantiate" do 
   before do 
     @channel = SlackCli::Channel.new(name:"Sara", id: "6", topic:"general", num_members: "3")
   end 
@@ -10,7 +10,7 @@ describe "user class tests" do
   end 
 end 
 
-describe "self.list method should return correct values" do 
+describe "channel list method should return correct values" do 
   before do 
     @channel = SlackCli::Channel.new(name:"Sara", id: "6", topic: "general", num_members: "3")
   end 

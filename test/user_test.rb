@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-describe "user class tests" do 
+describe "user instantiate" do 
   before do 
     @user1 = SlackCli::User.new(name:"Sara", real_name:"Monick", id: "6")
   end 
@@ -10,7 +10,7 @@ describe "user class tests" do
   end 
 end 
 
-describe "self.list method should return correct values" do 
+describe "user list method should return correct values" do 
   before do 
     @user1 = SlackCli::User.new(name:"Sara", real_name:"Monick", id: "6")
   end 

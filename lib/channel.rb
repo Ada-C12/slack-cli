@@ -16,7 +16,7 @@ module SlackCli
       @num_members = num_members
     end 
 
-    def list
+    def self.list
       method_url = "https://slack.com/api/channels.list"
       query_params = {
         token: ENV["SLACK_TOKEN"]
@@ -39,7 +39,7 @@ module SlackCli
         all_channels.push(channel_hash)
         i += 1
       end 
-      return all_channels
+      ap all_channels
     end 
 
   end 
