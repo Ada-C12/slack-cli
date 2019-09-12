@@ -3,10 +3,10 @@ require_relative 'test_helper'
 
 
 describe "SlackCLI::Channel" do
-  describe "list_channels" do
+  describe "list" do
     it "should be a list of channels" do
       VCR.use_cassette("list_channels") do
-        expect(SlackCLI::Channel.list_channels.first).must_be_instance_of SlackCLI::Channel
+        expect(SlackCLI::Channel.list.first).must_be_instance_of SlackCLI::Channel
       end
     end
   end
@@ -22,7 +22,7 @@ describe "SlackCLI::Channel" do
   
   it "Should return an Array" do
     VCR.use_cassette("list_channels") do
-      expect(SlackCLI::Channel.list_channels).must_be_instance_of Array
+      expect(SlackCLI::Channel.list).must_be_instance_of Array
     end
   end  
 end

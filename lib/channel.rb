@@ -15,7 +15,7 @@ module SlackCLI
       @member_count = member_count
     end
     
-    def self.list_channels
+    def self.list
       response = HTTParty.get("https://slack.com/api/channels.list?token=#{ENV['SLACK_TOKEN']}")
       unless response["ok"]
         raise StandardError.new("Data Load Error")
@@ -23,11 +23,12 @@ module SlackCLI
       array_of_channels = []
       
       response["channels"].each do |channel|
-        info_hash = {}
-        info_hash[:id] = channel["id"]
-        info_hash[:name] =  channel["name"]
-        info_hash[:topic] = channel["topic"]["value"]
-        info_hash[:member_count] =  channel["members"].length
+        info_hash = {
+          id: channel["id"],
+          name: channel["name"],
+          topic: channel["topic"]["value"],
+          member_count: channel["members"].length
+        }
         array_of_channels << SlackCLI::Channel.new(info_hash)
       end
       return array_of_channels
@@ -36,4 +37,4 @@ module SlackCLI
   end
 end
 
-# p SlackCLI::Channel.list_channels
+

@@ -18,9 +18,9 @@ def main
   
   until selection == "3" 
     if selection == "1"
-      tp SlackCLI::User.list_users
+      tp SlackCLI::User.list
     elsif selection == "2"
-      tp SlackCLI::Channel.list_channels
+      tp SlackCLI::Channel.list
     end
     puts options
     selection = gets.chomp
