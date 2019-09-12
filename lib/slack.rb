@@ -3,19 +3,32 @@ require "httparty"
 require "dotenv"
 Dotenv.load
 
-# BASE_URL = "https://slack.com/api/channels.list"
-# I think we need to move BASE_URL to channels since this URL is specific to list channels
-# KEY = ENV["SLACK_API_TOKEN"]
 def main
-  # query = {token: KEY}
-  # response = HTTParty.get(BASE_URL, query: query)
-  puts "Welcome to the Ada Slack CLI!"
-
-  # TODO project
-  # return response
+  puts"Welcome to the Ada Slack CLI!"
+  puts"Select an option by number:"
+  options_array=["List Channels","List Users","Quit"]
+  options_array.each_with_index{ |channel, index|
+    puts"#{index+1}.#{channel}"
+  }
+  
+  user_answer = gets.chomp.to_i
+  
+  while user_answer != 3
+    if user_answer == 1
+      # call list method
+      puts "this is answer 1"
+    elsif user_answer == 2
+      # call user method
+      puts "this is answer 2"
+    end
+    
+    puts "Select an option by number:"
+    options_array.each_with_index { |channel,index|
+      puts "#{index+1}.#{channel}"
+    }
+    user_answer = gets.chomp.to_i
+  end
   puts "Thank you for using the Ada Slack CLI"
 end
-
-puts main
 
 main if __FILE__ == $PROGRAM_NAME

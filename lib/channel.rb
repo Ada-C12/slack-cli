@@ -32,6 +32,6 @@ class Channel < Recipient
       channels_array << channel["name"]
     end
 
-    return channels_array
+    puts channels_array
   end
 end
