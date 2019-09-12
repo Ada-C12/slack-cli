@@ -19,7 +19,7 @@ Dotenv.load
 def main
   workspace = SlackBot::Workspace.new
   selected = workspace.selected
-  valid_inputs = ["list users", "list channels", "select user", "select channel", "quit"]
+  valid_inputs = ["list users", "list channels", "select user", "select channel", "details", "quit"]
   user_input = nil
   
   until valid_inputs.include?(user_input)
@@ -28,6 +28,7 @@ def main
     puts "List Channels"
     puts "Select User"
     puts "Select Channel"
+    puts "Details"
     puts "Quit"
     print "Selection: "
     user_input = gets.chomp.downcase
@@ -49,6 +50,14 @@ def main
       channel_criteria = gets.chomp
       workspace.select_channel(channel_criteria)
       user_input = nil
+    when "details"
+      if workspace.selected == nil
+        puts "No user or channel has been selected.".colorize(:red)
+        user_input = nil
+      else
+        workspace.details
+        user_input = nil
+      end
     when "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit

@@ -1,5 +1,6 @@
 require_relative 'channel'
 require_relative 'user'
+require 'table_print'
 
 module SlackBot
   class Workspace
@@ -44,7 +45,12 @@ module SlackBot
     end
     
     def details
-      
+      #tp @selected.class.all
+      if @selected.class == Channel
+        tp @selected, "slack_id", "name", "topic", "member_count"
+      else
+        tp @selected, "slack_id", "name", "real_name"
+      end
     end
     
     def send_message
