@@ -65,3 +65,54 @@ describe "show_details method" do
     expect(@workspace.show_details).must_be_kind_of String
   end
 end
+
+describe "send_message method" do
+  it "sends a message to the chosen channel" do
+    VCR.use_cassette("channels_list") do
+      @channel_array = Slack::Channel.list
+      @workspace = Slack::Workspace.new
+      body = {
+        token: ENV["SLACK_TOKEN"],
+        channel: "fuzzy_bunnies",
+        text: "hello from the other side",
+      }
+
+      @response = HTTParty.post(MESSAGE_URL, body: body)
+    end
+
+    expect(@response).must_be_kind_of HTTParty::Response
+  end
+
+  it "sends a message to the chosen user" do
+    VCR.use_cassette("users_list") do
+      @user_array = Slack::User.list
+      @workspace = Slack::Workspace.new
+      body = {
+        token: ENV["SLACK_TOKEN"],
+        channel: "UN69TR3N1",
+        text: "hello from the other side",
+      }
+
+      @response = HTTParty.post(MESSAGE_URL, body: body)
+    end
+
+    expect(@response).must_be_kind_of HTTParty::Response
+  end
+
+  it "returns the selected channel" do
+    VCR.use_cassette("message_post") do
+      body = {
+        token: ENV["SLACK_TOKEN"],
+        channel: "apis",
+        text: "hello from the other side",
+      }
+      @workspace = Slack::Workspace.new
+      @selected_channel = @workspace.select_channel("apis")
+      response = @workspace.send_message("APIs! Amiright?")
+
+      expect(response["ok"]).must_equal true
+    end
+
+    expect(@response).must_equal true
+  end
+end

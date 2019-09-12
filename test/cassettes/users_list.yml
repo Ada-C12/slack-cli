@@ -255,4 +255,77 @@ http_interactions:
         place for bear safety and tips.","creator":"UN69SEW21","last_set":1568172825},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":3},{"id":"CN85KGEJ3","name":"slack-cli","is_channel":true,"created":1568071832,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN85KFVNK","name_normalized":"slack-cli","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTG87PC2","UN69SEW21","UN69SF69K","UN69TR3N1","UN85KFVNK","UN85LNJMV"],"topic":{"value":"CLI","creator":"UN69TR3N1","last_set":1568151925},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":6}],"response_metadata":{"next_cursor":""}}'
     http_version: 
   recorded_at: Wed, 11 Sep 2019 20:54:38 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&channel=UN69TR3N1&text=hello%20from%20the%20other%20side
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '185'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Sep 2019 20:14:15 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - ac8518df-9ff6-4639-be09-2874ae9c4eae
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-j2wg
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 786d821259e050ebca76b8e357819f78.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - qE88MQ6mQQukLO-0TdD3gJMAIS5vi4ZzR7oWG2RvfHilpO5KXjJB4Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DN8FXLB8E","ts":"1568319255.000100","message":{"type":"message","subtype":"bot_message","text":"hello
+        from the other side","ts":"1568319255.000100","username":"Leaves - Nicky -
+        API Project","bot_id":"BN85QTQ8P"}}'
+    http_version: 
+  recorded_at: Thu, 12 Sep 2019 20:14:15 GMT
 recorded_with: VCR 5.0.0
