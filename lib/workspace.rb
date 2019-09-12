@@ -39,6 +39,14 @@ class Workspace
   end
   
   def send_message
-    
+    channel = @selected.slack_id
+    message = gets.chomp
+    @selected.send_message(message, channel)
   end
+end
+
+workspace = Workspace.new
+workspace.select_channel('general')
+if workspace.send_message == false
+  puts "error"
 end
