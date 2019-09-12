@@ -152,16 +152,17 @@ class Workspace
     when "F", "DETAILS"
       puts "SHOWING DETAILS"
       
-      
-      puts show_all_recipients(array_of_recipient_objs:[@entity], enumerate: false)
       begin
         unless (entity.class == User) || (entity.class == Channel)
           raise ArgumentError.new("No user or channel selected")
         end
+        puts show_all_recipients(array_of_recipient_objs:[@entity], enumerate: false)
       rescue => exception
         puts exception.message
       end
+
       
+
     when "Q", "QUIT"
       puts "k bye"
       exit
