@@ -25,21 +25,19 @@ class User < Recipient
   
   def self.printed_users_list
     users_array = []
+    binding.pry
     self.list["members"].each do |member|
       users_array << {"User Name" => member["name"],"Real Name" => member["real_name"],"Slack ID"=> member["id"]}
     end
     puts users_array
   end
 
-  def self.select_user(desired_person)
-
+  def self.select_user_details(desired_person)
     self.printed_users_list.each do |user|
       if user["User Name"] == desired_person
-        return desired_person
+        puts user
       elsif user["Slack ID"] == desired_person
-        return desired_person
-      else
-        return nil
+        puts user
       end
     end
   end

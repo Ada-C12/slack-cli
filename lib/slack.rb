@@ -22,14 +22,14 @@ def main
     elsif user_answer == 2
       User.printed_users_list
     elsif user_answer == 3
-      # User.printed_users_list
-      # puts "Please enter a username or Slack ID"
-      # desired_name = gets.chomp
-      # if User.printed_users_list.include?(desired_name)
-      #   return details on desired_name NEW METHOD
-      # else
-      #   puts "That username or Slack ID is invalid"
-      # end
+      User.printed_users_list
+      puts "Please enter a username or Slack ID:"
+      desired_person = gets.chomp
+      if User.printed_users_list.include?(desired_person)
+        return User.select_user_details(desired_person)
+      else
+        puts "That username or Slack ID is invalid"
+      end
     elsif user_answer == 4      
       # Channel.printed_users_list
       # puts "Please enter a channel name or Slack ID"
