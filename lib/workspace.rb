@@ -5,7 +5,6 @@ require 'httparty'
 require 'dotenv'
 require 'pry'
 
-
 Dotenv.load
 
 class Workspace < Recipient
@@ -24,12 +23,10 @@ class Workspace < Recipient
   end
 
   def get_users
-    
     response = self.get(BASE_URL + "users.list", query: QUERY)
-    binding.pry
 
     users = response["members"].map do |member|
-      self.new(member["id"], member["name"], member["real_name"])
+      User.new(member["id"], member["name"], member["real_name"])
     end
 
     return users
@@ -40,16 +37,19 @@ class Workspace < Recipient
     response = self.get(BASE_URL + "channels.list", query: QUERY)
 
     channels = response["channels"].map do |channel|
-      self.new(channel["id"], channel["name"], channel["topic"], channel["num_members"])
+      Channel.new(channel["id"], channel["name"], channel["topic"]["value"], channel["num_members"])
     end
 
     return channels
 
   end
 
-
   def display_users
     return tp @users, :id, :name, :real_name
+  end
+
+  def display_channels
+    return tp @channels, :id, :name, :topic, :member_count
   end
 
   def select_channel

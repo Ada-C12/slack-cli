@@ -16,7 +16,7 @@ def main
   if user_input == "list users"
     workspace.display_users
   elsif user_input == "list channels"
-    # returns details of each channel
+    workspace.display_channels
   elsif user_input == "quit"
     exit
   end
