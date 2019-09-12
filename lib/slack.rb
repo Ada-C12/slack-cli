@@ -12,29 +12,35 @@ require_relative 'slackapierror.rb'
 require_relative 'workspace.rb'
 
 
-# THESE ARE THE 3 THINGS WE'RE ALLOWED TO DO ON THIS API
-# chat:write:bot
-# channels:read
-# users:read
+
+
 
 def main
   puts "\nWelcome to the Ada Slack CLI!\n\n"
   ws1 = Workspace.new
-  ''
-  # WS1.show menu => hash of choices
+  entity = nil
   
+  choices_hash = ws1.show_menu
+  main_menu = ws1.main_menu(headings: ["", "MAIN MENU"], rows_as_hash: choices_hash)
+  puts main_menu
   
-  choice_valid = false
-  while choice_valid == false
-    puts "MENU HERE: #{hash}"
-    print "choice =  "
+  quit_program = false
+  while quit_program == false 
+    print "Please select from main menu: "
     choice = gets.chomp()
     
-    choice = ws1.eval_choice(choice)
-    if approved
-      choice_valid = true
+    result = ws1.menu_action(choice)
+    if result
+      if (result.class == User) || (result.class == Channel)
+        ws1.entity = result
+      end
     end
+    
   end
+  
+
+
+  puts "OUT OF THE LOOP"
   
   
   

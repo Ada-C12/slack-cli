@@ -1,7 +1,7 @@
 require 'httparty'
 require 'awesome_print'
 require 'dotenv'
-### require table gem thing
+require 'terminal-table'
 
 
 Dotenv.load

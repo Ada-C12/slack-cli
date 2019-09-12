@@ -22,7 +22,7 @@ class Recipient
     raise NotImplementedError, "Do this either User or Channel"
   end
   
-  def self.list
+  def self.load_all
     raise NotImplementedError, "Do this either User or Channel"
   end
   
