@@ -17,9 +17,14 @@ module SlackCLI
     # add User to selected 
     # end
 
-    #def find_user(user_name_or_id)
-    #take in id or name
-    #end
+    def find_instance(recipient_list, name_or_id)
+      instance = recipient_list.find do |recipient|
+        recipient.name.downcase == name_or_id.downcase || 
+        recipient.slack_id.downcase == name_or_id.downcase        
+      end
+
+      return instance
+    end
 
     # def select_channel
     # end
