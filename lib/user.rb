@@ -15,8 +15,7 @@ class User
    raise ArgumentError.new "Wrong format for status initialization"
   end 
   @status_text = status_text
-  
-  #Verify here that status emoji contains : at the beginning and end of the string 
+
   if status_emoji[0] != ":" || status_emoji[-1] != ":"
    raise ArgumentError.new "Wrong format for emoji initialization"
   end 
