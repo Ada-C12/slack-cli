@@ -16,22 +16,25 @@ module Slack
     # end
     
     def self.list
-      #CHANNEL
-      # URL_CLASSES = "https://slack.com/api/conversations.list"
-      # response = HTTParty.get(URL_CLASSES, query: {token: ENV['SLACK_API_TOKEN']})
-      # p response
       response = Channel.get("https://slack.com/api/conversations.list")
-      
       channels = []
+      
       response["channels"].each do |channel|
-        
         channel_hash = {}
-        channel_hash[:channel_name] = channel["name"]
+        channel_hash[:slack_id] = channel["id"]
+        channel_hash[:name] = channel["name"]
         channel_hash[:topic] = channel["topic"]["value"]
         channel_hash[:member_count] = channel["num_members"]
-        channel_hash[:slack_id] = channel["id"]
         
         channels << channel_hash
+        
+        # channels << Channel.new(
+        #   slack_id = channel["id"],
+        #   name = channel["name"],
+        #   topic = channel["topic"]["value"],
+        #   member_count = channel["num_members"],
+        # )
+        
       end
       return channels
       #p channels

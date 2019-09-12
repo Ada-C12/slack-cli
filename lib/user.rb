@@ -14,12 +14,7 @@ module Slack
     def details
     end
     
-    def self.list
-      # USERS
-      # URL_USERS = "https://slack.com/api/users.list"
-      # response = HTTParty.get(URL_USERS, query: {token: ENV['SLACK_API_TOKEN']})
-      #p response
-      
+    def self.list      
       response = User.get("https://slack.com/api/users.list")
       users = []
       
@@ -33,8 +28,8 @@ module Slack
         users << user_hash
       end
       
+      #binding.pry
       return users
-      #p users
     end 
   end 
 end 

@@ -13,7 +13,7 @@ describe "Class User" do
 end 
 
 describe "method self.list" do 
-  it "is an instance of HTTParty" do
+  it "return an array" do
     VCR.use_cassette("user-info") do
       user_list = Slack::User.list
       expect(user_list).must_be_kind_of Array

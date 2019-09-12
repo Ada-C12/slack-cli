@@ -1,11 +1,14 @@
+require_relative "user"
+require_relative "channel"
+
 module Slack
   class Workspace
     attr_reader :users, :channels, :selected
     
-    def initialize(users, channels, selected)
-      @users = users
-      @channels = channels
-      @selected = selected
+    def initialize
+      @users = User.list
+      @channels = Channel.list
+      @selected = []
     end
     
     # def select_channel
@@ -19,7 +22,6 @@ module Slack
     
     # def send_message
     # end 
-    
   end 
 end
 

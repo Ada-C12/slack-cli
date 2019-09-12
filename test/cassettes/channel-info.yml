@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 11 Sep 2019 22:33:28 GMT
+      - Thu, 12 Sep 2019 21:45:21 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 660aba64-7929-445a-83e8-a3c5bc9768f0
+      - a44b9781-b7e2-4c98-83f1-d8aed6eccc0b
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-z6bk
+      - haproxy-www-sjev
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 7514e5e25722778fd4b1744d4ecc67e1.cloudfront.net (CloudFront)
+      - 1.1 786d821259e050ebca76b8e357819f78.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C1
       X-Amz-Cf-Id:
-      - wm_mcDbm4Ey9Ze7a250qK0KKofwXwQvzA2wg-xTTyfIlJBFa_krFvw==
+      - DEQcwjiE16knJWy1qx3A1NgZopTr3nAnmf-akKXqXx3f2kKKmdQj3g==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CMUR2JTNX","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1568071183,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UN5R273J8","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN69AJ2SU"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
@@ -80,5 +80,5 @@ http_interactions:
         channel is for workspace-wide communication and announcements. All members
         are in this channel.","creator":"UN5R273J8","last_set":1568071183},"previous_names":[],"num_members":7}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Wed, 11 Sep 2019 22:33:28 GMT
+  recorded_at: Thu, 12 Sep 2019 21:45:21 GMT
 recorded_with: VCR 5.0.0
