@@ -66,8 +66,9 @@ module Slack
       return true
     end
     
-    #def show_selected_details
-    # end
+    def set_profile_info(user_name, status_emoji)
+      
+    end
     
   end
 end

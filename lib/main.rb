@@ -12,7 +12,7 @@ def main
   should_continue = true
   
   while should_continue
-    puts "Welcome to Slack! Please choose one of the following? \n1. list users \n2. list channels \n3. select user\n4. select channel\n5. details\n6. send message\n7. quit"
+    puts "Welcome to Slack! Please choose one of the following? \n1. list users \n2. list channels \n3. select user\n4. select channel\n5. details\n6. send message\n7. set profile information\n8. quit"
     input = gets.chomp.downcase
     
     case input
@@ -56,7 +56,9 @@ def main
         message = gets.chomp
         workspace.send_message(message)
       end
-    when "7", "quit"
+    when "7", "set profile information"
+      
+    when "8", "quit"
       puts "Goodbye!"
       should_continue = false
     else
