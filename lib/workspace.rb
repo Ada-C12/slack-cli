@@ -8,7 +8,9 @@ require_relative "user"
 
 class Workspace
   TOKEN = ENV["SLACK_TOKEN"]
-
+  
+  attr_accessor :users, :channels #added these in order to access/update them
+  
   def initialize
     @channel_url = "https://slack.com/api/conversations.list"
     @user_url = "https://slack.com/api/users.list"
@@ -17,27 +19,52 @@ class Workspace
     @users = get_users
     @channels = get_channels
   end
-
+  
   def get_users
     User.load_all(@user_url, TOKEN)
   end
-
+  
   def get_channels
     Channel.load_all(@channel_url, TOKEN)
   end
-
-  def find_by_id(id)
+  
+  def find_by_id_or_name(recipient_type, search_arg)
+    # verifies that the Recipient is either a User or a Channel
+    # might want to move this validation into the slack.rb file
+    if recipient_type != @users && recipient_type != @channels
+      raise ArgumentError, "Recipient must be either a user or a channel."
+    end
+    
+    # finds the recipient using the search_arg
+    # search_arg could be a name or an id, either way works!
+    recipient = recipient_type.find do |recipient|
+      recipient.id == search_arg || recipient.name == search_arg
+    end
+    
+    # raises arg error if the recipient isn't found by either name or id
+    if recipient == nil
+      raise ArgumentError, "Recipient not found."
+    end
+    
+    return recipient
   end
-
+  
+  def select_user(id)
+    User.set_as_recipient(id)
+  end
+  def select_channel(id)
+    Channel.set_as_recipient(id)
+  end
+  
   def list_users
     user_list = HTTParty.get(@user_url, query: { token: TOKEN })
     user_list["members"].map do |user|
       "ID: #{id = user["id"]}
       Username: #{username = user["name"]}
-       Name: #{real_name = user["real_name"]}"
+      Name: #{real_name = user["real_name"]}"
     end
   end
-
+  
   def list_channels
     channel_list = HTTParty.get(@channel_url, query: { token: TOKEN })
     channel_list["channels"].map do |channel|
