@@ -90,21 +90,19 @@ module Slack
 
     def show_details(selected_receiver)
       details = ''''
-      if @selected.class == Slack::User
-        details = details + "Username: #{selected.username}, Real name: #{selected.real_name}, Slack ID: #{selected.slack_id}"
+      if selected_receiver.class == Slack::User
+        details = details + "Username: #{@selected.username}, Real name: #{@selected.real_name}, Slack ID: #{@selected.slack_id}"
+        return details
+      elsif selected_receiver.class == Slack::Channel
+        details = details + "Channel name: #{@selected.channel_name}, Topic: #{@selected.topic}, Member count: #{@selected.member_count}, Slack ID: #{@selected.slack_id}"
+        return details
       end
-      return details
-      # it will print User.username, User.real_name, User.slack_id
-      
-      
-      # if the selected is a Channel object
-      # it will print the Channel.channel_name, Channel.topic, Channel.member_count,
-      # & Channel.slack_id
     end
 
-    # def send_message
+
+    def send_message
       # code
-    # end
+    end
 
   end 
 end 

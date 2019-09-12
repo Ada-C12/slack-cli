@@ -164,16 +164,7 @@ describe "Workspace" do
           workspace.print_channel_list
           expect(workspace.selected).must_be_nil
         end
-
-
-
-
-
       end
-
-
-
-
     end
   end
   
@@ -187,13 +178,20 @@ describe "Workspace" do
           @selected = workspace.users[0]
         end
         expect(workspace.show_details(@selected)).must_be_kind_of String
+        expect(@selected).must_be_instance_of Slack::User
       end
-
     end
 
     describe ".show_details for channel" do
       it "will print the details of the selected channel" do
-        # 
+        workspace = Slack::Workspace.new
+        VCR.use_cassette("workspace_channel") do 
+          workspace.channel_list
+          workspace.search("channel", "random")
+          @selected = workspace.channels.last
+        end
+        expect(workspace.show_details(@selected)).must_be_kind_of String
+        expect(@selected).must_be_instance_of Slack::Channel
       end
     end
 

@@ -11,7 +11,6 @@ def main
   workspace = Slack::Workspace.new
   workspace.user_list
   workspace.channel_list
-  p workspace.channels
   
   puts "Darn Cute Puppers has #{workspace.users.count} users and #{workspace.channels.count} channels."
 
@@ -48,7 +47,6 @@ def main
           puts "User found. Please select from the following options:
           Show Details
           Send Message"
-          # take user input and call show_details 
           selected_command = gets.chomp.downcase
           if selected_command == "show details"
             puts workspace.show_details(search_result)
@@ -66,26 +64,57 @@ def main
           puts "User found. Please select from the following options:
           Show Details
           Send Message"
+          selected_command = gets.chomp.downcase
+          if selected_command == "show details"
+            puts workspace.show_details(search_result)
+            break
+          end
         end
       else
-        puts "Invalid input. Returnng to main menu..."
+        puts "Invalid input. Returning to main menu..."
         puts prompt
       end
-  
-      # if @selected = nil, let customer know and return to main
-      # if @selected !=nil , display details and message
-      
-
-      # when "select channel"
-      #   # code
-      #   # if user selects a channel, search for that channel,
-      #   # if channel not found output a message to user and return to main menu
-      #   # if channel found, display "do you want to see details or send message or go back to the main menu?"
-      #   # if user selects either option, do that command,
-      #   # exit program
-      #   search (channel, name)
-      # when "show details"
-      #   # code
+    when "select channel"
+      puts "Would you like to search for a channel by channel name or id?"
+      search_channel_choice = gets.chomp.downcase
+      if search_channel_choice == "channel name"
+        puts "Please enter the channel name: "
+        channel_name = gets.chomp.downcase
+        search_result = workspace.search("channel", channel_name)
+        if search_result == nil
+          puts "Channel not found. Returning to main menu..."
+          puts prompt
+        else
+          puts "Channel found. Please select from the following options:
+          Show Details
+          Send Message"
+          selected_command = gets.chomp.downcase
+          if selected_command == "show details"
+            puts workspace.show_details(search_result)
+            break
+          end
+        end
+      elsif search_channel_choice == "id"
+        puts "Please enter the channel's slack id: "
+        slack_id = gets.chomp.upcase
+        search_result = workspace.search("channel", slack_id)
+        if search_result == nil
+          puts "Channel not found. Returning to main menu..."
+          puts prompt
+        else
+          puts "Channel found. Please select from the following options:
+          Show Details
+          Send Message"
+          selected_command = gets.chomp.downcase
+          if selected_command == "show details"
+            puts workspace.show_details(search_result)
+            break
+          end
+        end
+      else
+        puts "Invalid input. Returning to main menu..."
+        puts prompt
+      end
     else
       puts "Error: Invalid selection. Returning to main menu...."
       puts prompt
