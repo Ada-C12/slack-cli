@@ -24,6 +24,9 @@ module SlackCLI
   
       return users
     end
+
+    # def details
+    # end
     
   end
 end

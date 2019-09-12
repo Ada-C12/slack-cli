@@ -19,5 +19,16 @@ module SlackCLI
       return response
     end
 
+    # def send_message(message)
+    # end
+
+    def details
+      raise NotImplementedError.new("Details should be implemented in child class")
+    end
+
+    def self.list
+      raise NotImplementedError.new("Self.list should be implemented in child class")
+    end
+
   end
 end
