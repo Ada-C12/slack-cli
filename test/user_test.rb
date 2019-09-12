@@ -2,7 +2,7 @@ require_relative 'test_helper'
 require 'pry'
 
 describe "User class" do
-     BASE_URL = "https://slack.com/api/users.list"
+    BASE_URL = "https://slack.com/api/users.list"
     TOKEN = ENV["SLACK_TOKEN"]
   before do
  
@@ -14,7 +14,7 @@ describe "User class" do
   it "can create an instance" do
     VCR.use_cassette("user_list_generation") do
       
-      @response = HTTParty.get(BASE_URL, query: @query)
+      # @response = HTTParty.get(BASE_URL, query: @query)
 
       id = "USLACKBOT"
       name = "slackbot"

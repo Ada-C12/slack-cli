@@ -8,11 +8,10 @@ Dotenv.load
 
 class User < Recipient
   BASE_URL = "https://slack.com/api/users.list"
-    TOKEN = ENV["SLACK_TOKEN"]
+  TOKEN = ENV["SLACK_TOKEN"]
   
-    QUERY = {
-    token: TOKEN
-    }
+  QUERY = {
+    token: TOKEN}
   
   attr_reader :id, :name, :real_name
   
@@ -21,25 +20,25 @@ class User < Recipient
     @real_name = real_name
   end
 
-  def self.list #list of users
+  # def self.list #list of Users
     
-    response = self.get(BASE_URL, query: QUERY)
+    
 
-    # iterate through response["members"]
-    response["members"].map do |member|
-      self.new(member["id"], member["name"], member["real_name"])
-    end
-    # return response
-  end
+  #   # iterate through response["members"]
+   
+  #   end
+  #   return users
+  # end
 
   def details
-    p "ID: #{id}"
-  #  tp User.all
+    # p "ID: #{id}"
+  #  tp User.list
   end
+  # binding.pry
+
 
 end
 
-# user = User.new("USLACKBOT", "slackbot", "Slackbot" )
-# user.details
+
 
 

@@ -6,11 +6,9 @@ class Recipient
     @name = name
   end
 
-  def send_message(message)
-  end
 
 
-  def self.get(url, query)
+  def get(url, query)
     return HTTParty.get(url, query)
   end
 
