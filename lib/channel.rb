@@ -23,4 +23,9 @@ class Channel < Recipient
     end
     return channels_list
   end
+
+  def details
+    return {slack_id: @slack_id, name: @name, topic: @topic, member_count: @member_count}
+  end
+
 end

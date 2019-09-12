@@ -77,6 +77,37 @@ describe "Channel" do
       end
     end
   end
+
+  describe "details" do
+    it "returns a hash of details" do
+      VCR.use_cassette("channel") do
+        topic = {
+          "value" => "",
+          "creator" => "",
+          "last_set" => 0
+        }
+        random = Channel.new("UN8GKRXK8", "Random", topic, 3)
+        expect(random.details).must_be_kind_of Hash
+      end
+    end
+
+    it "returns accurate information" do
+      VCR.use_cassette("channel") do
+        topic = {
+          "value" => "",
+          "creator" => "",
+          "last_set" => 0
+        }
+        random = Channel.new("UN8GKRXK8", "Random", topic, 3)
+
+        result = random.details
+        expect(result[:slack_id]).must_equal "UN8GKRXK8"
+        expect(result[:name]).must_equal "Random"
+        expect(result[:topic]).must_equal topic
+        expect(result[:member_count]).must_equal 3
+      end
+    end
+  end
 end
 
     
