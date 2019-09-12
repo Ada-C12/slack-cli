@@ -9,4 +9,12 @@ class Recipient
     @id = id
     @name = name
   end
+
+  def self.load_all(url, token)
+    recipients = HTTParty.get(url, query: { token: token })
+    all_recipients = recipients.map do |recipient|
+      recipient = new(recipient["id"], recipient["name"])
+    end
+    return all_recipients
+  end
 end
