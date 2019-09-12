@@ -1,3 +1,4 @@
+require 'httparty'
 
 module Slack
   class SlackApiError < StandardError; end
@@ -40,7 +41,7 @@ module Slack
     end
     
     def self.get(url, params)
-      response = HTTParty.get(url, query: params)
+      return HTTParty.get(url, query: params)
     end
     
     def self.list

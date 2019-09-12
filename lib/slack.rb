@@ -11,12 +11,10 @@ def main
     
     if user_choice == "1"
       
-      user.list 
-      # call upon list of users from user.list
+      puts user.list 
+      #call upon list of users from user.list
       #provide this numerical list to the user 
-      # they'll select from the list - workspace.select_user
-      
-      
+      #they'll select from the list - workspace.select_user
       
       puts "Do you want to:"
       puts "1) See details\n 2) Send a message to the user"
