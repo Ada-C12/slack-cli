@@ -25,19 +25,20 @@ def main
       choice = gets.chomp.downcase
     end
 
-    if choice == "list users"
+    case choice
+    when "list users"
       tsu.list_users
-    elsif choice == "list channels"
+    when "list channels"
       tsu.list_channels
-    elsif choice == "select user"
+    when "select user"
       print "Please select a user (by Slack ID or Display Name): "
       user_chosen = gets.chomp
       if [tsu.user_menu].include?(user_chosen)
         selected = user_chosen
       else
-        print "Sorry. Invalid selection."
+        print "\nSorry. Invalid selection."
       end
-    elsif choice == "select channel"
+    when "select channel"
       print "Please select a channel (by Slack ID or Name): "
       channel_chosen = gets.chomp
       if [tsu.channel_menu].include?(channel_chosen)
@@ -45,12 +46,12 @@ def main
       else
         print "Sorry. Invalid selection."
       end
-    elsif choice == "show details"
+    when "show details"
       if selected == nil
-        puts "No user or channel chosen."
+        puts "\nNo user or channel chosen."
       end
       tsu.print_details(selected)
-    elsif choice == "quit"
+    when "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit
     end

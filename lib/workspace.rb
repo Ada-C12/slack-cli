@@ -73,11 +73,16 @@ module SlackCLI
     end
 
     def print_details(selected)
-      if selected.class == User
-      elsif selected.class == Channel
-      elsif selected.class == nil
-        
-
+      @users.each do |user|
+        if user.slack_id == selected || user.name == selected
+          return user
+        end
+      end
+      @channels.each do |channel|
+        if channel.slack_id == selected || channel.name == selected
+          return channel
+        end
+      end
     end
   end
 end
