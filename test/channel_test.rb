@@ -43,7 +43,19 @@ describe "Channel" do
         
       end
     end
-    
+  end
+  
+  describe "details" do
+    it "prints correct details for a channel" do
+      VCR.use_cassette("load_users") do
+        channels = Channel.get
+        result = channels[0].details
+        
+        expect(result).must_be_kind_of String
+        expect(result.length).must_equal 126
+        
+      end
+    end
   end
   
   

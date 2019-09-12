@@ -22,9 +22,11 @@ def main
   until input == "quit" do
     
     if input == "list channels"
-      tp Channel.list 
+      Channel.list 
     elsif input == "list users"
-      tp User.list
+      User.list
+    elsif input == "select user"
+      
     end
     
     input = gets.chomp

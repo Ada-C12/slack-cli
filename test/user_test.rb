@@ -49,4 +49,18 @@ describe "User" do
     
   end
   
+  describe "details" do
+    it "prints correct details for user" do
+      VCR.use_cassette("load_users") do
+        users = User.get
+        result = users[0].details
+        
+        expect(result).must_be_kind_of String
+        expect(result.length).must_equal 104
+        
+      end
+    end
+    
+  end
+  
 end

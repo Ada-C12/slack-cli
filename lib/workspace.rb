@@ -35,7 +35,7 @@ class Workspace
   end
   
   def show_details
-    
+    @selected.details 
   end
   
   def send_message

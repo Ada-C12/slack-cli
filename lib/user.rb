@@ -3,8 +3,6 @@ require_relative 'recipient'
 
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
-  URL = "https://slack.com/api/users.list"
-  KEY = ENV['SLACK_API_TOKEN']
   
   def initialize(slack_id, name, real_name, status_text, status_emoji)
     
@@ -17,11 +15,7 @@ class User < Recipient
   end
   
   def self.get
-    query_param = {
-      token: KEY
-    }
-    response = HTTParty.get(URL, query: query_param )
-    
+    response = super.find { |response| response["members"] }
     users = []
     response["members"].each do |member|
       
@@ -39,7 +33,11 @@ class User < Recipient
   end
   
   def details
-    
+    return "User name: #{name}
+    Slack_ID: #{slack_id}
+    Real Name: #{real_name}
+    Status Text: #{status_text}
+    Status Emoji: #{status_emoji}"
   end
   
   def self.list

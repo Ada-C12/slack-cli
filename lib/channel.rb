@@ -1,11 +1,9 @@
 require 'httparty'
 require_relative 'recipient'
+require 'table_print'
 
 class Channel < Recipient
   attr_reader :topic, :member_count
-  
-  URL = "https://slack.com/api/conversations.list"
-  KEY = ENV['SLACK_API_TOKEN']
   
   def initialize(slack_id, name, topic, member_count)
     super(slack_id, name)
@@ -14,11 +12,7 @@ class Channel < Recipient
   end
   
   def self.get
-    query_param = {
-      token: KEY
-    }
-    response = HTTParty.get(URL, query: query_param)
-    
+    response = super.find { |response| response["channels"] } 
     channels = []
     response["channels"].each do |channel|
       
@@ -36,7 +30,10 @@ class Channel < Recipient
   end
   
   def details
-    
+    return "Channel name: #{name}
+    Slack_ID: #{slack_id}
+    Topic: #{topic}
+    Member Count: #{member_count}"
   end
   
   def self.list
