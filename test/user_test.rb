@@ -31,8 +31,13 @@ describe "User" do
       end
     end
     
-    it "returns an instance of an Array" do
+    it "returns an Array" do
       expect(@new_users).must_be_kind_of Array
+    end
+    
+    it "returns an array of User Instances" do
+      expect(@new_users.first).must_be_kind_of SlackBot::User
+      expect(@new_users.last).must_be_kind_of SlackBot::User
     end
   end
 end

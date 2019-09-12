@@ -24,10 +24,8 @@ module SlackBot
           topic: channel["topic"]["value"],
           member_count: channel["num_members"]
         )
-        
       end
-      # require "pry"
-      # binding.pry
+      
       return channel_list
     end
   end

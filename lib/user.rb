@@ -18,12 +18,11 @@ module SlackBot
       users = []
       
       response["members"].each do |member|
-        user = {}
-        user[:user_name] = member["name"]
-        user[:real_name] = member["real_name"]
-        user[:slack_id] = member["id"]
-        
-        users << user
+        users << User.new(
+          slack_id: member["id"],
+          name: member["name"],
+          real_name: member["real_name"]
+        )
       end
       
       return users

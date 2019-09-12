@@ -26,16 +26,19 @@ def main
     puts "\nPlease make a selection:\n- List Users\n- List Channels\n- Quit"
     print "Selection: "
     selection = gets.chomp.downcase
-  end 
-  
-  case selection
-  when "list users"
-  when "list channels"
-  when "quit"
-    puts "Thank you for using the Ada Slack CLI"
-    exit
+    
+    case selection
+    when "list users"
+      tp SlackBot::User.list
+      selection = nil
+    when "list channels"
+      tp SlackBot::Channel.list
+      selection = nil
+    when "quit"
+      puts "Thank you for using the Ada Slack CLI"
+      exit
+    end
   end
-  
 end
 
 main if __FILE__ == $PROGRAM_NAME
