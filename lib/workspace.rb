@@ -28,7 +28,7 @@ class Workspace
     elsif channel_ids.include?(input)
       @selected = @channels.find { |c| input == c.slack_id }
     else
-      raise ArgumentError.new "Argument must include valid name or id"
+      return nil
     end
     return @selected
   end
@@ -42,7 +42,7 @@ class Workspace
     elsif user_ids.include?(input)
       @selected = @users.find { |u| input == u.slack_id }
     else
-      raise ArgumentError.new "Argument must include valid name or id"
+      return nil
     end
     return @selected
   end

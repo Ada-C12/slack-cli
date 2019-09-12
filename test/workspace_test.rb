@@ -41,8 +41,8 @@ describe "Workspace" do
       expect(@workspace.select_channel(input: "CN5RT17J8")).must_be_instance_of Channel
     end
 
-    it "raises exception if no name or id provided" do
-      expect{ @workspace.select_channel }.must_raise ArgumentError
+    it "returns nil if no valid name or id provided" do
+      expect(@workspace.select_channel).must_be_nil
     end
   end
   
@@ -55,8 +55,8 @@ describe "Workspace" do
       expect(@workspace.select_user(input: "USLACKBOT")).must_be_instance_of User
     end
 
-    it "raises exception if no name or id provided" do
-      expect{ @workspace.select_user }.must_raise ArgumentError
+    it "returns nil if no name or id provided" do
+      expect(@workspace.select_user).must_be_nil
     end
   end
 
