@@ -16,6 +16,7 @@ module Slack
       @topic = topic
       @member_count = member_count
     end
+    
     def self.channels_list
       channels = []
       response = HTTParty.get("#{CHANNEL_URI}/channels.list", query: {token: CHANNEL_KEY}) 
