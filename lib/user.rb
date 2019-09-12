@@ -24,7 +24,7 @@ module Slack
         id =  member["id"]
         real_name = member["real_name"]
         user = Slack::User.new(name, id, real_name)  
-        users  << user  
+        users << user  
       end
       return users
     end

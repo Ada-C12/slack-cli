@@ -2,6 +2,7 @@
 require "httparty"
 require "awesome_print"
 require "colorize"
+require "table_print"
 require_relative "workspace"
 
 def main
@@ -17,28 +18,28 @@ def main
   \n6. Send Message
   \n7. Quit".colorize(:color => :blue, :mode => :bold)
   
-  option = gets.chomps.upcase
+  option = gets.chomp.downcase
   
-  until option == "QUIT"
-    if option == "List Users"
-      return @workspace.users
-    elsif option == "List Channels"
+  while option != "quit"
+    if option == "list users"
+      puts @workspace.users
+    elsif option == "list channels"
       return @workspace.channels
-    elsif option == "Select User"
+    elsif option == "select user"
       return @workspace.select_user(option)
-    elsif option == "Select Channel"
+    elsif option == "select channel"
       return @workspace.select_channel(option)
-    elsif option == "Details"
+    elsif option == "details"
       return @workspace.show_details
-      
-      main 
+    elsif main 
+    else 
+      option == "quit"
       puts "Good Bye"
-      break 
+      exit 
     end
-    
-    
-    puts "Thank you for using the Ada Slack CLI"
   end
   
-  main if __FILE__ == $PROGRAM_NAME
+  puts "Thank you for using the Ada Slack CLI"
   
+end
+main if __FILE__ == $PROGRAM_NAME
