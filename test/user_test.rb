@@ -55,6 +55,16 @@ describe "User" do
         expect(natalie.details).must_be_kind_of Hash
       end
     end
+
+    it "returns accurate information" do
+      VCR.use_cassette("user") do
+        natalie = User.new("UN8GKRXK8", "Natalie Tapias", "natalie")
+        result = natalie.details
+        expect(result[:slack_id]).must_equal "UN8GKRXK8"
+        expect(result[:real_name]).must_equal "natalie"
+        expect(result[:name]).must_equal "Natalie Tapias"
+      end
+    end
   end
 end
 
