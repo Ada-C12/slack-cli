@@ -2,7 +2,9 @@
 
 require_relative 'workspace'
 
-COMMANDS = ['list users', 'list channels', 'select user', 'select channel', 'details', 'quit']
+COMMANDS = ['list users', 'list channels', 'select user', 'select channel',
+            'details', 'send message', 'quit']
+            
 SEARCH_KEYS = ['name', 'id']
 
 def show_commands
@@ -61,6 +63,9 @@ def main
       
     when 'details'
       workspace.show_selected
+
+    when 'send message'
+      workspace.send_message
     end
   end
   

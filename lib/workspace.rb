@@ -42,7 +42,7 @@ class Workspace
       message = gets.chomp
       selected.send_message(message)
     else
-      puts "No recipient selected"
+      puts "No recipient selected\n\n"
       return false
     end
   end
