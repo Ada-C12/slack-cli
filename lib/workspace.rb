@@ -19,23 +19,34 @@ class Workspace
       puts
     end
   end
-
+  
   def select_user name: nil, slack_id: nil
     @selected = find_recipient list: users, name: name, slack_id: slack_id
   end
-
+  
   def select_channel name: nil, slack_id: nil
     @selected = find_recipient list: channels, name: name, slack_id: slack_id
   end
   
   def find_recipient(list:, name: nil, slack_id: nil)
     raise ArgumentError unless name || slack_id
-
+    
     return list.find do |recipient| 
       name ? recipient.name == name : recipient.slack_id == slack_id  
     end 
   end
-
+  
+  def send_message
+    if selected
+      puts "Please enter message to send to #{selected.name}: "
+      message = gets.chomp
+      selected.send_message(message)
+    else
+      puts "No recipient selected"
+      return false
+    end
+  end
+  
   def show_selected
     puts selected ? selected.details : "No recipient was selected"
     puts

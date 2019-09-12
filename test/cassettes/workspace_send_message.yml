@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_KEY>&text=hello&channel=UN8G3G4VC
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Sep 2019 21:31:12 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - fc823f9e-97ca-4c04-880f-1c20867bf283
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-kftm
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 078ca3a7cfdee29c8e3514176205c50a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19
+      X-Amz-Cf-Id:
+      - ypW0ofXJRvL_tUTgNyZAG5RuTF_aEp-jmudaUN0phAESh9Kx2DURxA==
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"DN69ZM5V3","ts":"1568323872.000100","message":{"type":"message","subtype":"bot_message","text":"hello","ts":"1568323872.000100","username":"Branches
+        - Eve - API Project","bot_id":"BN6A55G5T"}}'
+    http_version: 
+  recorded_at: Thu, 12 Sep 2019 21:31:12 GMT
+recorded_with: VCR 5.0.0

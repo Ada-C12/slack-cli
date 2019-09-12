@@ -29,19 +29,19 @@ describe Workspace do
       @user_name = "calopter"
       @user_id = "UN8G3G4VC"
       @users = @workspace.users
-
+      
       @channel_name = "random"
       @channel_id = "CMURJLBUK"
       @channels = @workspace.channels
     end
-
+    
     it 'sets @selected to the found channel' do
       @workspace.select_channel name: @channel_name
       channel = @workspace.find_recipient(list: @channels, name: @channel_name)
       
       expect(@workspace.selected).must_equal channel
     end
-
+    
     it 'sets selected to nil if no channel found' do
       @workspace.select_channel name: "TOFU"
       
@@ -54,15 +54,15 @@ describe Workspace do
       @user_name = "calopter"
       @user_id = "UN8G3G4VC"
       @users = @workspace.users
-   end
-
+    end
+    
     it 'sets @selected to the found user' do
       @workspace.select_user name: @user_name
       user = @workspace.find_recipient(list: @users, name: @user_name)
       
       expect(@workspace.selected).must_equal user
     end
-
+    
     it 'sets selected to nil if no user found' do
       @workspace.select_user name: "TOFU"
       
@@ -71,7 +71,22 @@ describe Workspace do
   end
   
   describe '#send_message' do
+    before do    
+      @user_name = "calopter"
+      @user_id = "UN8G3G4VC"
+    end
     
+    it "sends a message if a recipient is selected and returns true" do
+      VCR.use_cassette('workspace_send_message') do
+        @workspace.select_user name: @user_name
+        
+        expect (@workspace.send_message).must_equal true
+      end
+    end
+    
+    it "returns false if no recipient selected" do
+      expect (@workspace.send_message).must_equal false
+    end
   end
   
   describe "#find_recipient" do
@@ -79,7 +94,7 @@ describe Workspace do
       @user_name = "calopter"
       @user_id = "UN8G3G4VC"
       @users = @workspace.users
-
+      
       @channel_name = "random"
       @channel_id = "CMURJLBUK"
       @channels = @workspace.channels
@@ -89,7 +104,7 @@ describe Workspace do
       
       expect (user).must_be_instance_of User
       expect (user.slack_id).must_equal @user_id
-
+      
       user = @workspace.find_recipient(list: @users, slack_id: @user_id)
       
       expect (user).must_be_instance_of User
@@ -101,13 +116,13 @@ describe Workspace do
       
       expect (channel).must_be_instance_of Channel
       expect (channel.slack_id).must_equal @channel_id
-
+      
       channel = @workspace.find_recipient(list: @channels, slack_id: @channel_id)
       
       expect (channel).must_be_instance_of Channel
       expect (channel.name).must_equal @channel_name
     end
-
+    
     it "raises ArgumentError if both name and slack id aren't provided" do
       expect {@workspace.find_recipient(list: [])}.must_raise ArgumentError
     end
