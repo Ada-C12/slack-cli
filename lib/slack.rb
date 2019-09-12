@@ -35,15 +35,17 @@ def main
       puts workspace.print_channel_list
       break
     when "select users" 
-      # code
-      name = gets.chomp
-      search (user, name)
-      # ask the user to enter a username OR slack id
-      # completed: use the username/slack_id and iterate through a list of users in Workspace 
-      # completed: saved user to @selected inside workspace
+      puts "Please enter the username or slack id: "
+      user_query_term = gets.chomp
+      # TO-DO: how to handle username is downcase, slack id is upcase
+      # search(user, user_query_term)
       # if @selected = nil, let customer know and return to main
       # if @selected !=nil , display details and message
-    
+      
+      
+      # completed: use the username/slack_id and iterate through a list of users in Workspace 
+      # completed: saved user to @selected inside workspace
+
     when "select channels"
       # code
       # if user selects a channel, search for that channel,

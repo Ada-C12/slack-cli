@@ -80,22 +80,47 @@ describe "Workspace" do
 
   describe "Workspace select methods" do
     describe ".search users" do
-      it "will search through users and save that user to selected" do
+      it "will search through usernames and save that user to selected" do
         workspace = Slack::Workspace.new
         VCR.use_cassette("workspace_user") do 
           workspace.user_list
-          workspace.search("user", "Slackbot")
+          workspace.search("user", "slackbot")
         end
-        puts workspace.print_user_list
+        workspace.print_user_list
         expect(workspace.selected).must_be_instance_of Slack::User
-        expect(workspace.selected.username).must_equal "Slackbot"
+        expect(workspace.selected.username).must_equal "slackbot"
       end
 
-      # add test for bad name 
-      # add test for bad id
-      # add test for good id
-  
+      it "if username does not exist it will set the value of @selected to nil" do
+        workspace = Slack::Workspace.new
+        VCR.use_cassette("workspace_user") do 
+          workspace.user_list
+          workspace.search("user", "slackboot")
+        end
+        p workspace.print_user_list
+        expect(workspace.selected).must_be_nil
+      end
+      
+      it "will search through user slack_ids and save that user to selected" do
+        workspace = Slack::Workspace.new
+        VCR.use_cassette("workspace_user") do 
+          workspace.user_list
+          workspace.search("user", "USLACKBOT")
+        end
+        workspace.print_user_list
+        expect(workspace.selected).must_be_instance_of Slack::User
+        expect(workspace.selected.slack_id).must_equal "USLACKBOT"
+      end
 
+      it "if slack_id does not exist it will set the value of @selected to nil" do
+        workspace = Slack::Workspace.new
+        VCR.use_cassette("workspace_user") do 
+          workspace.user_list
+          workspace.search("user", "USLACKBOOT")
+        end
+        workspace.print_user_list
+        expect(workspace.selected).must_be_nil
+      end
 
     end
 
