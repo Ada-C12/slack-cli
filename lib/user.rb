@@ -31,4 +31,15 @@ class User < Recipient
     puts users_array
   end
 
+  def self.select_user(desired_person)
+
+    #if they choose name go to hash and return namex
+      #self.printed_users_list.each do |user|
+      #user["User Name"] == desired_person
+      return desired_person
+    #elsif they id go to hash and return id
+
+
+  end
+
 end
