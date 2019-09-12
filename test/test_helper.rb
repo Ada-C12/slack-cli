@@ -23,7 +23,7 @@ VCR.configure do |config|
   }
 
   config.filter_sensitive_data "<SLACK_TOKEN>" do 
-    ENV("SLACK_TOKEN")
+    ENV["SLACK_TOKEN"]
   end
 end
 

@@ -5,12 +5,12 @@ class Recipient
   def initialize (name:, slack_id:)
     
     if name.class != String
-      raise ArgumentError.new "wrong format for initiating name"
+      raise ArgumentError.new, "wrong format for initiating name"
     end
     @name = name
     
-    if slack_id.class != String
-      raise ArgumentError.new "wrong format for initiating id"
+    if slack_id.class != String 
+      raise ArgumentError.new, "wrong format for initiating id"
     end
     @slack_id = slack_id
     
