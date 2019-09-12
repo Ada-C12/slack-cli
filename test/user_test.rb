@@ -24,20 +24,19 @@ describe "self.list method should return correct values" do
 
   it "user_hash contains name" do 
     VCR.use_cassette("slack_details") do
-      expect(@user1.name).must_equal "Sara"
+      expect(@user1.list[1][:user_name]).must_equal "monick.keo"
     end 
   end 
 
   it "user_hash contains real name" do 
     VCR.use_cassette("slack_details") do
-      expect(@user1.real_name).must_equal "Monick"
+      expect(@user1.list[1][:real_name]).must_equal "monick.keo"
     end 
   end 
 
   it "user_hash contains id" do 
     VCR.use_cassette("slack_details") do
-      expect(@user1.id).must_equal "6"
-      expect(@user1.id).must_be_kind_of String
+      expect(@user1.list[1][:id]).must_equal "UN8JZT96J"
     end 
   end 
 
