@@ -65,10 +65,6 @@ class Channel < Recipient
     topics = self.get_topics
     all_channels = []
     
-    unless (ids.length == names.length) && (names.length == topics.length) && (topics.length == member_counts.length)
-      raise ArgumentError, "All the arrays should have same length!"
-    end
-    
     ids.length.times do |index|
       new_channel = Channel.new(name: names[index], id: ids[index], member_count:member_counts[index], topic:topics[index])
       all_channels << new_channel
