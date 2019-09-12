@@ -77,13 +77,18 @@ module Slack
           end
         end
         return @selected
+      elsif data_source == "channel"
+        @channels.each do |current_channel|
+          if current_channel.channel_name == query_term || current_channel.slack_id == query_term
+            @selected = current_channel
+            break
+          end
+        end
+        return @selected
       end
-
-      # add code for Channel
     end
 
     def show_details(selected_receiver)
-      # if selected is a User object
       details = ''''
       if @selected.class == Slack::User
         details = details + "Username: #{selected.username}, Real name: #{selected.real_name}, Slack ID: #{selected.slack_id}"

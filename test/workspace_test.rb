@@ -97,7 +97,7 @@ describe "Workspace" do
           workspace.user_list
           workspace.search("user", "slackboot")
         end
-        p workspace.print_user_list
+        workspace.print_user_list
         expect(workspace.selected).must_be_nil
       end
       
@@ -112,7 +112,7 @@ describe "Workspace" do
         expect(workspace.selected.slack_id).must_equal "USLACKBOT"
       end
 
-      it "if slack_id does not exist it will set the value of @selected to nil" do
+      it "if user slack_id does not exist it will set the value of selected to nil" do
         workspace = Slack::Workspace.new
         VCR.use_cassette("workspace_user") do 
           workspace.user_list
@@ -123,9 +123,52 @@ describe "Workspace" do
       end
 
       describe ".search channels" do
-        it "will search through channels and save that channel to selected" do
-  
+        it "will search through channel names and save that channel to selected" do
+          workspace = Slack::Workspace.new
+          VCR.use_cassette("workspace_channel") do 
+            workspace.channel_list
+            workspace.search("channel", "random")
+          end
+          workspace.print_channel_list
+          expect(workspace.selected).must_be_instance_of Slack::Channel
+          expect(workspace.selected.channel_name).must_equal "random"
         end
+
+        it "if channel name does not exist it will set the value of selected to nil" do
+          workspace = Slack::Workspace.new
+          VCR.use_cassette("workspace_channel") do 
+            workspace.channel_list
+            workspace.search("channel", "randomz")
+          end
+          workspace.print_channel_list
+          expect(workspace.selected).must_be_nil
+        end
+
+        it "will search through channel slack_ids and save that channel to selected" do
+          workspace = Slack::Workspace.new
+          VCR.use_cassette("workspace_channel") do 
+            workspace.channel_list
+            workspace.search("channel", "CN689KKBP")
+          end
+          workspace.print_channel_list
+          expect(workspace.selected).must_be_instance_of Slack::Channel
+          expect(workspace.selected.slack_id).must_equal "CN689KKBP"
+        end
+
+        it "if channel slack_id does not exist it will set the value of selected to nil" do
+          workspace = Slack::Workspace.new
+          VCR.use_cassette("workspace_channel") do 
+            workspace.channel_list
+            workspace.search("channel", "CN8888888")
+          end
+          workspace.print_channel_list
+          expect(workspace.selected).must_be_nil
+        end
+
+
+
+
+
       end
 
 
@@ -153,19 +196,6 @@ describe "Workspace" do
         # 
       end
     end
-    
+
   end
- 
-
-
-  
-
-
-
-
-
-    
-    
-    
-
 end

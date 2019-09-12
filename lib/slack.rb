@@ -11,6 +11,7 @@ def main
   workspace = Slack::Workspace.new
   workspace.user_list
   workspace.channel_list
+  p workspace.channels
   
   puts "Darn Cute Puppers has #{workspace.users.count} users and #{workspace.channels.count} channels."
 
