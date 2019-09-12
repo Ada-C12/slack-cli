@@ -213,7 +213,6 @@ describe "Workspace" do
         }.must_raise Slack::SlackApiError
         
         expect(exception.message).must_equal 'Error when posting This post should not work to invalid-channel, error: channel_not_found'
-      
       end
     end
     

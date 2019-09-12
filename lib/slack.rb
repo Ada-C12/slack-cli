@@ -92,6 +92,11 @@ def main
           if selected_command == "show details"
             puts workspace.show_details(search_result)
             break
+          elsif selected_command == "send message"
+            puts "What message do you want to send?"
+            message_body = gets.chomp
+            workspace.send_message(message_body, channel_name)
+            break
           end
         end
       elsif search_channel_choice == "id"
@@ -108,6 +113,11 @@ def main
           selected_command = gets.chomp.downcase
           if selected_command == "show details"
             puts workspace.show_details(search_result)
+            break
+          elsif selected_command == "send message"
+            puts "What message do you want to send?"
+            message_body = gets.chomp
+            workspace.send_message(message_body, slack_id)
             break
           end
         end
