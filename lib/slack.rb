@@ -2,17 +2,19 @@
 require 'httparty'
 require 'dotenv'
 require 'awesome_print'
-require_relative 'lib/user'
-require_relative 'lib/channel'
+require_relative './user'
+require_relative './channel'
 Dotenv.load('../.env')
+# require 'pry'
 
 KEY = ENV['KEY']
 
-CHANNELS_URL = "https://slack.com/api/channels.list"
-USERS_LIST = "https://slack.com/api/users.list"
+# CHANNELS_URL = "https://slack.com/api/channels.list"
+#  USERS_LIST = "https://slack.com/api/users.list"
 #CHAT_URL = "https://slack.com/api/chat.postMessage"
 
 def main
+  # binding.pry
   users = Slack::User.list_users
   channels = Slack::Channel.list_channels
   puts "Welcome to the Ada Slack CLI!"
