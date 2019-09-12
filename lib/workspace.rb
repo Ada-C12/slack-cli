@@ -73,7 +73,11 @@ module SlackCLI
     end
 
     def print_details(selected)
-      
+      if selected.class == User
+      elsif selected.class == Channel
+      elsif selected.class == nil
+        
+
     end
   end
 end
