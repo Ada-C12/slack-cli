@@ -1,12 +1,9 @@
 require_relative 'test_helper'
 
 describe 'class user' do
-  
+  let(:user){Slack::User.new(id: "USLACKBOT", name: "slackbot", real_name: "Slackbot", status_text: "Print is dead", status_emoji: ":books:")}
+
   describe 'initialize' do 
-    
-    let(:user){
-      Slack::User.new(id: "W012A3CDE", name: "spengler", real_name: "spengler", status_text: "Print is dead", status_emoji: ":books:")
-    }
     
     it 'creates a new instance of User' do
       expect(user).must_be_instance_of Slack::User
@@ -14,13 +11,13 @@ describe 'class user' do
     
     it 'accurately stores attributes' do
       expect(user.id).must_be_instance_of String
-      expect(user.id).must_equal "W012A3CDE"
+      expect(user.id).must_equal "USLACKBOT"
       
       expect(user.name).must_be_instance_of String
-      expect(user.name).must_equal "spengler"
+      expect(user.name).must_equal "slackbot"
       
       expect(user.real_name).must_be_instance_of String
-      expect(user.real_name).must_equal "spengler"
+      expect(user.real_name).must_equal "Slackbot"
       
       expect(user.status_text).must_be_instance_of String
       expect(user.status_text).must_equal "Print is dead"
@@ -29,8 +26,6 @@ describe 'class user' do
       expect(user.status_emoji).must_equal ":books:"
       
     end
-    
-    
   end
   
   describe 'self.list' do 
@@ -38,18 +33,32 @@ describe 'class user' do
       VCR.use_cassette("list_users") do
         list = Slack::User.list
         expect(list).must_be_instance_of Array 
-        
         list.each do |user|
           expect(user).must_be_instance_of Slack::User 
         end
-        
-        
       end
-      
     end
-    
-    
   end
-  
+
+  describe 'details' do
+    let(:result){user.details}
+
+    it 'returns a hash' do
+      expect(result).must_be_instance_of Hash
+    end
+
+    it 'returns a hash with length 5' do
+      expect(result.length).must_equal 5
+    end
+
+    it "accurately stores the current user's information" do
+      expect(result[:username]).must_equal 'slackbot'
+      expect(result[:id]).must_equal 'USLACKBOT'
+      expect(result[:real_name]).must_equal 'Slackbot'
+      expect(result[:status_text]).must_equal 'Print is dead'
+      expect(result[:status_emoji]).must_equal ':books:'
+    end
+
+  end
   
 end
