@@ -13,6 +13,18 @@ describe "Channel class" do
     end
   end
   
+  describe "get_message_history" do
+    it "Gets message history for a channel" do
+      VCR.use_cassette("channels") do
+        all_channels = SlackCLI::Channel.all
+        result = all_channels.first.get_message_history
+        
+        expect(result.code).must_equal 200
+        expect(result["ok"]).must_equal true
+      end
+    end
+  end
+  
   describe "Self.all method" do
     it "Returns a list of all channels" do
       VCR.use_cassette("channels") do

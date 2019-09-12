@@ -25,15 +25,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 12 Sep 2019 20:47:14 GMT
+      - Thu, 12 Sep 2019 23:20:28 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - ecbc14a8-dcdf-4f4f-8471-6f4fb302a24b
+      - 63ee54b9-9299-41e6-ac76-dce7ae1de0c8
       X-Oauth-Scopes:
-      - identify,channels:read,users:read,chat:write:bot
+      - identify,channels:history,im:history,channels:read,im:read,search:read,users:read,chat:write:bot
       Expires:
       - Mon, 26 Jul 1997 05:00:00 GMT
       Cache-Control:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-cxk3
+      - haproxy-www-vdbk
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 82ea95080f526df99896343fb7269b07.cloudfront.net (CloudFront)
+      - 1.1 fb1574d5a6ba2d77d2a656aba08aa3c3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C2
+      - SEA19
       X-Amz-Cf-Id:
-      - 4OGacAN0zcIqlhpSSdIc7H_WcNC6VU1Ha1vLu5h1-BPHnxn063gSxw==
+      - ZLNu1LGAmhkhU9w0kWL4Zg1Zx0-Mu_mAGukB1eIzU5Z07swBTxpS7Q==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CMUR2JTNX","name":"random","is_channel":true,"created":1568071183,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN5R273J8","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTG0S5D0","UMUR43REX","UMZSUVBED","UN5R273J8","UN5R3N6P6","UN5R3NYUU","UN69C37BJ"],"topic":{"value":"Non-work
@@ -80,5 +80,106 @@ http_interactions:
         channel is for workspace-wide communication and announcements. All members
         are in this channel.","creator":"UN5R273J8","last_set":1568071183},"previous_names":[],"num_members":7}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Thu, 12 Sep 2019 20:47:14 GMT
+  recorded_at: Thu, 12 Sep 2019 23:20:28 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.history?channel=CMUR2JTNX&limit=25&token=<SLACK_API_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '822'
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Sep 2019 23:20:28 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 25a7d51d-db91-4faf-bc0f-106c8476e7f6
+      X-Oauth-Scopes:
+      - identify,channels:history,im:history,channels:read,im:read,search:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:history,groups:history,mpim:history,im:history,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-x0x4
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 bbc0c6d660c6b9bfbf22053687e12fba.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19
+      X-Amz-Cf-Id:
+      - K3I3ETPdI3Dpfa4roRhrOQbrQ80jzXgqlTFPJoMYEizNhOzaTEoDpw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"messages":[{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568330348.000500","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568321235.000400","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568321181.000300","username":"T-Rex","icons":{"emoji":":t-rex:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f996.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568321083.000200","username":"T-Rex","icons":{"emoji":":t-rex:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f996.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568321009.000100","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568242399.002300","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568242326.002200","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568241517.002100","user":"USLACKBOT","username":"slackbot","icons":{"emoji":"::jack_o_lantern::"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568241481.002000","username":"Leaves - Dianna
+        - API Project","icons":{"emoji":"::"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568241458.001900","username":"dinobot","icons":{"emoji":":t-rex:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f996.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"will
+        this go through?","ts":"1568240526.001800","username":"Sabrina","icons":{"emoji":"nil"},"bot_id":"BN85KS74P"},{"type":"message","subtype":"bot_message","text":"will
+        this go through?","ts":"1568240515.001700","username":"Sabrina","icons":{"emoji":":t-rex:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f996.png"},"bot_id":"BN85KS74P"},{"type":"message","subtype":"bot_message","text":"will
+        this go through?","ts":"1568240503.001600","username":"Sabrina","icons":{"emoji":":leprechaun:"},"bot_id":"BN85KS74P"},{"type":"message","subtype":"bot_message","text":":poultry_leg:
+        :t-rex:","ts":"1568240426.001500","username":"Sabrina","icons":{"emoji":":leprechaun:"},"bot_id":"BN85KS74P"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568239748.001400","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568239337.001300","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568239206.001200","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"client_msg_id":"c05f1f48-7e5a-454c-a579-c172e69c0358","type":"message","text":"spacer
+        test","user":"UMUR43REX","ts":"1568239188.001100","team":"TN69AJ2SU"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568239173.000600","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568239026.000500","user":"USLACKBOT","username":"slackbot","icons":{"emoji":":pumpkin:"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568237849.000400","username":"Leaves - Dianna
+        - API Project","bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568237560.000300","username":"Leaves - Dianna
+        - API Project","bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I
+        can be sent to Pumpkin Spice!","ts":"1568237163.000200","username":"Leaves
+        - Dianna - API Project","bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I
+        can be sent to Pumpkin Spice!","ts":"1568237089.000100","username":"Leaves
+        - Dianna - API Project","bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"Change","ts":"1568225927.004400","username":"Leaves
+        - Tiffany - API Project","bot_id":"BMURAQX7D"}],"has_more":true,"pin_count":0,"response_metadata":{"next_cursor":"bmV4dF90czoxNTY4MjI1NzAzMDA0MTAw"}}'
+    http_version: 
+  recorded_at: Thu, 12 Sep 2019 23:20:28 GMT
 recorded_with: VCR 5.0.0

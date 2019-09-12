@@ -12,6 +12,18 @@ describe "User class" do
     end
   end
   
+  describe "get_message_history" do
+    it "Gets message history for a user" do
+      VCR.use_cassette("users") do
+        all_users = SlackCLI::User.all
+        result = all_users.first.get_message_history
+        
+        expect(result.code).must_equal 200
+        expect(result["ok"]).must_equal true
+      end
+    end
+  end
+  
   describe "Self.all method" do
     it "Returns a list of all users" do      
       VCR.use_cassette("users") do

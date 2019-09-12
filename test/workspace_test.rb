@@ -182,8 +182,6 @@ describe "Workspace class" do
       
       expect(@workspace.bot_name).must_equal "Slackbot"
       expect(@workspace.bot_avatar).must_equal "jack_o_lantern"
-      
-      
     end
   end
 end

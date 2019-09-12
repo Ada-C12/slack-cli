@@ -10,14 +10,10 @@ module SlackCLI
     
     def get_message_history
       url = "https://slack.com/api/conversations.history"
-      # url = base_url + url
       query = { token: ENV["SLACK_API_TOKEN"] , channel: slack_id, limit: 25}
       response = HTTParty.get(url, query: query)
       
       return response
-      
-      
-      
     end
     
     def self.all
