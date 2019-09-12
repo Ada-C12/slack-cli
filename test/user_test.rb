@@ -2,38 +2,11 @@ require_relative 'test_helper'
 require 'pry'
 
 describe "user class" do
-  describe "constructor intialize " do
-    it "should return an instance of user" do
-      slack_id = 4
-      name = "Dom"
-      real_name = "Dominic Tareto"
-      
-      slacker = User.new(slack_id, name, real_name)
-      expect(slacker.slack_id).must_equal slack_id
-      expect(slacker.name).must_equal name
-      expect(slacker.real_name).must_equal real_name  
-    end
-  end
-  
   describe "self.list method" do
-    it "should return an array of users" do
-      slack_id = 4
-      name = "Dom"
-      real_name = "Dominic Tareto"
-      slacker = User.new(slack_id, name, real_name)
-      
-      expect(User.list).must_be_kind_of Array
-      #expect(list).must_be_kind_of Array
-    end
-    
-    it "should return instances of User" do
-      slack_id = 4
-      name = "Dom"
-      real_name = "Dominic Tareto"
-      slacker = User.new(slack_id, name, real_name)
-      user_list = User.list
-      user_list.each do |user|
-        expect(user).must_be_instance_of User
+    it "should return true if the list was returned" do
+      VCR.use_cassette("user-tests") do
+        response = User.list
+        expect(response["ok"]).must_equal true
       end
     end
   end
