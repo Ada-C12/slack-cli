@@ -17,23 +17,33 @@ Dotenv.load
 # end
 
 def main
-  puts "Welcome to the Ada Slack CLI!".colorize(:yellow)
+  workspace = SlackBot::Workspace.new
+  selected = workspace.selected
+  valid_inputs = ["list users", "list channels", "select user", "select channel", "quit"]
+  user_input = nil
   
-  selection = nil
-  valid_inputs = ["list users", "list channels", "quit"]
-  
-  until valid_inputs.include?(selection)
-    puts "\nPlease make a selection:\n- List Users\n- List Channels\n- Quit"
+  until valid_inputs.include?(user_input)
+    puts "\nPlease make a selection:"
+    puts "List Users"
+    puts "List Channels"
+    puts "Select User"
+    puts "Select Channel"
+    puts "Quit"
     print "Selection: "
-    selection = gets.chomp.downcase
+    user_input = gets.chomp.downcase
     
-    case selection
+    case user_input
     when "list users"
-      tp SlackBot::User.list
-      selection = nil
+      tp workspace.users, "slack_id", "name", "real_name"
+      user_input = nil
     when "list channels"
-      tp SlackBot::Channel.list
-      selection = nil
+      tp workspace.channels, "slack_id", "name", "topic", "member_count"
+      user_input = nil
+    when "select user"
+      print "Enter a Username or Slack ID: "
+      user_criteria = gets.chomp
+      workspace.select_user(user_criteria)
+      user_input = nil
     when "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit
