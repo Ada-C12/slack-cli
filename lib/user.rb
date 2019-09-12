@@ -16,8 +16,8 @@ class User
     end 
     @status_text = status_text
     
-    if status_emoji[0] != ":" || status_emoji[-1] != ":"
-      raise ArgumentError.new "Wrong format for emoji initialization"
+    if status_emoji.class != String
+      raise ArgumentError.new "Wrong format for emoji input!"
     end 
     @status_emoji = status_emoji
   end 

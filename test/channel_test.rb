@@ -12,7 +12,7 @@ describe "instances of channel initiate " do
   it "verifies that attempting to initialize an instance of Channel without appropriate data throws an ArgumentError" do
     integer_name = 00132
     expect{
-    test_channel = Channel.new(name: integer_name, slack_id: @test_slack_id, topic: @test_topic, member_count: @test_member_count)
+      test_channel = Channel.new(name: integer_name, slack_id: @test_slack_id, topic: @test_topic, member_count: @test_member_count)
     }.must_raise ArgumentError 
     
     integer_slack_id = 13

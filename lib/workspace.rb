@@ -29,62 +29,34 @@ class Workspace
     
     user_response = HTTParty.get(url, query: query_parameters)
     # binding.pry
+    make_users(user_response)
     
-    total_users = user_response["members"].length
+    return user_response["ok"] == true 
+  end
+  
+  def make_users(response)
+    
+    total_users = response["members"].length
     i = 0
-
-      until i == total_users do
-        ser_name = user_response["members"][i]["name"]
-        user_slack_id = user_response[i]["id"]
-        user_real_name = user_response["real_name"]
-        user_status_text = user_response["profile"]["status_text"]
-        user_status_emoji = user_response["profile"]["status_emoji"]
-        
-        new_user = User.new(name: user_name, slack_id: user_slack_id, real_name: user_real_name, status_text: user_status_text, status_emoji: user_status_emoji)
-        
-        
-        
-        puts new_user
-        
-        @users << new_user
-        
-        i += 1
-        
-      end
+    # binding.pry
+    until i == total_users do
+      user_name = response["members"][i]["name"]
+      user_slack_id = response["members"][i]["id"]
+      user_real_name = response["members"][i]["real_name"]
+      user_status_text = response["members"][i]["profile"]["status_text"]
+      user_status_emoji = response["members"][i]["profile"]["status_emoji"]
+      
+      new_user = User.new(name: user_name, slack_id: user_slack_id, real_name: user_real_name, status_text: user_status_text, status_emoji: user_status_emoji)
+      
+      @users << new_user
+      
+      i += 1
       
     end
     
-    return user_response["ok"] == true 
-    
-  end 
-  
-  #  def api_call_listchannels(channel)
-  #   #This method takes in the entire listchannel api 
-  #   # url = "whatever_whatever"
-  
-  #   # parameters
-  
-  #   #have our method call
-  #   #using response, pass it to make channels
-  
-  #   # make channels
-  #   return channel_response
-  #  end
+  end
   
   
-  #  def make_users(user_response)
-  #   # response["members"].each |user|
-  #   # name = user["name"]
-  
-  
-  
-  #calling users instance variable 
-  
-  # make instances of users using the data from api_call
-  
-  # store instances of users using the data from api_call
-  
-  #  end
   
   def make_channels(channel_response)
     
