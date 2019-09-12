@@ -47,5 +47,14 @@ describe "User" do
       end
     end
   end
+
+  describe "details" do
+    it "returns a hash of details" do
+      VCR.use_cassette("user") do
+        natalie = User.new("UN8GKRXK8", "Natalie Tapias", "natalie")
+        expect(natalie.details).must_be_kind_of Hash
+      end
+    end
+  end
 end
 

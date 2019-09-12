@@ -23,4 +23,8 @@ class User < Recipient
     end
     return users_list
   end
+
+  def details
+    return {slack_id: @slack_id, name: @name, real_name: @real_name}
+  end
 end

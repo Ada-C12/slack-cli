@@ -17,7 +17,7 @@ class Channel < Recipient
     channels_list = []
     response = Recipient.get(url, query)
     response["channels"].each do |channel|
-      new_channel = Channel.new(channel["id"], channel["name"], channel["topic"]["value"], channel["members"].length)
+      new_channel = Channel.new(channel["id"], channel["name"], channel["topic"], channel["members"].length)
       # binding.pry 
       channels_list << new_channel
     end
