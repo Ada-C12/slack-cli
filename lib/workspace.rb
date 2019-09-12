@@ -14,7 +14,7 @@ module Slack
     def initialize
       @users = []
       @channels = []
-      @selected = []
+      @selected = nil
     end
 
     def get_api(url)
@@ -67,14 +67,18 @@ module Slack
       return result
     end
 
-
-    # def select_user
-      # code
-    # end
-
-    # def select_channel
-      # code
-    # end
+    def search(data_source, query_term)
+      @selected = nil
+      if data_source == "user"
+        @users.each do |current_user|
+          if current_user.username == query_term || current_user.slack_id == query_term
+            @selected = current_user
+            break
+          end
+        end
+        return @selected
+      end
+    end
 
     # def show_details
       # code

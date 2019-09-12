@@ -9,7 +9,6 @@ Dotenv.load
 def main
   
   puts "Welcome to the Ada Slack CLI!"
-  # TO-DO: Display total count of users and channels
   workspace = Slack::Workspace.new
   workspace.user_list
   workspace.channel_list
@@ -18,6 +17,9 @@ def main
   prompt = "Please select from the following options: 
   List Users
   List Channels
+  Select Users
+  Select Channels
+  Show Details
   Quit"
 
   puts prompt
@@ -31,7 +33,27 @@ def main
       break
     when "list channels"
       puts workspace.print_channel_list
-      break 
+      break
+    when "select users" 
+      # code
+      name = gets.chomp
+      search (user, name)
+      # ask the user to enter a username OR slack id
+      # completed: use the username/slack_id and iterate through a list of users in Workspace 
+      # completed: saved user to @selected inside workspace
+      # if @selected = nil, let customer know and return to main
+      # if @selected !=nil , display details and message
+    
+    when "select channels"
+      # code
+      # if user selects a channel, search for that channel,
+      # if channel not found output a message to user and return to main menu
+      # if channel found, display "do you want to see details or send message or go back to the main menu?"
+      # if user selects either option, do that command,
+      # exit program
+      search (channel, name)
+    when "show details"
+      # code
     else
       puts "Error: Invalid selection. Returning to main menu...."
       puts prompt

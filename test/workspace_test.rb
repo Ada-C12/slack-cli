@@ -8,7 +8,7 @@ describe "Workspace" do
     end
   end
 
-  describe "workspace_user methods" do
+  describe "workspace_user list methods" do
     describe "get_api" do
       it "returns a response from Slack api" do
         workspace = Slack::Workspace.new
@@ -43,7 +43,7 @@ describe "Workspace" do
     end
   end
 
-  describe "workspace_channel methods" do
+  describe "workspace_channel list methods" do
     describe "get_api" do
       it "returns a response from Slack api" do
         workspace = Slack::Workspace.new
@@ -61,7 +61,6 @@ describe "Workspace" do
           workspace.channel_list
         end
         expect(workspace.channels).must_be_kind_of Array
-        p workspace.channels[0]
         expect(workspace.channels[0]).must_be_instance_of Slack::Channel 
         expect(workspace.channels.length).must_equal 4
       end
@@ -77,12 +76,44 @@ describe "Workspace" do
         expect(@channel_info_string).must_be_kind_of String
       end
     end
-
-
-
-
-    
-    
-    
   end
+
+  describe "Workspace select methods" do
+    describe ".search users" do
+      it "will search through users and save that user to selected" do
+        workspace = Slack::Workspace.new
+        VCR.use_cassette("workspace_user") do 
+          workspace.user_list
+          workspace.search("user", "Slackbot")
+        end
+        puts workspace.print_user_list
+        expect(workspace.selected).must_be_instance_of Slack::User
+        expect(workspace.selected.username).must_equal "Slackbot"
+      end
+
+      # add test for bad name 
+      # add test for bad id
+      # add test for good id
+  
+
+
+    end
+
+    describe ".search channels" do
+      it "will search through channels and save that channel to selected" do
+
+      end
+    end
+
+
+  end
+
+
+
+
+
+    
+    
+    
+
 end
