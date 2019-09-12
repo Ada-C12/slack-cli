@@ -3,7 +3,13 @@ require_relative 'test_helper'
 # require 'vcr'
 
 describe "Recipient" do
-  
+  describe "list" do
+    it "should raise Error if called" do
+      VCR.use_cassette("recipient_list") do
+        expect{SlackCLI::Recipient.list}.must_raise SlackApiError
+      end
+    end
+  end
   # 
   
   #Move Test to Child Classes

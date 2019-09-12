@@ -2,6 +2,8 @@ require 'HTTParty'
 require 'dotenv'
 
 
+class SlackApiError < StandardError 
+end
 
 module SlackCLI
   
@@ -9,8 +11,8 @@ module SlackCLI
     def initialize
     end
     
-    def self.list_channels
-      raise NotImplementedError.new("Call this method in child class")
+    def self.list
+      raise SlackApiError.new("Call this method in child class")
     end
     
     
