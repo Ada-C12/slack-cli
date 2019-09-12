@@ -1,3 +1,6 @@
+require_relative 'channel'
+require "table_print"
+
 class Workspace
   attr_reader :users, :channel, :selected
   
@@ -10,7 +13,7 @@ class Workspace
   
   
   def select_channel
-    
+    tp Channel.list, :slack_id, :name, :topic, :member_count
     
   end
   
@@ -35,3 +38,6 @@ class Workspace
   
   
 end
+
+
+p Workspace.new.select_channel

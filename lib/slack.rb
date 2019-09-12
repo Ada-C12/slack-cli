@@ -8,9 +8,6 @@ Dotenv.load
 def main
   
   
-  response = HTTParty.get(url, query: {token: key})
-  
-  
   puts "Welcome to the Ada Slack CLI!"
   
   # TODO project
