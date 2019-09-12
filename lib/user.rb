@@ -1,3 +1,4 @@
+#lib/user.rb
 require 'httparty'
 require 'awesome_print'
 require 'dotenv'
@@ -14,7 +15,7 @@ module Slack
       super(name, id)
       @real_name = real_name
     end
-
+ 
     def self.users_list
       users = []
       response = HTTParty.get("#{USERS_URI}/users.list", query: {token: USERS_KEY}) 
@@ -27,6 +28,7 @@ module Slack
       end
       return users
     end
+    
   end
 end
 

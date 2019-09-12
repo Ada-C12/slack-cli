@@ -1,3 +1,4 @@
+#lib/recipient.rb
 module Slack
   class  Recipient
     attr_reader :name, :id

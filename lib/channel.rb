@@ -1,3 +1,4 @@
+#lib/channel.rb
 require 'httparty'
 require 'awesome_print'
 require 'dotenv'
