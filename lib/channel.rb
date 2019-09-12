@@ -10,19 +10,14 @@ class Channel < Recipient
     @member_count = member_count
   end
 
-  def self.get(url, query)
+  def self.list
     url = "https://slack.com/api/channels.list"
     query = {token: ENV['SLACK_TOKEN']}
 
-    response = HTTParty.get(url, query: query)
-    return response
-  end
-
-  def self.list
     channels_list = []
-    response = Channel.get("https://slack.com/api/channels.list", {token: ENV['SLACK_TOKEN']})
+    response = Recipient.get(url, query)
     response["channels"].each do |channel|
-      new_channel = Channel.new(channel["id"], channel["name"], channel["topic"], channel["members"].length)
+      new_channel = Channel.new(channel["id"], channel["name"], channel["topic"]["value"], channel["members"].length)
       # binding.pry 
       channels_list << new_channel
     end

@@ -37,19 +37,4 @@ describe "Recipient" do
         }.must_raise NotImplementedError
     end
   end
-
-  describe "self.get" do
-    it "gets response from server (JSON)" do
-      VCR.use_cassette("recipient") do
-        #Arrange
-        url = "https://slack.com/api/channels.list"
-        query = {token: ENV['SLACK_TOKEN']}
-        #Act
-        response = Recipient.get(url, query)
-
-        #Assert
-        expect(response).must_be_instance_of HTTParty::Response
-      end
-    end
-  end
 end
