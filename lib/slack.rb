@@ -17,10 +17,11 @@ def main
     - select user
     - select channel
     - show details
+    - send message
     - quit
     \nYour choice: "
     choice = gets.chomp.downcase
-    until ["list users", "list channels", "select user", "select channel", "show details", "quit"].include?(choice)
+    until ["list users", "list channels", "select user", "select channel", "show details", "send message", "quit"].include?(choice)
       print "Sorry. Please enter a valid choice. "
       choice = gets.chomp.downcase
     end
@@ -49,7 +50,7 @@ def main
           tsu.selected = channel 
         end 
       end 
-      if tsu.selected == nil || !(tsu.selected.slack_id == user_chosen || tsu.selected.name == user_chosen)
+      if tsu.selected == nil || !(tsu.selected.slack_id == channel_chosen || tsu.selected.name == channel_chosen)
         print "\nSorry. Invalid selection."
       end
     when "show details"
@@ -58,6 +59,14 @@ def main
       else 
         tsu.print_details(tsu.selected)
       end 
+    when "send message"
+      if tsu.selected == nil
+        puts "\nNo user or channel chosen."
+      else 
+        print "What is your message? "
+        msg = gets.chomp
+        tsu.send_message(tsu.selected, msg)
+      end
     when "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit

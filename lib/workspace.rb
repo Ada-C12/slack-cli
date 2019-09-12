@@ -14,6 +14,7 @@ module SlackCLI
     
     CHANNEL_URL = 'https://slack.com/api/channels.list'
     USER_URL = 'https://slack.com/api/users.list'
+    POST_URL = 'https://slack.com/api/chat.postMessage'
     GET_PARAMETERS = {
       token: ENV['SLACK_KEY']
     }
@@ -80,6 +81,15 @@ module SlackCLI
       else 
         print "Sorry, something went wrong."
       end 
+    end
+    
+    def send_message(selected, msg)
+      post_parameters = {
+        token: ENV['SLACK_KEY'],
+        channel: selected.slack_id,
+        text: msg
+      }
+      return HTTParty.post(POST_URL, query: post_parameters)
     end
   end
 end 
