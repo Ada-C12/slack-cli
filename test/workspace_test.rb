@@ -71,4 +71,36 @@ describe "Workspace" do
     end
   end
   
+  describe "select_user" do
+    before do
+      @new_workspace.selected == nil
+    end
+    
+    it "assigns a User to selected" do
+      before_selected = @new_workspace.selected
+      user_1_name = "Slackbot"
+      
+      selection = @new_workspace.select_user(user_1_name)
+      
+      expect(before_selected).must_be_nil
+      expect(@new_workspace.selected).must_equal selection
+    end
+  end
+
+  describe "select_channel" do
+    before do
+      @new_workspace.selected == nil
+    end
+    
+    it "assigns a Channel to selected" do
+      before_selected = @new_workspace.selected
+      channel_1_name = "random"
+      
+      selection = @new_workspace.select_channel(channel_1_name)
+      
+      expect(before_selected).must_be_nil
+      expect(@new_workspace.selected).must_equal selection
+    end
+  end
+  
 end
