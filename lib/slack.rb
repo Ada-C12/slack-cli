@@ -19,6 +19,7 @@ def main
     
     puts "Please select one of the following: \'list user\', \'list channels\', or \'quit\': "
     user_input = gets.chomp.downcase
+    Workspace.select_channel(user_input)
   when "list channels"
     
     

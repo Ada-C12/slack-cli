@@ -35,7 +35,7 @@ class Recipient
   
   
   def self.list
-    
+    raise NotImplementedError 'Children implement this'
     
     
   end
