@@ -65,10 +65,10 @@ end
 
 def print_details()
   puts
-  if selected.class == SlackCLI::User
-    tp selected, "name", "real_name", "slack_id"
-  elsif selected.class == SlackCLI::Channel
-    tp selected, "name", {"topic" => {:width => 60}}, "member_count", "slack_id"
+  if PUMPKIN_SPICE.selected.class == SlackCLI::User
+    tp PUMPKIN_SPICE.selected, "name", "real_name", "slack_id"
+  elsif PUMPKIN_SPICE.selected.class == SlackCLI::Channel
+    tp PUMPKIN_SPICE.selected, "name", {"topic" => {:width => 60}}, "member_count", "slack_id"
   else
     puts "There is no recipient selected."
   end
