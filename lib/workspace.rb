@@ -5,9 +5,11 @@ require_relative "acceptor"
 require 'awesome_print'
 
 module Slack
+  class SlackApiError < StandardError; end
   class Workspace
     USER_URL = "https://slack.com/api/users.list"
     CHANNEL_URL = "https://slack.com/api/channels.list" 
+    POST_MSG_URL = "https://slack.com/api/chat.postMessage"
     
     attr_reader :users, :channels, :selected
 
@@ -99,10 +101,24 @@ module Slack
       end
     end
 
-
-    def send_message
-      # code
+    def send_message(message, selected_receiver)
+      response = HTTParty.post(
+        POST_MSG_URL,
+        body:  {
+          token: ENV['SLACK_TOKEN'],
+          text: message,
+          channel: selected_receiver
+        },
+        headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+      )
+      
+      unless response.parsed_response["ok"]
+        raise SlackApiError, "Error when posting #{message} to #{selected_receiver}, error: #{response.parsed_response["error"]}"
+      end
+      return response
     end
+
+
 
   end 
 end 

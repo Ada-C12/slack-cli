@@ -194,6 +194,38 @@ describe "Workspace" do
         expect(@selected).must_be_instance_of Slack::Channel
       end
     end
+  end
+
+  describe "Workspace send message methods" do
+    it "if a channel is selected it will send a direct message to a channel" do 
+      workspace = Slack::Workspace.new
+      VCR.use_cassette("send_message_channel") do 
+        @response = workspace.send_message("Hi Pupper Friends!", "random")
+      end
+      expect(@response).must_be_instance_of HTTParty::Response
+    end
+    
+    it "will raise an error when given an invalid channel" do
+      workspace = Slack::Workspace.new
+      VCR.use_cassette("send_message_channel") do
+        exception = expect {
+          workspace.send_message("This post should not work", "invalid-channel")
+        }.must_raise Slack::SlackApiError
+        
+        expect(exception.message).must_equal 'Error when posting This post should not work to invalid-channel, error: channel_not_found'
+      
+      end
+    end
+    
+    # it "if a user is selected it will send a direct message to a user" do
+
+    # end
+
+
+
+
+
+
 
   end
 end
