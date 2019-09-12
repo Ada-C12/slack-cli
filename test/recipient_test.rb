@@ -19,7 +19,34 @@ describe Recipient do
     end
   end
   
-  describe "#send_message method" do    
+  describe "#send_message method" do
+    before do
+      VCR.use_cassette('workspace') do
+        workspace = Workspace.new
+        @user = workspace.users.first
+        @channel = workspace.channels.first
+        @message = 'hello'
+      end
+    end
+    
+    it 'can send a message to a channel' do
+      VCR.use_cassette('send_message_channel') do
+        expect(@channel.send_message(@message)).must_equal true
+      end
+    end
+
+    it 'can send a message to a user' do
+      VCR.use_cassette('send_message_user') do
+        expect(@user.send_message(@message)).must_equal true
+      end
+    end
+
+    it 'raises SlackApiError if response["ok"] is false' do
+      VCR.use_cassette('send_failure') do
+        channel = Channel.new slack_id: "0", name: "foo", topic: "foo", member_count: 0
+        expect { channel.send_message @message }.must_raise Recipient::SlackApiError 
+      end
+    end
   end
   
   describe ".get method" do
