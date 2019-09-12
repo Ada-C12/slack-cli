@@ -6,14 +6,14 @@ class Workspace
   
   def initialize
     @users = users
-    @channel = channel
-    @selected = selected
+    @channels = Channel.list
+    @selected = nil
     
   end
   
   
-  def select_channel
-    tp Channel.list, :slack_id, :name, :topic, :member_count
+  def select_channel(selection)
+    # tp Channel.list, :slack_id, :name, :topic, :member_count
     
   end
   
