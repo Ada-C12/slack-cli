@@ -11,7 +11,7 @@ Dotenv.load
 
 PUMPKIN_SPICE = SlackCLI::Workspace.new()
 
-MAIN_MENU = ["List Users", "List Channels", "Select User", "Select Channel", "Details", "Send Message", "Change Bot Settings", "Quit"]
+MAIN_MENU = ["List Users", "List Channels", "Select User", "Select Channel", "Details", "Send Message", "Get Message History", "Change Bot Settings", "Quit"]
 
 def print_workplace_stats()
   puts PUMPKIN_SPICE.get_workplace_stats()
@@ -87,6 +87,26 @@ def get_message()
   end
 end
 
+def format_message_history(response)
+  table = []
+  
+  response["messages"].each do |message|
+    if message["username"]
+      table.push({name: message["username"], text: message["text"]})
+    else
+      found_user = PUMPKIN_SPICE.find_user(message["user"])
+      
+      modified_message = message["text"].gsub(/^<@\w+>/, "#{found_user.name}")
+      
+      table.push({name: found_user.name, text: modified_message})
+    end
+  end
+  
+  table.reverse!
+  
+  tp table, {:name=>{:width => 45}}, {:text=>{:width => 80}}
+end
+
 def main
   puts "Welcome to the Ada Slack CLI!"
   puts
@@ -119,7 +139,12 @@ def main
       when "send message", "6", "six"
         get_message
         
-      when "change bot settings", "7", "seven"
+      when "get message history", "7", "seven"
+        response = PUMPKIN_SPICE.selected.get_message_history
+        
+        format_message_history(response)
+        
+      when "change bot settings", "8", "eight"
         print "Please enter the bot's new name: "
         name = gets.chomp
         PUMPKIN_SPICE.bot_name = name
@@ -130,7 +155,7 @@ def main
         PUMPKIN_SPICE.bot_avatar = avatar
         puts "The bot's new avatar is #{avatar}!"
         
-      when "quit", "8", "eight", "exit"
+      when "quit", "9", "nine", "exit"
         PUMPKIN_SPICE.save_settings
         again = false
       end
