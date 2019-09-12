@@ -13,6 +13,11 @@ Dotenv.load
 def main
   
   workspace = Slack::Workspace.new 
+  # check user input
+  # valid_input = ["list users", "list channels", "quit"]
+  
+  # if valid_input.include?(input)
+  # loop to give users options again after each selection
   
   puts "Welcome to the Ada Slack CLI!"
   print "Please choose an option: list users, list channels, or quit: "
@@ -25,14 +30,6 @@ def main
   elsif input == "quit"
     exit
   end
-  
-  
-  # list users = see a list of all users, including 
-  # username, real name, and Slack ID (user.list)
-  # list channels = see a list of all channels, # including name, topic, member coiunt, and Slack ID (channel.list)
-  # quit = exit the program
-  
-  
   puts "Thank you for using the Ada Slack CLI"
 end
 
