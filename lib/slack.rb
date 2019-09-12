@@ -16,13 +16,14 @@ def main
   input = ""
   until input == "quit"
     puts "\nPlease select an option:
+
     -list users
     -list channels
     -select user
     -select channel
     -show details
     -send message
-    -quit"
+    -quit\n"
     input = gets.chomp.downcase
 
     case input
@@ -38,7 +39,7 @@ def main
       begin
         workspace.select_user(identifier)
       rescue SlackApiError
-        puts "\nWe couldn't find this user!"
+        puts "\n**We couldn't find this user!**"
       end
     when "select channel"
       puts "\nEnter a username or slack id: "
@@ -46,14 +47,22 @@ def main
       begin
         workspace.select_channel(identifier)
       rescue SlackApiError
-        puts "\nWe couldn't find the channel!"
+        puts "\n**We couldn't find the channel!**"
       end
     when "show details"
-      puts "#{workspace.show_details}"
+      if workspace.show_details == nil
+        puts "\nNo user or channel has been selected"
+      else
+        puts "#{workspace.show_details}"
+      end
     when "send message"
-      puts "What do you want to send?"
-      message = gets.chomp
-      workspace.send_message(message)
+      if workspace.selected == nil
+        puts "\nNo user or channel has been selected"
+      else
+        puts "What do you want to send?"
+        message = gets.chomp
+        workspace.send_message(message)
+      end
     when "quit"
       exit
     end

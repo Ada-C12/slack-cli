@@ -52,7 +52,7 @@ module Slack
 
     def send_message(message)
       if @selected
-        @selected.post_message(message)
+        @selected.send_message(message)
       else
         return nil
       end
