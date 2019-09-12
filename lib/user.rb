@@ -23,17 +23,14 @@ module Slack
     end
     
     def self.list
+      query = {token: ENV["SLACK_TOKEN"]}
+      response = self.get(USER_URL, query)
       
-      query = {
-        token: ENV["SLACK_TOKEN"]
-      }
-      response = HTTParty.get(USER_URL, query: query)
-      
-      list = response["members"].map do |member|
+      list_of_users = response["members"].map do |member|
         self.new(id: member['id'], name: member['name'], real_name: member['real_name'], status_text: member['profile']['status_text'], status_emoji: member['profile']['status_emoji'])
       end
       
-      return list
+      return list_of_users
       
     end
     
