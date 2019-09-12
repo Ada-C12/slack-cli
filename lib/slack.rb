@@ -10,7 +10,7 @@ def main
   @workspace.channels
   @workspace.select_user("UMTERDBPU")
   # @workspace.select_channel("CMUPUL1R9")
-  p @workspace.show_details
+  # p @workspace.show_details
   
   
   # TODO project
