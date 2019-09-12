@@ -27,13 +27,10 @@ class Recipient
       },
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
+    puts response["error"]
     if response["ok"] == true
       return true
-      puts response["ok"]
-      puts response["error"]
-    else 
-      puts response["ok"]
-      puts response["error"]
+    else
       return false
     end
   end

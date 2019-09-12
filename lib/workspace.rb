@@ -50,4 +50,6 @@ end
 
 workspace = Workspace.new
 workspace.select_channel('general')
-workspace.send_message
+if workspace.send_message == falase
+  puts "error"
+end
