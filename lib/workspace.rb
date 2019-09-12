@@ -1,5 +1,6 @@
 require "dotenv"
 require "httparty"
+require "awesome_print"
 Dotenv.load
 
 require_relative "recipient"
@@ -9,7 +10,7 @@ require_relative "user"
 class Workspace
   TOKEN = ENV["SLACK_TOKEN"]
   
-  attr_accessor :users, :channels #added these in order to access/update them
+  attr_accessor :users, :channels, :current_recipient #added these in order to access/update them; added current_recipient to hold the currently selected user or channel
   
   def initialize
     @channel_url = "https://slack.com/api/conversations.list"
@@ -18,6 +19,7 @@ class Workspace
     @channel_member_url = "https://slack.com/api/conversations.members"
     @users = get_users
     @channels = get_channels
+    @current_recipient = ""
   end
   
   def get_users
@@ -44,9 +46,13 @@ class Workspace
     # raises arg error if the recipient isn't found by either name or id
     if recipient == nil
       raise ArgumentError, "Recipient not found."
+    else
+      @current_recipient = recipient
     end
-    
-    return recipient
+  end
+  
+  def list_details_on_current_recipient
+    ap @current_recipient
   end
   
   def select_user(id)
