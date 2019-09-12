@@ -17,25 +17,20 @@ def main
     case user_selection
     when "1" || "list channels"
       puts "list_channels"
-      workspace = Workspace.new
       puts workspace.list_channels
     when "2" || "list users"
       puts "list_users"
-      workspace = Workspace.new
       puts workspace.list_users
     when "3" || "select channel"
       puts "select_channel"
-      workspace = Workspace.new
       selection = gets.chomp
       puts workspace.find_by_id_or_name(workspace.channels, selection)
     when "4" || "select user"
       puts "select_user"
-      workspace = Workspace.new
       selection = gets.chomp
       puts workspace.find_by_id_or_name(workspace.users, selection)
     when "5" || "details"
       puts "list_details_on_current_recipient"
-      workspace = Workspace.new
       workspace.list_details_on_current_recipient
     when "6" || "quit"
       puts "Thank you for using the Ada Slack CLI"

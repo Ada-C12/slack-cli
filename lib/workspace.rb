@@ -1,6 +1,5 @@
 require "dotenv"
 require "httparty"
-require "awesome_print"
 Dotenv.load
 
 require_relative "recipient"
@@ -19,7 +18,7 @@ class Workspace
     @channel_member_url = "https://slack.com/api/conversations.members"
     @users = get_users
     @channels = get_channels
-    @current_recipient = ""
+    @current_recipient = nil
   end
   
   def get_users
@@ -51,16 +50,20 @@ class Workspace
     end
   end
   
+  # 'load_details' is a method in Recipient
   def list_details_on_current_recipient
-    ap @current_recipient
+    if @current_recipient == nil
+      raise ArgumentError, "No recipient is currently selected."
+    end
+    @current_recipient.load_details
   end
   
-  def select_user(id)
-    User.set_as_recipient(id)
-  end
-  def select_channel(id)
-    Channel.set_as_recipient(id)
-  end
+  # def select_user(id)
+  #   User.set_as_recipient(id)
+  # end
+  # def select_channel(id)
+  #   Channel.set_as_recipient(id)
+  # end
   
   def list_users
     user_list = HTTParty.get(@user_url, query: { token: TOKEN })
