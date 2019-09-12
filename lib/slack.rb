@@ -17,7 +17,6 @@ def main
       print "Sorry. Please enter '1', '2' or '3'!"
       choice = gets.chomp
     end
-    
     if choice == 1
       tsu.list_users
     elsif choice == 2
@@ -26,7 +25,6 @@ def main
       puts "Thank you for using the Ada Slack CLI"
       exit
     end
-    
   end 
 end
 
