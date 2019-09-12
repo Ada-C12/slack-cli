@@ -78,11 +78,24 @@ module Slack
         end
         return @selected
       end
+
+      # add code for Channel
     end
 
-    # def show_details
-      # code
-    # end
+    def show_details(selected_receiver)
+      # if selected is a User object
+      details = ''''
+      if @selected.class == Slack::User
+        details = details + "Username: #{selected.username}, Real name: #{selected.real_name}, Slack ID: #{selected.slack_id}"
+      end
+      return details
+      # it will print User.username, User.real_name, User.slack_id
+      
+      
+      # if the selected is a Channel object
+      # it will print the Channel.channel_name, Channel.topic, Channel.member_count,
+      # & Channel.slack_id
+    end
 
     # def send_message
       # code

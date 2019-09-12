@@ -43,7 +43,7 @@ describe "Workspace" do
     end
   end
 
-  describe "workspace_channel list methods" do
+  describe "workspace channel list methods" do
     describe "get_api" do
       it "returns a response from Slack api" do
         workspace = Slack::Workspace.new
@@ -122,16 +122,43 @@ describe "Workspace" do
         expect(workspace.selected).must_be_nil
       end
 
+      describe ".search channels" do
+        it "will search through channels and save that channel to selected" do
+  
+        end
+      end
+
+
+
+
+    end
+  end
+  
+  describe "Workspace show details methods" do
+    describe ".show_details for user" do 
+      it "will print the details of the selected user" do
+        workspace = Slack::Workspace.new
+        VCR.use_cassette("workspace_user") do 
+          workspace.user_list
+          workspace.search("user", "USLACKBOT")
+          @selected = workspace.users[0]
+        end
+        expect(workspace.show_details(@selected)).must_be_kind_of String
+      end
+
     end
 
-    describe ".search channels" do
-      it "will search through channels and save that channel to selected" do
-
+    describe ".show_details for channel" do
+      it "will print the details of the selected channel" do
+        # 
       end
     end
-
-
+    
   end
+ 
+
+
+  
 
 
 

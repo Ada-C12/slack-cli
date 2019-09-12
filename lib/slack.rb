@@ -7,19 +7,18 @@ require "dotenv"
 Dotenv.load
 
 def main
-  
   puts "Welcome to the Ada Slack CLI!"
   workspace = Slack::Workspace.new
   workspace.user_list
   workspace.channel_list
+  
   puts "Darn Cute Puppers has #{workspace.users.count} users and #{workspace.channels.count} channels."
 
   prompt = "Please select from the following options: 
   List Users
   List Channels
-  Select Users
-  Select Channels
-  Show Details
+  Select User
+  Select Channel
   Quit"
 
   puts prompt
@@ -34,28 +33,58 @@ def main
     when "list channels"
       puts workspace.print_channel_list
       break
-    when "select users" 
-      puts "Please enter the username or slack id: "
-      user_query_term = gets.chomp
-      # TO-DO: how to handle username is downcase, slack id is upcase
-      # search(user, user_query_term)
+    when "select user" 
+      puts "Would you like to search for a user by username or id?"
+      search_user_choice = gets.chomp.downcase
+      if search_user_choice == "username"
+        puts "Please enter the username: "
+        username = gets.chomp.downcase
+        search_result = workspace.search("user", username)
+        if search_result == nil
+          puts "User not found. Returning to main menu..."
+          puts prompt
+        else
+          puts "User found. Please select from the following options:
+          Show Details
+          Send Message"
+          # take user input and call show_details 
+          selected_command = gets.chomp.downcase
+          if selected_command == "show details"
+            puts workspace.show_details(search_result)
+            break
+          end
+        end
+      elsif search_user_choice == "id"
+        puts "Please enter the slack id: "
+        slack_id = gets.chomp.upcase
+        search_result = workspace.search("user", slack_id)
+        if search_result == nil
+          puts "User not found. Returning to main menu..."
+          puts prompt
+        else
+          puts "User found. Please select from the following options:
+          Show Details
+          Send Message"
+        end
+      else
+        puts "Invalid input. Returnng to main menu..."
+        puts prompt
+      end
+  
       # if @selected = nil, let customer know and return to main
       # if @selected !=nil , display details and message
       
-      
-      # completed: use the username/slack_id and iterate through a list of users in Workspace 
-      # completed: saved user to @selected inside workspace
 
-    when "select channels"
-      # code
-      # if user selects a channel, search for that channel,
-      # if channel not found output a message to user and return to main menu
-      # if channel found, display "do you want to see details or send message or go back to the main menu?"
-      # if user selects either option, do that command,
-      # exit program
-      search (channel, name)
-    when "show details"
-      # code
+      # when "select channel"
+      #   # code
+      #   # if user selects a channel, search for that channel,
+      #   # if channel not found output a message to user and return to main menu
+      #   # if channel found, display "do you want to see details or send message or go back to the main menu?"
+      #   # if user selects either option, do that command,
+      #   # exit program
+      #   search (channel, name)
+      # when "show details"
+      #   # code
     else
       puts "Error: Invalid selection. Returning to main menu...."
       puts prompt
