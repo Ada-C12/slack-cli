@@ -1,8 +1,5 @@
 require_relative 'recipient'
-# require 'httparty'
-# require  'dotenv'
-
-# Dotenv.load
+require 'awesome_print'
 
 
 
@@ -32,35 +29,10 @@ class Channel < Recipient
       member_count = channel["num_members"]
       slack_id = channel["id"]
 
-      
+      Channel.new(slack_id: slack_id, name: name, topic: topic, member_count: member_count)
     end
-    return channels
-    # channels = response["channels"]
-    
-    # name = channels.map do |channel|
-    #   channel['name']
-    # end
-    
-    # topic = channels.map do |channel|
-    #   channel['topic']['value']
-    # end
-    
-    # member_count = channels.map do |channel|
-    #   channel['num_members']
-    # end
-    
-    # slack_id = channels.map do |channel|
-    #   channel['id']
-    # end
-    
-    # name.length.times do |i|
-    #   puts "Name: #{name[i]},\n
-    #   Topic: #{topic[i]},\n
-    #   Member count: #{member_count[i]},\n
-    #   Slack ID: #{slack_id[i]}"
-    # end
   end
 end
 
 
-print a = Channel.list
+ap Channel.list
