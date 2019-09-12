@@ -9,18 +9,18 @@ class Recipient
     end
     @name = name
     
-    if id.class != String
+    if slack_id.class != String
       raise ArgumentError.new "wrong format for initiating id"
     end
-    @id = id
+    @slack_id = slack_id
     
   end
   
-
+  
   def details
     raise NotImplementedError.new "not implemented in recipient class"
   end
-
+  
   def self.list
     raise NotImplementedError.new "not implemented in recipient class"
   end

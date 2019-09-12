@@ -5,15 +5,15 @@ require_relative 'test_helper'
 describe "recipient attribues" do
   before do
     @test_name = "awesome"
-    @slack_id = "0001"
-    @test_recipient = Recipient.new(name: @test_name, slack_id: @slack_id)
+    @test_slack_id = "0001"
+    @test_recipient = Recipient.new(name: @test_name, slack_id: @test_slack_id)
   end
   it "knows it's an instance of recipient" do
     expect(@test_recipient).must_be_kind_of Recipient
   end
   
   it "knows its slack_id" do
-    expect(@test_recipient.id).must_equal @test_id
+    expect(@test_recipient.slack_id).must_equal @test_slack_id
   end
   
   it "knows its name" do

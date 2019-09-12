@@ -47,12 +47,12 @@ describe "instances of user initiate properly using manually passed in data" do
     @test_status_text = "Bein Awesome"
     @test_emoji = ":sunglasses:"
     
-    @test_user = User.new(name: @test_name, slack_id: @test_id, real_name: @test_real_name, status_test: @test_status_text, status_emoji: @test_emoji)
+    @test_user = User.new(name: @test_name, slack_id: @test_id, real_name: @test_real_name, status_text: @test_status_text, status_emoji: @test_emoji)
   end
   
   it "verify initialization of User" do
     
-    expect(@test_user).is_kind_of User
+    expect(@test_user).must_be_kind_of User
     expect(@test_user.name).must_equal @test_name
     expect(@test_user.slack_id).must_equal @test_id
     expect(@test_user.real_name).must_equal @test_real_name 
