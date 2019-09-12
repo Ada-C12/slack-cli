@@ -26,7 +26,7 @@ class User < Recipient
   def self.printed_users_list
     users_array = []
     self.list["members"].each do |member|
-      users_array << member["name"]
+      users_array << {"User Name" => member["name"],"Real Name" => member["real_name"],"Slack ID"=> member["id"]}
     end
     puts users_array
   end

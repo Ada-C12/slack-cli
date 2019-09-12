@@ -26,14 +26,14 @@ class Channel < Recipient
     
     return response
   end
-
+  
   def self.printed_channels_list
     channels_array = []
-
+    
     self.list["channels"].each do |channel|
-      channels_array << channel["name"]
+      channels_array << {"name" => channel["name"],"topic" => channel["purpose"]["value"], "Member Count"=> channel["num_members"], "Slack ID"=> channel["id"]}
     end
-
+    
     puts channels_array
   end
 end
