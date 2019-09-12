@@ -14,8 +14,11 @@ describe "Recipient" do
 
   describe "self.get" do
     it "raises an error if the API returns an error response" do
-      VCR.use_cassette("recipient_gets") do
-        response = 
+      # "recipient_gets" cassette was created with invalid token
+      VCR.use_cassette("recipient_gets_error") do
+        assert_raises(SlackCLI::SlackApiError) {
+          SlackCLI::Recipient.get("https://slack.com/api/users.list")
+        }
       end
     end
   end

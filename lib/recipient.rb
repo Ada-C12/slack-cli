@@ -16,8 +16,7 @@ module SlackCLI
     def self.get(url)
       key = ENV["API_TOKEN"]
       response = HTTParty.get(url, query: {token: key })
-      
-      if response.include? response["error"]
+      if response.keys.include? "error"  || response["ok"] == false
         raise SlackCLI::SlackApiError
       end
 
