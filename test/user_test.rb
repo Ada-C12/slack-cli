@@ -1,10 +1,19 @@
 require_relative "test_helper"
 
 describe "User class" do
+  describe "Initialize method" do
+    it "Initializes a new user" do
+      user = SlackCLI::User.new(slack_id: 123, name: "test", real_name: "Test Name")
+      
+      expect(user).must_be_instance_of SlackCLI::User
+      expect(user.slack_id).must_equal 123
+      expect(user.name).must_equal "test"
+      expect(user.real_name).must_equal "Test Name"
+    end
+  end
   
   describe "Self.all method" do
-    it "Returns a list of all users" do
-      
+    it "Returns a list of all users" do      
       VCR.use_cassette("users") do
         all_users = SlackCLI::User.all
         

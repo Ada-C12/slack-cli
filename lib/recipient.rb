@@ -12,23 +12,13 @@ module SlackCLI
       raise NotImplementedError
     end
     
-    # def self.get(url, params)
-    #   raise NotImplementedError
-    # end
-    
     def self.get(url)
       base_url = "https://slack.com/api/"
       url = base_url + url
       query = { token: ENV["SLACK_API_TOKEN"] }
       response = HTTParty.get(url, query: query)
       return response
-      
-      # return response["members"]
     end
-    
-    
-    
-    
     
     def self.all
       raise NotImplementedError

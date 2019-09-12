@@ -22,21 +22,26 @@ describe "Workspace class" do
       expect(@workspace.channels.first).must_be_instance_of SlackCLI::Channel
     end
     
-    it "initializes selected as nil" do
+    it "Initializes selected as nil" do
       expect(@workspace.selected).must_be_nil
     end
-  end
-  
-  describe "load_bot_settings" do
     
-    it "sets the workplace's username" do
+    it "Sets the workplace's username" do
       expect(@workspace.bot_name).must_equal "Slackbot"
     end
     
-    it "sets the workplace's icon emoji" do
+    it "Sets the workplace's icon emoji" do
       expect(@workspace.bot_avatar).must_equal "jack_o_lantern"
     end
-    
+  end
+  
+  describe "get_workplace_stats method" do
+    it "Returns a summary with the number of users and channels" do
+      actual_summary = "This workplace has 8 users and 4 channels."
+      
+      summary = @workspace.get_workplace_stats
+      expect(summary).must_equal actual_summary
+    end
   end
   
   describe "find_user method" do
@@ -111,7 +116,6 @@ describe "Workspace class" do
   end  
   
   describe "send_message" do
-    
     it "sends a message to a user" do
       VCR.use_cassette("send_message") do
         @workspace.find_user("sabrina")
@@ -136,7 +140,7 @@ describe "Workspace class" do
       end
     end
     
-    it "returns channel_not_found for a nonexistent user" do
+    it "returns nil for a nonexistent user" do
       VCR.use_cassette("send_message") do
         @workspace.find_user("goblin")
         message_text = "I won't get sent to a user"
@@ -147,7 +151,7 @@ describe "Workspace class" do
       end
     end
     
-    it "returns channel_not_found for a nonexistent channel" do
+    it "returns nil for a nonexistent channel" do
       VCR.use_cassette("send_message") do
         @workspace.find_user("goblin")
         message_text = "I won't get sent to a channel"
@@ -157,7 +161,29 @@ describe "Workspace class" do
         expect(response).must_be_nil
       end
     end
-    
   end
   
+  describe "save_settings" do
+    it "Saves settings in a json file" do
+      @workspace.bot_name = "T-Rex"
+      @workspace.bot_avatar = "t-rex"
+      expected_output = {"bot_name"=>"T-Rex", "bot_avatar"=>"t-rex"}
+      
+      @workspace.save_settings
+      file = File.read("bot-settings.json")      
+      final_output = JSON.parse(file)
+      
+      expect(final_output).must_equal expected_output
+      
+      # Change settings back to default
+      @workspace.bot_name = "Slackbot"
+      @workspace.bot_avatar = "jack_o_lantern"
+      @workspace.save_settings
+      
+      expect(@workspace.bot_name).must_equal "Slackbot"
+      expect(@workspace.bot_avatar).must_equal "jack_o_lantern"
+      
+      
+    end
+  end
 end

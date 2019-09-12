@@ -1,6 +1,17 @@
 require_relative "test_helper"
 
 describe "Channel class" do  
+  describe "Initialize method" do
+    it "Initializes a new channel" do
+      channel = SlackCLI::Channel.new(slack_id: 123, name: "test channel", topic: "tests", member_count: 10)
+      
+      expect(channel).must_be_instance_of SlackCLI::Channel
+      expect(channel.slack_id).must_equal 123
+      expect(channel.name).must_equal "test channel"
+      expect(channel.topic).must_equal "tests"
+      expect(channel.member_count).must_equal 10
+    end
+  end
   
   describe "Self.all method" do
     it "Returns a list of all channels" do
