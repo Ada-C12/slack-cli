@@ -50,6 +50,8 @@ end
 
 workspace = Workspace.new
 workspace.select_channel('general')
+
 if workspace.send_message == false
   puts "error"
 end
+
