@@ -34,6 +34,15 @@ module Slack
       
     end
     
+    def details
+      user_details = {
+        username: @name,
+        id: @id,
+        real_name: @real_name,
+        status_text: @status_text,
+        status_emoji: @status_emoji
+    }
+    end
     
   end
 end
