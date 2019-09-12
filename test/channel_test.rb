@@ -2,19 +2,16 @@ require_relative 'test_helper'
 require 'pry'
 
 describe 'class channel' do
+  let(:channel){
+  Slack::Channel.new(id: 'C0G9QF9GW',
+  name: 'random',
+  topic: {
+  "value": "Other stuff",
+  "creator": "U0G9QF9C6",
+  "last_set": 1449709352},
+  member_count: 2)}
   
   describe 'initialize' do
-    let(:channel){
-      Slack::Channel.new(id: 'C0G9QF9GW',
-        name: 'random',
-        topic: {
-          "value": "Other stuff",
-          "creator": "U0G9QF9C6",
-          "last_set": 1449709352
-        },
-        member_count: 2
-      )
-    }
     
     it 'creates an instance of Slack::Channel' do
       expect(channel).must_be_instance_of Slack::Channel
@@ -55,5 +52,25 @@ describe 'class channel' do
         end
       end
     end
-  end   
+  end  
+  
+  describe 'details' do 
+    before do
+      @details = channel.details
+    end
+    
+    it "must return a hash with length 4" do 
+      expect(@details).must_be_instance_of Hash
+      expect(@details.length).must_equal 4
+    end
+    
+    it "must accurately store the information of the channel instance" do 
+      expect(@details[:id]).must_equal channel.id
+      expect(@details[:name]).must_equal channel.name
+      expect(@details[:topic]).must_equal channel.topic
+      expect(@details[:member_count]).must_equal channel.member_count
+    end
+    
+  end
+  
 end
