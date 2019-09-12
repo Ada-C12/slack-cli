@@ -4,6 +4,8 @@ require_relative 'channel'
 require 'dotenv'
 Dotenv.load
 
+require 'pry'
+
 class Workspace
   
   attr_reader :users, :channels
@@ -26,23 +28,30 @@ class Workspace
     query_parameters = {"token" => api_key}
     
     user_response = HTTParty.get(url, query: query_parameters)
-
-    user_response["members"].each do |member|
+    # binding.pry
     
-      user_name = user_response["name"]
-      user_slack_id = user_response["id"]
-      user_real_name = user_response["real_name"]
-      user_status_text = user_response["profile"]["status_text"]
-      user_status_emoji = user_response["profile"]["status_emoji"]
-  
-      new_user = User.new(name: user_name, slack_id: user_slack_id, real_name: user_real_name, status_text: user_status_text, status_emoji: user_status_emoji)
-    
+    total_users = user_response["members"].length
+    i = 0
 
+      until i == total_users do
+        ser_name = user_response["members"][i]["name"]
+        user_slack_id = user_response[i]["id"]
+        user_real_name = user_response["real_name"]
+        user_status_text = user_response["profile"]["status_text"]
+        user_status_emoji = user_response["profile"]["status_emoji"]
+        
+        new_user = User.new(name: user_name, slack_id: user_slack_id, real_name: user_real_name, status_text: user_status_text, status_emoji: user_status_emoji)
+        
+        
+        
+        puts new_user
+        
+        @users << new_user
+        
+        i += 1
+        
+      end
       
-      puts new_user
-
-      @users << new_user
-
     end
     
     return user_response["ok"] == true 
