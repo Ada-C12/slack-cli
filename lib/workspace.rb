@@ -16,7 +16,6 @@ class Workspace
     
     #method call to initiate calling API to populate users and channels to display the initial # of them
     
-    api_call_list_channels 
     api_call_list_users 
   end
   
@@ -28,6 +27,8 @@ class Workspace
     query_parameters = {"token" => api_key}
     
     user_response = HTTParty.get(url, query: query_parameters)
+    
+    puts user_response
     make_users(user_response)
     
     return user_response["ok"] == true 
