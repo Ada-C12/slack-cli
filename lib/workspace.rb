@@ -1,6 +1,7 @@
 require 'httparty'
 require 'dotenv'
 require 'table_print'
+require 'awesome_print'
 require_relative 'user'
 require_relative 'channel'
 require_relative 'recipient'
@@ -30,14 +31,14 @@ module SlackCLI
       @users.each do |user|
         user_hash = {
           "slack_id" => user.slack_id,
-          "display name" => user.name, 
-          "real name" => user.real_name, 
+          "display name" => user.name,
+          "real name" => user.real_name,
           "status text" => user.status_text,
           "status emoji" => user.status_emoji
         }
         users_hash_array << user_hash
-      end 
-      tp users_hash_array 
+      end
+      tp users_hash_array
     end
     
     def list_channels
@@ -45,13 +46,40 @@ module SlackCLI
       @channels.each do |channel|
         channel_hash = {
           "slack_id" => channel.slack_id,
-          "name" => channel.name, 
+          "name" => channel.name,
           "topic" => channel.topic,
           "member_count" => channel.member_count
         }
         channels_hash_array << channel_hash
-      end 
-      tp channels_hash_array 
+      end
+      tp channels_hash_array
     end
-  end 
-end
+    
+    def print_details(selected)
+      if selected.class == SlackCLI::User
+        user_hash = [
+          {
+            "slack_id" => selected.slack_id,
+            "display name" => selected.name,
+            "real name" => selected.real_name,
+            "status text" => selected.status_text,
+            "status emoji" => selected.status_emoji
+          }
+        ]
+        tp user_hash 
+      elsif selected.class == SlackCLI::Channel
+        channel_hash = [
+          {
+            "slack_id" => selected.slack_id,
+            "name" => selected.name,
+            "topic" => selected.topic,
+            "member_count" => selected.member_count
+          }
+        ]
+        tp channel_hash
+      else 
+        print "Sorry, something went wrong."
+      end 
+    end
+  end
+end 
