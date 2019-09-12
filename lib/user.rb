@@ -24,9 +24,10 @@ module Slack
       user_objects["members"].each do |member|
         user_basic = {}
         @users << member 
-        user_basic["slack_id"] = member["slack_id"]
+        user_basic["slack_id"] = member["id"]
         user_basic["name"] = member["name"]
         user_basic["real_name"] = member["real_name"]
+        user_list << user_basic
       end
       return user_list
     end
