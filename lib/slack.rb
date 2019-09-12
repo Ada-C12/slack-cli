@@ -4,6 +4,8 @@ require_relative 'recipient'
 require_relative 'channel'
 require_relative 'user'
 require_relative 'workspace'
+require 'colorize'
+require 'table_print'
 
 Dotenv.load
 
@@ -15,11 +17,25 @@ Dotenv.load
 # end
 
 def main
-  puts "Welcome to the Ada Slack CLI!"
+  puts "Welcome to the Ada Slack CLI!".colorize(:yellow)
   
+  selection = nil
+  valid_inputs = ["list users", "list channels", "quit"]
   
+  until valid_inputs.include?(selection)
+    puts "\nPlease make a selection:\n- List Users\n- List Channels\n- Quit"
+    print "Selection: "
+    selection = gets.chomp.downcase
+  end 
   
-  puts "Thank you for using the Ada Slack CLI"
+  case selection
+  when "list users"
+  when "list channels"
+  when "quit"
+    puts "Thank you for using the Ada Slack CLI"
+    exit
+  end
+  
 end
 
 main if __FILE__ == $PROGRAM_NAME
