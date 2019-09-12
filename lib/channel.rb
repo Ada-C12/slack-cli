@@ -28,6 +28,15 @@ module Slack
       return list_of_channels
     end
     
+    def details
+      channel_details = {
+      id: @id,
+      name: @name,
+      topic: @topic,
+      member_count: @member_count}
+      return channel_details
+    end
+    
   end
   
 end
