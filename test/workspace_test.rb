@@ -1,6 +1,6 @@
 require_relative "test_helper"
 
-describe "User.list method" do
+describe "User methods" do
   before do
     VCR.use_cassette("users_list") do
       @user_array = Slack::User.list
@@ -23,7 +23,7 @@ describe "User.list method" do
   end
 end
 
-describe "Channel.list method" do
+describe "Channel methods" do
   before do
     VCR.use_cassette("channels_list") do
       @channel_array = Slack::Channel.list
@@ -101,18 +101,11 @@ describe "send_message method" do
 
   it "returns the selected channel" do
     VCR.use_cassette("message_post") do
-      body = {
-        token: ENV["SLACK_TOKEN"],
-        channel: "apis",
-        text: "hello from the other side",
-      }
       @workspace = Slack::Workspace.new
-      @selected_channel = @workspace.select_channel("apis")
-      response = @workspace.send_message("APIs! Amiright?")
-
-      expect(response["ok"]).must_equal true
+      @selected = @workspace.select_channel("apis")
+      @response = @workspace.send_message("Helllooo")
     end
 
-    expect(@response).must_equal true
+    expect(@response["ok"]).must_equal true
   end
 end

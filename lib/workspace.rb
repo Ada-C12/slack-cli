@@ -25,7 +25,7 @@ module Slack
           return @selected
         end
       end
-      raise SlackApiError
+      raise SlackApiError.new("We couldn't find this channel!")
     end
 
     def select_user(identifier)
@@ -41,7 +41,7 @@ module Slack
           return @selected
         end
       end
-      raise SlackApiError
+      raise SlackApiError.new("We couldn't find this user!")
     end
 
     def show_details

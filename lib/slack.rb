@@ -38,16 +38,16 @@ def main
       identifier = gets.chomp
       begin
         workspace.select_user(identifier)
-      rescue SlackApiError
-        puts "\n**We couldn't find this user!**"
+      rescue SlackApiError => e
+        puts "#{e.message}"
       end
     when "select channel"
       puts "\nEnter a username or slack id: "
       identifier = gets.chomp
       begin
         workspace.select_channel(identifier)
-      rescue SlackApiError
-        puts "\n**We couldn't find the channel!**"
+      rescue SlackApiError => f
+        puts "#{f.message}"
       end
     when "show details"
       if workspace.show_details == nil
