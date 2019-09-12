@@ -1,7 +1,4 @@
 require_relative 'recipient'
-require 'awesome_print'
-
-
 
 
 class Channel < Recipient
@@ -19,7 +16,7 @@ class Channel < Recipient
     
   end
   
-  
+  # Collab with Paige and Angele
   def self.list
     channels = self.get("https://slack.com/api/conversations.list")["channels"]
 
@@ -33,6 +30,3 @@ class Channel < Recipient
     end
   end
 end
-
-
-ap Channel.list
