@@ -44,22 +44,17 @@ describe "User Class" do
       end
     end  
     
-    # describe "details" do    
-    #   before do  
-    #     VCR.use_cassette("user_details") do 
-    #       @user = Slack::User.new("UMTG0S5D0", "samantha.collares", "Samantha Collares")
-    #       @user_test_list = @user.list
-    #       @first_user = @user_test_list[1]
-    #     end
-    #   end
-    
-    #   it "provides details" do 
-    #     expect(@user.details).must_equal ({"slack_id"=> "UMTG0S5D0", "name"=> "samantha.collares", "real_name"=> "Samantha Collares" })
-    #   end
-    
-    #   # it "provides details" do 
-    #   #   expect(@user_test_list.details).must_equal 
-    #   # end
-    # end # desscribe the class 
+    describe "details" do    
+      before do  
+        VCR.use_cassette("user_details") do 
+          @user = Slack::User.new("UMTG0S5D0", "samantha.collares", "Samantha Collares")
+        end
+      end
+      
+      it "provides details" do 
+        # binding.pry
+        expect(@user.details).must_equal ({"slack_id"=> "UMTG0S5D0", "name"=> "samantha.collares", "real_name"=> "Samantha Collares" })
+      end
+    end
   end
 end

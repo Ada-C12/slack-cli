@@ -1,14 +1,15 @@
 require 'dotenv'
 require_relative 'recipient'
+require "pry"
 
 module Slack
   class User < Recipient 
-    attr_reader :real_name
+    attr_reader :real_name, :display_name
     
     def initialize(slack_id, name, real_name)
       super(slack_id, name)
       @real_name = real_name
-      
+      @display_name = display_name
     end
     
     def self.list 
@@ -28,15 +29,21 @@ module Slack
     end
     
     
-    def details(user)
-      user_details = {}
-      identified_user = @users.find do |user|
-        user == selected_user
-      end
+    def details
+      # users = self.class.list
       
-      user_details["slack_id"] = identified_user["slack_id"]
-      user_details["name"] = identified_user["name"]
-      user_details["real_name"] =i dentified_user["real_name"]
+      user_details = {}
+      # identified_user = users.find do |member|
+      #   member == selected_user
+      # end
+      
+      user_details["slack_id"] = self.slack_id
+      user_details["name"] = self.name
+      user_details["real_name"] = self.real_name
+      #user_details["display_name"] = self.display_name
+      # user_details["email"] = identified_user["email"]
+      
+      return user_details
     end
     
     #depends on getting the select object?
