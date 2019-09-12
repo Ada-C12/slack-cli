@@ -39,15 +39,15 @@ def main
       begin
         workspace.select_user(identifier)
       rescue SlackApiError => e
-        puts "#{e.message}"
+        puts "\n#{e.message}"
       end
     when "select channel"
-      puts "\nEnter a username or slack id: "
+      puts "\nEnter a name or slack id: "
       identifier = gets.chomp
       begin
         workspace.select_channel(identifier)
-      rescue SlackApiError => f
-        puts "#{f.message}"
+      rescue SlackApiError => e
+        puts "\n#{e.message}"
       end
     when "show details"
       if workspace.show_details == nil

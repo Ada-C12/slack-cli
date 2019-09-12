@@ -21,6 +21,12 @@ describe "User methods" do
     @workspace.select_user("USLACKBOT")
     expect(@workspace.selected.is_a?(Slack::User)).must_equal true
   end
+
+  it "raises an error if a valid user is not found" do
+    expect do
+      @selected = @workspace.select_user("asjdakwjrer")
+    end.must_raise SlackApiError
+  end
 end
 
 describe "Channel methods" do
@@ -43,6 +49,12 @@ describe "Channel methods" do
   it "will select a channel by slack_id" do
     @workspace.select_channel("CN759T0MA")
     expect(@workspace.selected.is_a?(Slack::Channel)).must_equal true
+  end
+
+  it "raises an error if a valid channel is not found" do
+    expect do
+      @selected = @workspace.select_channel("cute dogs")
+    end.must_raise SlackApiError
   end
 end
 
@@ -99,7 +111,7 @@ describe "send_message method" do
     expect(@response).must_be_kind_of HTTParty::Response
   end
 
-  it "returns the selected channel" do
+  it "returns true if the selected channel is valid" do
     VCR.use_cassette("message_post") do
       @workspace = Slack::Workspace.new
       @selected = @workspace.select_channel("apis")
@@ -107,5 +119,33 @@ describe "send_message method" do
     end
 
     expect(@response["ok"]).must_equal true
+  end
+
+  # Want to raise a SlackApiError for an invalid request.
+  it "returns false if the selected channel is not valid" do
+    VCR.use_cassette("message_post") do
+      @workspace = Slack::Workspace.new
+      @selected = @workspace.select_channel("dogs")
+      @response = @workspace.send_message("Adorable doggos!")
+    end
+
+    expect do
+      (@response["ok"])
+    end.must_raise SlackApiError
+  end
+end
+
+describe "Recipient class - NotImplementedError for Template methods" do
+  it "returns NotImplementedError for Recipient.list method" do
+    @recipient = Slack::Recipient.new(name: "BotBot", slack_id: "UWSJKE")
+    expect do
+      @recipient.details
+    end.must_raise NotImplementedError
+  end
+
+  it "returns NotImplementedError for Recipient.list method" do
+    expect do
+      Slack::Recipient.list
+    end.must_raise NotImplementedError
   end
 end

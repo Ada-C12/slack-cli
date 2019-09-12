@@ -25,12 +25,10 @@ module Slack
       response = HTTParty.post(MESSAGE_URL, body: body)
 
       if response["ok"] != true
-        raise StandardError, "Invalid request. Error is #{response.code}: #{response.message}"
+        raise SlackApiError.new("Invalid request. Error is #{response.code}: #{response.message}")
       end
       return response
     end
-
-    private
 
     def self.list
       raise NotImplementedError, "Implement me in a child class!"

@@ -3,12 +3,12 @@ require_relative "test_helper"
 describe "Channel" do
   describe "#initialize" do
     before do
-      @test_channel = Slack::Channel.new(name: "rubber duck", slack_id: "RUBADUBDUB", topic: "duck things", member_count: 138)
+      @test_channel = Slack::Channel.new(name: "rubber duck", slack_id: "Ducks8", topic: "duck things", member_count: 138)
     end
 
     it "will return the attributes and its data type" do
       expect(@test_channel.name).must_equal "rubber duck"
-      expect(@test_channel.slack_id).must_equal "RUBADUBDUB"
+      expect(@test_channel.slack_id).must_equal "Ducks8"
       expect(@test_channel.topic).must_equal "duck things"
       expect(@test_channel.member_count).must_equal 138
 
@@ -29,9 +29,15 @@ describe "Channel" do
   end
 
   describe "Channel details method" do
+    before do
+      @test_channel = Slack::Channel.new(name: "Gossip", slack_id: "FULLOFSECRETS", topic: "Everything true or false", member_count: 100)
+    end
     it "will return details about the selected channel" do
-      test_channel = Slack::Channel.new(name: "Gossip", slack_id: "FULLOFSECRETS", topic: "Everything true or false", member_count: 100)
-      expect(test_channel.details).must_equal "\nname: Gossip, slack_id: FULLOFSECRETS, topic: Everything true or false, member count: 100"
+      expect(@test_channel.details).must_equal "\nname: Gossip, slack_id: FULLOFSECRETS, topic: Everything true or false, member count: 100"
+    end
+
+    it "returns a string type for details" do
+      expect(@test_channel.details).must_be_instance_of String
     end
   end
 end
