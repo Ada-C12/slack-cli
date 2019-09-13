@@ -24,6 +24,10 @@ def main
     case input
     when "1"
       puts workspace.all_user_names
+      # select user method
+
+
+
       input = nil
     when "2"
       puts workspace.all_channel_names
@@ -39,5 +43,28 @@ def main
   end
   puts "Thank you for using the Ada Slack CLI"
 end
+
+
+  # def select_a_user
+  # puts "Would you like to select a user?"
+  # until input== 3
+  # input = gets.chomp
+  # if y 
+  #   puts "what user do you want to select"
+  # selected = gets.chomp
+  # (must be a user name)
+  # if invalid do a thing
+  #   if valid
+  #   # selected_user_method
+  #   if desired "go back"
+  # end
+
+  # def selected_user
+  #   puts "What would you like to know? "
+  #   # details
+  #   # message
+  #   if desired "go back"
+  # end
+
 
 main if __FILE__ == $PROGRAM_NAME
