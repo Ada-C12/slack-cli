@@ -12,9 +12,6 @@ require_relative 'slackapierror.rb'
 require_relative 'workspace.rb'
 
 
-
-
-
 def main
   puts "\nWelcome to the Ada Slack CLI!\n\n"
   ws1 = Workspace.new
@@ -36,11 +33,10 @@ def main
         ws1.entity = result
       end
     end
-    
+
+    puts "Press any key to get back to menu"
+    gets
   end
-  
-  
-  puts "\nThank you for using the Ada Slack CLI\n\n"
 end
 
 main if __FILE__ == $PROGRAM_NAME

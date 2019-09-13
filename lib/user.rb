@@ -18,8 +18,7 @@ class User < Recipient
     params = { token: KEY }
     response = super(url, params)
     
-    puts response["ok"]
-    sleep(0.5)
+    # sleep(0.25)
     return response
   end
   

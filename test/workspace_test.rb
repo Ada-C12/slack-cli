@@ -32,7 +32,6 @@ describe "### WORKSPACE ###" do
       VCR.use_cassette("WT1") do
         assert(ws1.all_channels.length == 3)
         index = 0
-        puts ws1.all_channels.length
         ws1.all_channels.each do |channel|
           assert(channel.class == Channel)
           assert(channel.id == channel_ids[index])
@@ -45,20 +44,12 @@ describe "### WORKSPACE ###" do
     end
   end
   
-  it "Does show_menu work?" do
+  it "Does Workspace.menu_choices_hash() work?" do
     VCR.use_cassette("WT1") do
       answer = { A: "LIST USERS", B: "LIST CHANNELS", C: "SEND MESSAGE", D: "SELECT USER", E: "SELECT CHANNEL", F: "DETAILS", Q: "QUIT" }
-      returned_hash = ws1.show_menu
+      returned_hash = ws1.menu_choices_hash
+      assert(returned_hash.class == Hash)
       assert (answer == returned_hash)
-    end
-  end
-
-  describe "Does show_menu work?" do
-    it "Does it return expected hash?" do
-      VCR.use_cassette("WT1") do
-        hash = ws1.show_menu
-        assert(hash.class == Hash)
-      end
     end
   end
   
@@ -75,7 +66,6 @@ describe "### WORKSPACE ###" do
     it "Returned object contains what we expected" do
       VCR.use_cassette("WT1") do
         results = ws1.get_all_users_details
-        ap results
         assert(results.class == Array)
   
         results.each_with_index do |result, index|
@@ -153,6 +143,21 @@ describe "### WORKSPACE ###" do
       end
     end
   end
+
+  describe 'main_menu works?' do
+    it 'returns table instance successfully' do
+      VCR.use_cassette("WT1") do
+        menu = ws1.main_menu(headings: ["h1", "h2"] , rows_as_hash: {k1: "v1", k2: "v2", k3: "v3"} )
+        assert(menu.class == Terminal::Table)
+        # couldn't figure out how to test the headings...
+        # menu.headings is an array of something super long, not what we think it is
+        # expect(menu.headings).must_equal ["h1", "h2"] <- will fail
+        assert (menu.columns.length == 2)
+        assert (menu.columns[0] == [:k1, :k2, :k3])
+        assert (menu.columns[1] == ["v1", "v2", "v3"])
+      end
+    end
+  end 
   
   describe "does show_all_recipients work?" do
     it 'returns enumerated table instance successfully' do
@@ -160,7 +165,13 @@ describe "### WORKSPACE ###" do
         all_users = ws1.all_users
         result = ws1.show_all_recipients(array_of_recipient_objs: all_users, enumerate: true)
         assert(result.class == Terminal::Table)
-        ### TODO: assert each cell == what it supposed to be
+        assert(result.columns.length == 4)
+        # couldn't figure out how to test the headings...
+        # menu.headings is an array of something super long, not what we think it is
+        assert(result.columns[0] == ["A", "B", "C"])
+        assert(result.columns[1] == [user_ids[0], user_ids[1], user_ids[2]])
+        assert(result.columns[2] == [user_names[0], user_names[1], user_names[2]])
+        assert(result.columns[3] == [user_real_names[0], user_real_names[1], user_real_names[2]])
       end
     end
     
@@ -169,19 +180,16 @@ describe "### WORKSPACE ###" do
         all_users = ws1.all_users
         result = ws1.show_all_recipients(array_of_recipient_objs: all_users, enumerate: false)
         assert(result.class == Terminal::Table)
-        ### TODO: assert each cell == what it supposed to be
+        assert(result.columns.length == 3)
+        # couldn't figure out how to test the headings...
+        # menu.headings is an array of something super long, not what we think it is
+        assert(result.columns[0] == [user_ids[0], user_ids[1], user_ids[2]])
+        assert(result.columns[1] == [user_names[0], user_names[1], user_names[2]])
+        assert(result.columns[2] == [user_real_names[0], user_real_names[1], user_real_names[2]])
       end
     end
   end
 
-  describe 'main_menu works?' do
-    it 'returns table instance successfully' do
-      VCR.use_cassette("WT1") do
-        menu = ws1.main_menu(headings: [1,2,3] , rows_as_hash: {k1: 1, k2: 2, k3: 3} )
-        assert(menu.class == Terminal::Table)
-        ### TODO: assert each cell == what it supposed to be
-      end
-    end
-  end
+
 
 end

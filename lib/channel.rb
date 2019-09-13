@@ -19,7 +19,8 @@ class Channel < Recipient
     url = "https://slack.com/api/conversations.list"
     params = { token: KEY }
     response = super(url, params)
-    p response["ok"]
+    
+    # sleep(0.25)
     return response
   end
   
@@ -55,9 +56,6 @@ class Channel < Recipient
     return member_counts
   end
   
-  
-  
-  
   def self.load_all
     names = self.get_names
     ids = self.get_ids
@@ -72,10 +70,5 @@ class Channel < Recipient
     
     return all_channels
   end
-  
-  
-  
-  
-  
   
 end

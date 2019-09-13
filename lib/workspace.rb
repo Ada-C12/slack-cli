@@ -16,11 +16,10 @@ class Workspace
     @entity = nil
   end
   
-  def show_menu
+  def menu_choices_hash
     choices = { A: "LIST USERS", B: "LIST CHANNELS", C: "SEND MESSAGE", D: "SELECT USER", E: "SELECT CHANNEL", F: "DETAILS", Q: "QUIT" }
     return choices
   end
-  
   
   def main_menu(headings: , rows_as_hash: )
     # arg headings: ["head1", "head2", etc] 
@@ -128,26 +127,24 @@ class Workspace
       input = gets.chomp
       begin
         user = select_user(input)
+        puts "SUCCESS:  User  = #{user.name}"
         return user
       rescue => exception
         puts exception.message
         return false
       end
       
-      puts "SUCCESS:  User  = #{user.name}"
-      
     when "E", "SELECT CHANNEL"
       print "Please enter a channel's name or id: "
       input = gets.chomp
       begin
         channel = select_channel(input)
+        puts "SUCCESS:  Channel  = #{channel.name}"
         return channel
       rescue => exception
         puts exception.message
         return false
       end
-      
-      puts "SUCCESS:  Channel  = #{channel.name}"
       
     when "F", "DETAILS"
       puts "SHOWING DETAILS"
@@ -161,10 +158,8 @@ class Workspace
         puts exception.message
       end
 
-      
-
     when "Q", "QUIT"
-      puts "k bye"
+      puts "\nThank you for using the Ada Slack CLI\n\n"
       exit
     else
       puts "INVALID INPUT, TRY AGAIN"
