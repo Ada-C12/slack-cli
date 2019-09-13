@@ -121,8 +121,7 @@ class Workspace
     text = get_text
     query_params = { token: ENV["SLACK_KEY"], channel: "CN69B7XMW", text: text, user: msg_recipient.id}
     response = HTTParty.get(url, query: query_params)
-    sleep(0.25)
-    
+
     if response["ok"] == true
       return response
     else
@@ -168,6 +167,7 @@ class Workspace
         return user
       rescue => exception
         puts exception.message
+        return false
       end
       
     when "E", "SELECT CHANNEL"
@@ -179,6 +179,7 @@ class Workspace
         return channel
       rescue => exception
         puts exception.message
+        return false
       end
       
     when "F", "DETAILS"

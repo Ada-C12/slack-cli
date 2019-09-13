@@ -17,7 +17,7 @@ class User < Recipient
     url = "https://slack.com/api/users.list"
     params = { token: KEY }
     response = super(url, params)
-    
+    # sleep(0.25)
     return response
   end
   

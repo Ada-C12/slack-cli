@@ -68,7 +68,7 @@ describe "### TESTING CHANNEL ###" do
       assert(channel_ids[2] == 'CN85CG01M')
     end
   end
-  
+
   
   it "Does Channels#load_all work?" do
     VCR.use_cassette("CT9") do

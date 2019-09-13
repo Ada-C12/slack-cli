@@ -9,6 +9,7 @@ require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
 require 'httparty'
+require 'stringio'
 
 require_relative '../lib/recipient.rb'
 require_relative '../lib/user.rb'
@@ -27,8 +28,8 @@ VCR.configure do |config|
     :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match  
   }
   
-  config.filter_sensitive_data("<SUPER_SECRET!>") do   # note the quotes!
-    ENV["MY_KEY"]
+  config.filter_sensitive_data("<SUPER-SECRET!>") do  
+    ENV["SLACK_KEY"]
   end
 end
 

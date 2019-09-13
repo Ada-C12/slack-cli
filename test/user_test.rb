@@ -4,21 +4,21 @@ describe "### TESTING USER ###" do
   let (:response) { User.get }
   
   it "Does User.new() work?" do
-    VCR.use_cassette("UT2") do
+    VCR.use_cassette("UT1") do
       user1 = User.new(id: "123", name: "FakeyFake", real_name: "Fake Name")
       assert (user1.class == User)
     end
   end
   
   it "Does User.get work?" do
-    VCR.use_cassette("UT2") do
+    VCR.use_cassette("UT1") do
       assert (response.class == HTTParty::Response)
       assert (response["ok"] == true)
     end
   end
   
   it "Does User.get_real_names work?" do
-    VCR.use_cassette("UT2") do
+    VCR.use_cassette("UT1") do
       all_real_names = User.get_real_names
       assert(all_real_names.length == 3)
       assert(all_real_names.first == "Slackbot")
@@ -28,7 +28,7 @@ describe "### TESTING USER ###" do
   end
   
   it "Does User.get_names work?" do
-    VCR.use_cassette("UT2") do
+    VCR.use_cassette("UT1") do
       all_names = User.get_names
       assert(all_names.length == 3)
       assert(all_names.first == "slackbot")
@@ -38,7 +38,7 @@ describe "### TESTING USER ###" do
   end
   
   it "Does User.get_ids work?" do
-    VCR.use_cassette("UT2") do
+    VCR.use_cassette("UT1") do
       all_ids = User.get_ids
       assert(all_ids.length == 3)
       assert(all_ids.first == "USLACKBOT")
@@ -48,7 +48,7 @@ describe "### TESTING USER ###" do
   end
   
   it "Does User.load_all work?" do
-    VCR.use_cassette("UT2") do
+    VCR.use_cassette("UT1") do
       all_users = User.load_all
       ids = %w[USLACKBOT UN5R2S6GL UN69JD3V3]
       names = %w[slackbot carolinewukaplan eaball35]
