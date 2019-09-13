@@ -83,7 +83,6 @@ def get_message()
     
     PUMPKIN_SPICE.send_message(message)
   else
-    # puts
     puts "You need to select a recipient."
   end
 end
@@ -141,8 +140,11 @@ def main
         get_message
         
       when "get message history", "7", "seven"
-        response = PUMPKIN_SPICE.selected.get_message_history
-        format_message_history(response)
+        if PUMPKIN_SPICE.selected
+          response = PUMPKIN_SPICE.selected.get_message_history
+        else
+          puts "You need to select a recipient."
+        end
         
       when "change bot settings", "8", "eight"
         print "Please enter the bot's new name: "
