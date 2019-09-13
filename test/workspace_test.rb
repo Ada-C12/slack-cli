@@ -113,22 +113,41 @@ describe "Workspace" do
 
   describe "show_details" do
     it "returns details for a selected recipient" do
-      channel_id = "CN9NG0YUE"
-      user_id = "USLACKBOT"
+      VCR.use_cassette("get_user_info") do
+        channel_id = "CN9NG0YUE"
+        user_id = "USLACKBOT"
 
-      @new_workspace.select_channel(channel_id)
-      details_1 = @new_workspace.show_details
-      @new_workspace.select_user(user_id)
-      details_2 = @new_workspace.show_details
+        @new_workspace.select_channel(channel_id)
+        details_1 = @new_workspace.show_details
+        @new_workspace.select_user(user_id)
+        details_2 = @new_workspace.show_details
 
-      expect(details_1).must_include "random"
-      expect(details_2).must_include "slackbot"
+        expect(details_1).must_include "random"
+        expect(details_2).must_include "slackbot"
+      end
     end
 
     it "returns nil if no user or channel is selected" do
       @new_workspace.selected == nil
 
       expect(@new_workspace.show_details).must_be_nil
+    end
+  end
+
+  describe "send_message" do
+    # it "returns true if a message was sent" do
+    #   channel_random = @new_workspace.find_instance(@new_workspace.channels, "random")
+    #   @new_workspace.selected = channel_random
+    #   VCR.use_cassette("workspace_send_message") do
+    #     response = @new_workspace.send_message("trying to send from workspace_test")
+    #     expect()
+    # #   end
+    # end
+
+    it "returns nil if no recipient is selected" do
+      @new_workspace.selected == nil
+
+      expect(@new_workspace.send_message).must_be_nil
     end
   end
 end

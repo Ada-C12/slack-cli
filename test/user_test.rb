@@ -34,19 +34,24 @@ describe "User" do
         @users_list = SlackCLI::User.list
       end
     end
-
+    
     it "returns a string" do
-      user_details = @users_list[0].details
+      VCR.use_cassette("get_user_info") do
+        user_details = @users_list[0].details
 
-      expect(user_details).must_be_instance_of String
+        expect(user_details).must_be_instance_of String
+      end
     end
-
+    
     it "returns accurate details about the user" do
-      user_details2 = @users_list[0].details
+      VCR.use_cassette("get_user_info") do
+        user_details = @users_list[0].details
 
-      expect(user_details2).must_include "USLACKBOT"
-      expect(user_details2).must_include "slackbot"
-      expect(user_details2).must_include "Slackbot"
+        expect(user_details).must_include "USLACKBOT"
+        expect(user_details).must_include "slackbot"
+        expect(user_details).must_include "Slackbot"
+        expect(user_details).must_include "false"
+      end
     end
   end
 end
