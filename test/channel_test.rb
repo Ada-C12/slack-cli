@@ -49,22 +49,16 @@ describe "Channel class" do
       end
     end
   end
+  
+  # Test to select channel
+  describe "Select channel" do
+    it "returns the selected channel" do
+      VCR.use_cassette("channel_list") do
+        channel = Slack::Channel.select_channel("slack-cli")
+        # user.details
+        expected_output = "#{channel}"
+        expect(channel.channel_name).must_equal "slack-cli"
+      end
+    end
+  end
 end
-
-
-# Yasmin's updates: but I put select method inside slack.rb? How to test this?
-
-#  # added
-#   describe "Workspace select_channel" do
-
-#     it "Select channel " do
-#       VCR.use_cassette("workspace") do
-#         # Act
-#         channel = @channels.select_channel
-#       # user.details
-#       expected_output = "#{channel}"
-#       expect(channel ).must_equal expected_output
-#       end
-#     end
-#   end
-#  end

@@ -36,22 +36,21 @@ describe "User class" do
   # Test to check user count
   describe "User list" do
     it "returns correct numbers of users" do
-      VCR.use_cassette("Users_list") do
+      VCR.use_cassette("users_list") do
         users = Slack::User.list_users
         users = users.length
         expect(users).must_equal  3
       end
     end
   end
-
+  
   describe "Select user" do
     it "returns the selected user" do
-      VCR.use_cassette("Users_list") do
-        # Act
+      VCR.use_cassette("users_list") do
         user = Slack::User.select_user("slackbot")
-      # user.details
-      expected_output = "#{user}"
-      expect(user.user_name).must_equal "slackbot"
+        # user.details
+        expected_output = "#{user}"
+        expect(user.user_name).must_equal "USLACKBOT"
       end
     end
   end

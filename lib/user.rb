@@ -4,7 +4,7 @@ Dotenv.load
 
 module Slack
   class User
-    attr_reader :slack_id, :name, :user_name
+    attr_reader :user_name, :slack_id, :name
     
     USERS_LIST = "https://slack.com/api/users.list"
     CHAT_URL = "https://slack.com/api/chat.postMessage"
@@ -37,13 +37,12 @@ module Slack
       "The name is #{@name}, the user name is #{@user_name}, and the slack id is #{@slack_id}"
     end
     
-    def select_user(recipient_selection)
-      recipient = users.find {| user | user.user_name == recipient_selection || user.slack_id == recipient_selection }
-      recipient == nil
+    def self.select_user(recipient_selection)
+      users = list_users
+      recipient = users.find { |user| user.user_name == recipient_selection || user.slack_id == recipient_selection }
+      return recipient
     end
     
-    
-    # method for send message
     
     # module SlackApi
     #  CHAT_URL = "https://slack.com/api/chat.postMessage"
