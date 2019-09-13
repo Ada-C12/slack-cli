@@ -7,8 +7,6 @@ module SlackCLI
   class Recipient
     attr_reader :slack_id, :name 
     
-    POST_URL = 'https://slack.com/api/chat.postMessage'
-    
     def initialize(slack_id, name)
       @slack_id = slack_id
       @name = name
@@ -20,7 +18,7 @@ module SlackCLI
         channel: self.slack_id,
         text: msg
       }
-      response =  HTTParty.post(POST_URL, query: post_parameters)
+      response =  HTTParty.post('https://slack.com/api/chat.postMessage', query: post_parameters)
       if response.code == 200
         puts "Message sent successfully."
       else 

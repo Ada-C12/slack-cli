@@ -48,4 +48,22 @@ describe 'User.json_parse' do
   it 'creates an array of Users' do
     expect(@users[0]).must_be_instance_of SlackCLI::User
   end
+
+  describe 'User.send_message' do 
+    let (:workspace) {
+      VCR.use_cassette("workspace.new") do
+        SlackCLI::Workspace.new
+      end
+    }
+    let (:msg) {
+      slackbot = workspace.select_user
+      VCR.use_cassette("send_msg_to_Slackbot") do 
+
+    }
+        
+        @msg_json = selected.send_message('hot potato')
+      end
+    end 
+
+    it "tests "
 end
