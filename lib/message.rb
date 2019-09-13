@@ -1,7 +1,7 @@
 #lib/message.rb
 require "httparty"
 
-class SlackApiError < StandardError ; end
+# class SlackApiError < StandardError ; end
 
 module Slack
   BASE_URL = 'https://slack.com/api/'
@@ -14,7 +14,7 @@ module Slack
       body:  {
         token: API_KEY,
         text: message,
-        channel: "kjljk"
+        channel: channel
       },
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )

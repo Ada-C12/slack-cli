@@ -23,7 +23,7 @@ module Slack
       response.parsed_response["channels"].each do |channel|
         name =  channel["name"]
         id =  channel["id"]
-        topic = channel["topic"]
+        topic = channel["topic"]["value"]
         member_count = channel["num_members"]
         channel = Slack::Channel.new(name, id, topic, member_count)  
         channels  << channel

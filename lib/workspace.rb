@@ -54,7 +54,7 @@ module Slack
           else recipient.class == Slack::Channel
             puts "Name: #{@recipient.name}"
             puts "Id: #{@recipient.id}"
-            puts "Topic: #{@recipient.topic.values[0]}"
+            puts "Topic: #{@recipient.topic}"
             puts "Member count: #{@recipient.member_count}\n\n"
           end
       else recipient == nil
