@@ -15,7 +15,6 @@ def main
     puts "\nWhat would you like to do?"
     menu_options
     print "Action: " 
-    #Make an "ask for input" helper method?
     choice = gets.chomp.downcase
     
     case choice
@@ -28,10 +27,26 @@ def main
       list_channels(workspace)
 
     when "3","select user"
-      select_user(workspace)
+      puts "Select User"
+      print "Please enter a Username or Slack ID: "
+      query = gets.chomp.downcase
+      query_result = workspace.select_user(query)
+      if query_result == nil
+        puts "\nUser with Username or Slack ID '#{query}' does not exist."
+      else
+        puts "\nUser '#{query_result.name}' selected"
+      end
     
     when "4","select channel"
-      select_channel(workspace)
+      puts "Select Channel"
+      print "Please enter a Channel Name or Slack ID: "
+      query = gets.chomp.downcase
+      query_result = workspace.select_channel(query)
+      if query_result == nil
+        puts "\nChannel with Name or Slack ID '#{query}' does not exist."
+      else
+        puts "\nChannel '#{query_result.name}' selected"
+      end
 
     when "5","details"
       if workspace.show_details == nil
@@ -80,32 +95,6 @@ end
 
 def list_channels(workspace)
   tp workspace.channels, :slack_id, :name, :topic, :member_count
-end
-
-def select_user(workspace)
-  puts "Select User"
-  print "Please enter a Username or Slack ID: "
-  query = gets.chomp.downcase
-  query_result = workspace.select_user(query)
-  if query_result == nil
-    puts "\nUser with Username or Slack ID '#{query}' does not exist."
-  else
-    puts "\nUser '#{query_result.name}' selected"
-  end
-  return query_result
-end
-
-def select_channel(workspace)
-  puts "Select Channel"
-  print "Please enter a Channel Name or Slack ID: "
-  query = gets.chomp.downcase
-  query_result = workspace.select_channel(query)
-  if query_result == nil
-    puts "\nChannel with Name or Slack ID '#{query}' does not exist."
-  else
-    puts "\nChannel '#{query_result.name}' selected"
-  end
-  return query_result
 end
 
 main if __FILE__ == $PROGRAM_NAME
