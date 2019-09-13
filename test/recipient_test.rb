@@ -17,6 +17,10 @@ describe Recipient do
       expect (recipient.name).must_equal @name
       expect (recipient.slack_id).must_equal @slack_id
     end
+
+    it "raises ArgumentError if input is invalid" do
+      expect {Recipient.new(slack_id: nil, name: nil)}.must_raise ArgumentError
+    end
   end
   
   describe "#send_message method" do

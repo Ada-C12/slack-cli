@@ -40,6 +40,8 @@ class Workspace
     if selected
       puts "Please enter message to send to #{selected.name}: "
       message = gets.chomp
+      raise Recipient::SlackApiError if message.empty?
+      
       selected.send_message(message)
     else
       puts "No recipient selected\n\n"

@@ -7,6 +7,7 @@ class Recipient
   class SlackApiError < Exception; end
 
   def initialize(slack_id:, name:)
+    raise ArgumentError unless (slack_id && name)
     @slack_id = slack_id
     @name = name
   end
