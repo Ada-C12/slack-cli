@@ -85,13 +85,13 @@ describe 'prints details about selected user or channel' do
     end
   }
   it 'determines if the object selected is a user or a channel' do
-    selected = workspace.select_channel(random)
+    selected = workspace.select_channel('random')
     expect(workspace.print_details(selected)).must_be_kind_of Array
-    selected = workspace.select_channel(random)
+    selected = workspace.select_channel('random')
     expect(workspace.print_details(selected).length).must_equal 5
-    selected = workspace.select_user(Slackbot)
+    selected = workspace.select_user('Slackbot')
     expect(workspace.print_details(selected)).must_be_kind_of Array
-    selected = workspace.select_user(Slackbot)
+    selected = workspace.select_user('Slackbot')
     expect(workspace.print_details(selected).length).must_equal 4
   end
   it 'complains when no user or channel is selected' do
