@@ -142,8 +142,9 @@ def main
       when "get message history", "7", "seven"
         if PUMPKIN_SPICE.selected
           response = PUMPKIN_SPICE.selected.get_message_history
+          format_message_history(response)
         else
-          puts "You need to select a recipient."
+          puts "\nYou need to select a recipient."
         end
         
       when "change bot settings", "8", "eight"
