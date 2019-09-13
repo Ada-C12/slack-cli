@@ -47,9 +47,3 @@ class Workspace
     @selected.send_message(message, channel)
   end
 end
-
-workspace = Workspace.new
-workspace.select_channel('general')
-if workspace.send_message == falase
-  puts "error"
-end

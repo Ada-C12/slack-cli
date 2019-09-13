@@ -7,8 +7,6 @@ require 'table_print'
 
 Dotenv.load
 
-
-
 def main
   
   puts "Welcome to the Ada Slack CLI!"
@@ -17,21 +15,26 @@ def main
   puts "There are #{workspace.channels.length} channels"
   puts "There are #{workspace.users.length} users"
   
-  puts "What would you like to do? These are your option:  _____"  
-  input = gets.chomp
-  until input == "quit" do
-    
-    if input == "list channels"
-      Channel.list 
-    elsif input == "list users"
-      User.list
-    elsif input == "select user"
+  while true
+    puts "What would you like to do? Your options are: List channels, List user"  
+    case gets.chomp
       
+    when "quit"
+      break
+    when "list channels"
+      Channel.list
+    when "list users" 
+      User.list
+    when "select channel"
+      print "What channel would you like to select: "
+      input = gets.chomp
+      puts workspace.select_channel(input)
+    when "select user"
+      print "What user would you like to select: "
+      input = gets.chomp
+      puts workspace.select_user(input)
     end
-    puts "What would you like to do? These are your option:  _____"  
-    input = gets.chomp
   end
-  
   
   puts "Thank you for using the Ada Slack CLI"
 end

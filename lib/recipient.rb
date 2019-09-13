@@ -23,7 +23,6 @@ class Recipient
         token: KEY, 
         text: message, 
         channel: channel
-        as_user: true
       },
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
