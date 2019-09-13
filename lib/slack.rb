@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
-require 'dotenv'
-require 'httparty'
+# require 'dotenv'
+# require 'httparty'
 require 'awesome_print'
-require_relative 'recipient'
-require_relative 'user'
-require_relative 'channel'
+require_relative 'workspace'
 require "table_print"
 
 Dotenv.load
@@ -15,59 +13,61 @@ def main
   menu_method
   
   selection = gets.chomp
-  until selection == "5"
+  until selection == "3"
     selection_method(selection)
     puts "______________________________"
     menu_method
     selection = gets.chomp
+    learn_more_method
   end
   
   puts "Thank you for using the Ada Slack CLI"
 end
 
 def menu_method
-  menu_options = ["List Users in the Workspace", "List Channels in the Workspace", "Select User", "Select Channel", "Quit program"]
+  # menu_options = ["List Users in the Workspace", "List Channels in the Workspace", "Select User", "Select Channel", "Quit program"]
+  menu_options = ["List Users in the Workspace", "List Channels in the Workspace", "Quit"]
   menu_options.each_with_index do |prompt, i|
     puts " #{i + 1}. #{prompt}"
   end
 end
 
+
 def selection_method(selection)
+  workspace = SlackCLI::Workspace.new #Move Somewhere More Important
   if selection == "1"
-    tp SlackCLI::User.list
-    # list channels
+    tp workspace.users
   elsif selection == "2"
-    tp SlackCLI::Channel.list
-    # select user
-  elsif selection == "3" || selection == "4"
-    find_username_or_slack_id(selection)
+    tp workspace.channels
   end
 end
 
-def find_username_or_slack_id(selection)
-  
+
+def learn_more_method(selection)
+  # selection 1 is users
+  # selection "2"  is channels
   puts "Enter \"a\" to search by Username\nEnter \"b\"to search by Slack ID"
   find_by = gets.chomp
   puts "Enter search term:"
   name_or_id = gets.chomp
   
   if find_by == "a"
-    if selection == "3"
+    if selection == "1"
       # this means they're looking for username
-      SlackCLI::User.find(user_name: name_or_id)
+      workspace.select_user(user_name: name_or_id)
     else 
       # looking for channel by channel name
-      SlackCLI::Channel.find(name: name_or_id)
+      workspace.select_channel(name: name_or_id)
     end
     # search by user id or channel id
     # method - find by Name
   elsif find_by == "b"
-    if selection == "3"
-      SlackCLI::User.find(slack_id: name_or_id)
-      # this means they're looking for username
-    else 
-      SlackCLI::Channel.find(slack_id: name_or_id)
+    if selection == "1"
+      workspace.select_user(slack_id: name_or_id)
       # looking for channel by channel name
+    else 
+      workspace.select_channel(slack_id: name_or_id)
+      # this means they're looking for username
     end
   end
 end

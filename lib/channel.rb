@@ -6,10 +6,10 @@ Dotenv.load
 # we are returning an array of channels (2x what we are expecting)
 module SlackCLI
   class Channel < Recipient
-    attr_reader :id, :name, :topic, :member_count
+    attr_reader :slack_id, :name, :topic, :member_count
     
-    def initialize(id:, name:, topic:, member_count:)
-      @id = id
+    def initialize(slack_id:, name:, topic:, member_count:)
+      @slack_id = slack_id
       @name = name
       @topic = topic
       @member_count = member_count
@@ -24,7 +24,7 @@ module SlackCLI
       
       response["channels"].each do |channel|
         info_hash = {
-          id: channel["id"],
+          slack_id: channel["id"],
           name: channel["name"],
           topic: channel["topic"]["value"],
           member_count: channel["members"].length

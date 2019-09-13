@@ -3,10 +3,10 @@ Dotenv.load
 
 module SlackCLI
   class User < Recipient
-    attr_reader :id, :user_name, :real_name
+    attr_reader :slack_id, :user_name, :real_name
     
-    def initialize(id:, user_name:, real_name:)
-      @id = id
+    def initialize(slack_id:, user_name:, real_name:)
+      @slack_id = slack_id
       @user_name = user_name
       @real_name = real_name
     end 
@@ -16,7 +16,7 @@ module SlackCLI
       array_of_users = []
       response["members"].each do |member|
         info_hash = {
-          id: member["id"],
+          slack_id: member["id"],
           user_name: member["name"],
           real_name: member ["profile"]["real_name"]
         }
