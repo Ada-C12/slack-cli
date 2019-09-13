@@ -1,6 +1,5 @@
 require_relative 'test_helper'
 
-
 describe "SlackCLI::Workspace" do
   
   describe "select_user" do
@@ -42,11 +41,21 @@ describe "SlackCLI::Workspace" do
         expect(@user_workspace.send_message("hey")["ok"]).must_equal true
       end
     end
-    it "should raise SlackApiError" do
+    it "should raise SlackApiError if unable to send" do
       VCR.use_cassette("send_channel_message") do
         @user_workspace = SlackCLI::Workspace.new
         expect{ @user_workspace.select_user(user_name: "joe_schmoe")
           @user_workspace.send_message("hey")["ok"]}.must_raise SlackApiError
+        end
+      end
+    end
+    
+    describe "show_details" do
+      it "should show a list of details" do
+        VCR.use_cassette("send_channel_message") do
+          @test_workspace = SlackCLI::Workspace.new
+          @test_workspace.select_user(user_name: "nataliemtapias")
+          expect(@test_workspace.show_details).must_be_instance_of SlackCLI::User
         end
       end
     end

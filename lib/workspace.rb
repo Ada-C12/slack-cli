@@ -5,6 +5,7 @@ require_relative 'channel'
 Dotenv.load
 
 module SlackCLI
+  
   class Workspace
     attr_reader :users, :channels, :selected
     
@@ -39,7 +40,7 @@ module SlackCLI
     end
     
     def show_details
-      tp @selected
+      @selected
     end
     
     

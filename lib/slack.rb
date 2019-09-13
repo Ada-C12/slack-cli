@@ -12,6 +12,7 @@ def main
   
   while selection == "1" || selection == "2"
     print_table(selection)
+    puts "************************************"
     learn_more_method(selection)
     message_menu
     menu_method
@@ -23,17 +24,17 @@ end
 
 def menu_method
   # menu_options = ["List Users in the Workspace", "List Channels in the Workspace", "Select User", "Select Channel", "Quit program"]
+  puts "*********** MAIN MENU **************"
   menu_options = ["List Users in the Workspace", "List Channels in the Workspace"]
   menu_options.each_with_index do |prompt, i|
     puts " #{i + 1}. #{prompt}"
   end
   puts "[Any Other Key] to Quit"
+  puts "************************************"
 end
-
 
 def print_table(selection)
   # determines whether you are going to print users or channels
-  #Move Somewhere More Important
   if selection == "1"
     tp @workspace.users
   elsif selection == "2"
@@ -41,13 +42,10 @@ def print_table(selection)
   end
 end
 
-# show details
-# @workspace.show_details
-
 def learn_more_method(selection)
   # selection "1" is users
   # selection "2"  is channels
-  puts "Enter \"a\" to search by Name\nEnter \"b\" to search by Slack ID\n[Any Other Key] to Quit"
+  puts "Enter \"a\" to search by Channel Name or User Name\nEnter \"b\" to search by Slack ID\n[Any Other Key] to Quit"
   find_by = gets.chomp
   
   if find_by == "a"
@@ -88,15 +86,15 @@ def message_menu
   puts "Enter \"a\" to Show Details\nEnter \"b\" to Send Message\n[Any Other Key] to Quit"
   message_choice = gets.chomp
   if message_choice == "a"
-    @workspace.show_details
+    tp @workspace.show_details
   elsif message_choice == "b"
-    # begin
-    puts "Enter Message: "
-    message = gets.chomp
-    @workspace.send_message(message)
-    # rescue
-    # puts "Message Unable to Send"
-    # end
+    begin
+      puts "Enter Message: "
+      message = gets.chomp
+      @workspace.send_message(message)
+    rescue
+      puts "Message Unable to Send"
+    end
   else
     puts "Invalid Menu Choice"
   end

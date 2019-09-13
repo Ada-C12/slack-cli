@@ -1,9 +1,8 @@
 require 'dotenv'
 require_relative 'recipient'
 
-
 Dotenv.load
-# we are returning an array of channels (2x what we are expecting)
+
 module SlackCLI
   class Channel < Recipient
     attr_reader :slack_id, :name, :topic, :member_count
@@ -33,8 +32,5 @@ module SlackCLI
       end
       return array_of_channels
     end
-    
   end
 end
-
-

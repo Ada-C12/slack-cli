@@ -11,13 +11,6 @@ describe "SlackCLI::User" do
     end
   end
   
-  # it "should be a channel" do
-  # end
-  # it "should have appropriate attributes" do
-  # end
-  # it "should have id respond to a string" do
-  # end
-  
   it "should return an Array" do
     VCR.use_cassette("list_users") do
       expect(SlackCLI::User.list).must_be_instance_of Array

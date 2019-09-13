@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 20:46:12 GMT
+      - Fri, 13 Sep 2019 23:09:29 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 883d662f-e221-4def-b466-c385f4e9271c
+      - 35abd46a-9519-4514-8163-fcbfc031fd34
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-xvg4
+      - haproxy-www-f8tg
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 aa42484f82c16d99015c599631def20c.cloudfront.net (CloudFront)
+      - 1.1 6a6653dfb47ccc5082f2a5b9d0d168ce.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19
+      - SEA19-C1
       X-Amz-Cf-Id:
-      - QOyxVs1sJKrtMU6phfjqFM3CDqnxlDTYpoFD5iK1eTE8MCfXXKz6uw==
+      - V724dSu0oGq2KTg-DKXz4ansrAOM2JQqZhoUDNZXu-bXVnMWYEB2eg==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CN5S0B30U","name":"random","is_channel":true,"created":1568073948,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UMTGXDXD0","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTGXDXD0","UMUS3K402","UMW5P9DHR","UN8GKRXK8"],"topic":{"value":"Non-work
@@ -80,5 +80,5 @@ http_interactions:
         pets","creator":"UMW5P9DHR","last_set":1568150584},"previous_names":[],"num_members":2},{"id":"CNANHC6LF","name":"spaghetti","is_channel":true,"created":1568224227,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UMW5P9DHR","name_normalized":"spaghetti","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTGXDXD0","UMUS3K402","UMW5P9DHR"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":3},{"id":"CNCQ49V7Y","name":"a-new-channel","is_channel":true,"created":1568320692,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UMW5P9DHR","name_normalized":"a-new-channel","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":[],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":0},{"id":"CNCQ53EDC","name":"natalie-dinner-plans","is_channel":true,"created":1568320726,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UMW5P9DHR","name_normalized":"natalie-dinner-plans","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMW5P9DHR"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"what
         is natalie eating for dinner","creator":"UMW5P9DHR","last_set":1568320727},"previous_names":[],"num_members":1}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 20:48:02 GMT
+  recorded_at: Fri, 13 Sep 2019 23:11:19 GMT
 recorded_with: VCR 5.0.0
