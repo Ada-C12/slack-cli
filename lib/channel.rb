@@ -31,10 +31,10 @@ module SlackCLI
     end
 
     def details
-      "Slack ID: #{slack_id}\n
-      Name:  #{name}\n
-      Topic: #{topic}\n 
-      Member Count: #{member_count}"
+      "Slack ID: #{slack_id}\n" +
+      "Name:  #{name}\n" +
+      "Topic: #{topic}\n" +
+      "Member Count: #{member_count}"
     end
   end
 end

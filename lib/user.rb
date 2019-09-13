@@ -26,9 +26,9 @@ module SlackCLI
     end
     
     def details
-      "Slack ID: #{slack_id}\n 
-      Name: #{name}\n 
-      Real Name: #{real_name}"
+      "Slack ID: #{slack_id}\n" +
+      "Name: #{name}\n" +
+      "Real Name: #{real_name}"
     end
   end
 end

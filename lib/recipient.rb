@@ -37,7 +37,7 @@ module SlackCLI
         )
 
       if response.keys.include? "error"  || response["ok"] == false
-        raise SlackCLI::SlackApiError
+        raise SlackCLI::SlackApiError.new("Message not sent due to error: #{response["error"]}")
       else
         return true
       end
