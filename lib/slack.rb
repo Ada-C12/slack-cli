@@ -16,7 +16,7 @@ def main
   puts "\nWelcome to the Ada Slack CLI!\n\n"
   ws1 = Workspace.new
   
-  choices_hash = ws1.show_menu
+  choices_hash = ws1.menu_choices_hash
   main_menu = ws1.main_menu(headings: ["", "MAIN MENU"], rows_as_hash: choices_hash)
   
   quit_program = false
@@ -33,7 +33,7 @@ def main
         ws1.entity = result
       end
     end
-
+    
     puts "Press any key to get back to menu"
     gets
   end
