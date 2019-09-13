@@ -70,7 +70,7 @@ module Slack
       @selected = nil
       if data_source == "user"
         @users.each do |current_user|
-          if current_user.username == query_term || current_user.slack_id == query_term
+          if current_user.username == query_term || current_user.slack_id == query_term.upcase
             @selected = current_user
             break
           end
@@ -78,7 +78,7 @@ module Slack
         return @selected
       elsif data_source == "channel"
         @channels.each do |current_channel|
-          if current_channel.channel_name == query_term || current_channel.slack_id == query_term
+          if current_channel.channel_name == query_term || current_channel.slack_id == query_term.upcase
             @selected = current_channel
             break
           end

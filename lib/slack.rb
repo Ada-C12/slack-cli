@@ -6,19 +6,19 @@ require "dotenv"
 Dotenv.load
 
 def main
-  puts "Welcome to the Ada Slack CLI!"
+  puts "Welcome to the Ada Slack CLI!\n"
   workspace = Slack::Workspace.new
   workspace.user_list
   workspace.channel_list
   
-  puts "Darn Cute Puppers has #{workspace.users.count} users and #{workspace.channels.count} channels."
+  puts "\nDarn Cute Puppers has #{workspace.users.count} users and #{workspace.channels.count} channels.\n"
 
-  prompt = "Please select from the following options: 
+  prompt = "\nPlease select from the following options: 
   List Users
   List Channels
   Select User
   Select Channel
-  Quit"
+  Quit\n"
 
   puts prompt
   
@@ -28,119 +28,92 @@ def main
       exit
     when "list users"
       puts workspace.print_user_list
-      break
+      puts prompt
     when "list channels"
       puts workspace.print_channel_list
-      break
+      puts prompt
     when "select user"
-      puts "Would you like to search for a user by username or id?"
-      search_user_choice = gets.chomp.downcase
-      if search_user_choice == "username"
-        puts "Please enter the username: "
-        username = gets.chomp.downcase
-        search_result = workspace.search("user", username)
-        if search_result == nil
-          puts "User not found. Returning to main menu..."
-          puts prompt
-        else
-          puts "User found. Please select from the following options:
-          Show Details
-          Send Message"
-          selected_command = gets.chomp.downcase
-          if selected_command == "show details"
-            puts workspace.show_details(search_result)
-            break
-          elsif selected_command == "send message"
-            puts "What message do you want to send?"
-            message_body = gets.chomp
-            workspace.send_message(message_body, "@#{username}")
-            break
-          end
-        end
-      elsif search_user_choice == "id"
-        puts "Please enter the slack id: "
-        slack_id = gets.chomp.upcase
-        search_result = workspace.search("user", slack_id)
-        if search_result == nil
-          puts "User not found. Returning to main menu..."
-          puts prompt
-        else
-          puts "User found. Please select from the following options:
-          Show Details
-          Send Message"
-          selected_command = gets.chomp.downcase
-          if selected_command == "show details"
-            puts workspace.show_details(search_result)
-            break
-          elsif selected_command == "send message"
-            puts "What message do you want to send?"
-            message_body = gets.chomp
-            workspace.send_message(message_body, slack_id)
-            break
-          end
-        end
-      else
-        puts "Invalid input. Returning to main menu..."
+      puts "Please enter a username or Slack ID."
+      username = gets.chomp.downcase
+      search_result = workspace.search("user", username)
+      if search_result == nil
+        puts "User not found. Returning to main menu..."
         puts prompt
+        break
+      else
+        puts "User found."
+        options = "Please select from the following options:
+        Show Details
+        Send Message
+        Main Menu"
+        puts options
+        while selected_command = gets.chomp.downcase
+          case selected_command
+          when "main menu"
+            puts prompt
+            break
+          when "show details"
+            puts workspace.show_details(search_result)
+            puts options
+          when "send message"
+            puts "What message do you want to send?"
+            message_body = gets.chomp
+            convert_to_username = workspace.selected.username
+            workspace.send_message(message_body, "@#{convert_to_username}")
+            puts "Message sent. Returning to main menu..."
+            puts prompt
+            break
+          else
+            puts "Invalid input. Returning to main menu..."
+            puts prompt
+            break
+          end
+        end
       end
     when "select channel"
-      puts "Would you like to search for a channel by channel name or id?"
-      search_channel_choice = gets.chomp.downcase
-      if search_channel_choice == "channel name"
-        puts "Please enter the channel name: "
-        channel_name = gets.chomp.downcase
-        search_result = workspace.search("channel", channel_name)
-        if search_result == nil
-          puts "Channel not found. Returning to main menu..."
-          puts prompt
-        else
-          puts "Channel found. Please select from the following options:
-          Show Details
-          Send Message"
-          selected_command = gets.chomp.downcase
-          if selected_command == "show details"
-            puts workspace.show_details(search_result)
-            break
-          elsif selected_command == "send message"
-            puts "What message do you want to send?"
-            message_body = gets.chomp
-            workspace.send_message(message_body, channel_name)
-            break
-          end
-        end
-      elsif search_channel_choice == "id"
-        puts "Please enter the channel's slack id: "
-        slack_id = gets.chomp.upcase
-        search_result = workspace.search("channel", slack_id)
-        if search_result == nil
-          puts "Channel not found. Returning to main menu..."
-          puts prompt
-        else
-          puts "Channel found. Please select from the following options:
-          Show Details
-          Send Message"
-          selected_command = gets.chomp.downcase
-          if selected_command == "show details"
-            puts workspace.show_details(search_result)
-            break
-          elsif selected_command == "send message"
-            puts "What message do you want to send?"
-            message_body = gets.chomp
-            workspace.send_message(message_body, slack_id)
-            break
-          end
-        end
-      else
-        puts "Invalid input. Returning to main menu..."
+      puts "Please enter a channel name or Slack ID."
+      channel_name = gets.chomp.downcase
+      search_result = workspace.search("channel", channel_name)
+      if search_result == nil
+        puts "Channel not found. Returning to main menu..."
         puts prompt
+        break
+      else
+        puts "Channel found."
+        options = "Please select from the following options:
+        Show Details
+        Send Message
+        Main Menu"
+        puts options
+        while selected_command = gets.chomp.downcase
+          case selected_command
+          when "main menu"
+            puts prompt
+            break
+          when "show details"
+            puts workspace.show_details(search_result)
+            puts options
+          when "send message"
+            puts "What message do you want to send?"
+            message_body = gets.chomp
+            convert_to_channel_name = workspace.selected.channel_name
+            workspace.send_message(message_body, convert_to_channel_name)
+            puts "Message sent. Returning to main menu..."
+            puts prompt
+            break
+          else
+            puts "Invalid input. Returning to main menu..."
+            puts prompt
+            break
+          end
+        end
       end
     else
-      puts "Error: Invalid selection. Returning to main menu...."
-      puts prompt
+      puts "Invalid input. Returning to main menu..."
+      break
     end
   end
   puts "Thank you for using the Ada Slack CLI"
-
 end
 
 main if __FILE__ == $PROGRAM_NAME
