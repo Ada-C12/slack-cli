@@ -1,7 +1,6 @@
 require 'httparty'
 require 'awesome_print'
 require 'pry'
-require 'table_print'
 require 'dotenv'
 Dotenv.load
 

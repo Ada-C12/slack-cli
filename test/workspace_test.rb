@@ -133,7 +133,7 @@ describe "Workspace" do
 
     it "raises exception if there is an error in API response" do
       VCR.use_cassette("send_slack_message_error") do
-        expect { response = @workspace.send_message("", "general") }.must_raise SlackApiError
+        expect { @workspace.send_message("", "general") }.must_raise SlackApiError
       end
     end
   end
