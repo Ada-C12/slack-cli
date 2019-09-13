@@ -12,7 +12,7 @@ describe "### TESTING CHANNEL ###" do
       assert(channel.name == "espn")
     end
   end
-
+  
   it "Does Channel.details work?" do
     VCR.use_cassette("CT9") do
       channel = Channel.new(id: "1", name:"espn", topic:"sports", member_count: "100")
@@ -36,8 +36,6 @@ describe "### TESTING CHANNEL ###" do
       assert(all_channel_names.first == "slack-cli")
       assert(all_channel_names[1] == "general")
       assert(all_channel_names[2] == "random")
-
-      puts all_channel_names
     end
   end
   
@@ -48,8 +46,6 @@ describe "### TESTING CHANNEL ###" do
       assert(all_channel_topics.first == "fake topic haha")
       assert(all_channel_topics[1] == "Company-wide announcements and work-based matters")
       assert(all_channel_topics[2] == "Non-work banter and water cooler conversation")
-
-      puts all_channel_topics
     end
   end
   
@@ -60,8 +56,6 @@ describe "### TESTING CHANNEL ###" do
       assert(member_counts.first == 2)
       assert(member_counts[1] == 2)
       assert(member_counts[2] == 2)
-
-      puts member_counts
     end
   end
   
@@ -72,8 +66,6 @@ describe "### TESTING CHANNEL ###" do
       assert(channel_ids.first == 'CN5R2SQ8L')
       assert(channel_ids[1] == 'CN69B7XMW')
       assert(channel_ids[2] == 'CN85CG01M')
-
-      puts channel_ids
     end
   end
   
@@ -86,7 +78,7 @@ describe "### TESTING CHANNEL ###" do
       names = %w[slack-cli general random]
       topics = ["fake topic haha", "Company-wide announcements and work-based matters", "Non-work banter and water cooler conversation"]
       all_channels.each_with_index do |channel, index|
-      
+        
         assert (channel.class == Channel)
         assert (channel.id == ids[index])
         assert (channel.name == names[index])
