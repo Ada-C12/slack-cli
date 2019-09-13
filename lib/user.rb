@@ -32,16 +32,13 @@ class User < Recipient
   end
   
   def self.select_user_details(desired_person)
-    self.printed_users_list.each do |user|
-      if user["User Name"] == desired_person
-        return user
-      elsif user["Slack ID"] == desired_person
-        return user
-      else
-        statement = "Not a valid Username/Slack ID"
-        return statement
+    self.printed_users_list.each do |user_hash|
+      if user_hash["User Name"] == desired_person || user_hash["Slack ID"] == desired_person
+        return user_hash
       end
     end
+
+    statement = "Not a valid Username/Slack ID"
+    return statement
   end
-  
 end

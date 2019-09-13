@@ -42,5 +42,12 @@ describe "user class" do
         expect(desired_person["Slack ID"]).must_be_kind_of String
       end
     end
+
+    it "should return 'Not valid' statement if the user does not exist" do
+      VCR.use_cassette("user-tests") do
+        desired_person = User.select_user_details("alsdjflai")
+        expect(desired_person).must_equal "Not a valid Username/Slack ID"
+      end
+    end
   end
 end
