@@ -5,7 +5,7 @@ require "table_print"
 
 
 class Workspace
-  attr_reader :users, :channel, :selected
+  attr_reader :users, :channels, :selected
   
   def initialize
     @users = User.list
@@ -40,5 +40,3 @@ class Workspace
   
   
 end
-
-

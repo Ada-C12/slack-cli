@@ -30,3 +30,5 @@ class Channel < Recipient
     end
   end
 end
+
+

@@ -27,7 +27,7 @@ def main
       """
     end
   when "list channels"
-    puts Workspace.new.channels
+    tp workspace.channels, :slack_id, :name, :topic, :member_count
   when "quit"
     exit
   end
