@@ -243,4 +243,76 @@ http_interactions:
         - Nicky - API Project","bot_id":"BN85QTQ8P"}}'
     http_version: 
   recorded_at: Thu, 12 Sep 2019 21:07:56 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&channel=UMTG87PC2&text=Helllooo.%20What%27s%20uppp%3F
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '187'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 00:11:37 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 355acc71-072a-47b9-8b75-f7d3caa7e79f
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-oawk
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 f126db770f21f288439f44d357978a27.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - ug2xX34t-cvUv9oSSXbybS20R_Sv6qfTyvL6Edps4ZXMe6qwFV0qmg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DN85LPRJB","ts":"1568333497.000100","message":{"type":"message","subtype":"bot_message","text":"Helllooo.
+        What''s uppp?","ts":"1568333497.000100","username":"Leaves - Nicky - API Project","bot_id":"BN85QTQ8P"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 00:11:37 GMT
 recorded_with: VCR 5.0.0

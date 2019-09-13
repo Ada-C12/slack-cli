@@ -67,7 +67,6 @@ describe "show_details method" do
   end
 
   it "returns the selected channel's details" do
-    # p @workspace.select_channel("fuzzy_bunnies").inspect
     @workspace.select_channel("fuzzy_bunnies")
     expect(@workspace.show_details).must_be_kind_of String
   end
@@ -111,11 +110,21 @@ describe "send_message method" do
     expect(@response).must_be_kind_of HTTParty::Response
   end
 
-  it "returns true if the selected channel is valid" do
+  it "returns true if the selected channel is valid and sends a message" do
     VCR.use_cassette("message_post") do
       @workspace = Slack::Workspace.new
       @selected = @workspace.select_channel("apis")
       @response = @workspace.send_message("Helllooo")
+    end
+
+    expect(@response["ok"]).must_equal true
+  end
+
+  it "returns true if the selected user is valid and sends a message" do
+    VCR.use_cassette("message_post") do
+      @workspace = Slack::Workspace.new
+      @selected = @workspace.select_user("nickyjinchoi")
+      @response = @workspace.send_message("Helllooo. What's uppp?")
     end
 
     expect(@response["ok"]).must_equal true
@@ -128,10 +137,18 @@ describe "send_message method" do
       @selected = @workspace.select_channel("dogs")
       @response = @workspace.send_message("Adorable doggos!")
     end
+    expect(@selected).must_raise SlackApiError
+    expect(@response["ok"]).must_equal false
+  end
 
-    expect do
-      (@response["ok"])
-    end.must_raise SlackApiError
+  it "returns nil if a recipient has not been selected" do
+    VCR.use_cassette("message_post") do
+      @workspace = Slack::Workspace.new
+      @selected = nil
+      @response = @workspace.send_message("This will go nowhere")
+    end
+
+    expect(@response).must_be_nil
   end
 end
 
