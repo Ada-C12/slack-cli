@@ -2,7 +2,6 @@ require_relative 'recepient'
 require 'dotenv'
 Dotenv.load
 
-
 CHANNELS_URL = "https://slack.com/api/channels.list"
 
 module Slack
@@ -23,12 +22,12 @@ module Slack
       }
       response = HTTParty.get(CHANNELS_LIST, query: query)
       channels = response["channels"]
-      channels_list = []
+      channels_list = []      
       channels.each do |channel_hash|
         channel_name = channel_hash["name"]
         topic = channel_hash["topic"]
-        member_count = channel_hash["member_count"]
-        slack_id = channel_hash["slack_id"]
+        member_count = channel_hash["num_members"]
+        slack_id = channel_hash["id"]
         channels_list << Channel.new(channel_name, topic, member_count, slack_id)
       end
       

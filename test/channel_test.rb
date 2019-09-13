@@ -1,5 +1,5 @@
 require_relative 'test_helper'
- 
+
 describe "Channel class" do 
   describe "Channel instantiation" do 
     
@@ -13,7 +13,7 @@ describe "Channel class" do
       end 
     end
   end
-
+  
   describe "Channel details" do 
     it "retuen all the information about channel" do
       VCR.use_cassette("Channel_details") do
@@ -21,11 +21,11 @@ describe "Channel class" do
         # channel = Channel.new("name", "topic", 1, 1234)
         channel = channels.first
         expect(channel.details).must_equal  "The channel name is #{channel.channel_name} and the slack id is #{channel.slack_id}"
-
-
+        
+        
       end
     end
   end 
-
-
+  
+  
 end

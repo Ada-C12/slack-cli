@@ -28,7 +28,10 @@ def main
         puts "User count: #{users.length}, User Name: #{user.user_name}, Real name: #{user.name}, and Slack ID: #{user.slack_id}."
       end
     when "List Channels"
-      puts "Channel's name: #{channel}, Topic: #{topic}, Member Count: #{member count}, and Slack ID: #{slack_id}."
+      channels = Slack::Channel.list_channels
+      channels.each do |channel|
+        puts "Channel's name: #{channel.channel_name}, Member Count: #{channel.member_count}, and Slack ID: #{channel.slack_id}."
+      end
     when "Quit"
       puts "Exiting program"
       quit
