@@ -6,56 +6,59 @@ require_relative "channel"
 
 module Slack
   class  Workspace
-    attr_reader :users, :channels, :selected
+    attr_reader :users, :channels, :recipient
     def initialize
       @users = User.users_list
       @channels = Channel.channels_list
-      @selected = []
+      @recipient= nil
     end
     
     def select_user(input)
+      found = false
       @users.each do |user|
-        if user.name == input || user.id == input
-          recipient = user
-          @selected << recipient
+        if user.name == input.downcase || user.id == input
+          @recipient = user
+          found = true
           break
         end
       end
-      if @selected == []
-        raise ArgumentError.new("The provided name/id doesn't match any user")
+  
+      if found == false
+        puts "The provided name/id doesn't match any user"
+        sleep(0.5)
       end
     end
     
     def select_channel(input)
+      found = false 
       @channels.each do |channel|
-        if channel.name == input || channel.id == input
-          recipient = channel
-          @selected << recipient
+        if channel.name == input.downcase || channel.id == input
+          @recipient = channel
+          recipient
+          found = true
           break
         end
       end
-      if @selected == []
-        raise ArgumentError.new("The provided name/id doesn't match any user")
+      if found == false
+        puts "The provided name/id doesn't match any channel"
+        sleep(0.5)
       end
     end
     
     def show_details
-      if @selected != []
-        @selected.each do |recipient|
-          if recipient.class == Slack::User
-            puts "Name: #{recipient.name}"
-            puts "Id: #{recipient.id}"
-            puts "Real name: #{recipient.id}\n\n"
+      if @recipient != nil
+          if @recipient.class == Slack::User
+            puts "Name: #{@recipient.name}"
+            puts "Id: #{@recipient.id}"
+            puts "Real name: #{@recipient.real_name}\n\n"
           else recipient.class == Slack::Channel
-            topic = recipient.topic.values
-            puts "Name: #{recipient.name}"
-            puts "Id: #{recipient.id}"
-            puts "Topic: #{recipient.topic.values[0]}, #{recipient.topic.values[1]}, #{recipient.topic.values[2]}"
-            puts "Member count: #{recipient.member_count}\n\n"
+            puts "Name: #{@recipient.name}"
+            puts "Id: #{@recipient.id}"
+            puts "Topic: #{@recipient.topic.values[0]}"
+            puts "Member count: #{@recipient.member_count}\n\n"
           end
-        end
-      elsif @selected == []
-        raise ArgumentError.new("No recipient is currently selected.")
+      else recipient == nil
+        puts "No recipient is currently selected."
       end
     end
   end
