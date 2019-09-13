@@ -64,6 +64,13 @@ class Workspace < Recipient
     tp @selected
   end
 
-  # def send_message
-  # end
+  def send_message(message)
+    post_query = {
+      token: TOKEN,
+      channel: @selected[0].id,
+      text: message
+    }
+    #binding.pry
+    HTTParty.post(BASE_URL + "chat.postMessage", query: post_query)
+  end
 end

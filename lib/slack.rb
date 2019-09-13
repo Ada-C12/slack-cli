@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
 require_relative 'workspace'
 require 'pry'
+require 'table_print'
+
 def main
   workspace = Workspace.new
 
-  command_table = [{command: 'list users', description: 'lists all users in workspace'}, {command: 'list channels', description: 'lists all channels in workspace'}, {command: 'select user', description: 'selects a user'}, {command: 'select channel', description: 'selects a channel'}, {command: 'details', description: 'shows details of the current recipient'}]
+  command_table = [{command: 'list users', description: 'lists all users in workspace'}, {command: 'list channels', description: 'lists all channels in workspace'}, {command: 'select user', description: 'selects a user'}, {command: 'select channel', description: 'selects a channel'}, {command: 'details', description: 'shows details of the current recipient'}, {command: 'send message', description: 'sends message to selected recipient'}]
   
   puts "Welcome to the Ada Slack CLI!\n\n"
   
@@ -47,12 +49,21 @@ def main
         workspace.show_details
         puts "\n\n"
       end
+      
+    when "send message"
+      if workspace.selected == nil
+        puts "No recipient selected! Enter another command: "
+      else
+        puts "What do you want to send to #{workspace.selected[0].name}?"
+        message = gets.chomp
+        workspace.send_message(message)
+      end
 
     when "quit"
       puts "Thank you for using the Ada Slack CLI!"
       exit
     end
-    #puts "Enter another command or type 'quit' to exit the program."
+    puts "Enter another command or type 'quit' to exit the program."
   end
 end
 
