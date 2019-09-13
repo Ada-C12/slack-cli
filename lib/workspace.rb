@@ -22,6 +22,7 @@ class Workspace
       return "Channel does not exist"
     end
     @selected = channel
+    return "The channel was selected"
   end
   
   def select_user(name_or_id)
@@ -33,6 +34,7 @@ class Workspace
       return "User does not exist"
     end
     @selected = user
+    return "The user was selected"
   end
   
   def show_details
@@ -53,10 +55,6 @@ class Workspace
       message = gets.chomp
     end
     @selected.send_message(message, channel) 
-    # if result == SlackAPIError
-    #   return false
-    # elsif result == true
-    #   reutrn true
-    # end
+    
   end
 end

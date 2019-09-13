@@ -38,12 +38,12 @@ def main
       Channel.list
       print "What channel would you like to select: "
       input = gets.chomp
-      workspace.select_channel(input)
+      puts workspace.select_channel(input)
     when "select user"
       User.list
       print "What user would you like to select: "
       input = gets.chomp
-      workspace.select_user(input)
+      puts workspace.select_user(input)
     when "show details"
       puts workspace.show_details
     when 'send message'
