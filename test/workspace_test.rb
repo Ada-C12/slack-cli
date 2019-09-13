@@ -18,7 +18,7 @@ describe "Workspace" do
   end
   
   describe "select user" do  
-    it "returns an instance of user" do
+    it "returns the user hash for a matching name" do
       VCR.use_cassette("workspace-info") do
         workspace = Slack::Workspace.new
         name_or_id = "slackbot"
@@ -26,6 +26,26 @@ describe "Workspace" do
         user = workspace.select_user(name_or_id)
         expect(user).must_be_kind_of Hash
       end
+    end
+    
+    it "returns the user hash for a matching ID" do
+      VCR.use_cassette("workspace-info") do
+        workspace = Slack::Workspace.new
+        name_or_id = "USLACKBOT"
+        
+        user = workspace.select_user(name_or_id)
+        expect(user).must_be_kind_of Hash
+      end
     end 
-  end 
-end 
+    
+    it "returns nil for non-matching input" do
+      VCR.use_cassette("workspace-info") do
+        workspace = Slack::Workspace.new
+        name_or_id = "nonexistentname"
+        
+        user = workspace.select_user(name_or_id)
+        expect(user).must_equal nil
+      end 
+    end 
+  end
+end

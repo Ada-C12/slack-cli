@@ -29,6 +29,7 @@ def main
     tp workspace.channels, :name, :topic, :member_count, :slack_id
   elsif input == "select user"
     # supply a username or Slack ID, get back selected recipient. If no match, return to input loop
+    
   elsif input == "select channel"
     # supply a channel name or Slack ID, get back selected recipient. If no match, return to input loop
   elsif input == "details"
