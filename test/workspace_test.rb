@@ -18,23 +18,23 @@ describe "Workspace" do
   end
   
   describe "select user" do  
-    it "returns the user hash for a matching name" do
+    it "returns a string for a matching name" do
       VCR.use_cassette("workspace-info") do
         workspace = Slack::Workspace.new
         name_or_id = "slackbot"
         
         user = workspace.select_user(name_or_id)
-        expect(user).must_be_kind_of Hash
+        expect(user).must_be_kind_of String
       end
     end
     
-    it "returns the user hash for a matching ID" do
+    it "returns a string for a matching ID" do
       VCR.use_cassette("workspace-info") do
         workspace = Slack::Workspace.new
         name_or_id = "USLACKBOT"
         
         user = workspace.select_user(name_or_id)
-        expect(user).must_be_kind_of Hash
+        expect(user).must_be_kind_of String
       end
     end 
     
@@ -51,23 +51,23 @@ describe "Workspace" do
 end 
 
 describe "select channel" do  
-  it "returns the channel hash for a matching name" do
+  it "returns a string for a matching name" do
     VCR.use_cassette("workspace-info") do
       workspace = Slack::Workspace.new
       name_or_id = "random"
       
       channel = workspace.select_channel(name_or_id)
-      expect(channel).must_be_kind_of Hash
+      expect(channel).must_be_kind_of String
     end
   end
   
-  it "returns the channel hash for a matching ID" do
+  it "returns a string for a matching ID" do
     VCR.use_cassette("workspace-info") do
       workspace = Slack::Workspace.new
       name_or_id = "CMUR2JTNX"
       
       channel = workspace.select_channel(name_or_id)
-      expect(channel).must_be_kind_of Hash
+      expect(channel).must_be_kind_of String
     end
   end 
   

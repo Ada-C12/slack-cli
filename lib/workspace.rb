@@ -15,7 +15,7 @@ module Slack
       @channels.each do |channel|
         if channel.name == name_or_id || channel.slack_id == name_or_id
           @selected = channel
-          return "Channel #{@selected.name} is selected."
+          return "Channel #{@selected.slack_id} is selected."
         end
       end  
       puts "Sorry, I couldn't find that channel."
@@ -35,10 +35,9 @@ module Slack
       @selected.details
     end
     
-    def send_message
-      
+    def user_message(message, slack_id)
+      response = @selected.send_message(@selected.slack_id, message)
+      return puts "Ok. Message sent."      
     end 
-  end 
-  
-end 
-end 
+  end
+end

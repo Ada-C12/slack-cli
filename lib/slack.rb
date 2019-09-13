@@ -54,6 +54,13 @@ def main
         user_input = nil
         puts "\n"
       end 
+      
+    when "send message"
+      print "Please enter your message: "
+      message = gets.chomp
+      slack_id = workspace.select_channel(name_or_id)
+      
+      workspace.user_message(message, slack_id)
     end 
   end
 end 
