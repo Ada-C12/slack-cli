@@ -9,10 +9,6 @@ class Recipient
     @name = name
   end
   
-  def send_msg(msg)
-    # WAVE 3
-  end
-  
   def self.get(url, params)
     response = HTTParty.get(url, query: params)
     

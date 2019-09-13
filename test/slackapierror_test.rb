@@ -3,7 +3,6 @@ require_relative 'test_helper.rb'
 describe "is SlackAPIError working?" do
   
   it "is SlackAPIError an instance of StandardError?" do
-    p SlackAPIError.superclass
     assert(SlackAPIError.superclass == StandardError)
   end
   

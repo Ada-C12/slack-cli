@@ -197,7 +197,6 @@ describe "### WORKSPACE ###" do
       VCR.use_cassette("WT4") do
         ws1.entity = ws1.all_users[1]
         
-        print ">>> ??? ", ENV["SLACK_KEY"]
         pretend_user_input = StringIO.new
         pretend_user_input.puts "fake message"
         pretend_user_input.rewind
@@ -219,8 +218,6 @@ describe "### WORKSPACE ###" do
       VCR.use_cassette("WT4") do
         assert(ws1.entity == nil)
         expect{ws1.get_msg_recipient}.must_raise SlackAPIError
-        
-        print ">>> ??? ", ENV["SLACK_KEY"]
         
         # but will get rescued by send_message, and returned as false
         pretend_user_input = StringIO.new
@@ -296,7 +293,6 @@ describe "### WORKSPACE ###" do
           
           $stdin = pretend_user_input
           expect{ws1.send_message}.must_raise SlackAPIError
-          puts "DOES THIS RUN?"
           $stdin = STDIN
           
           ENV["SLACK_KEY"] = CACHED_SLACK_KEY
