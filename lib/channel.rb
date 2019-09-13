@@ -22,7 +22,6 @@ class Channel < Recipient
   def self.list
     response = self.get("https://slack.com/api/channels.list", ENV["SLACK_TOKEN"])
     
-    # ap response
     members = response["channels"].map do |channel|
       self.new(slack_id: channel["id"], name: channel["name"], topic: channel["topic"]["value"], member_count: channel["members"].length )
     end
