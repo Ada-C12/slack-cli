@@ -7,6 +7,8 @@ module Slack
     attr_reader :slack_id, :name, :user_name
     
     USERS_LIST = "https://slack.com/api/users.list"
+    CHAT_URL = "https://slack.com/api/chat.postMessage"
+    
     
     def initialize(slack_id, name, user_name)
       @slack_id = slack_id
@@ -34,6 +36,30 @@ module Slack
     def details 
       "The name is #{@name}, the user name is #{@user_name}, and the slack id is #{@slack_id}"
     end
+    
+    # method for send message
+    
+    # module SlackApi
+    #  CHAT_URL = "https://slack.com/api/chat.postMessage"
+    
+    #   API_KEY = ENV['SLACK_TOKEN']
+    
+    #   def self.send_msg(message, channel)
+    
+    #     response = HTTParty.post(
+    #       CHAT_URL,
+    ,
+    #       body:  {
+    #         token: API_KEY,
+    #         text: message,
+    #         channel: channel
+    #       },
+    #       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+    #     )
+    
+    #     return response.code == 200 && response.parsed_response["ok"]
+    #   end
+    # end
   end
 end
 

@@ -28,4 +28,7 @@ describe "User class" do
       expect(user.details).must_equal expected_output 
     end
   end 
+
+  # send message test
+  describe "Send message" do 
 end

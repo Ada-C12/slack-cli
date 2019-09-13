@@ -37,6 +37,8 @@ module Slack
     def details 
       "The channel name is #{channel_name} and the slack id is #{slack_id}"
     end
+    
+    # method for send message
   end
 end
 

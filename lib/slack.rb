@@ -51,9 +51,19 @@ def main
       
     when "See Details"
       if recepient == nil # if no recepient is selected, no details can be shown
-        puts "No recepient selected. Returning you to main menu."
+        puts "No recepient currently selected. Returning you to main menu."
       else 
         puts recepient.details # if recepient selected, show details
+      end
+      
+      # Wave 3: Send Message
+    when "Send Message"
+      if recepient == nil 
+        puts "No recepient currently selected. Returning you to main menu."
+      else 
+        puts "Please enter your new message now."
+        message = gets.chomp # user's input becomes 'message'
+        recepient.send_message(message) # user's message is sent to our Slack recepient 
       end
       
     when "Quit"
@@ -68,7 +78,5 @@ def main
   puts "Thank you for using the Ada Slack CLI"
 end
 
-# wave 3 
-# when recepient selected: type out message 
 main if __FILE__ == $PROGRAM_NAME
 

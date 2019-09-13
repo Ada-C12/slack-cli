@@ -15,7 +15,7 @@ describe "Channel class" do
   end
   
   describe "Channel details" do 
-    it "retuen all the information about channel" do
+    it "returns all the information about channel" do
       VCR.use_cassette("Channel_details") do
         channels = Slack::Channel.list_channels
         # channel = Channel.new("name", "topic", 1, 1234)
@@ -27,5 +27,13 @@ describe "Channel class" do
     end
   end 
   
-  
-end
+  # Send message test
+  # need to discuss this section
+  describe "Send message" do 
+    it "sends a message to selected recepient" do 
+      VCR.use_cassette("send_message") do
+        channels = Slack::Channel.list_channels
+        # channel = Channel.new("name", "topic", 1, 1234)
+        channel = channels.first
+        expect(channel.send_message).must_
+      end
