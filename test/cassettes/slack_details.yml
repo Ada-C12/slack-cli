@@ -448,4 +448,76 @@ http_interactions:
       string: '{"ok":true,"channel":"DN6CP2UKS","ts":"1568398648.000200","message":{"type":"message","subtype":"bot_message","text":"#&lt;Proc:0x00007fb378674f98@\/Users\/monick\/.rbenv\/versions\/2.5.5\/lib\/ruby\/gems\/2.5.0\/gems\/minitest-5.11.3\/lib\/minitest\/assertions.rb:518&gt;","ts":"1568398648.000200","username":"slack-cli","bot_id":"BN7MB352R"}}'
     http_version: 
   recorded_at: Fri, 13 Sep 2019 18:17:28 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UN8JZT96J&text=IT%20WORKS!&token=<SLACK_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '161'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 19:06:52 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 5fb1f208-801a-4af6-842f-be131f86c7ad
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-wycu
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ceb7b8c925a9435b9b08b23014561fbb.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - XosWWMjNp3-mCDReiIa9aJtatbxrR34d5bUNhbmI2BohS2-W9zVFCg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DN6CP2UKS","ts":"1568401612.000400","message":{"type":"message","subtype":"bot_message","text":"IT
+        WORKS!","ts":"1568401612.000400","username":"slack-cli","bot_id":"BN7MB352R"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 19:06:52 GMT
 recorded_with: VCR 5.0.0

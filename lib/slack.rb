@@ -6,18 +6,18 @@ Dotenv.load
 require_relative './channel'
 require_relative 'user'
 
-#CONTROLLER-WIDE ISSUE - FOR SOME REASON, USER/CHANNEL LIST GETS PRINTED WHEN NOT CALLED ON
-
 def start_program
   ap "Welcome to the Ada Slack CLI!"
-  print "What would you like to do? Type one of the following:\n list channels\n list users\n select user\n select channel\n details\n send message\n quit\n"
+  print "What would you like to do? Type one of the following:\n - list channels\n - list users\n - select user\n - select channel\n - details\n - send message\n - quit\n"
   user_input = gets.chomp.downcase
+
+
   while user_input != "quit"  
     case user_input 
     when "list channels"
-      SlackCli::Channel.list
+      ap SlackCli::Channel.list
     when "list users"
-      SlackCli::User.list 
+      ap SlackCli::User.list 
     when "select user"
       ap "Type a username or Slack ID."
       search_user = gets.chomp
@@ -34,6 +34,7 @@ def start_program
         )
         ap "Recipient has been selected."
       end
+
     when "select channel"
       ap "Type a username or Slack ID."
       search_channel = gets.chomp
@@ -51,35 +52,33 @@ def start_program
         )
         ap "Recipient has been selected."
       end
+
     when "details"
       if selected_recipient.class == SlackCli::Channel
-        ap "Your selected recipient details:"
-        ap selected_recipient.name
-        ap selected_recipient.topic
-        ap selected_recipient.id
-        ap selected_recipient.num_members
+        ap "Channel name: #{selected_recipient.name}"
+        ap "Channel topic: #{selected_recipient.topic}"
+        ap "Channel id: #{selected_recipient.id}"
+        ap "Channel members count: #{selected_recipient.num_members}"
       elsif selected_recipient.class == SlackCli::User 
-        ap "Your selected recipient details:"
-        ap selected_recipient.name
-        ap selected_recipient.real_name
-        ap selected_recipient.id
-        # RIGHT NOW THIS ALSO PRINTS THE INSTANCE AFTER THE DETAILS
+        ap "Username: #{selected_recipient.name}"
+        ap "User real name: #{selected_recipient.real_name}"
+        ap "User id: #{selected_recipient.id}"
       else 
         ap "No recipient is currently selected. Select a recipient in the main menu."
       end 
        ap selected_recipient
     when "send message"
-      #check if a recipient is selected
-      #if recipient hasn't been selected tell user to select a recipient at the main menu
-      #if a recipient has been selected then ask user to type a message
-      ap "Type a message to send:"
-      message = gets.chomp
-      #send the message in recipient class method send_message
-      SlackCli::Recipient.send_message(recipient:selected_recipient.id, message:message)
+      if selected_recipient == nil 
+        ap "No recipient selected."
+      else 
+        ap "Type a message to send:"
+        message = gets.chomp
+        SlackCli::Recipient.send_message(recipient:selected_recipient.id, message:message)
+      end  
     else 
       ap "Not a valid command"
     end 
-    print "\nWhat would you like to do? Type one of the following:\n list channels\n list users\n select user\n select channel\n details\n quit\n"
+    print "What would you like to do? Type one of the following:\n - list channels\n - list users\n - select user\n - select channel\n - details\n - send message\n - quit\n"
     user_input = gets.chomp.downcase
   end 
   ap "Thank you for using the Sara & Monick Slack CLI."

@@ -39,7 +39,7 @@ module SlackCli
         all_channels.push(channel_hash)
         i += 1
       end 
-      ap all_channels
+      return all_channels
     end 
 
   end 

@@ -36,7 +36,7 @@ module SlackCli
         all_users.push(user_hash)
         i += 1
       end 
-      ap all_users
+      return all_users
     end 
   end 
 end 

@@ -7,12 +7,14 @@ describe "recipent class tests" do
       real_name: "monick.keo",
       id: "UN8JZT96J"
     )
-    message = "IT WORKS!"
+    @message = "IT WORKS!"
   end 
 
   it "should send a message to selected recipient" do 
     VCR.use_cassette("slack_details") do
-      expect(SlackCli::Recipient.send_message(channel:@selected_recipient.id, text:message)).must_equal "IT WORKS!"
+      test = SlackCli::Recipient.send_message(recipient:@selected_recipient.id, message:@message)
+      expect(test.code).must_equal 200
+      expect(test.body).must_include "IT WORKS!"
     end 
   end 
 end 
