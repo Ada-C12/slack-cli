@@ -30,10 +30,7 @@ class User < Recipient
     
   end
   
-  def slack_id
-    return @slack_id
-  end
-  
+
   
   
   def self.list
