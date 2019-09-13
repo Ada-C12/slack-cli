@@ -51,8 +51,8 @@ def main
       elsif recipient.class == Slack::User
         print "Please enter the message: "
         message = gets.chomp
-        name = recipient.name
-        Slack.send_msg(message, name)
+        id = recipient.id
+        Slack.send_msg(message, id)
       else recipient == nil
         puts "No recipient selected"
         sleep(2)
