@@ -24,10 +24,9 @@ module Slack
 
       response = HTTParty.post(MESSAGE_URL, body: body)
 
-      if response["ok"] != true
-        # raise SlackApiError.new("Invalid request. Error is #{response.code}: #{response.message}")
-        puts "Invalid request. Error is #{response.code}: #{response.message}"
-      end
+      # if response["ok"] != true
+      #   raise SlackApiError.new("Invalid request. Error is #{response.code}: #{response.message}")
+      # end
       return response
     end
 

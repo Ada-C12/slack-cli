@@ -8,6 +8,8 @@ require_relative "user"
 require_relative "workspace"
 require_relative "recipient"
 
+# For specific SlackApiError messages (https://stackoverflow.com/questions/3382866/rubys-exception-error-classes)
+
 def main
   puts "Welcome to the Ada Slack CLI!"
 
@@ -34,7 +36,7 @@ def main
       channel_array = Slack::Channel.list
       tp channel_array
     when "select user"
-      puts "\nEnter a username or slack id: "
+      puts "\n[Enter a username or slack id]"
       identifier = gets.chomp
       begin
         workspace.select_user(identifier)
@@ -42,7 +44,7 @@ def main
         puts "\n#{e.message}"
       end
     when "select channel"
-      puts "\nEnter a name or slack id: "
+      puts "\n[Enter a name or slack id]"
       identifier = gets.chomp
       begin
         workspace.select_channel(identifier)
@@ -51,24 +53,23 @@ def main
       end
     when "show details"
       if workspace.show_details == nil
-        puts "\nNo user or channel has been selected"
+        puts "\n[No user or channel has been selected]"
       else
         puts "#{workspace.show_details}"
       end
     when "send message"
       if workspace.selected == nil
-        puts "\nNo user or channel has been selected"
+        puts "\n[No user or channel has been selected]"
       else
         puts "What do you want to send?"
         message = gets.chomp
         workspace.send_message(message)
       end
     when "quit"
+      puts "[Thank you for using the Ada Slack CLI]"
       exit
     end
   end
-
-  puts "Thank you for using the Ada Slack CLI"
 end
 
 main if __FILE__ == $PROGRAM_NAME
