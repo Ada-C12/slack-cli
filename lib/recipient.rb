@@ -5,17 +5,9 @@ Dotenv.load
 
 module SlackCli
   class Recipient
-    attr_reader :id, :name
+    def send_message
 
-    def initialize(id:, name:)
-      @id = id
-      @name = name
     end 
-
-    # def self.list
-    #   puts "Who knows"
-    # end 
-
   end 
 
 end 
