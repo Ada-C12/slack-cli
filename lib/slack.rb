@@ -90,9 +90,13 @@ def message_menu
   if message_choice == "a"
     @workspace.show_details
   elsif message_choice == "b"
+    # begin
     puts "Enter Message: "
     message = gets.chomp
     @workspace.send_message(message)
+    # rescue
+    # puts "Message Unable to Send"
+    # end
   else
     puts "Invalid Menu Choice"
   end

@@ -42,8 +42,42 @@ module SlackCLI
       tp @selected
     end
     
-    def send_message(message)
-    end
+    # module SlackApi
+    #   BASE_URL = 'https://slack.com/api/'
+    #   API_KEY = ENV['SLACK_TOKEN']
     
-  end
-end
+    #   def self.send_msg(message, channel)
+    #     response = HTTParty.post(
+    #       "#{BASE_URL}/chat.postMessage",
+    #       body:  {
+    #         token: API_KEY,
+    #         text: message,
+    #         channel: channel}, headers: { 'Content-Type' => 'application/x-www-form-urlencoded' })
+    
+    #         unless response.code == 200 && response.parsed_response["ok"]
+    #           raise SlackApiError, "Error when posting #{message} to #{channel}, error: #{response.parsed_response["error"]}"
+    #         end
+    #         return true
+    #       end
+    #     end
+    
+    
+    def send_message(message)
+      uri = 'https://slack.com/api/'
+      
+      send_message = HTTParty.post(
+        "#{uri}/chat.postMessage",
+        body: {
+          token: ENV['SLACK_TOKEN'],
+          text: message,
+          channel: @selected.slack_id}, 
+          headers:{ 'Content-Type' => 'application/x-www-form-urlencoded' })
+          
+          unless send_message["ok"]
+            raise SlackApiError.new("Message Unable to Send")
+          end
+          
+        end
+        
+      end
+    end
