@@ -26,4 +26,29 @@ describe "SlackCLI::Workspace" do
       expect{@channel_workspace.select_channel(slack_id: "12")}.must_raise SlackApiError
     end
   end
-end
+  
+  describe "send_message" do
+    it "sends message to channel if exists" do
+      VCR.use_cassette("send_channel_message") do
+        @channel_workspace = SlackCLI::Workspace.new
+        @channel_workspace.select_channel(name: "random")
+        expect(@channel_workspace.send_message("hey")["ok"]).must_equal true
+      end
+    end
+    it "sends message to user if exists" do
+      VCR.use_cassette("send_channel_message") do
+        @user_workspace = SlackCLI::Workspace.new
+        @user_workspace.select_user(user_name: "nataliemtapias")
+        expect(@user_workspace.send_message("hey")["ok"]).must_equal true
+      end
+    end
+    it "should raise SlackApiError" do
+      VCR.use_cassette("send_channel_message") do
+        @user_workspace = SlackCLI::Workspace.new
+        expect{ @user_workspace.select_user(user_name: "joe_schmoe")
+          @user_workspace.send_message("hey")["ok"]}.must_raise SlackApiError
+        end
+      end
+    end
+  end
+  
