@@ -6,6 +6,5 @@ module Slack
       @name = name
       @id = id
     end
-    
   end
 end

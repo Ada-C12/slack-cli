@@ -1,9 +1,9 @@
 #lib/message.rb
-require "HTTParty"
+require "httparty"
 
-class SlackApiError < StandardError ; end
+# class SlackApiError < StandardError ; end
 
-module SlackApi
+module Slack
   BASE_URL = 'https://slack.com/api/'
   API_KEY = ENV['API_KEY']
   
@@ -20,7 +20,7 @@ module SlackApi
     )
     
     unless response.code == 200 && response.parsed_response["ok"]
-      raise SlackApiError, "Error when posting #{message} to #{channel}, error: #{response.parsed_response["error"]}"
+      puts "Error when posting #{message} to #{channel}, error: #{response.parsed_response["error"]}"
     end
     
     return true
