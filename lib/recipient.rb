@@ -29,6 +29,7 @@ class Recipient
   
   
   def details
+    raise NotImplementedError 'Children implement this'
     
     
   end
