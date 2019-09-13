@@ -28,41 +28,27 @@ def main
     
     case choice
     when "list users"
-      tsu.list_users
+      tp tsu.list_users
     when "list channels"
-      tsu.list_channels
+      tp tsu.list_channels
     when "select user"
       print "Please select a user (by Slack ID or Display Name): "
       user_chosen = gets.chomp
-      tsu.users.each do |user| 
-        if user.slack_id == user_chosen || user.name == user_chosen
-          tsu.selected = user
-        end 
-      end 
-      if tsu.selected == nil || !(tsu.selected.slack_id == user_chosen || tsu.selected.name == user_chosen)
-        print "\nSorry. Invalid selection."
-      end
+      puts "\nYou have selected #{tsu.select_user(user_chosen).name}"
     when "select channel"
       print "Please select a channel (by Slack ID or Name): "
       channel_chosen = gets.chomp
-      tsu.channels.each do |channel|
-        if channel.slack_id == channel_chosen || channel.name == channel_chosen
-          tsu.selected = channel 
-        end 
-      end 
-      if tsu.selected == nil || !(tsu.selected.slack_id == channel_chosen || tsu.selected.name == channel_chosen)
-        print "\nSorry. Invalid selection."
-      end
+      puts "\nYou have selected #{tsu.select_channel(channel_chosen).name}"
     when "show details"
       if tsu.selected == nil
         puts "\nNo user or channel chosen."
-      else 
-        tsu.print_details(tsu.selected)
-      end 
+      else
+        tp tsu.print_details(tsu.selected)
+      end
     when "send message"
       if tsu.selected == nil
         puts "\nNo user or channel chosen."
-      else 
+      else
         print "What is your message? "
         msg = gets.chomp
         tsu.send_message(tsu.selected, msg)
