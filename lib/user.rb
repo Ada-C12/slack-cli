@@ -21,22 +21,13 @@ module Slack
       
       response["members"].each do |user|
         users << User.new(
-        slack_id = user["id"],
-        name = user["name"],
-        real_name = user["real_name"],
-        
+          slack_id = user["id"],
+          name = user["name"],
+          real_name = user["real_name"],
         )
       end
-      binding.pry
       return users
-      #p channels
     end 
   end
 end 
 
-# user_hash = {}
-# user_hash[:user_name] = user["name"]
-# user_hash[:real_name] = user["real_name"]
-# user_hash[:slack_id] = user["id"]
-
-# users << user_hash

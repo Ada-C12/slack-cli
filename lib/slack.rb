@@ -11,46 +11,51 @@ require_relative "workspace"
 Dotenv.load
 
 def main
-  
   workspace = Slack::Workspace.new 
-  
-  # validate user input, if invalid, tell user to try again
-  # valid_input = ["list users", "list channels", "quit"]
-  
-  # if valid_input.include?(input)
-  # loop to give users options again after each selection
-  
   puts "Welcome to the Ada Slack CLI!"
   
-  print "Please choose an option: list users, list channels, select user, select channel, details, or quit: "
-  input = gets.chomp
+  options1 = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
+  user_input = nil
   
-  while input == "list users" || input == "list channels" || input == "select user" || input == "select channel" || input == "details" || input == "quit"
-    puts "Please choose an option: list users, list channels, select user, select channel, details, or quit: "
-    input = gets.chomp
+  until user_input == "quit"  
+    print "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit: "
+    user_input = gets.chomp.downcase
     
-    if input == "list users"
+    case user_input
+    when "list users"
       tp workspace.users, "slack_id", "name", "real_name" 
+      puts "\n"
+      user_input = nil
       
-    elsif input == "list channels"
+    when "list channels"
       tp workspace.channels, "name", "topic", "member_count", "slack_id"
+      puts "\n"
+      user_input = nil
       
-    elsif input == "select user"
-      # supply a username or Slack ID, get back selected recipient. If no match, return to input loop   
+    when "select user"
       print "Please enter the user name or ID: "
       name_or_id = gets.chomp
       puts workspace.select_user(name_or_id)
-    elsif input == "select channel"
-      # supply a channel name or Slack ID, get back selected recipient. If no match, return to input loop
-    elsif input == "details"
-      # calling 
-      workspace.show_details
-      # print out details for the currently selected recipient (info depends on whether recipient is channel or user). If no recipient selected, return to main command prompt.
-    elsif input == "quit"
-      puts "Thank you for using the Ada Slack CLI"
-      exit
-    end
+      puts "\n"
+      
+    when "select channel"
+      print "Please enter the channel name or ID: "
+      name_or_id = gets.chomp
+      puts workspace.select_channel(name_or_id)
+      puts "\n"
+      
+    when "details"
+      if workspace.selected == nil
+        puts "Please select a user or channel."
+        user_input = nil
+        puts "\n"
+      else
+        workspace.show_details
+        user_input = nil
+        puts "\n"
+      end 
+    end 
   end
-end
+end 
 
 main if __FILE__ == $PROGRAM_NAME
