@@ -15,9 +15,28 @@ class Workspace
     @channels = []
     
     #method call to initiate calling API to populate users and channels to display the initial # of them
-    
     api_call_list_users 
+    api_call_list_channels 
   end
+  
+  
+  def all_user_names
+    all_user_names = []
+    
+    users.each do |user|
+      all_user_names << user.name 
+    end 
+    return all_user_names 
+  end 
+  
+  def all_channel_names
+    all_channel_names = []
+    
+    channels.each do |channel| 
+      all_channel_names << channel.name
+    end
+    return all_channel_names
+  end 
   
   def api_call_list_users
     #This method takes in the entire listuser api
@@ -28,7 +47,6 @@ class Workspace
     
     user_response = HTTParty.get(url, query: query_parameters)
     
-    puts user_response
     make_users(user_response)
     
     return user_response["ok"] == true 
