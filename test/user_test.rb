@@ -22,6 +22,22 @@ describe "User class" do
         expect(result["ok"]).must_equal true
       end
     end
+    
+    it "Raises an error for IM list if code isn't 200 or ok isn't true" do
+      VCR.use_cassette("bad_ims_list") do
+        all_users = SlackCLI::User.all
+        
+        expect{all_users.first.get_message_history}.must_raise SlackCLI::SlackAPIError
+      end
+    end
+    
+    it "Raises an error for Converstaions list if code isn't 200 or ok isn't true" do
+      VCR.use_cassette("bad_conversations_list") do
+        all_users = SlackCLI::User.all
+        
+        expect{all_users.first.get_message_history}.must_raise SlackCLI::SlackAPIError
+      end
+    end
   end
   
   describe "Self.all method" do

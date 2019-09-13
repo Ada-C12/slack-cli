@@ -12,6 +12,10 @@ module SlackCLI
       im_query = { token: ENV["SLACK_API_TOKEN"]}
       im_response = HTTParty.get(im_url, query: im_query)
       
+      unless im_response.code == 200 && im_response.parsed_response["ok"]
+        raise SlackAPIError, "Error when getting im list, error: #{im_response.parsed_response["error"]}"
+      end
+      
       ims = im_response["ims"]
       
       direct_channel = ims.find do |im|
@@ -25,7 +29,7 @@ module SlackCLI
       response = HTTParty.get(url, query: query)
       
       unless response.code == 200 && response.parsed_response["ok"]
-        raise SlackAPIError, "Error when getting message history, error: #{response.parsed_response["error"]}"
+        raise SlackAPIError, "Error when getting conversations history, error: #{response.parsed_response["error"]}"
       end
       
       return response  

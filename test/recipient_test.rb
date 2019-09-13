@@ -11,9 +11,11 @@ describe "Recipient class" do
     end
   end
   
-  describe "details method" do
-    it "Raises an exception for the details method" do
-      expect{recipient.details}.must_raise NotImplementedError
+  describe "self.get method" do
+    it "Raises an exception if code isn't 200 or ok isn't true" do
+      VCR.use_cassette("bad_recipient") do
+        expect{SlackCLI::Recipient.get("test")}.must_raise SlackCLI::SlackAPIError
+      end
     end
   end
   

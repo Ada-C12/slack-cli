@@ -140,6 +140,15 @@ describe "Workspace class" do
       end
     end
     
+    it "Raises an error if code is not 200 or ok is false" do
+      VCR.use_cassette("bad_send_message") do
+        @workspace.find_channel("random")
+        message_text = "I'm a message to a channel"
+        
+        expect{@workspace.send_message(message_text)}.must_raise SlackCLI::SlackAPIError
+      end
+    end
+    
     it "returns nil for a nonexistent user" do
       VCR.use_cassette("send_message") do
         @workspace.find_user("goblin")

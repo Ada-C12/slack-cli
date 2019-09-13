@@ -23,6 +23,14 @@ describe "Channel class" do
         expect(result["ok"]).must_equal true
       end
     end
+    
+    it "Raises an error if code is not 200 or result is not ok" do
+      VCR.use_cassette("bad_channels") do
+        all_channels = SlackCLI::Channel.all
+        
+        expect{all_channels.first.get_message_history}.must_raise SlackCLI::SlackAPIError
+      end
+    end
   end
   
   describe "Self.all method" do

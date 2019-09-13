@@ -8,10 +8,6 @@ module SlackCLI
       @name = name
     end
     
-    def details
-      raise NotImplementedError
-    end
-    
     def self.get(url)
       base_url = "https://slack.com/api/"
       url = base_url + url

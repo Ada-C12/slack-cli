@@ -1,0 +1,137 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20user&channel=UMUR43REX&as_user=false&username=Slackbot&icon_emoji=%3Ajack_o_lantern%3A
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 503
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Sep 2019 23:48:35 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 52c79a75-1126-4b94-a6ff-d419366bbfd4
+      X-Oauth-Scopes:
+      - identify,channels:history,im:history,channels:read,im:read,search:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-ntnv
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 0732be5515ffeda639cfe5f22fb04df6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - Q-ATPzeXLtOAXQdFiG3AajOoYqczwZz-PMpxFXm2BrGbhAOFpibpBA==
+    body:
+      encoding: UTF-8
+      string: '{"ok":false,"error":"service_unavailable"}'
+    http_version: 
+  recorded_at: Thu, 12 Sep 2019 23:48:35 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20channel&channel=CMUR2JTNX&as_user=false&username=Slackbot&icon_emoji=%3Ajack_o_lantern%3A
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 503
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Sep 2019 23:48:35 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - a920e6c2-c482-41d6-bd2a-8b1516207b6e
+      X-Oauth-Scopes:
+      - identify,channels:history,im:history,channels:read,im:read,search:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-dzl1
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 61bc723adb3b1884ed759711e84e13a9.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - tuGIxxFEq5M7wqi47ahVYbt8R00PnsHbOcVYNYr5ve27YRxC5Vw4SA==
+    body:
+      encoding: UTF-8
+      string: '{"ok":false,"error":"service_unavailable"}'
+    http_version: 
+  recorded_at: Thu, 12 Sep 2019 23:48:35 GMT
+recorded_with: VCR 5.0.0
