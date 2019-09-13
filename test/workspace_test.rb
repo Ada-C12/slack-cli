@@ -30,16 +30,11 @@ describe "Workspace Class" do
       @workspace = Slack::Workspace.new 
     end
     
-    # it "will find the user" do
-    #   expect(@workspace.select_user("dnsanche")).must_
-    # end
-    
-    
-    
+    it "will find the selected user in the list" do
+      this_user = @workspace.select_user("dnsanche")
+      expect(this_user).must_equal true
+    end
   end #end of workspace select user block
-  
-  
-  
   
   
 end #end of workspace class

@@ -27,6 +27,7 @@ module Slack
         sleep(0.5)
         main
       end
+      return found
     end
     
     def select_channel(input)
