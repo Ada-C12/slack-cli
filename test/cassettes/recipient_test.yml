@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/users.list?token=bad%20token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '55'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 21:51:03 GMT
+      Server:
+      - Apache
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 48db3711-b2d1-496f-8001-677fa5ce128a
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-abpg
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 686ace1321107362da87839adf526fc6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - 8YWgkie_53RDv4jTdGlADsKhJ2MSdtWjIyk5d2bG0jwI4id66Ze_lQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"invalid_auth"}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 21:51:04 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.invalid?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '78'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 21:51:04 GMT
+      Server:
+      - Apache
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 15d057e5-459c-44e3-a4ac-7438d14fb1a2
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-1ir4
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 92c8c11d2a0d1554296f15adc76d2e64.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - QshPeBYwckduTamew1z1vWWHE1hdOI-WmgKrD9UEm9r_3Ua32zoWeA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"unknown_method","req_method":"users.invalid"}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 21:51:04 GMT
+recorded_with: VCR 5.0.0
