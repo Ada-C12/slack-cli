@@ -34,24 +34,20 @@ def main
     when "select user"
       print "Please select a user (by Slack ID or Display Name): "
       user_chosen = gets.chomp
-      tsu.users.each do |user| 
-        if user.slack_id == user_chosen || user.name == user_chosen
-          tsu.selected = user
-        end 
-      end 
+      tsu.selected = tsu.users.find { |user| user.slack_id == user_chosen || user.name == user_chosen }
       if tsu.selected == nil || !(tsu.selected.slack_id == user_chosen || tsu.selected.name == user_chosen)
         print "\nSorry. Invalid selection."
+      else 
+        puts "\n#{tsu.selected.name} has been selected."
       end
     when "select channel"
       print "Please select a channel (by Slack ID or Name): "
       channel_chosen = gets.chomp
-      tsu.channels.each do |channel|
-        if channel.slack_id == channel_chosen || channel.name == channel_chosen
-          tsu.selected = channel 
-        end 
-      end 
+      tsu.selected = tsu.channels.find { |channel| channel.slack_id == channel_chosen || channel.name == channel_chosen }
       if tsu.selected == nil || !(tsu.selected.slack_id == channel_chosen || tsu.selected.name == channel_chosen)
-        print "\nSorry. Invalid selection."
+        puts "\nSorry. Invalid selection."
+      else 
+        puts "\n#{tsu.selected.name} has been selected."
       end
     when "show details"
       if tsu.selected == nil
@@ -65,7 +61,7 @@ def main
       else 
         print "What is your message? "
         msg = gets.chomp
-        tsu.send_message(tsu.selected, msg)
+        tsu.selected.send_message(msg)
       end
     when "quit"
       puts "Thank you for using the Ada Slack CLI"
