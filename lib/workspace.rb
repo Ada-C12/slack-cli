@@ -21,21 +21,17 @@ module SlackCLI
     end
     
     def find_user(search_term)
-      found_user = users.find do |user|
+      @selected = users.find do |user|
         user.name == search_term.downcase || user.slack_id == search_term.upcase
       end
-      
-      found_user ? @selected = found_user : @selected = nil
       
       return selected
     end
     
     def find_channel(search_term)
-      found_channel = channels.find do |channel|
+      @selected = channels.find do |channel|
         channel.name == search_term.downcase || channel.slack_id == search_term.upcase
       end
-      
-      found_channel ? @selected = found_channel : @selected = nil
       
       return selected
     end
@@ -57,6 +53,11 @@ module SlackCLI
       icon_emoji: bot_avatar_symbol },
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
       )
+      
+      unless response.code == 200 && response.parsed_response["ok"]
+        raise SlackAPIError, "Error when posting message, error: #{response.parsed_response["error"]}"
+      end
+      
       return response
     end
     

@@ -1,7 +1,7 @@
 require_relative "test_helper"
 
 describe "User class" do
-  describe "Initialize method" do
+  describe "initialize method" do
     it "Initializes a new user" do
       user = SlackCLI::User.new(slack_id: 123, name: "test", real_name: "Test Name")
       

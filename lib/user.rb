@@ -8,7 +8,6 @@ module SlackCLI
     end
     
     def get_message_history
-      
       im_url = "https://slack.com/api/im.list"
       im_query = { token: ENV["SLACK_API_TOKEN"]}
       im_response = HTTParty.get(im_url, query: im_query)
@@ -24,6 +23,10 @@ module SlackCLI
       url = "https://slack.com/api/conversations.history"
       query = { token: ENV["SLACK_API_TOKEN"] , channel: direct_channel_id}
       response = HTTParty.get(url, query: query)
+      
+      unless response.code == 200 && response.parsed_response["ok"]
+        raise SlackAPIError, "Error when getting message history, error: #{response.parsed_response["error"]}"
+      end
       
       return response  
     end

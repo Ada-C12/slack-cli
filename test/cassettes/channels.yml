@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 12 Sep 2019 23:20:28 GMT
+      - Thu, 12 Sep 2019 23:48:34 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 63ee54b9-9299-41e6-ac76-dce7ae1de0c8
+      - b1952085-4443-4282-90d9-8107eac863c4
       X-Oauth-Scopes:
       - identify,channels:history,im:history,channels:read,im:read,search:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-vdbk
+      - haproxy-www-fc14
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 fb1574d5a6ba2d77d2a656aba08aa3c3.cloudfront.net (CloudFront)
+      - 1.1 112d82578d402a38d8d02e8b857617e1.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - ZLNu1LGAmhkhU9w0kWL4Zg1Zx0-Mu_mAGukB1eIzU5Z07swBTxpS7Q==
+      - eGkdASLf9QDsb1sBDEhNuuspzA6l7wEezGY8Ottsni3lxCJyDsWz9g==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CMUR2JTNX","name":"random","is_channel":true,"created":1568071183,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN5R273J8","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTG0S5D0","UMUR43REX","UMZSUVBED","UN5R273J8","UN5R3N6P6","UN5R3NYUU","UN69C37BJ"],"topic":{"value":"Non-work
@@ -80,7 +80,7 @@ http_interactions:
         channel is for workspace-wide communication and announcements. All members
         are in this channel.","creator":"UN5R273J8","last_set":1568071183},"previous_names":[],"num_members":7}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Thu, 12 Sep 2019 23:20:28 GMT
+  recorded_at: Thu, 12 Sep 2019 23:48:34 GMT
 - request:
     method: get
     uri: https://slack.com/api/conversations.history?channel=CMUR2JTNX&limit=25&token=<SLACK_API_TOKEN>
@@ -102,17 +102,17 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '822'
+      - '781'
       Connection:
       - keep-alive
       Date:
-      - Thu, 12 Sep 2019 23:20:28 GMT
+      - Thu, 12 Sep 2019 23:48:34 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 25a7d51d-db91-4faf-bc0f-106c8476e7f6
+      - 5552f2de-d9b1-4be4-aaca-3c69ca8eda0d
       X-Oauth-Scopes:
       - identify,channels:history,im:history,channels:read,im:read,search:read,users:read,chat:write:bot
       Expires:
@@ -138,18 +138,21 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-x0x4
+      - haproxy-www-fdpw
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 bbc0c6d660c6b9bfbf22053687e12fba.cloudfront.net (CloudFront)
+      - 1.1 3cd7af07832481c336aa1c93c9b4a6fe.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - K3I3ETPdI3Dpfa4roRhrOQbrQ80jzXgqlTFPJoMYEizNhOzaTEoDpw==
+      - KC6uM5IxAglqqqpk51I4TxIlF6ax8TQSWz_q-MOaYVIjtcUP0EyyAA==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"messages":[{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568331869.000800","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568330837.000700","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568330428.000600","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
         a message to a channel","ts":"1568330348.000500","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
         a message to a channel","ts":"1568321235.000400","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
         a message to a channel","ts":"1568321181.000300","username":"T-Rex","icons":{"emoji":":t-rex:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f996.png"},"bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
@@ -174,12 +177,7 @@ http_interactions:
         a message to a channel","ts":"1568237849.000400","username":"Leaves - Dianna
         - API Project","bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I''m
         a message to a channel","ts":"1568237560.000300","username":"Leaves - Dianna
-        - API Project","bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I
-        can be sent to Pumpkin Spice!","ts":"1568237163.000200","username":"Leaves
-        - Dianna - API Project","bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"I
-        can be sent to Pumpkin Spice!","ts":"1568237089.000100","username":"Leaves
-        - Dianna - API Project","bot_id":"BMW7Z23K5"},{"type":"message","subtype":"bot_message","text":"Change","ts":"1568225927.004400","username":"Leaves
-        - Tiffany - API Project","bot_id":"BMURAQX7D"}],"has_more":true,"pin_count":0,"response_metadata":{"next_cursor":"bmV4dF90czoxNTY4MjI1NzAzMDA0MTAw"}}'
+        - API Project","bot_id":"BMW7Z23K5"}],"has_more":true,"pin_count":0,"response_metadata":{"next_cursor":"bmV4dF90czoxNTY4MjM3MTYzMDAwMjAw"}}'
     http_version: 
-  recorded_at: Thu, 12 Sep 2019 23:20:28 GMT
+  recorded_at: Thu, 12 Sep 2019 23:48:34 GMT
 recorded_with: VCR 5.0.0

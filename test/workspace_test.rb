@@ -7,7 +7,7 @@ describe "Workspace class" do
     end
   end
   
-  describe "Initialize Workspace" do
+  describe "initialize method" do
     it "Creates a new workspace" do
       expect(@workspace).must_be_instance_of SlackCLI::Workspace
     end
@@ -115,7 +115,7 @@ describe "Workspace class" do
     end
   end  
   
-  describe "send_message" do
+  describe "send_message method" do
     it "sends a message to a user" do
       VCR.use_cassette("send_message") do
         @workspace.find_user("sabrina")
@@ -163,7 +163,7 @@ describe "Workspace class" do
     end
   end
   
-  describe "save_settings" do
+  describe "save_settings method" do
     it "Saves settings in a json file" do
       @workspace.bot_name = "T-Rex"
       @workspace.bot_avatar = "t-rex"

@@ -1,7 +1,7 @@
 require_relative "test_helper"
 
 describe "Channel class" do  
-  describe "Initialize method" do
+  describe "initialize method" do
     it "Initializes a new channel" do
       channel = SlackCLI::Channel.new(slack_id: 123, name: "test channel", topic: "tests", member_count: 10)
       

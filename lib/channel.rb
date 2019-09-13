@@ -13,6 +13,10 @@ module SlackCLI
       query = { token: ENV["SLACK_API_TOKEN"] , channel: slack_id, limit: 25}
       response = HTTParty.get(url, query: query)
       
+      unless response.code == 200 && response.parsed_response["ok"]
+        raise SlackAPIError, "Error when getting message history, error: #{response.parsed_response["error"]}"
+      end
+      
       return response
     end
     

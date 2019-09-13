@@ -6,6 +6,7 @@ require_relative "recipient"
 require_relative "user"
 require_relative "workspace"
 require_relative "channel"
+require_relative "errors"
 
 Dotenv.load
 
@@ -141,7 +142,6 @@ def main
         
       when "get message history", "7", "seven"
         response = PUMPKIN_SPICE.selected.get_message_history
-        
         format_message_history(response)
         
       when "change bot settings", "8", "eight"
