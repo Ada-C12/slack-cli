@@ -48,7 +48,7 @@ module Slack
     
     #     response = HTTParty.post(
     #       CHAT_URL,
-    ,
+    
     #       body:  {
     #         token: API_KEY,
     #         text: message,

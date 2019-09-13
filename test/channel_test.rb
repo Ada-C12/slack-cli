@@ -27,27 +27,26 @@ describe "Channel class" do
     end
   end 
   
-  # Send message test
-  # need to discuss this section
-  describe "Send message" do 
-    it "sends a message to selected recepient" do 
-      VCR.use_cassette("send_message") do
+  # # Send message test
+  # # need to discuss this section
+  # describe "Send message" do 
+  #   it "sends a message to selected recepient" do 
+  #     VCR.use_cassette("send_message") do
+  #       channels = Slack::Channel.list_channels
+  #       # channel = Channel.new("name", "topic", 1, 1234)
+  #       channel = channels.first
+  #       expect(channel.send_message).must_
+  #     end
+  
+  # Test to check channel count
+  describe "Channel list" do
+    
+    it "returns correct numbers of channel" do
+      VCR.use_cassette("Channels_list") do
         channels = Slack::Channel.list_channels
-        # channel = Channel.new("name", "topic", 1, 1234)
-        channel = channels.first
-        expect(channel.send_message).must_
+        channel = channels.length
+        expect(channel).must_equal  3
       end
-
-      # Yasmin's updates: I think this is above?
-      # describe "Channel class" do
-      #   describe "Channel list" do
-       
-      #     it "returns correct numbers of channel" do
-      #       VCR.use_cassette("Channels_list") do
-      #         channels = Slack::Channel.list_channels
-      #         channel = channels.length
-      #         expect(channel).must_equal  "channel"
-      #       end
-      #     end
-      #   end
-      #  end
+    end
+  end
+end

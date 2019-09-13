@@ -28,7 +28,19 @@ describe "User class" do
       expect(user.details).must_equal expected_output 
     end
   end 
-
+  
   # send message test
   describe "Send message" do 
+  end
+  
+  # Test to check user count
+  describe "User list" do
+    it "returns correct numbers of users" do
+      VCR.use_cassette("Users_list") do
+        users = Slack::User.list_users
+        users = users.length
+        expect(users).must_equal  3
+      end
+    end
+  end
 end
