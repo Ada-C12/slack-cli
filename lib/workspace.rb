@@ -1,14 +1,16 @@
 require_relative 'channel'
+require_relative 'user'
+require_relative 'slack'
 require "table_print"
+
 
 class Workspace
   attr_reader :users, :channel, :selected
   
   def initialize
-    @users = users
+    @users = User.list
     @channels = Channel.list
     @selected = nil
-    
   end
   
   
@@ -40,4 +42,3 @@ class Workspace
 end
 
 
-p Workspace.new.select_channel

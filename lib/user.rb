@@ -10,7 +10,7 @@ Dotenv.load
 
 class User < Recipient
   
-  attr_accessor :slack_id
+  attr_reader :slack_id, :user_name, :real_name
   
   URL = "https://slack.com/api/users.list"
   KEY = ENV['SLACK_TOKEN']
@@ -30,6 +30,11 @@ class User < Recipient
     
   end
   
+  def slack_id
+    return @slack_id
+  end
+  
+  
   
   def self.list
     
@@ -42,15 +47,14 @@ class User < Recipient
     response.each do |member|
       user = self.new(slack_id: member["id"], real_name: member["real_name"], user_name: member["name"])
       users << user
-      
-      #tp and self.get
     end
-    
-    # users.each do |user| 
-    #   puts use
-    # end
+    return users
   end
+  
+  # users.each do |user| 
+  #   puts use
+  # end
   
 end
 
-p User.list
+
