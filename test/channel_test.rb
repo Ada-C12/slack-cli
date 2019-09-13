@@ -37,3 +37,17 @@ describe "Channel class" do
         channel = channels.first
         expect(channel.send_message).must_
       end
+
+      # Yasmin's updates: I think this is above?
+      # describe "Channel class" do
+      #   describe "Channel list" do
+       
+      #     it "returns correct numbers of channel" do
+      #       VCR.use_cassette("Channels_list") do
+      #         channels = Slack::Channel.list_channels
+      #         channel = channels.length
+      #         expect(channel).must_equal  "channel"
+      #       end
+      #     end
+      #   end
+      #  end
