@@ -1,6 +1,8 @@
+require 'httparty'
+require 'table_print'
+
 require_relative 'channel'
 require_relative 'user'
-require 'table_print'
 
 module SlackBot
   class Workspace
@@ -45,7 +47,6 @@ module SlackBot
     end
     
     def details
-      #tp @selected.class.all
       if @selected.class == Channel
         tp @selected, "slack_id", "name", "topic", "member_count"
       else
@@ -53,7 +54,13 @@ module SlackBot
       end
     end
     
-    def send_message
+    def send_message(slack_id:, message:)
+      response = @selected.send_message(slack_id: slack_id, message: message)
+      if response["ok"] == true
+        puts "message sent"
+      else
+        puts "Failure: message did not send.".colorize(:red)
+      end
     end
   end
 end

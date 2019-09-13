@@ -17,7 +17,8 @@ module SlackBot
       return response = HTTParty.get(url, query: {token: ENV["SLACK_TOKEN"]})
     end
     
-    def sent_message(message)
+    def send_message(slack_id:, message:)
+      return response = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV["SLACK_TOKEN"], channel: slack_id, text: message})
     end
     
     private 
