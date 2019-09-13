@@ -10,9 +10,9 @@ Dotenv.load
 class Workspace < Recipient
   BASE_URL = "https://slack.com/api/"
   TOKEN = ENV["SLACK_TOKEN"]
-  
   QUERY = {
-    token: TOKEN}
+    token: TOKEN
+  }
 
   attr_reader :users, :channels
   attr_accessor :selected
@@ -31,7 +31,6 @@ class Workspace < Recipient
     end
 
     return users
-
   end
 
   def get_channels
@@ -65,6 +64,6 @@ class Workspace < Recipient
     tp @selected
   end
 
-  def send_message
-  end
+  # def send_message
+  # end
 end
