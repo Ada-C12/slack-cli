@@ -70,25 +70,6 @@ describe Workspace do
     end
   end
   
-  describe '#send_message' do
-    before do    
-      @user_name = "calopter"
-      @user_id = "UN8G3G4VC"
-    end
-    
-    it "sends a message if a recipient is selected and returns true" do
-      VCR.use_cassette('workspace_send_message') do
-        @workspace.select_user name: @user_name
-        
-        expect (@workspace.send_message).must_equal true
-      end
-    end
-    
-    it "returns false if no recipient selected" do
-      expect (@workspace.send_message).must_equal false
-    end
-  end
-  
   describe "#find_recipient" do
     before do
       @user_name = "calopter"
@@ -99,6 +80,7 @@ describe Workspace do
       @channel_id = "CMURJLBUK"
       @channels = @workspace.channels
     end
+    
     it "returns the correct User by slack id or name" do
       user = @workspace.find_recipient(list: @users, name: @user_name)
       
