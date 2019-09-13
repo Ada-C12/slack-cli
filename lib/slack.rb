@@ -51,6 +51,11 @@ def start_program
         ap "No recipient is currently selected. Select a recipient in the main menu."
       end 
        ap selected_recipient
+    when "send message"
+      #check if a recipient is selected
+      #if recipient hasn't been selected tell user to select a recipient at the main menu
+      #if a recipient has been selected then ask user to type a message
+      #send the message to the recipient
     else 
       ap "Not a valid command"
     end 
