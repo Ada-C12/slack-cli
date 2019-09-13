@@ -13,6 +13,7 @@ def main
   while selection == "1" || selection == "2"
     print_table(selection)
     learn_more_method(selection)
+    message_menu
     menu_method
     selection = gets.chomp
   end
@@ -22,10 +23,11 @@ end
 
 def menu_method
   # menu_options = ["List Users in the Workspace", "List Channels in the Workspace", "Select User", "Select Channel", "Quit program"]
-  menu_options = ["List Users in the Workspace", "List Channels in the Workspace", "Quit"]
+  menu_options = ["List Users in the Workspace", "List Channels in the Workspace"]
   menu_options.each_with_index do |prompt, i|
     puts " #{i + 1}. #{prompt}"
   end
+  puts "[Any Other Key] to Quit"
 end
 
 
@@ -37,19 +39,20 @@ def print_table(selection)
   elsif selection == "2"
     tp @workspace.channels
   end
-  
 end
 
+# show details
+# @workspace.show_details
 
 def learn_more_method(selection)
-  # selection 1 is users
+  # selection "1" is users
   # selection "2"  is channels
-  puts "Enter \"a\" to search by Name\nEnter \"b\" to search by Slack ID"
+  puts "Enter \"a\" to search by Name\nEnter \"b\" to search by Slack ID\n[Any Other Key] to Quit"
   find_by = gets.chomp
-  puts "Enter search term:"
-  name_or_id = gets.chomp
   
   if find_by == "a"
+    puts "Enter search term:"
+    name_or_id = gets.chomp
     begin
       if selection == "1"
         # this means they're looking for username
@@ -63,6 +66,8 @@ def learn_more_method(selection)
     end
     
   elsif find_by == "b"
+    puts "Enter search term:"
+    name_or_id = gets.chomp
     begin
       if selection == "1"
         @workspace.select_user(slack_id: name_or_id)
@@ -76,6 +81,20 @@ def learn_more_method(selection)
     end 
   else
     puts "Invalid menu selection"   
+  end
+end
+
+def message_menu
+  puts "Enter \"a\" to Show Details\nEnter \"b\" to Send Message\n[Any Other Key] to Quit"
+  message_choice = gets.chomp
+  if message_choice == "a"
+    @workspace.show_details
+  elsif message_choice == "b"
+    puts "Enter Message: "
+    message = gets.chomp
+    @workspace.send_message(message)
+  else
+    puts "Invalid Menu Choice"
   end
 end
 

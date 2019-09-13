@@ -39,9 +39,10 @@ module SlackCLI
     end
     
     def show_details
+      tp @selected
     end
     
-    def send_message
+    def send_message(message)
     end
     
   end
