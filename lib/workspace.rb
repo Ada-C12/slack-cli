@@ -1,7 +1,7 @@
 module SlackCLI
   class Workspace
-    attr_reader :users, :channels, :selected
-    attr_accessor :bot_name, :bot_avatar
+    attr_reader :users, :channels
+    attr_accessor :bot_name, :bot_avatar, :selected
     
     def initialize()
       @users = SlackCLI::User.all
@@ -21,18 +21,28 @@ module SlackCLI
     end
     
     def find_user(search_term)
-      @selected = users.find do |user|
+      found = users.find do |user|
         user.name == search_term.downcase || user.slack_id == search_term.upcase
       end
       
-      return selected
+      return found
     end
     
     def find_channel(search_term)
-      @selected = channels.find do |channel|
+      found = channels.find do |channel|
         channel.name == search_term.downcase || channel.slack_id == search_term.upcase
       end
       
+      return found
+    end
+    
+    def select_user(search_term)
+      @selected = find_user(search_term)
+      return selected
+    end
+    
+    def select_channel(search_term)
+      @selected = find_channel(search_term)
       return selected
     end
     

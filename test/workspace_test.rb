@@ -65,18 +65,6 @@ describe "Workspace class" do
       
       expect(user).must_be_nil
     end
-    
-    it "Changes selected to the chosen user" do
-      user = @workspace.find_user("slackbot")
-      
-      expect(@workspace.selected).must_equal user
-    end
-    
-    it "Changes selected to nil if no user found" do
-      @workspace.find_user("garbage")
-      
-      expect(@workspace.selected).must_be_nil
-    end
   end
   
   describe "find_channel method" do
@@ -101,24 +89,28 @@ describe "Workspace class" do
       
       expect(channel).must_be_nil
     end
-    
-    it "Changes selected to the chosen channel" do
-      channel = @workspace.find_channel("random")
-      
-      expect(@workspace.selected).must_equal channel
-    end
-    
-    it "Changes selected to nil if no user found" do
-      @workspace.find_channel("garbage")
-      
-      expect(@workspace.selected).must_be_nil
-    end
   end  
+  
+  describe "select_user method" do
+    it "changes the value of selected for the workspace" do  
+      @workspace.select_user("slackbot")
+      
+      expect(@workspace.selected.name).must_equal "slackbot"
+    end
+  end
+  
+  describe "select_channel method" do
+    it "changes the value of selected for the workspace" do  
+      @workspace.select_channel("random")
+      
+      expect(@workspace.selected.name).must_equal "random"
+    end
+  end
   
   describe "send_message method" do
     it "sends a message to a user" do
       VCR.use_cassette("send_message") do
-        @workspace.find_user("sabrina")
+        @workspace.select_user("sabrina")
         message_text = "I'm a message to a user"
         
         response = @workspace.send_message(message_text)
@@ -130,7 +122,7 @@ describe "Workspace class" do
     
     it "sends a message to a channel" do
       VCR.use_cassette("send_message") do
-        @workspace.find_channel("random")
+        @workspace.select_channel("random")
         message_text = "I'm a message to a channel"
         
         response = @workspace.send_message(message_text)
@@ -142,7 +134,7 @@ describe "Workspace class" do
     
     it "Raises an error if code is not 200 or ok is false" do
       VCR.use_cassette("bad_send_message") do
-        @workspace.find_channel("random")
+        @workspace.select_channel("random")
         message_text = "I'm a message to a channel"
         
         expect{@workspace.send_message(message_text)}.must_raise SlackCLI::SlackAPIError
@@ -151,7 +143,7 @@ describe "Workspace class" do
     
     it "returns nil for a nonexistent user" do
       VCR.use_cassette("send_message") do
-        @workspace.find_user("goblin")
+        @workspace.select_user("goblin")
         message_text = "I won't get sent to a user"
         
         response = @workspace.send_message(message_text)
@@ -162,7 +154,7 @@ describe "Workspace class" do
     
     it "returns nil for a nonexistent channel" do
       VCR.use_cassette("send_message") do
-        @workspace.find_user("goblin")
+        @workspace.select_user("goblin")
         message_text = "I won't get sent to a channel"
         
         response = @workspace.send_message(message_text)

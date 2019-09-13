@@ -40,7 +40,7 @@ def select_user
   print "Please enter the name or Slack ID of the user you want to select: "
   search_term = gets.chomp
   
-  result = PUMPKIN_SPICE.find_user(search_term)
+  result = PUMPKIN_SPICE.select_user(search_term)
   
   puts
   if result
@@ -54,7 +54,7 @@ def select_channel
   print "Please enter the name or Slack ID of the channel you want to select: "
   search_term = gets.chomp
   
-  result = PUMPKIN_SPICE.find_channel(search_term)
+  result = PUMPKIN_SPICE.select_channel(search_term)
   
   puts
   if result
@@ -142,6 +142,7 @@ def main
       when "get message history", "7", "seven"
         if PUMPKIN_SPICE.selected
           response = PUMPKIN_SPICE.selected.get_message_history
+          puts
           format_message_history(response)
         else
           puts "\nYou need to select a recipient."
