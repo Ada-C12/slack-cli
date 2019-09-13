@@ -1,0 +1,139 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&text=This%20post%20should%20not%20work&channel=invalid-channel
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Sep 2019 22:40:40 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - e094058c-f000-470e-a3a5-b2bedfd6cf3d
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-xtep
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2e20768704c71ff3ce2e677251d27f3c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - g-NaQYyv1aaa-hay89RWQ_2lWk7FWi84nD2CKPmws_rn2CwbYUmiAQ==
+    body:
+      encoding: UTF-8
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: 
+  recorded_at: Thu, 12 Sep 2019 22:40:40 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_TOKEN>&text=Hi%20Pupper%20Friends%21&channel=random
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 12 Sep 2019 22:40:40 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 7eed6677-9bab-4b11-9ff0-b517f0121a34
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-6he5
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 aabd01c4a20dae837d162bd972422efc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - gM6EEaMzkrb_Vb-oJMTSbBCohlpSfqOSVpSxMWupRRdkjc-6LuJ14g==
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"CN689KKBP","ts":"1568328040.000200","message":{"type":"message","subtype":"bot_message","text":"Hi
+        Pupper Friends!","ts":"1568328040.000200","username":"Leaves - Kristina &
+        Ga-Young","bot_id":"BN8EPGQ4E"}}'
+    http_version: 
+  recorded_at: Thu, 12 Sep 2019 22:40:40 GMT
+recorded_with: VCR 5.0.0
