@@ -1,24 +1,20 @@
 #!/usr/bin/env ruby
-# require 'dotenv'
-# require 'httparty'
 require 'awesome_print'
 require_relative 'workspace'
 require "table_print"
 
 Dotenv.load
-
+@workspace = SlackCLI::Workspace.new
 def main
-  
   puts "Welcome to the Ada Slack CLI!"
   menu_method
-  
   selection = gets.chomp
-  until selection == "3"
-    selection_method(selection)
-    puts "______________________________"
+  
+  while selection == "1" || selection == "2"
+    print_table(selection)
+    learn_more_method(selection)
     menu_method
     selection = gets.chomp
-    learn_more_method
   end
   
   puts "Thank you for using the Ada Slack CLI"
@@ -33,45 +29,54 @@ def menu_method
 end
 
 
-def selection_method(selection)
-  workspace = SlackCLI::Workspace.new #Move Somewhere More Important
+def print_table(selection)
+  # determines whether you are going to print users or channels
+  #Move Somewhere More Important
   if selection == "1"
-    tp workspace.users
+    tp @workspace.users
   elsif selection == "2"
-    tp workspace.channels
+    tp @workspace.channels
   end
+  
 end
 
 
 def learn_more_method(selection)
   # selection 1 is users
   # selection "2"  is channels
-  puts "Enter \"a\" to search by Username\nEnter \"b\"to search by Slack ID"
+  puts "Enter \"a\" to search by Name\nEnter \"b\" to search by Slack ID"
   find_by = gets.chomp
   puts "Enter search term:"
   name_or_id = gets.chomp
   
   if find_by == "a"
-    if selection == "1"
-      # this means they're looking for username
-      workspace.select_user(user_name: name_or_id)
-    else 
-      # looking for channel by channel name
-      workspace.select_channel(name: name_or_id)
+    begin
+      if selection == "1"
+        # this means they're looking for username
+        @workspace.select_user(user_name: name_or_id)
+      else 
+        # looking for channel by channel name
+        @workspace.select_channel(name: name_or_id)
+      end
+    rescue 
+      puts "NOT FOUND"
     end
-    # search by user id or channel id
-    # method - find by Name
+    
   elsif find_by == "b"
-    if selection == "1"
-      workspace.select_user(slack_id: name_or_id)
-      # looking for channel by channel name
-    else 
-      workspace.select_channel(slack_id: name_or_id)
-      # this means they're looking for username
-    end
+    begin
+      if selection == "1"
+        @workspace.select_user(slack_id: name_or_id)
+        # looking for channel by channel name
+      else 
+        @workspace.select_channel(slack_id: name_or_id)
+        # this means they're looking for username
+      end
+    rescue 
+      puts "NOT FOUND"
+    end 
+  else
+    puts "Invalid menu selection"   
   end
-  # if looking for a channel / user and it doesn't exist- error mesasge or something & return to main command 
-  
 end
 
 main if __FILE__ == $PROGRAM_NAME

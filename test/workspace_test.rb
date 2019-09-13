@@ -13,8 +13,6 @@ describe "SlackCLI::Workspace" do
       expect(@user_workspace.selected.user_name).must_equal "slackbot"
       expect{@user_workspace.select_user(slack_id: "0")}.must_raise SlackApiError
     end
-    
-    
   end
   
   describe "select_channel" do
@@ -28,6 +26,4 @@ describe "SlackCLI::Workspace" do
       expect{@channel_workspace.select_channel(slack_id: "12")}.must_raise SlackApiError
     end
   end
-  
-  
 end
