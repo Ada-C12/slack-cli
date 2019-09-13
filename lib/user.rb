@@ -21,6 +21,16 @@ class User
     end 
     @status_emoji = status_emoji
   end 
-
-
+  
+  def details
+    return_statement = "\n
+    \n \t Name: #{@name}
+    \n \t Slack id: #{@slack_id}
+    \n \t Status text: #{@status_text}
+    \n \t Status emoji: #{@status_emoji}"
+    return return_statement
+    
+  end 
+  
+  
 end

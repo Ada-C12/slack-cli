@@ -53,9 +53,9 @@ class Workspace
   end
   
   def make_users(response)
-    
     total_users = response["members"].length
     i = 0
+    
     until i == total_users 
       user_name = response["members"][i]["name"]
       user_slack_id = response["members"][i]["id"]
@@ -64,13 +64,10 @@ class Workspace
       user_status_emoji = response["members"][i]["profile"]["status_emoji"]
       
       new_user = User.new(name: user_name, slack_id: user_slack_id, real_name: user_real_name, status_text: user_status_text, status_emoji: user_status_emoji)
-      
       @users << new_user
       
       i += 1
-      
     end
-    
   end
   
   def api_call_list_channels
@@ -81,12 +78,10 @@ class Workspace
     channel_response = HTTParty.get(url, query: query_parameters)
     make_channels(channel_response)
     return channel_response["ok"] == true 
-    
   end
   
   
   def make_channels(response)
-    
     total_channels = response["channels"].length
     i = 0
     until i == total_channels
@@ -101,6 +96,5 @@ class Workspace
       
       i += 1
     end
-    
   end
 end

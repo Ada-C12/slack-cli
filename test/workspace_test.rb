@@ -1,10 +1,7 @@
 require_relative 'test_helper'
 
 describe 'workplace class' do
-  # before do
-  #   @test_workspace = Workspace.new
-  # end
-  
+
   describe "workplace attributes" do
     it "recognizes that it's an instance of Workspace" do
       VCR.use_cassette("initialize") do
