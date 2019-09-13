@@ -15,7 +15,12 @@ class Recipient
   
   def self.get(url, params)
     response = HTTParty.get(url, query: params)
-    return response
+    
+    if response["ok"] == true
+      return response
+    else
+      raise SlackAPIError, "API request failed!"
+    end
   end
   
   def details

@@ -18,7 +18,6 @@ class User < Recipient
     params = { token: KEY }
     response = super(url, params)
     
-    # sleep(0.25)
     return response
   end
   
