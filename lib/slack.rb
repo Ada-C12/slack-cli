@@ -11,7 +11,7 @@ def main
   puts "The number of channels is #{workspace.channels.length}."
   puts "The number of users is #{workspace.users.length}"
   
-  puts "Do you want to list users, list channels, select user, select channel, show details for selected or quit?"
+  puts "Do you want to list users, list channels, select user, select channel, show details for selected, send message to selected or quit?"
   print prompt
   search = gets.chomp.downcase
   until search == "quit"
@@ -30,7 +30,7 @@ def main
         puts "Slack ID: #{user.slack_id}"
       end 
       puts
-      puts "Do you want to list users, list channels, select user, select channel, show details for selected or quit?"
+      puts "Do you want to list users, list channels, select user, select channel, show details for selected, send message to selected or quit?"
       print prompt
       search = gets.chomp.downcase
       
@@ -45,7 +45,7 @@ def main
         puts "Slack ID: #{channel.slack_id}"
       end 
       puts
-      puts "Do you want to list users, list channels, select user, select channel, show details for selected or quit?"
+      puts "Do you want to list users, list channels, select user, select channel, show details for selected, send message to selected or quit?"
       print prompt
       search = gets.chomp.downcase
       
@@ -60,10 +60,12 @@ def main
         #{input} is now selected
         """
       else
-        puts "No channel has that name or ID"
+        puts """
+        No channel has that name or ID
+        """
       end
       
-      puts "Do you want to list users, list channels, select user, select channel, show details for selected or quit?"
+      puts "Do you want to list users, list channels, select user, select channel, show details for selected, send message to selected or quit?"
       print prompt
       search = gets.chomp.downcase
       
@@ -78,10 +80,12 @@ def main
         #{input} is now selected
         """
       else
-        puts "No user has that name or ID"
+        puts """
+        No user has that name or ID
+        """
       end
       
-      puts "Do you want to list users, list channels, select user, select channel, show details for selected or quit?"
+      puts "Do you want to list users, list channels, select user, select channel, show details for selected, send message to selected or quit?"
       print prompt
       search = gets.chomp.downcase
       
@@ -95,16 +99,37 @@ def main
         """
       end
       
-      puts "Do you want to list users, list channels, select user, select channel, show details for selected or quit?"
+      puts "Do you want to list users, list channels, select user, select channel, show details for selected, send message to selected or quit?"
       print prompt
       search = gets.chomp.downcase
-
+      
+    when "send message", "message"
+      unless workspace.selected.nil?
+        puts "What message would you like to send to #{workspace.selected.name}?"
+        message = gets.chomp
+        
+        workspace.send_message(message, workspace.selected.slack_id)
+        
+        puts """
+        Message posted!
+        """
+      else
+        puts """
+        No recipient selected!
+        """
+      end
+      
+      puts "Do you want to list users, list channels, select user, select channel, show details for selected, send message to selected or quit?"
+      print prompt
+      search = gets.chomp.downcase
     else
-      puts "Invalid Command"
-      puts "Do you want to list users, list channels, select user, select channel, show details for selected or quit?"
+      puts """
+      Invalid Command
+      """
+      puts "Do you want to list users, list channels, select user, select channel, show details for selected, send message to selected or quit?"
       print prompt
       search = gets.chomp.downcase
-    end
+    end  
   end
   
   puts "Thank you for using the Ada Slack CLI"
@@ -112,22 +137,3 @@ end
 
 main if __FILE__ == $PROGRAM_NAME
 
-
-
-
-# url = "https://slack.com/api/channels.list"
-# key = ENV["SLACK_TOKEN"]
-
-# query = {
-#   token: key
-# }
-
-# response = HTTParty.get(url, query: query)
-
-# if response["error"]
-#   raise StandardError.new "#{response.code}: #{response.message} -- #{response["error"]}"
-# end
-
-# response["channels"].each_with_index do |channel, index|
-#   puts "#{index + 1}. #{channel["name"]}"
-# end
