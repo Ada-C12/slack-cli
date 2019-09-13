@@ -23,8 +23,25 @@ module SlackCLI
       return response
     end
 
-    # def send_message(message)
-    # end
+    def send_message(message)
+      # pull out key to be @key?
+      key = ENV["API_TOKEN"]
+      response = HTTParty.post(
+        "https://slack.com/api/chat.postMessage", 
+        headers: {'Content-Type' => 'application/x-www-form-urlencoded'},
+        body: {
+          "token": key,
+          "channel": @slack_id,
+          "text": message
+          }
+        )
+
+      if response.keys.include? "error"  || response["ok"] == false
+        raise SlackCLI::SlackApiError
+      else
+        return true
+      end
+    end
 
     def details
       raise NotImplementedError.new("Details should be implemented in child class")
