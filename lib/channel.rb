@@ -38,15 +38,12 @@ class Channel < Recipient
   end
   
   def self.select_channel_details(desired_channel)
-    self.printed_channels_list.each do |channel|
-      if channel["name"] == desired_channel
+    self.printed_channels_list.each do |channel| 
+      if channel["name"] == desired_channel || channel["Slack ID"] == desired_channel
         return channel
-      elsif channel["Slack ID"] == desired_channel
-        return channel
-      else
-        statement = "Not a valid Channel name/Slack ID"
-        return statement
       end
     end
+    statement = "Not a valid Channel name/Slack ID"
+    return statement
   end
 end
