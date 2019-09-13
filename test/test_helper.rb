@@ -11,7 +11,20 @@ require 'vcr'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
+require_relative '../lib/recipient.rb'
+require_relative '../lib/user.rb'
+require_relative '../lib/channel.rb'
+require_relative '../lib/workspace.rb'
+
 VCR.configure do |config|
-  config.cassette_library_dir = "test/cassettes"
-  config.hook_into :webmock
+  config.cassette_library_dir = "test/cassettes" # folder where casettes will be located
+  config.hook_into :webmock # tie into this other tool called webmock
+  config.default_cassette_options = {
+    :record => :new_episodes,    # record new data when we don't have it yet
+    :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
+  }
+  # Don't leave our token lying around in a cassette file.
+  config.filter_sensitive_data("<API_TOKEN>") do
+    ENV["API_TOKEN"]
+  end
 end
