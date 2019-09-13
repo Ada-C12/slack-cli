@@ -32,7 +32,7 @@ module Slack
     end 
     
     def details 
-      "The name is #{name}, the user name is #{user_name}, and the slack id is #{slack_id}"
+      "The name is #{@name}, the user name is #{@user_name}, and the slack id is #{@slack_id}"
     end
   end
 end

@@ -13,25 +13,37 @@ KEY = ENV['KEY']
 #CHAT_URL = "https://slack.com/api/chat.postMessage"
 
 def main
+  recepient = nil
   users = Slack::User.list_users
   channels = Slack::Channel.list_channels
+  
+  # Wave 1 
   puts "Welcome to the Ada Slack CLI!"
   puts "There are #{users.length} users and #{channels.length} channels."
   
   while true
-    puts "Would you like to view: List Users, List Channels, or Quit?" 
+    puts "Would you like to view: List Users, List Channels, Select User, Select Channel, See Details, or Quit?" 
     user_input = gets.chomp.split.map(&:capitalize).join(' ')
     case user_input 
     when "List Users"
-      users = Slack::User.list_users
       users.each do |user|
         puts "User count: #{users.length}, User Name: #{user.user_name}, Real name: #{user.name}, and Slack ID: #{user.slack_id}."
       end
     when "List Channels"
-      channels = Slack::Channel.list_channels
       channels.each do |channel|
         puts "Channel's name: #{channel.channel_name}, Member Count: #{channel.member_count}, and Slack ID: #{channel.slack_id}."
       end
+      
+      # Wave 2 
+    when "Select User"
+      puts "Please enter a username or slack id to continue."
+      recepient_selection = gets.chomp
+      recepient = users.find {| user | user.user_name == recepient_selection || user.slack_id == recepient_selection }
+      
+    when "Select Channel"
+      puts "Please enter a channel name or slack id to continue."
+    when "See Details"
+      puts  recepient.details 
     when "Quit"
       puts "Exiting program"
       quit
