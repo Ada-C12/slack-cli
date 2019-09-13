@@ -20,6 +20,7 @@ module Slack
       channels = []
       
       response["channels"].each do |channel|
+        
         channel_hash = {}
         channel_hash[:slack_id] = channel["id"]
         channel_hash[:name] = channel["name"]

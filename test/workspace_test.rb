@@ -44,7 +44,7 @@ describe "Workspace" do
         name_or_id = "nonexistentname"
         
         user = workspace.select_user(name_or_id)
-        expect(user).must_equal nil
+        assert_nil user
       end 
     end 
   end
@@ -52,12 +52,32 @@ end
 
 describe "select channel" do  
   it "returns the channel hash for a matching name" do
-    # VCR.use_cassette("workspace-info") do
-    #   workspace = Slack::Workspace.new
-    #   name_or_id = "slackbot"
-    
-    #   user = workspace.select_user(name_or_id)
-    #   expect(user).must_be_kind_of Hash
-    # end
+    VCR.use_cassette("workspace-info") do
+      workspace = Slack::Workspace.new
+      name_or_id = "random"
+      
+      channel = workspace.select_channel(name_or_id)
+      expect(channel).must_be_kind_of Hash
+    end
+  end
+  
+  it "returns the channel hash for a matching ID" do
+    VCR.use_cassette("workspace-info") do
+      workspace = Slack::Workspace.new
+      name_or_id = "CMUR2JTNX"
+      
+      channel = workspace.select_channel(name_or_id)
+      expect(channel).must_be_kind_of Hash
+    end
+  end 
+  
+  it "returns nil for non-matching input" do
+    VCR.use_cassette("workspace-info") do
+      workspace = Slack::Workspace.new
+      name_or_id = "nonexistentname"
+      
+      channel = workspace.select_channel(name_or_id)
+      assert_nil channel
+    end 
   end
 end

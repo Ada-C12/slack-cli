@@ -13,7 +13,8 @@ Dotenv.load
 def main
   
   workspace = Slack::Workspace.new 
-  # check user input
+  
+  # validate user input, if invalid, tell user to try again
   # valid_input = ["list users", "list channels", "quit"]
   
   # if valid_input.include?(input)
