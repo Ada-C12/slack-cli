@@ -23,10 +23,6 @@ module SlackCLI
       end
       return channels
     end
-    
-    def to_s 
-      "#{super}, about #{topic}" 
-    end 
   end
 end
 

@@ -24,19 +24,11 @@ module SlackCLI
       else 
         puts "Message not sent, error code #{response.code}."
       end
-    end 
-    
-    def to_s
-      "#{name}, #{slack_id}"
+      return response 
     end 
     
     def self.get(url, query)
       response = HTTParty.get(url, query)
     end
-    
-    def details 
-      raise NotImplementedError, 'Implement me in a child class!'
-    end 
   end
 end
-

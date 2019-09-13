@@ -50,19 +50,21 @@ describe 'User.json_parse' do
   end
   
   describe 'User.send_message' do 
-    let (:workspace) {
+    before do 
+      @workspace = 
       VCR.use_cassette("workspace.new") do
         SlackCLI::Workspace.new
       end
-    }
-    let (:msg) {
-      slackbot = workspace.select_user
-      VCR.use_cassette("send_msg_to_Slackbot") do 
-  
-    }
-  
-        @msg_json = selected.send_message('hot potato')
-      end
+      @slackbot = @workspace.select_user("Slackbot")
+      @msg = VCR.use_cassette("send_msg_to_Slackbot") do
+        @slackbot.send_message("hot potato")
+      end    
     end 
-  
-end
+    
+    it "sends a message" do 
+      expect(@msg.code).must_equal 200
+    end 
+  end
+end 
+
+
