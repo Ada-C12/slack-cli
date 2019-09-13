@@ -30,12 +30,6 @@ module Slack
 
     def select_user(identifier)
       @users.each do |user|
-        # if user.name == identifier
-        #   @selected = user
-        #   return
-        # elsif user.slack_id == identifier
-        #   @selected = user
-        #   return
         if [user.name, user.slack_id].include?(identifier)
           @selected = user
           return @selected
