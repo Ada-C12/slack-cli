@@ -302,4 +302,206 @@ http_interactions:
         you''d prefer to keep out of more focused work-related channels.","creator":"UN5R1N5A8","last_set":1568071144},"previous_names":[],"num_members":2},{"id":"CN8FM00MU","name":"slack-api","is_channel":true,"is_group":false,"is_im":false,"created":1568071145,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"slack-api","is_shared":false,"parent_conversation":null,"creator":"UN5R1N5A8","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TMZSSV3BK"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
   recorded_at: Thu, 12 Sep 2019 21:07:28 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&text=%1Bgdfsdgf&channel=UMUR2C1QB&as_user=true
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 19:11:52 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 9bc57ba7-47f0-4f01-8076-65f07966ed4e
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:user,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:user
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-v0x2
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 6faf668782fbb3c2aa466f6fccc76047.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - HIM5niU06g0w9Bt7QxG9GhSNd6VrX_0YvXY0JP7OUsgYr7wfact7qw==
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"DN5R20QHJ","ts":"1568401912.000200","message":{"bot_id":"BN9NP8FL6","type":"message","text":"gdfsdgf","user":"UMUR2C1QB","ts":"1568401912.000200","team":"TMZSSV3BK"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 19:11:52 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&text=Test%20message&channel=UMUR2C1QB&as_user=true
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 19:13:29 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 3e9df283-5b11-450c-bd0e-d852432eadb7
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:user,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:user
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-61a2
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1399f6d923ba00ad00816f6a9e531b7c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - uTZoxD993t5h_BxfutOw4--U9j66_VBCb-cXQyWAflY-SSzMyhComQ==
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"DN5R20QHJ","ts":"1568402009.000300","message":{"bot_id":"BN9NP8FL6","type":"message","text":"Test
+        message","user":"UMUR2C1QB","ts":"1568402009.000300","team":"TMZSSV3BK"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 19:13:29 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&text=Test%20message&channel=id&as_user=true
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 19:44:35 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 24ef583e-9010-46f7-8f52-3dbd5d41d57d
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:user,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:user
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-d7ix
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 be082a2326b7d49643607b097f1e7181.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - GKZF0sLd8sTL3sLuUK4vrXisRCwMIHjodAkBAfMuza0Op3WWyMvW0A==
+    body:
+      encoding: UTF-8
+      string: '{"ok":false,"error":"channel_not_found"}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 19:44:35 GMT
 recorded_with: VCR 5.0.0

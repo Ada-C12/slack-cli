@@ -3,7 +3,8 @@ require_relative 'channel'
 
 class Workspace
   
-  attr_reader :users, :channels, :selected
+  attr_reader :users, :channels
+  attr_accessor :selected
   
   def initialize
     @users = User.get
@@ -38,17 +39,24 @@ class Workspace
     if @selected == nil
       return "Please select a user or channel."
     end
-    @selected.details 
+    return @selected.details 
   end
   
-  def send_message
+  def send_message(message: nil)
     if @selected == nil
       puts "You must select a user or channel first"
       return false
     end
     channel = @selected.slack_id
-    puts "Please type your message here:"
-    message = gets.chomp
-    @selected.send_message(message, channel)
+    if message == nil
+      puts "Please type your message here:"
+      message = gets.chomp
+    end
+    @selected.send_message(message, channel) 
+    # if result == SlackAPIError
+    #   return false
+    # elsif result == true
+    #   reutrn true
+    # end
   end
 end

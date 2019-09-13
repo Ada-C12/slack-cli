@@ -16,8 +16,17 @@ def main
   puts "There are #{workspace.users.length} users"
   
   while true
-    puts "What would you like to do? Your options are: List channels, List user"  
-    case gets.chomp
+    options = ["list channels", "list users", "select channel", "select user", "show details", "send message", "quit"]
+    puts "\nWhat would you like to do? Your options are: \n   list channels\n   list users\n   select channel\n   select user\n   show details\n   send message\n   quit"
+    
+    
+    selection = gets.chomp
+    until options.include?(selection.downcase) 
+      puts "I'm sorry, please choose an option or quit"
+      selection = gets.chomp
+    end
+    
+    case selection
       
     when "quit"
       break
@@ -36,7 +45,7 @@ def main
       input = gets.chomp
       workspace.select_user(input)
     when "show details"
-      workspace.show_details
+      puts workspace.show_details
     when 'send message'
       if workspace.send_message == false
         puts "your message did not send"

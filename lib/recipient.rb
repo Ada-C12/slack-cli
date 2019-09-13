@@ -3,6 +3,8 @@ require 'dotenv'
 
 Dotenv.load
 
+class SlackAPIError < StandardError; end
+
 class Recipient
   
   attr_reader :slack_id, :name
@@ -30,11 +32,10 @@ class Recipient
     )
     if response["ok"] == true
       return true
-    else
-      return false
     end
-    
+    return false if SlackAPIError
   end
+  
   
   def self.get
     query_param = {
@@ -43,15 +44,20 @@ class Recipient
     users = HTTParty.get(BASE_URL + "users.list", query: query_param)
     channels = HTTParty.get(BASE_URL + "conversations.list", query: query_param)
     response = [users, channels]
-    return response
+    
+    if response[0]["ok"] == true
+      return response
+    else
+      raise SlackAPIError
+    end
   end
   
   def details
-    
+    raise NotImplementedError
   end
   
   def self.list
-    
+    raise NotImplementedError
   end
   
 end

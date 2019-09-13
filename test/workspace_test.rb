@@ -1,5 +1,4 @@
 require_relative 'test_helper'
-require 'pry'
 
 describe "Workspace" do
   describe "intialize" do
@@ -131,6 +130,38 @@ describe "Workspace" do
         
         expect(details).must_be_kind_of String
         expect(details.length).must_equal 32
+      end
+    end
+  end
+  
+  describe "send message" do
+    it "sends message to selected user/channel" do
+      VCR.use_cassette("create_workspace") do
+        workspace = Workspace.new
+        workspace.select_user("kemp.bri")
+        message = workspace.send_message(message: "Test message")
+        
+        expect(message).must_equal true
+      end
+    end
+    
+    it "returns message if user/channel are not selected" do
+      VCR.use_cassette("create_workspace") do
+        workspace = Workspace.new
+        message = workspace.send_message(message: "Test message")
+        
+        expect(message).must_equal false
+      end
+    end
+    
+    it "returns false if an API error is raises" do
+      VCR.use_cassette("create_workspace") do
+        workspace = Workspace.new
+        recipient = Recipient.new("id", "name")
+        workspace.selected = recipient
+        message = workspace.send_message(message: "Test message")
+        
+        expect(message).must_equal false
       end
     end
   end
