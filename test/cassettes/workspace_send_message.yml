@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<API_TOKEN>&channel=CN9NG0YUE&text=trying%20to%20send%20from%20workspace_test
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 23:28:14 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 33e5121b-5c27-46fd-ac6c-7bad9a66d591
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-1a8v
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 34f8ef0e4c880df0650a814412a26ea6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - KRPhJSqM-hB_FD2tI6CyLYQ-HTKH0je_bNLcqBh75i4WcCatTXwV2g==
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"CN9NG0YUE","ts":"1568417294.000200","message":{"type":"message","subtype":"bot_message","text":"trying
+        to send from workspace_test","ts":"1568417294.000200","username":"Branches
+        - A & P - API Project","bot_id":"BN7GH7PEU"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 23:28:14 GMT
+recorded_with: VCR 5.0.0

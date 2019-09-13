@@ -135,19 +135,15 @@ describe "Workspace" do
   end
 
   describe "send_message" do
-    # it "returns true if a message was sent" do
-    #   channel_random = @new_workspace.find_instance(@new_workspace.channels, "random")
-    #   @new_workspace.selected = channel_random
-    #   VCR.use_cassette("workspace_send_message") do
-    #     response = @new_workspace.send_message("trying to send from workspace_test")
-    #     expect()
-    # #   end
-    # end
-
-    it "returns nil if no recipient is selected" do
-      @new_workspace.selected == nil
-
-      expect(@new_workspace.send_message).must_be_nil
+    it "returns true if a message was sent" do
+      channel_random = @new_workspace.find_instance(@new_workspace.channels, "random")
+      @new_workspace.selected = channel_random
+      
+      VCR.use_cassette("workspace_send_message") do
+        response = @new_workspace.send_message("trying to send from workspace_test")
+        expect(response).must_equal true
+      end
     end
+
   end
 end

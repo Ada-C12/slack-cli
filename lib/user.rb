@@ -41,7 +41,7 @@ module SlackCLI
       "Slack ID: #{slack_id}\n" +
       "Name: #{name}\n" +
       "Real Name: #{real_name}\n" +
-      "Status: #{status}" +
+      "Status: #{status}\n" +
       "Is Bot?: #{is_bot}"
     end
   end

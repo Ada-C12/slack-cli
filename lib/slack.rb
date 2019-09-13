@@ -57,11 +57,21 @@ def main
       end 
 
     when "6","send message"
-      message_result = workspace.send_message
-      if message_result == nil
+      if workspace.selected == nil
         puts "\nNo recipient selected to send message to."
-      elsif message_result == true
-        puts "Message successfully sent"
+      else
+        puts "Send Message to '#{workspace.selected.name}'"
+        print "Please enter message text: "
+        message_text = gets.chomp
+
+        until message_text != ""
+          puts "No message entered."
+          print "Please enter message text: "
+          message_text = gets.chomp
+        end
+        if workspace.send_message(message_text) 
+          puts "Message successfully sent"
+        end
       end
 
     when "7","quit"

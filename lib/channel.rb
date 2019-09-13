@@ -43,8 +43,8 @@ module SlackCLI
       "Slack ID: #{slack_id}\n" +
       "Name:  #{name}\n" +
       "Topic: #{topic}\n" +
-      "Member Count: #{member_count}" +
-      "Purpose: #{purpose}" +
+      "Member Count: #{member_count}\n" +
+      "Purpose: #{purpose}\n" +
       "Is Private? #{is_private}"
     end
   end

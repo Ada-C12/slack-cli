@@ -39,16 +39,9 @@ module SlackCLI
       selected ? selected.details : nil
     end
 
-    def send_message
-      if @selected == nil
-        return nil
-      else
-        puts "Send Message to '#{@selected.name}'"
-        print "Please enter message text: "
-        message_text = gets.chomp
-        @selected.send_message(message_text)
-        return true
-      end
+    def send_message(message_text)
+      @selected.send_message(message_text)
+      return true
     end
   end
 
