@@ -42,7 +42,12 @@ class Workspace
   end
   
   def send_message
+    if @selected == nil
+      puts "You must select a user or channel first"
+      return false
+    end
     channel = @selected.slack_id
+    puts "Please type your message here:"
     message = gets.chomp
     @selected.send_message(message, channel)
   end

@@ -23,11 +23,11 @@ class Recipient
       body:  {
         token: KEY, 
         text: message, 
-        channel: channel
+        channel: channel,
+        as_user: true
       },
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
-    puts response["error"]
     if response["ok"] == true
       return true
     else

@@ -26,13 +26,23 @@ def main
     when "list users" 
       User.list
     when "select channel"
+      Channel.list
       print "What channel would you like to select: "
       input = gets.chomp
-      puts workspace.select_channel(input)
+      workspace.select_channel(input)
     when "select user"
+      User.list
       print "What user would you like to select: "
       input = gets.chomp
-      puts workspace.select_user(input)
+      workspace.select_user(input)
+    when "show details"
+      workspace.show_details
+    when 'send message'
+      if workspace.send_message == false
+        puts "your message did not send"
+      else
+        puts "Your message was successfully sent"
+      end
     end
   end
   
