@@ -12,25 +12,31 @@ module Slack
     end
     
     def details
-    end
+      tp self, "slack_id", "name", "real_name"
+    end 
     
-    def self.list      
+    def self.list   
       response = User.get("https://slack.com/api/users.list")
       users = []
       
       response["members"].each do |user|
+        users << User.new(
+        slack_id = user["id"],
+        name = user["name"],
+        real_name = user["real_name"],
         
-        user_hash = {}
-        user_hash[:user_name] = user["name"]
-        user_hash[:real_name] = user["real_name"]
-        user_hash[:slack_id] = user["id"]
-        
-        users << user_hash
+        )
       end
-      
-      #binding.pry
+      binding.pry
       return users
+      #p channels
     end 
-  end 
+  end
 end 
 
+# user_hash = {}
+# user_hash[:user_name] = user["name"]
+# user_hash[:real_name] = user["real_name"]
+# user_hash[:slack_id] = user["id"]
+
+# users << user_hash
