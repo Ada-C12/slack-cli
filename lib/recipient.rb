@@ -1,3 +1,6 @@
+require "pry"
+class SlackAPIError < StandardError ; end 
+
 class Recipient
   attr_reader :slack_id, :name
 
@@ -18,4 +21,20 @@ class Recipient
   def self.list
     raise NotImplementedError, 'Implement me in a child class!'
   end
+
+  def send_message(message)
+    url = "https://slack.com/api/chat.postMessage"
+    body = {token: ENV['SLACK_TOKEN'], 
+    text: message,
+    channel: @slack_id}
+
+    message_post = HTTParty.post(url, body: body)
+
+    unless message_post.code == 200 && message_post["ok"]
+      raise SlackAPIError.new("Error when posting #{message} to #{@slack_id}")
+    end 
+  
+    return true 
+  end
+  
 end

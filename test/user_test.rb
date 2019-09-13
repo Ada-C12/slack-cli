@@ -66,5 +66,15 @@ describe "User" do
       end
     end
   end
+
+  # describe "send_message" do
+  #   it "sends a message to the selected recipient" do
+  #     VCR.use_cassette("user") do
+  #       natalie = User.new("UN8GKRXK8", "Natalie Tapias", "natalie")
+  #       expect(natalie.send_message("It works!", "Ada-Cohort-12")).must_equal true 
+  #     end
+  #   end
+  # end 
+
 end
 

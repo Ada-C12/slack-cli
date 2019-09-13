@@ -48,5 +48,5 @@ class Workspace
       return nil
     end
     return @selected.details
-  end
+  end 
 end

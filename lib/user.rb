@@ -3,6 +3,7 @@ require "pry"
 require 'dotenv'
 Dotenv.load
 
+
 class User < Recipient
   attr_reader :real_name
 
@@ -27,4 +28,5 @@ class User < Recipient
   def details
     return {slack_id: @slack_id, name: @name, real_name: @real_name}
   end
+
 end

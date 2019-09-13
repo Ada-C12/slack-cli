@@ -16,41 +16,55 @@ def main
 
   while true
     puts "Welcome to the Ada Slack CLI!"
-    puts "Select an option: list users, list channels, select user, select channel, details or quit"
+    puts "Select an option: list users, list channels, select user, select channel, details, send message to channel, send message to user or quit"
     option = gets.chomp
 
-    until option == "list users" || option == "list channels" || option == "quit" || option == "select user" || option == "select channel" || option == "details"
-      puts "Select a valid option: list users, list channels, select user, select channel, details or quit" 
-      option = gets.chomp 
+    until option == "list users" || option == "list channels" || option == "quit" || option == "select user" || option == "select channel" || option == "details" || option == "send message to channel" || option == "send message to user"
+      puts "Select a valid option: list users, list channels, select user, select channel, details, send message or quit" 
+      option = gets.chomp.downcase
     end
 
-    break if option.downcase == "quit"
+    break if option == "quit"
 
-    if option.downcase == "list users"
+    if option == "list users"
        tp User.list
 
-    elsif option.downcase == "list channels"
+    elsif option == "list channels"
       tp Channel.list
     
-    elsif option.downcase == "select user"
+    elsif option == "select user"
       puts "Enter the username or Slack ID"
       selection = gets.chomp
       new_workspace.select_user(selection)
 
-   elsif option.downcase == "select channel"
+   elsif option == "select channel"
       puts "Enter the channel name or Slack ID"
       selection = gets.chomp
       new_workspace.select_channel(selection)
 
-   elsif option.downcase == "details"
+   elsif option == "details"
       if new_workspace.show_details == nil 
         puts "You haven't enter the name or Slack ID"
       end
       tp [new_workspace.show_details]
-   end
+      
+    elsif option == "send message to channel"
+      puts "Please enter the channel name or Slack ID"
+      selection = gets.chomp
+      channel = new_workspace.select_channel(selection)
+      puts "Please enter the message:"
+      message = gets.chomp
+      channel.send_message(message)
 
+    elsif option == "send message to user"
+      puts "Please enter the user name or Slack ID"
+      selection = gets.chomp
+      user = new_workspace.select_user(selection)
+      puts "Please enter the message:"
+      message = gets.chomp
+      user.send_message(message)
+    end
   end
-
   puts "Thank you for using the Ada Slack CLI"
 end
 
