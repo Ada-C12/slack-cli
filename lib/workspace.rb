@@ -4,12 +4,6 @@ require 'awesome_print'
 require_relative "user"
 require_relative "channel"
 
-#lib/workspace.rb
-require 'httparty'
-require 'awesome_print'
-require_relative "user"
-require_relative "channel"
-
 module Slack
   class  Workspace
     attr_reader :users, :channels, :selected
@@ -24,10 +18,11 @@ module Slack
         if user.name == input || user.id == input
           recipient = user
           @selected << recipient
-          return recipient
-          # else
-          #   raise ArgumentError,"The provided name/id doesn't match any user"
+          break
         end
+      end
+      if @selected == []
+        raise ArgumentError.new("The provided name/id doesn't match any user")
       end
     end
     
@@ -36,9 +31,11 @@ module Slack
         if channel.name == input || channel.id == input
           recipient = channel
           @selected << recipient
-        else
-          raise ArgumentError.new("The provided name/id doesn't match any channel")
+          break
         end
+      end
+      if @selected == []
+        raise ArgumentError.new("The provided name/id doesn't match any user")
       end
     end
     
