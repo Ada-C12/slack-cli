@@ -2,6 +2,7 @@ require_relative 'channel'
 require_relative 'user'
 require_relative 'slack_api_error'
 require "pry"
+
 module Slack
   
   class Workspace
@@ -42,7 +43,7 @@ module Slack
       return @selected
       
     end
-
+    
     def show_details
       
       if @selected == nil
@@ -50,9 +51,16 @@ module Slack
       else
         return @selected.details
       end
-
+      
     end
     
-  end
-end 
-
+    def send_message(message:)
+      if @selected == nil
+        raise Slack::Slack_Api_Error.new "Error! You must first select a valid recipient."
+      end
+      outcome = @selected.send_message(message)
+      return outcome
+    end
+  end 
+  
+end

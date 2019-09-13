@@ -1,4 +1,8 @@
+require 'httparty'
+require 'dotenv'
 require_relative 'slack_api_error'
+
+Dotenv.load
 
 module Slack
   class Recipient
@@ -28,6 +32,12 @@ module Slack
       raise NotImplementedError, 'Implement me in a child class!'
     end
     
+    def send_message(message)
+      send_url = "https://slack.com/api/chat.postMessage"
+      send_query = {token: ENV["SLACK_TOKEN"], channel: self.id, text: message}
+      outcome = HTTParty.post(send_url, query: send_query)
+      return outcome
+    end
+    
   end
-  
 end
