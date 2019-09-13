@@ -66,7 +66,7 @@ def main
       else
         puts "What message you would like to send to #{workspace.selected.name}: "
         message = gets.chomp
-        workspace.send_message(slack_id: workspace.selected.slack_id, message: message)
+        workspace.send_message(message: message)
         user_input = nil
       end
     when "quit"

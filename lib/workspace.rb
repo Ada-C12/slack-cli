@@ -1,4 +1,3 @@
-require 'httparty'
 require 'table_print'
 
 require_relative 'channel'
@@ -54,8 +53,8 @@ module SlackBot
       end
     end
     
-    def send_message(slack_id:, message:)
-      response = @selected.send_message(slack_id: slack_id, message: message)
+    def send_message(message:)
+      response = @selected.send_message(message: message, slack_id: @selected.slack_id)
       if response["ok"] == true
         puts "message sent"
       else
