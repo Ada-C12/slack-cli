@@ -9,7 +9,6 @@ describe "Recipient" do
     slack_id = "1232452"
     name = "Dominique"
     @recipient = Recipient.new(slack_id, name)
-    # @response = Recipient.get_information(URL,)
   end
 
   describe "Recipient instantiation" do
@@ -18,13 +17,13 @@ describe "Recipient" do
     end
   end
 
-  describe "self.details" do
+  describe "details" do
     it "raises an error if invoked directly (without subclassing)" do
       url = "https://slack.com/api/channels.list"
       query = {token: 347358792354398}
 
       expect {
-      Recipient.details
+      @recipient.details
       }.must_raise NotImplementedError
     end
   end

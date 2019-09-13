@@ -22,7 +22,7 @@ class Workspace
       end
     end
 
-    if value = 0
+    if value == 0
       raise ArgumentError.new("Please provide a valid selection for channel. ") 
     end
   end 
@@ -38,8 +38,15 @@ class Workspace
       end
     end
 
-    if value = 0
+    if value == 0
       raise ArgumentError.new("Please provide a valid selection for user.") 
     end
   end 
+
+  def show_details
+    if @selected == nil 
+      return nil
+    end
+    return @selected.details
+  end
 end

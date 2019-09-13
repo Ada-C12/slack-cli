@@ -84,5 +84,19 @@ describe "Workspace" do
         expect(@workspace.selected).must_be_instance_of Channel
       end
     end 
-  end    
+  end 
+  
+  describe "show_details" do
+    it "show the details of the selected user or channel" do
+      VCR.use_cassette("workspace") do
+        expect(@workspace.show_details).must_be_kind_of Hash
+      end 
+    end 
+
+    it "returns accurate details" do
+      VCR.use_cassette("workspace") do
+        expect(@workspace.show_details[:slack_id]).must_equal "UN8GKRXK8"
+      end 
+    end 
+  end 
 end

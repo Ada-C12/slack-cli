@@ -11,7 +11,7 @@ class Recipient
     return response
   end
 
-  def self.details
+  def details
     raise NotImplementedError, 'Implement me in a child class!'
   end
 
