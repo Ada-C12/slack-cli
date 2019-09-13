@@ -40,6 +40,8 @@ module Slack
     
     # method for send message
   end
+  
+  # put API documentation here for send message 
 end
 
 
