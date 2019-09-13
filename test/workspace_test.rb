@@ -21,10 +21,6 @@ describe "Workspace" do
     end
   end
   
-  # do we need a test for lists_users  or list_channels? currently can't test because we are putsing
-  # it "lists users" do
-  # end
-  
   describe "select user" do
     before do
       @requested_user = "alicesunhi"
@@ -73,7 +69,6 @@ describe "Workspace" do
       
       VCR.use_cassette("workspace_test") do
         response = @workspace.send_message("This is my message text")
-        
         expect(response).must_equal true
       end
     end
@@ -89,25 +84,14 @@ describe "Workspace" do
         expect(rename.message).must_equal"Error when sending message to alicesunhi. Invalid API request with code 200 and message no_text."
       end
     end
-    
-    #should we create a slack No Method Error for this case?
-    it "will raise an error when no selected user or channel" do
-      VCR.use_cassette("workspace_test") do
-        expect{
-          @workspace.send_message("This is my message text")
-        }.must_raise NoMethodError
-      end
-    end
   end
   
   describe "set_profile_name" do
     it "can change profile name" do
-      # need to select profile of token to confirm change
       @workspace.select_user("rvesteinsdottir")
       
-      VCR.use_cassette("profile_test") do
+      VCR.use_cassette("profile_name_test") do
         response = @workspace.set_profile_name("random_name")
-        
         expect(response).must_equal true
       end
       
@@ -115,7 +99,7 @@ describe "Workspace" do
     end
     
     it "raises error if api returns invalid response" do
-      VCR.use_cassette("profile_test") do
+      VCR.use_cassette("profile_name_test") do
         expect{
           @workspace.set_profile_name("")
         }.must_raise SlackApiError
@@ -125,14 +109,12 @@ describe "Workspace" do
   
   describe "set_profile_emoji" do
     before do
-      # need to select profile of token to confirm change
       @workspace.select_user("rvesteinsdottir")
     end
     
     it "can change profile emoji" do
-      VCR.use_cassette("emoji_test") do
+      VCR.use_cassette("profile_emoji_test") do
         response = @workspace.set_profile_emoji(":rainbow:")
-        
         expect(response).must_equal true
       end
       
@@ -140,17 +122,17 @@ describe "Workspace" do
     end
     
     it "raises error if not emoji syntax" do
-      VCR.use_cassette("new_emoji") do
+      VCR.use_cassette("profile_emoji_test") do
         @workspace.set_profile_emoji(":rainbow:")
-        
         test_emoji = @workspace.selected.status_emoji
         
-        @workspace.set_profile_emoji("cloud")
-        
         # emoji will not change if given invalid emoji syntax
+        @workspace.set_profile_emoji("cloud")
+        expect(@workspace.selected.status_emoji).must_equal test_emoji
+        
+        @workspace.set_profile_emoji(":731897:")
         expect(@workspace.selected.status_emoji).must_equal test_emoji
       end
     end
   end
 end
-

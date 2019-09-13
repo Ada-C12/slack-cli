@@ -12,14 +12,9 @@ describe Slack::Recipient do
       expect(recipient.slack_id).must_equal slack_id
       expect(recipient.name).must_equal slack_name
     end
-    
   end
   
-  describe "self.get" do
-    it "raises an error if neither URL or parameters are provided" do
-      expect{Slack::Recipient.new()}.must_raise ArgumentError
-    end
-    
+  describe "self.get" do    
     it "will raise an error when invalid token" do
       VCR.use_cassette("recipient_test") do
         exception = expect{
