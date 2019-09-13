@@ -24,14 +24,18 @@ def main
     when "3" || "select channel"
       puts "select_channel"
       selection = gets.chomp
-      # make a method to validate that the input is a channel?
-
+      while workspace.valid_selection?("channel", selection) == false
+        puts "Please enter a channel name or id."
+        selection = gets.chomp
+      end
       puts workspace.find_by_id_or_name("channel", selection)
     when "4" || "select user"
       puts "select_user"
       selection = gets.chomp
-      # make a method to validate that the input is a user?
-
+      while workspace.valid_selection?("user", selection) == false
+        puts "Please enter a user name or id."
+        selection = gets.chomp
+      end
       puts workspace.find_by_id_or_name("user", selection)
     when "5" || "details"
       puts "list_details_on_current_recipient"
@@ -46,6 +50,9 @@ def main
     when "7" || "quit"
       puts "Thank you for using the Ada Slack CLI"
       exit
+    else
+      puts "Please select a valid input."
+      user_selection = gets.chomp
     end
     puts "What would you like to do? Please select an option"
     puts "1. List Channels\n2. List Users\n3. Select Channel\n4. Select User\n5. List Details\n6. Send Message\n7. Quit"

@@ -88,6 +88,22 @@ describe "workspace" do
     end
   end
 
+  describe "valid_selection" do
+    before do
+      VCR.use_cassette("list_details_on_current_recipient") do
+        @workspace = Workspace.new
+      end
+    end
+    it "returns true if input is valid" do
+      expect(@workspace.valid_selection?("channel", "random")).must_equal true
+      expect(@workspace.valid_selection?("user", "Slackbot")).must_equal true
+    end
+    it "returns false if input is invalid" do
+      expect(@workspace.valid_selection?("channel", "nothing")).must_equal false
+      expect(@workspace.valid_selection?("user", "nobody")).must_equal false
+    end
+  end
+
   describe "list_details_on_current_recipient" do
     before do
       VCR.use_cassette("list_details_on_current_recipient") do
@@ -98,7 +114,7 @@ describe "workspace" do
       expect { @workspace.list_details_on_current_recipient }.must_raise ArgumentError
     end
     it "gets details on a selected recipient" do
-      channel = @workspace.find_by_id_or_name("channel", "CN85SCME3")
+      @workspace.find_by_id_or_name("channel", "CN85SCME3")
       expect(@workspace.list_details_on_current_recipient).must_be_instance_of Channel
     end
   end

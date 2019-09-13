@@ -2,14 +2,14 @@ require_relative "recipient"
 
 class Channel < Recipient
   attr_reader :id, :name, :details, :topic, :member_count
-  
+
   def initialize(id, name, details = "", topic = "", member_count = "")
     super(id, name)
     @details = details
     @topic = topic
     @member_count = member_count
   end
-  
+
   def self.load_all(url, token)
     recipients = HTTParty.get(url, query: { token: token })
     all_recipients = recipients["channels"].map do |recipient|
@@ -17,11 +17,10 @@ class Channel < Recipient
     end
     return all_recipients
   end
-  
+
   def load_details
     # inherits ID & Name from Recipient
     super
-    puts "Topic: #{@topic}"
-    puts "Member Count: #{@member_count}"
+    return super + "\nTopic: #{@topic}" + "\nMember Count: #{@member_count}"
   end
 end

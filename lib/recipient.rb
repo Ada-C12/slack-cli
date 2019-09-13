@@ -20,8 +20,6 @@ class Recipient
 
   def load_details
     # inherited by Channel & User
-    puts "#{self.class} Details"
-    puts "ID: #{self.id}"
-    puts "Name: #{self.name}"
+    return "#{self.class} Details\nID: #{self.id}\nName: #{self.name}"
   end
 end
