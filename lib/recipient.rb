@@ -5,13 +5,13 @@ Dotenv.load
 
 module SlackCLI
   class Recipient
-    attr_reader :slack_id, :name 
-    
+    attr_reader :slack_id, :name
+
     def initialize(slack_id, name)
       @slack_id = slack_id
       @name = name
     end
-    
+
     def send_message(msg)
       post_parameters = {
         token: ENV['SLACK_KEY'],
@@ -21,7 +21,7 @@ module SlackCLI
       response =  HTTParty.post('https://slack.com/api/chat.postMessage', query: post_parameters)
       if response.code == 200
         puts "Message sent successfully."
-      else 
+      else
         puts "Message not sent, error code #{response.code}."
       end
       return response 
