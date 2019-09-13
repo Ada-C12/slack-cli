@@ -14,7 +14,8 @@ class Workspace < Recipient
   QUERY = {
     token: TOKEN}
 
-  attr_reader :users, :channels, :selected
+  attr_reader :users, :channels
+  attr_accessor :selected
 
   def initialize
     @users = self.get_users
@@ -49,16 +50,32 @@ class Workspace < Recipient
   end
 
   def display_channels
-    return tp @channels, :id, :name, :topic, :member_count
+  
+    tp @channels, :id, :name, :topic, :member_count
   end
 
-  def select_channel
+  def select_user(user_input)
+    selected_user = users.select { |user| user.name == user_input || user.id == user_input }
+
+    if selected_user == []
+      raise IndexError, "No user found"
+    else
+      @selected = selected_user
+    end
   end
 
-  def select_user
+  def select_channel(user_input)
+    selected_channel = channels.select { |channel| channel.name == user_input || channel.id == user_input }
+
+    if selected_channel == []
+      raise IndexError, "No channel found"
+    else
+      @selected = selected_channel
+    end
   end
 
   def show_details
+    tp @selected
   end
 
   def send_message
