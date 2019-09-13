@@ -13,6 +13,8 @@ class Workspace
     
     # make all Channel instances
     @all_channels = Channel.load_all
+    
+    # default entity (user or channel) selection to nil
     @entity = nil
   end
   
@@ -23,8 +25,7 @@ class Workspace
   
   def main_menu(headings: , rows_as_hash: )
     # arg headings: ["head1", "head2", etc] 
-    # arg choices_hash: { EX1: "Example1", EX2: "Example2", etc }
-    # return table with headings row, and row1 = EX1 | Example1, and row2 = EX2 | Example2, etc
+    # arg choices_hash: { ROW1: "Example R1", ROW: "Example R2", etc }
     rows = [] 
     rows_as_hash.each do |key, value|
       row = [key, value]
@@ -52,7 +53,6 @@ class Workspace
     end
     return all_channels_details
   end
-  
   
   def select_user(input)
     input = input.upcase
@@ -109,6 +109,42 @@ class Workspace
     return Terminal::Table.new(headings: headings , rows: rows_in_array)
   end
   
+  def send_message
+    url = "https://slack.com/api/chat.postEphemeral"
+    begin
+      msg_recipient = get_msg_recipient
+    rescue => exception
+      puts exception.message
+      return false
+    end
+    
+    text = get_text
+    query_params = { token: ENV["SLACK_KEY"], channel: "CN69B7XMW", text: text, user: msg_recipient.id}
+    response = HTTParty.get(url, query: query_params)
+    sleep(0.25)
+    
+    if response["ok"] == true
+      return response
+    else
+      raise SlackAPIError, "API request failed"
+    end
+  end
+  
+  def get_msg_recipient
+    # use if entity , else send back to main menu
+    if entity
+      return entity
+    else
+      raise SlackAPIError, "You must select a recipient user via Main Menu"
+    end
+  end
+  
+  def get_text
+    print "What is your message?\n>>> "
+    text = gets.chomp
+    return text
+  end
+  
   def menu_action(choice)
     choice = choice.upcase
     
@@ -120,7 +156,9 @@ class Workspace
       puts show_all_recipients(array_of_recipient_objs: all_channels)
       
     when "C", "SEND MESSAGE"
-      puts "can't do that yet haha"
+      puts "SENDING MESSAGE"
+      response = send_message
+      return response
       
     when "D", "SELECT USER"
       print "Please enter a user's name or id: "
@@ -157,7 +195,7 @@ class Workspace
       rescue => exception
         puts exception.message
       end
-
+      
     when "Q", "QUIT"
       puts "\nThank you for using the Ada Slack CLI\n\n"
       exit

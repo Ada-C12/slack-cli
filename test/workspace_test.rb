@@ -15,7 +15,7 @@ describe "### WORKSPACE ###" do
   describe "Does Workspace.new work?" do
   
     it 'can create @all_users for new Workspace instance' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         assert(ws1.class == Workspace)
         assert(ws1.all_users.length == 3)
         index = 0
@@ -29,7 +29,7 @@ describe "### WORKSPACE ###" do
     end
   
     it 'can create @all_channels for new Workspace instance' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         assert(ws1.all_channels.length == 3)
         index = 0
         ws1.all_channels.each do |channel|
@@ -45,7 +45,7 @@ describe "### WORKSPACE ###" do
   end
   
   it "Does Workspace.menu_choices_hash() work?" do
-    VCR.use_cassette("WT1") do
+    VCR.use_cassette("WT2") do
       answer = { A: "LIST USERS", B: "LIST CHANNELS", C: "SEND MESSAGE", D: "SELECT USER", E: "SELECT CHANNEL", F: "DETAILS", Q: "QUIT" }
       returned_hash = ws1.menu_choices_hash
       assert(returned_hash.class == Hash)
@@ -55,7 +55,7 @@ describe "### WORKSPACE ###" do
   
   describe "Does main_menu work?" do
     it "Makes a table object?" do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         table = ws1.main_menu(headings: ["A", "B", "C"], rows_as_hash: [["a", "b", "c"]])
         assert (table.class == Terminal::Table)
       end
@@ -64,7 +64,7 @@ describe "### WORKSPACE ###" do
   
   describe "Does get_all_user_details work?" do
     it "Returned object contains what we expected" do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         results = ws1.get_all_users_details
         assert(results.class == Array)
   
@@ -81,7 +81,7 @@ describe "### WORKSPACE ###" do
   
   describe "Does get_all_channel_details work?" do
     it "Returned object contains what we expected" do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         results = ws1.get_all_channels_details
         assert(results.class == Array)
         
@@ -98,7 +98,7 @@ describe "### WORKSPACE ###" do
   
   describe 'Does select_user work?' do
     it 'returns user instance successfully' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         good_args = ["EABALL35", "eAbaLL35", "eaball35"]
         good_args.each do |good|
           result = ws1.select_user(good)
@@ -111,7 +111,7 @@ describe "### WORKSPACE ###" do
     end
     
     it 'raises errors with bad argument' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         bad_args = ["", "GARBAGE", 123, Object.new]
         bad_args.each do |bad|
           expect {ws1.select_user("")}.must_raise ArgumentError
@@ -122,7 +122,7 @@ describe "### WORKSPACE ###" do
   
   describe "does select_channel work?" do
     it 'returns channel instance successfully' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         good_args = ["general", "GEnEral", "GENERAL"]
         good_args.each do |good|
           result = ws1.select_channel(good)
@@ -135,7 +135,7 @@ describe "### WORKSPACE ###" do
     end
     
     it 'raises errors with bad argument' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         bad_args = ["", "GARBAGE", 123, Object.new]
         bad_args.each do |bad|
           expect {ws1.select_channel("")}.must_raise ArgumentError
@@ -146,7 +146,7 @@ describe "### WORKSPACE ###" do
 
   describe 'main_menu works?' do
     it 'returns table instance successfully' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         menu = ws1.main_menu(headings: ["h1", "h2"] , rows_as_hash: {k1: "v1", k2: "v2", k3: "v3"} )
         assert(menu.class == Terminal::Table)
         # couldn't figure out how to test the headings...
@@ -158,10 +158,10 @@ describe "### WORKSPACE ###" do
       end
     end
   end 
-  
+
   describe "does show_all_recipients work?" do
     it 'returns enumerated table instance successfully' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         all_users = ws1.all_users
         result = ws1.show_all_recipients(array_of_recipient_objs: all_users, enumerate: true)
         assert(result.class == Terminal::Table)
@@ -176,7 +176,7 @@ describe "### WORKSPACE ###" do
     end
     
     it 'returns non-enumerated table instance successfully' do
-      VCR.use_cassette("WT1") do
+      VCR.use_cassette("WT2") do
         all_users = ws1.all_users
         result = ws1.show_all_recipients(array_of_recipient_objs: all_users, enumerate: false)
         assert(result.class == Terminal::Table)
@@ -188,6 +188,36 @@ describe "### WORKSPACE ###" do
         assert(result.columns[2] == [user_real_names[0], user_real_names[1], user_real_names[2]])
       end
     end
+  end
+
+  describe "Does send_message work?" do
+
+    it 'sends msg successfully' do
+      VCR.use_cassette("WT2") do
+        ws1.entity = ws1.all_users[1]
+        response = ws1.send_message
+        assert(response.class == HTTParty::Response)
+      end
+    end
+
+    it 'raises SlackAPIError if HTTParty request failed' do
+      VCR.use_cassette("WT2") do
+        ws1.entity = ws1.all_users[1]
+        response = ws1.send_message
+        ENV["SLACK_KEY"] = "GARBAGE"
+        expect{ws1.send_message}.must_raise SlackAPIError
+      end
+    end
+
+    it 'get_msg_recipient raises SlackAPIError if no msg_recipient' do
+      VCR.use_cassette("WT2") do
+        assert(ws1.entity == nil)
+        expect{ws1.get_msg_recipient}.must_raise SlackAPIError
+        # but will get rescued by send_message, and returned as false
+        assert(ws1.send_message == false)
+      end
+    end
+
   end
 
 
