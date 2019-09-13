@@ -19,6 +19,7 @@ class Recipient
   def send_message(message, channel)
     response = HTTParty.post(
       BASE_URL + "chat.postMessage", 
+      
       body:  {
         token: KEY, 
         text: message, 
@@ -32,6 +33,7 @@ class Recipient
     else
       return false
     end
+    
   end
   
   def self.get
