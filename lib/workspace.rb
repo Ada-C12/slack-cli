@@ -17,7 +17,7 @@ module SlackCLI
     def select_channel(name: nil, slack_id: nil)
       @channels.each do |channel|
         if channel.name == name || channel.slack_id == slack_id
-          @selected = user
+          @selected = channel
         end
       end
     end
