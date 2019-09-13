@@ -39,7 +39,18 @@ module SlackCLI
       selected ? selected.details : nil
     end
     
-    # def send_message
-    # end
+    
+def send_message
+  if workspace.selected == nil
+    return nil
+  else
+    puts "Send Message to '#{@selected.name}'"
+    print "Please enter message text: "
+    message_text = gets.chomp
+    recipient.send_message(message_text)
+    return true
+  end
+
+end
   end
 end

@@ -37,12 +37,18 @@ def main
       if workspace.show_details == nil
         puts "\nNo user or channel selected."
       else
+        puts "\nDetails:"
         puts "#{workspace.show_details}"
       end 
 
     when "6","send message"
-      send_message(workspace)
-    
+      message_result = workspace.send_message
+      if message_result == nil
+        puts "\nNo recipient selected to send message to."
+      elsif message_result == true
+        puts "Message successfully sent"
+      end
+
     when "7","quit"
       break
     else 
@@ -100,24 +106,6 @@ def select_channel(workspace)
     puts "\nChannel '#{query_result.name}' selected"
   end
   return query_result
-end
-
-def send_message(workspace)
-  if workspace.selected == nil
-    puts "\nNo recipient selected to send message to."
-    return nil
-  else
-    recipient = workspace.selected
-    puts "Send Message to '#{recipient.name}'"
-    print "Please enter message text: "
-    message_text = gets.chomp
-    
-    message_sent = recipient.send_message(message_text, recipient.slack_id)
-    
-    puts "Message Successfully Sent"
-    end
-  end
-
 end
 
 main if __FILE__ == $PROGRAM_NAME
