@@ -7,12 +7,21 @@ require_relative 'workspace'
 
 Dotenv.load
 
-def invalid_input(input)
+def invalid_input_check(input)
   if input == nil
     print "\nSorry. Invalid selection."
+    return true 
+  else 
+    puts "\n#{input.name} has been selected."
   end 
 end 
 
+def selected_is_nil(selected)
+  if selected == nil
+    puts "\nNo user or channel selected."
+    return true
+  end 
+end 
 
 def main
   puts "Welcome to the Ada Slack CLI!"
@@ -30,7 +39,7 @@ def main
     \nYour choice: "
     choice = gets.chomp.downcase
     until ["list users", "list channels", "select user", "select channel", "show details", "send message", "quit"].include?(choice)
-      print "Sorry. Please enter a valid choice. "
+      print "\nSorry. Please enter a valid choice. "
       choice = gets.chomp.downcase
     end
     
@@ -39,35 +48,22 @@ def main
       tp tsu.list_users
     when "list channels"
       tp tsu.list_channels
-      ## make helper method for validation to DRY up code, here (select user and channel) and in print details
     when "select user"
       print "Please select a user (by Slack ID or Display Name): "
       user_chosen = gets.chomp
       tsu.selected = tsu.select_user(user_chosen)
-      if tsu.selected == nil || !(tsu.selected.slack_id == user_chosen || tsu.selected.name == user_chosen)
-        print "\nSorry. Invalid selection."
-      else 
-        puts "\n#{tsu.selected.name} has been selected."
-      end
+      invalid_input_check(tsu.selected)
     when "select channel"
       print "Please select a channel (by Slack ID or Name): "
       channel_chosen = gets.chomp
       tsu.selected = tsu.select_channel(channel_chosen)
-      if tsu.selected == nil || !(tsu.selected.slack_id == channel_chosen || tsu.selected.name == channel_chosen)
-        puts "\nSorry. Invalid selection."
-      else 
-        puts "\n#{tsu.selected.name} has been selected."
-      end
+      invalid_input_check(tsu.selected)
     when "show details"
-      if tsu.selected == nil
-        puts "\nNo user or channel chosen."
-      else
+      if !selected_is_nil(tsu.selected)
         tp tsu.print_details(tsu.selected)
-      end
+      end 
     when "send message"
-      if tsu.selected == nil
-        puts "\nNo user or channel chosen."
-      else
+      if !selected_is_nil(tsu.selected)
         print "What is your message? "
         msg = gets.chomp
         tsu.selected.send_message(msg)
