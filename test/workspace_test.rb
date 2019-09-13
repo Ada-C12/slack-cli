@@ -1,5 +1,4 @@
 require_relative 'test_helper'
-require 'pry'
 
 describe "Workspace class" do
   before do
@@ -19,6 +18,7 @@ describe "Workspace class" do
       expect(@workspace.users).must_be_kind_of Array
       expect(@workspace.channels).must_be_kind_of Array
     end
+  end
 
   describe "get_users method" do
     it "can return user data from Slack API" do
@@ -40,7 +40,6 @@ describe "Workspace class" do
       expect(channels[2].name).must_equal "random"
       expect(channels[2].topic).must_equal "Non-work banter and water cooler conversation"
       expect(channels[2].member_count).must_equal 2
-
     end
   end
 
@@ -68,5 +67,19 @@ describe "Workspace class" do
       end
     end
   end
-end
+
+  describe "send_message method" do
+    it "can send a message to the selected user or channel" do
+      VCR.use_cassette("workspace") do
+        workspace = Workspace.new
+
+        workspace.select_user("slackbot")
+        
+        message = "hello"
+        new_message = workspace.send_message(message)
+
+        expect(new_message["message"]["text"]).must_equal message
+      end
+    end
+  end
 end

@@ -44,7 +44,6 @@ def main
     when "details"
       if workspace.selected == nil
         puts "No recipient selected! Enter another command: "
-        #user_input = gets.chomp
       else
         workspace.show_details
         puts "\n\n"
