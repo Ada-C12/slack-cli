@@ -1,6 +1,5 @@
 require_relative "user"
 require_relative "channel"
-require_relative "acceptor"
 
 module Slack
   class SlackApiError < StandardError; end

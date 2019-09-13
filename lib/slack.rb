@@ -1,7 +1,6 @@
 require_relative "workspace"
 require_relative "user"
 require_relative "channel"
-require_relative "acceptor"
 require 'httparty'
 require "dotenv"
 Dotenv.load

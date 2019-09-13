@@ -15,7 +15,6 @@ Dotenv.load
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-require_relative '../lib/acceptor'
 require_relative '../lib/user'
 require_relative '../lib/channel'
 require_relative '../lib/workspace'
