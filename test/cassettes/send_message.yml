@@ -1,0 +1,139 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20user&channel=UMUR43REX&as_user=false&username=Slackbot&icon_emoji=%3Ajack_o_lantern%3A
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 22:23:57 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 8fef71e1-b7c1-40c2-b03f-cf5e5890ba9e
+      X-Oauth-Scopes:
+      - identify,channels:history,im:history,channels:read,im:read,search:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-qt4f
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 82ee5868f58a60e97a683c1fda270de3.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - DOTq4WLZ_CglK-qwzz7eP0tORHSY1ZTT_plvipggoDVOd2620OJspw==
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"DN85DBHQX","ts":"1568413437.000200","message":{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a user","ts":"1568413437.000200","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 22:23:57 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=<SLACK_API_TOKEN>&text=I%27m%20a%20message%20to%20a%20channel&channel=CMUR2JTNX&as_user=false&username=Slackbot&icon_emoji=%3Ajack_o_lantern%3A
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 22:23:57 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - a8432275-1a53-497c-9e71-df98de6a7130
+      X-Oauth-Scopes:
+      - identify,channels:history,im:history,channels:read,im:read,search:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-4tyc
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ec2a2c75c16156e4d43504606c118b91.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - Saz2Hjw9_GBZj4i6iE1mq-N9lqZrRpKi7OqbN6x_J4QxK7L-_Q8Aaw==
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"CMUR2JTNX","ts":"1568413437.000500","message":{"type":"message","subtype":"bot_message","text":"I''m
+        a message to a channel","ts":"1568413437.000500","username":"Slackbot","icons":{"emoji":":jack_o_lantern:","image_64":"https:\/\/a.slack-edge.com\/80588\/img\/emoji_2017_12_06\/apple\/1f383.png"},"bot_id":"BMW7Z23K5"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 22:23:57 GMT
+recorded_with: VCR 5.0.0

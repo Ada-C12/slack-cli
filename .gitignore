@@ -49,8 +49,11 @@ build-iPhoneSimulator/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
-# Ignore environemnt variables
+# Ignore environment variables
 .env
 
 # Ignore cassette files
 /specs/cassettes/
+
+# Ignore slack token verification
+slack_token_verification_test.rb
