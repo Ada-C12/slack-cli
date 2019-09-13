@@ -55,7 +55,10 @@ def start_program
       #check if a recipient is selected
       #if recipient hasn't been selected tell user to select a recipient at the main menu
       #if a recipient has been selected then ask user to type a message
-      #send the message to the recipient
+      ap "Type a message to send:"
+      message = gets.chomp
+      #send the message in recipient class method send_message
+      SlackCli::Recipient.send_message(channel:selected_recipient.id, text:message)
     else 
       ap "Not a valid command"
     end 
