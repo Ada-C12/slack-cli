@@ -43,28 +43,26 @@ module Slack
       return recipient
     end
     
-    
-    # module SlackApi
-    #  CHAT_URL = "https://slack.com/api/chat.postMessage"
-    
-    #   API_KEY = ENV['SLACK_TOKEN']
-    
-    #   def self.send_msg(message, channel)
-    
-    #     response = HTTParty.post(
-    #       CHAT_URL,
-    
-    #       body:  {
-    #         token: API_KEY,
-    #         text: message,
-    #         channel: channel
-    #       },
-    #       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
-    #     )
-    
-    #     return response.code == 200 && response.parsed_response["ok"]
-    #   end
-    # end
+    module Slack
+      CHAT_URL = "https://slack.com/api/chat.postMessage"
+      
+      API_KEY = ENV['SLACK_TOKEN']
+      
+      def self.send_msg(message, channel)
+        
+        response = HTTParty.post(
+          CHAT_URL,
+          
+          body:  {
+            token: API_KEY,
+            text: message,
+            channel: channel
+          },
+        )
+        
+        return response.code == 200 && response.parsed_response["ok"]
+      end
+    end
   end
 end
 

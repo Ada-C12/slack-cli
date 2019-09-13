@@ -64,10 +64,14 @@ def main
     when "Send Message"
       puts "Please enter your new message now."
       message_recipient = gets.chomp
-      message_recipient = Slack::User.select_user(message_recipient)
+      message_recipient = Slack::Channel.select_channel(message_recipient)
       if recipient == nil 
         puts "No recipient currently selected. Returning you to main menu."
+      elsif recipient.class == User 
       end
+      
+      Slack.send_message(message_recipient)
+      # puts message (in case above doesn't work)
       #   recipient.send_message(message) # user's message is sent to our Slack recipient 
       
     when "Quit"
