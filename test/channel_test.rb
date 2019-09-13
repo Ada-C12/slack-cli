@@ -22,6 +22,10 @@ describe "Channel" do
       
       expect(new_channel).must_be_kind_of SlackBot::Channel
     end
+    
+    it "raises an argument error if no member count is supplied" do
+      expect{SlackBot::Channel.new(slack_id: "ABC123EFG", topic: "stuff")}.must_raise ArgumentError
+    end
   end
   
   describe "#list" do

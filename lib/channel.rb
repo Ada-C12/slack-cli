@@ -7,10 +7,12 @@ module SlackBot
     def initialize(slack_id:, name:, topic: nil, member_count:)
       super(slack_id: slack_id, name: name)
       
-      # ask about this sytax for topic. Why not just @topic = topic?
       @topic = topic || nil
       @member_count = member_count
-      
+    end
+    
+    def details
+      tp self, "slack_id", "name", "topic", "member_count"
     end
     
     def self.list

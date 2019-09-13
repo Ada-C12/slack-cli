@@ -16,12 +16,6 @@ describe "User" do
     it "raises an argument error if no name is supplied" do
       expect{SlackBot::User.new(slack_id: "ABC123EFGH", real_name: "yitgop")}.must_raise ArgumentError
     end
-    
-    # it "creates instance of User without topic argument" do 
-    #   new_user = SlackBot::User.new(slack_id: "ABC123EFG", name: "yitgop", member_count: 4)
-    
-    #   expect(new_user).must_be_kind_of SlackBot::User
-    # end
   end
   
   describe "#list" do

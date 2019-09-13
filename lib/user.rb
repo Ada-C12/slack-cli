@@ -10,7 +10,10 @@ module SlackBot
       @real_name = real_name
       @status_text = status_text || nil
       @status_emoji = status_emoji || nil
-      
+    end
+    
+    def details
+      tp self, "slack_id", "name", "real_name"
     end
     
     def self.list
