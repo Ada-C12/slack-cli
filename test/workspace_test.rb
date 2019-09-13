@@ -8,7 +8,7 @@ describe "Workspace" do
     end
   end
 
-  describe "workspace_user list methods" do
+  describe "workspace user list methods" do
     describe "get_api" do
       it "returns a response from Slack api" do
         workspace = Slack::Workspace.new
@@ -78,7 +78,7 @@ describe "Workspace" do
     end
   end
 
-  describe "Workspace select methods" do
+  describe "workspace select methods" do
     describe ".search users" do
       it "will search through usernames and save that user to selected" do
         workspace = Slack::Workspace.new
@@ -168,7 +168,7 @@ describe "Workspace" do
     end
   end
   
-  describe "Workspace show details methods" do
+  describe "workspace show details methods" do
     describe ".show_details for user" do 
       it "will print the details of the selected user" do
         workspace = Slack::Workspace.new
@@ -196,7 +196,7 @@ describe "Workspace" do
     end
   end
 
-  describe "Workspace send message methods" do
+  describe "workspace send message methods" do
     it "if a channel is selected it will send a direct message to a channel" do 
       workspace = Slack::Workspace.new
       VCR.use_cassette("send_message_channel") do 

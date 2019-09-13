@@ -89,7 +89,7 @@ module Slack
     end
 
     def show_details(selected_receiver)
-      details = ''''
+      details = ""
       if selected_receiver.class == Slack::User
         details = details + "Username: #{@selected.username}, Real name: #{@selected.real_name}, Slack ID: #{@selected.slack_id}"
         return details
