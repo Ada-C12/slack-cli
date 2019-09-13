@@ -13,7 +13,7 @@ describe "### WORKSPACE ###" do
   let (:channel_member_counts) { [2, 2, 2] }
   
   describe "Does Workspace.new work?" do
-  
+    
     it 'can create @all_users for new Workspace instance' do
       VCR.use_cassette("WT2") do
         assert(ws1.class == Workspace)
@@ -27,7 +27,7 @@ describe "### WORKSPACE ###" do
         end
       end
     end
-  
+    
     it 'can create @all_channels for new Workspace instance' do
       VCR.use_cassette("WT2") do
         assert(ws1.all_channels.length == 3)
@@ -67,7 +67,7 @@ describe "### WORKSPACE ###" do
       VCR.use_cassette("WT2") do
         results = ws1.get_all_users_details
         assert(results.class == Array)
-  
+        
         results.each_with_index do |result, index|
           assert(result.class == Hash)
           assert(result[:id] == user_ids[index])
@@ -143,7 +143,7 @@ describe "### WORKSPACE ###" do
       end
     end
   end
-
+  
   describe 'main_menu works?' do
     it 'returns table instance successfully' do
       VCR.use_cassette("WT2") do
@@ -158,7 +158,7 @@ describe "### WORKSPACE ###" do
       end
     end
   end 
-
+  
   describe "does show_all_recipients work?" do
     it 'returns enumerated table instance successfully' do
       VCR.use_cassette("WT2") do
@@ -189,37 +189,111 @@ describe "### WORKSPACE ###" do
       end
     end
   end
-
-  describe "Does send_message work?" do
-
-    it 'sends msg successfully' do
-      VCR.use_cassette("WT2") do
-        ws1.entity = ws1.all_users[1]
-        response = ws1.send_message
-        assert(response.class == HTTParty::Response)
+  
+  # describe "Does send_message work?" do
+  
+  #   it 'sends msg successfully' do
+  #     VCR.use_cassette("WT2") do
+  #       ws1.entity = ws1.all_users[1]
+  #       response = ws1.send_message
+  #       assert(response.class == HTTParty::Response)
+  #     end
+  #   end
+  
+  #   it 'raises SlackAPIError if HTTParty request failed' do
+  #     VCR.use_cassette("WT2") do
+  #       ws1.entity = ws1.all_users[1]
+  #       response = ws1.send_message
+  #       ENV["SLACK_KEY"] = "GARBAGE"
+  #       expect{ws1.send_message}.must_raise SlackAPIError
+  #     end
+  #   end
+  
+  #   it 'get_msg_recipient raises SlackAPIError if no msg_recipient' do
+  #     VCR.use_cassette("WT2") do
+  #       assert(ws1.entity == nil)
+  #       expect{ws1.get_msg_recipient}.must_raise SlackAPIError
+  #       # but will get rescued by send_message, and returned as false
+  #       assert(ws1.send_message == false)
+  #     end
+  #   end
+  
+  describe 'menu_action work?' do
+    it 'does selecting "A" or "List Users" list the users' do
+      VCR.use_cassette("WT1") do
+        choices= ["A", "a", "LiSt UsErS", "List Users", "list users", "LIST USERS"]
+        choices.each do |choice|
+          results = ws1.menu_action(choice)
+          assert(results)
+        end
       end
     end
-
-    it 'raises SlackAPIError if HTTParty request failed' do
-      VCR.use_cassette("WT2") do
-        ws1.entity = ws1.all_users[1]
-        response = ws1.send_message
-        ENV["SLACK_KEY"] = "GARBAGE"
-        expect{ws1.send_message}.must_raise SlackAPIError
+    
+    it 'does selecting "B" or "List Channels" list the channels' do
+      VCR.use_cassette("WT1") do
+        choices= ["B", "b", "LiSt cHannElS", "List Channels", "list channels", "LIST CHANNELS"]
+        choices.each do |choice|
+          results = ws1.menu_action(choice)
+          assert(results)
+        end
       end
     end
-
-    it 'get_msg_recipient raises SlackAPIError if no msg_recipient' do
-      VCR.use_cassette("WT2") do
-        assert(ws1.entity == nil)
-        expect{ws1.get_msg_recipient}.must_raise SlackAPIError
-        # but will get rescued by send_message, and returned as false
-        assert(ws1.send_message == false)
+    
+    
+    it 'does selecting "D" or "Send Message" send message' do
+      VCR.use_cassette("WT1") do
+        choices= ["C", "c", "Send Message", "seNd MesSaGe", "send message", "SEND MESSAGE"]
+        choices.each do |choice|
+          results = ws1.menu_action(choice)
+          assert(results)
+        end
       end
     end
-
-  end
-
-
-
+    
+    it 'does selecting "E" or "Select Channel" select channel' do
+      VCR.use_cassette("WT1") do
+        choices= ["E", "e", "Select Channel", "SeLEcT ChAnNeL", "select channel", "SELECT CHANNEL"]
+        choices.each do |choice|
+          puts "!! You have to manually enter a channel, so type >>> random"
+          results = ws1.menu_action(choice)
+          p "it ran #{choice}"
+          assert(results)
+        end
+      end
+    end
+    
+    it 'does selecting "F" or "Details" select channel' do
+      # should return false if no Channel or User selected
+      VCR.use_cassette("WT1") do
+        choices= ["F", "f", "Details", "DeTaILs", "details", "DETAILS"]
+        choices.each do |choice|
+          results = ws1.menu_action(choice)
+          refute(results)
+        end
+      end
+      
+      # should return Channel/User object if Channel or User selected
+      VCR.use_cassette("WT1") do
+        ws1.entity = ws1.all_channels[0]
+        choices= ["F", "f", "Details", "DeTaILs", "details", "DETAILS"]
+        choices.each do |choice|
+          results = ws1.menu_action(choice)
+          assert(results)
+        end
+      end
+    end
+    
+    it 'does selecting bogus menu option kick back user to menu' do
+      VCR.use_cassette("WT1") do
+        choices= ["G", '123', "AAA", "bb"]
+        choices.each do |choice|
+          results = ws1.menu_action(choice)
+          refute(results)
+        end
+      end
+    end
+    
+    
+    
+  end      
 end

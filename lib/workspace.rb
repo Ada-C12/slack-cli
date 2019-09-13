@@ -157,8 +157,7 @@ class Workspace
       
     when "C", "SEND MESSAGE"
       puts "SENDING MESSAGE"
-      response = send_message
-      return response
+      send_message
       
     when "D", "SELECT USER"
       print "Please enter a user's name or id: "
@@ -169,7 +168,6 @@ class Workspace
         return user
       rescue => exception
         puts exception.message
-        return false
       end
       
     when "E", "SELECT CHANNEL"
@@ -181,7 +179,6 @@ class Workspace
         return channel
       rescue => exception
         puts exception.message
-        return false
       end
       
     when "F", "DETAILS"
