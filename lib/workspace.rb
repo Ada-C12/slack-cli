@@ -52,7 +52,20 @@ class Workspace
   end
   
   def send_message(message, channel)
-    
-    # return response["ok"]
+    response = HTTParty.post(
+      "https://slack.com/api/chat.postMessage",
+      body: {
+        token: ENV["SLACK_TOKEN"],
+        channel: channel,
+        text: message
+      },
+      headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
+    )
+
+    if response["error"]
+      raise SlackApiError.new "#{response.code}: #{response.message} -- #{response["error"]}"
+    end
+  
+    return response
   end
 end

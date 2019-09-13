@@ -1,7 +1,7 @@
 class User < Recipient
   attr_reader :real_name, :status_text, :status_emoji
   
-  def initialize(real_name:, status_text: nil , status_emoji: nil, slack_id:, name:)
+  def initialize(real_name:, slack_id:, name:)
     super(slack_id: slack_id, name: name)
     @real_name = real_name
     @status_text = status_text
@@ -14,8 +14,6 @@ class User < Recipient
     Slack ID: #{@slack_id}
     Username: #{@name}
     Real Name: #{@real_name}
-    Status Text: #{@status_text}
-    Status Emoji: #{@status_emoji}
     """
 
     return details
