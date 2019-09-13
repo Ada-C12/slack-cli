@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=USLACKBOT&text=hot%20potato&token=<SLACK_KEY>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '175'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 21:50:36 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - b739cbdc-c70d-4efc-9e0f-6f3195b19fc5
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-sjev
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 6af340edf5d0c2e1a2d1773e9c7a6ecc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - "-nno4TWKNVR6lAICBRHyBpcxLHc_p5DFZq_0P1UxeiMeKgFPhOAHlg=="
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DNB0NUYR3","ts":"1568411436.000400","message":{"type":"message","subtype":"bot_message","text":"hot
+        potato","ts":"1568411436.000400","username":"Leaves - Emily - API Project","bot_id":"BMURL2BPD"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 21:50:36 GMT
+recorded_with: VCR 5.0.0
