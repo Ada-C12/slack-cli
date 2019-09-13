@@ -216,15 +216,23 @@ describe "Workspace" do
       end
     end
     
-    # it "if a user is selected it will send a direct message to a user" do
+    it "if a user is selected it will send a direct message to a user" do
+        workspace = Slack::Workspace.new
+        VCR.use_cassette("send_message_user") do 
+          @response = workspace.send_message("Hi Pupper Friends!", "@kristina.tanya")
+        end
+        expect(@response).must_be_instance_of HTTParty::Response
+    end
 
-    # end
-
-
-
-
-
-
-
+    it "will raise an error when given an invalid user" do
+      workspace = Slack::Workspace.new
+      VCR.use_cassette("send_message_user") do
+        exception = expect {
+          workspace.send_message("This post should not work", "@invalid_user")
+        }.must_raise Slack::SlackApiError
+        
+        expect(exception.message).must_equal 'Error when posting This post should not work to @invalid_user, error: channel_not_found'
+      end
+    end
   end
 end

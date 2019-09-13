@@ -2,8 +2,6 @@ require_relative "user"
 require_relative "channel"
 require_relative "acceptor"
 
-require 'awesome_print'
-
 module Slack
   class SlackApiError < StandardError; end
   class Workspace
@@ -117,12 +115,5 @@ module Slack
       end
       return response
     end
-
-
-
   end 
 end 
-
-# hello = Slack::Workspace.new
-# hello.user_list
-# puts hello.print_user_list

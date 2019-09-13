@@ -33,7 +33,7 @@ def main
     when "list channels"
       puts workspace.print_channel_list
       break
-    when "select user" 
+    when "select user"
       puts "Would you like to search for a user by username or id?"
       search_user_choice = gets.chomp.downcase
       if search_user_choice == "username"
@@ -51,6 +51,11 @@ def main
           if selected_command == "show details"
             puts workspace.show_details(search_result)
             break
+          elsif selected_command == "send message"
+            puts "What message do you want to send?"
+            message_body = gets.chomp
+            workspace.send_message(message_body, "@#{username}")
+            break
           end
         end
       elsif search_user_choice == "id"
@@ -67,6 +72,11 @@ def main
           selected_command = gets.chomp.downcase
           if selected_command == "show details"
             puts workspace.show_details(search_result)
+            break
+          elsif selected_command == "send message"
+            puts "What message do you want to send?"
+            message_body = gets.chomp
+            workspace.send_message(message_body, slack_id)
             break
           end
         end
