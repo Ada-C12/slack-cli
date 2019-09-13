@@ -17,7 +17,6 @@ require_relative '../lib/slackapierror.rb'
 require_relative '../lib/workspace.rb'
 
 
-
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 VCR.configure do |config|
@@ -27,4 +26,10 @@ VCR.configure do |config|
     :record => :new_episodes,    # record new data when we don't have it yet
     :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match  
   }
+  
+  config.filter_sensitive_data("<SUPER_SECRET!>") do   # note the quotes!
+    ENV["MY_KEY"]
+  end
 end
+
+
