@@ -6,10 +6,18 @@ require_relative 'channel'
 require_relative 'workspace'
 
 Dotenv.load
+
+def invalid_input(input)
+  if input == nil
+    print "\nSorry. Invalid selection."
+  end 
+end 
+
+
 def main
   puts "Welcome to the Ada Slack CLI!"
   tsu = SlackCLI::Workspace.new
-
+  
   loop do
     print "\nWhat would you like to do?
     - list users
@@ -25,7 +33,7 @@ def main
       print "Sorry. Please enter a valid choice. "
       choice = gets.chomp.downcase
     end
-
+    
     case choice
     when "list users"
       tp tsu.list_users
@@ -35,7 +43,7 @@ def main
     when "select user"
       print "Please select a user (by Slack ID or Display Name): "
       user_chosen = gets.chomp
-      tsu.selected = tsu.users.find { |user| user.slack_id == user_chosen || user.name == user_chosen }
+      tsu.selected = tsu.select_user(user_chosen)
       if tsu.selected == nil || !(tsu.selected.slack_id == user_chosen || tsu.selected.name == user_chosen)
         print "\nSorry. Invalid selection."
       else 
@@ -44,7 +52,7 @@ def main
     when "select channel"
       print "Please select a channel (by Slack ID or Name): "
       channel_chosen = gets.chomp
-      tsu.selected = tsu.channels.find { |channel| channel.slack_id == channel_chosen || channel.name == channel_chosen }
+      tsu.selected = tsu.select_channel(channel_chosen)
       if tsu.selected == nil || !(tsu.selected.slack_id == channel_chosen || tsu.selected.name == channel_chosen)
         puts "\nSorry. Invalid selection."
       else 

@@ -55,21 +55,11 @@ module SlackCLI
     end
     
     def select_user(user_chosen)
-      @users.each do |user|
-        if user.slack_id == user_chosen || user.name == user_chosen
-          @selected = user
-        end
-      end
-      return @selected
+      return @users.find { |user| user.slack_id == user_chosen || user.name == user_chosen }
     end
     
     def select_channel(channel_chosen)
-      @channels.each do |channel|
-        if channel.slack_id == channel_chosen || channel.name == channel_chosen
-          @selected = channel
-        end
-      end
-      return @selected
+      return @channels.find { |channel| channel.slack_id == channel_chosen || channel.name == channel_chosen }
     end
     
     def print_details(selected)
