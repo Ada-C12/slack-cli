@@ -31,14 +31,25 @@ def main
       tp tsu.list_users
     when "list channels"
       tp tsu.list_channels
+      ## make helper method for validation to DRY up code
     when "select user"
       print "Please select a user (by Slack ID or Display Name): "
       user_chosen = gets.chomp
-      puts tsu.select_user(user_chosen)
+      choice = tsu.select_user(user_chosen)
+      if choice == nil || !(choice.slack_id == user_chosen || choice.name == user_chosen)
+        puts "\nSorry. Invalid selection."
+      else
+        puts "\nYou have selected #{choice.name}"
+      end
     when "select channel"
       print "Please select a channel (by Slack ID or Name): "
       channel_chosen = gets.chomp
-      puts tsu.select_channel(channel_chosen)
+      choice = tsu.select_channel(channel_chosen)
+      if choice == nil || !(choice.slack_id == channel_chosen || choice.name == channel_chosen)
+        puts "\nSorry. Invalid selection."
+      else
+        puts "\nYou have selected #{choice.name}"
+      end
     when "show details"
       if tsu.selected == nil
         puts "\nNo user or channel chosen."
