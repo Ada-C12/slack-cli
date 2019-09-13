@@ -12,12 +12,10 @@ describe 'can create a workspace' do
     expect(workspace).must_be_instance_of SlackCLI::Workspace
     expect(workspace.selected).must_be_nil
   end
-
   it 'has an array of channels' do
     expect(workspace.channels).must_be_kind_of Array
     expect(workspace.channels[0]).must_be_instance_of SlackCLI::Channel
   end
-
   it 'has an array of users' do
     expect(workspace.users).must_be_kind_of Array
     expect(workspace.users[0]).must_be_instance_of SlackCLI::User
@@ -64,13 +62,13 @@ describe 'select user' do
       SlackCLI::Workspace.new
     end
   }
-  it 'allows user to select user' do
+  it 'allows user to select user and returns User object' do
     expect(workspace.select_user("Slackbot")).must_be_instance_of SlackCLI::User
   end
   it "returns nil when not a known user" do
     expect(workspace.select_user("Mr. T")).must_be_nil
   end
-  it 'allows user to select channel' do
+  it 'allows user to select channel and returns Channel object' do
     expect(workspace.select_channel("random")).must_be_instance_of SlackCLI::Channel
   end
   it "returns nil when not a known channel" do
@@ -87,14 +85,17 @@ describe 'prints details about selected user or channel' do
   it 'determines if the object selected is a user or a channel' do
     selected = workspace.select_channel('random')
     expect(workspace.print_details(selected)).must_be_kind_of Array
+
     selected = workspace.select_channel('random')
     expect(workspace.print_details(selected)[0].length).must_equal 4
+
     selected = workspace.select_user('Slackbot')
     expect(workspace.print_details(selected)).must_be_kind_of Array
+
     selected = workspace.select_user('Slackbot')
     expect(workspace.print_details(selected)[0].length).must_equal 5
   end
-  it 'returns nil no user or channel is selected' do
+  it 'returns nil if no user or channel is selected' do
     expect(workspace.print_details(@selected)).must_be_nil
   end
 end

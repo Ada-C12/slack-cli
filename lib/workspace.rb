@@ -61,7 +61,7 @@ module SlackCLI
     def select_channel(channel_chosen)
       return @channels.find { |channel| channel.slack_id == channel_chosen || channel.name == channel_chosen }
     end
-
+    
     def print_details(selected)
       if selected.class == SlackCLI::User
         user_hash = [

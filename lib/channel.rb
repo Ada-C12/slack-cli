@@ -7,13 +7,13 @@ Dotenv.load
 module SlackCLI
   class Channel < Recipient
     attr_reader :slack_id, :name, :topic, :member_count
-    
+
     def initialize(slack_id, name, topic, member_count)
       super(slack_id, name)
       @topic = topic
       @member_count = member_count
     end
-    
+
     #factory method for producing individual channels from json
     def self.json_parse(json)
       channels = []
@@ -23,10 +23,9 @@ module SlackCLI
       end
       return channels
     end
-    
-    def to_s 
-      "#{super}, about #{topic}" 
-    end 
+
+    def to_s
+      "#{super}, about #{topic}"
+    end
   end
 end
-

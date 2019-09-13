@@ -6,7 +6,7 @@ Dotenv.load
 
 module SlackCLI
   class User < Recipient
-    
+
     attr_reader :real_name, :status_text, :status_emoji
     def initialize(slack_id, name, real_name, status_text, status_emoji = nil)
       super(slack_id, name)
@@ -14,7 +14,7 @@ module SlackCLI
       @status_text = status_text
       @status_emoji = status_emoji
     end
-    
+
     #factory method for producing individual users from json
     def self.json_parse(json)
       users = []
