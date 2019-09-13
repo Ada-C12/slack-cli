@@ -239,6 +239,26 @@ describe "### WORKSPACE ###" do
       end
     end
     
+    it "does selectig 'C' or 'Send Message' work?" do
+      # When no user msg_recipient is selected
+      VCR.use_cassette("WT1") do
+        choices= ["C", "c", "SEND MESSAGE", "send message", "Send Message", "sEnD MeSsage"]
+        choices.each do |choice|
+          assert(ws1.menu_action(choice))
+        end
+      end
+
+      # When a user msg_recipient is selected
+      VCR.use_cassette("WT1") do
+        ws1.entity = ws1.all_users[0]
+        choices= ["C", "c", "SEND MESSAGE", "send message", "Send Message", "sEnD MeSsage"]
+        choices.each do |choice|
+          assert(ws1.menu_action(choice))
+        end
+      end
+
+    end
+
     
     it 'does selecting "D" or "Send Message" send message' do
       VCR.use_cassette("WT1") do
@@ -254,10 +274,10 @@ describe "### WORKSPACE ###" do
       VCR.use_cassette("WT1") do
         choices= ["E", "e", "Select Channel", "SeLEcT ChAnNeL", "select channel", "SELECT CHANNEL"]
         choices.each do |choice|
-          puts "!! You have to manually enter a channel, so type >>> random"
+          puts "  HEY!! You have to manually enter a legit channel, so the method would return a Channel object.  So type >>> general or >>> random"
           results = ws1.menu_action(choice)
           p "it ran #{choice}"
-          assert(results)
+          assert(results.class == Channel)
         end
       end
     end
@@ -268,7 +288,7 @@ describe "### WORKSPACE ###" do
         choices= ["F", "f", "Details", "DeTaILs", "details", "DETAILS"]
         choices.each do |choice|
           results = ws1.menu_action(choice)
-          refute(results)
+          assert(results)
         end
       end
       
@@ -289,6 +309,15 @@ describe "### WORKSPACE ###" do
         choices.each do |choice|
           results = ws1.menu_action(choice)
           refute(results)
+        end
+      end
+    end
+
+    it 'does selecting "Q" or "Quit" let u quit?' do
+      VCR.use_cassette("WT1") do
+        choices = ["Q", "q", "QUIT", "quit", "Quit"]
+        choices.each do |choice|
+        expect{ ws1.menu_action(choice) }.must_raise SystemExit
         end
       end
     end

@@ -136,7 +136,7 @@ class Workspace
       return entity
     else
       raise SlackAPIError, "You must select a recipient user via Main Menu"
-    end
+    end 
   end
   
   def get_text
