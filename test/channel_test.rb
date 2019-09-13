@@ -5,7 +5,7 @@ describe "Channel Class" do
     before do 
       VCR.use_cassette("lists_channels") do 
         @channel = Slack::Channel.new("CMUR2JTNX", "random", {"value"=>"", "creator"=>"", "last_set"=>0}, 7)
-        @test_list = @channel.list
+        @list = Slack::Channel.list
       end
     end
     
@@ -14,7 +14,11 @@ describe "Channel Class" do
     end
     
     it "lists the channels" do 
-      expect(@test_list).must_equal ["random", "turkey", "slack-cli", "general"]
+      expect(@list.length).must_equal 4
+      expect(@list).must_be_kind_of Array
+      expect(@list[0]).must_be_kind_of Slack::Channel
+      expect(@list[0].name).must_equal "random"
+      #["random", "turkey", "slack-cli", "general"]
     end
     
     # it "provides details" do 
