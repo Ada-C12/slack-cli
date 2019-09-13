@@ -9,7 +9,7 @@ Dotenv.load
 def main
   puts "Welcome to the Ada Slack CLI!"
   tsu = SlackCLI::Workspace.new
-  
+
   loop do
     print "\nWhat would you like to do?
     - list users
@@ -25,12 +25,13 @@ def main
       print "Sorry. Please enter a valid choice. "
       choice = gets.chomp.downcase
     end
-    
+
     case choice
     when "list users"
-      tsu.list_users
+      tp tsu.list_users
     when "list channels"
-      tsu.list_channels
+      tp tsu.list_channels
+      ## make helper method for validation to DRY up code
     when "select user"
       print "Please select a user (by Slack ID or Display Name): "
       user_chosen = gets.chomp
@@ -52,13 +53,13 @@ def main
     when "show details"
       if tsu.selected == nil
         puts "\nNo user or channel chosen."
-      else 
-        tsu.print_details(tsu.selected)
-      end 
+      else
+        tp tsu.print_details(tsu.selected)
+      end
     when "send message"
       if tsu.selected == nil
         puts "\nNo user or channel chosen."
-      else 
+      else
         print "What is your message? "
         msg = gets.chomp
         tsu.selected.send_message(msg)

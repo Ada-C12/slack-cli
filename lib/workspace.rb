@@ -37,7 +37,7 @@ module SlackCLI
         }
         users_hash_array << user_hash
       end
-      tp users_hash_array
+      return users_hash_array
     end
     
     def list_channels
@@ -51,7 +51,25 @@ module SlackCLI
         }
         channels_hash_array << channel_hash
       end
-      tp channels_hash_array
+      return channels_hash_array
+    end
+    
+    def select_user(user_chosen)
+      @users.each do |user|
+        if user.slack_id == user_chosen || user.name == user_chosen
+          @selected = user
+        end
+      end
+      return @selected
+    end
+    
+    def select_channel(channel_chosen)
+      @channels.each do |channel|
+        if channel.slack_id == channel_chosen || channel.name == channel_chosen
+          @selected = channel
+        end
+      end
+      return @selected
     end
     
     def print_details(selected)
@@ -65,7 +83,7 @@ module SlackCLI
             "status emoji" => selected.status_emoji
           }
         ]
-        tp user_hash 
+        return user_hash
       elsif selected.class == SlackCLI::Channel
         channel_hash = [
           {
@@ -75,10 +93,8 @@ module SlackCLI
             "member_count" => selected.member_count
           }
         ]
-        tp channel_hash
-      else 
-        print "Sorry, something went wrong."
-      end 
+        return channel_hash
+      end
     end
   end
-end 
+end
