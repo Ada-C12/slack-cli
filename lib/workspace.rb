@@ -20,14 +20,9 @@ module Slack
           return user
         end
       end  
-      puts "Sorry, I couldn't that name or ID."
+      puts "Sorry, I couldn't find that name or ID."
     end
-        
-    
-    # search list of users for user name, return if match
-    # search list of users for ID, return if match
-    # if no match for name or ID, provide "not found" message and return to top of the loop
-    
+           
     
     # def show_details
     # end 
