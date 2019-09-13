@@ -70,6 +70,8 @@ def learn_more_method(selection)
       # this means they're looking for username
     end
   end
+  # if looking for a channel / user and it doesn't exist- error mesasge or something & return to main command 
+  
 end
 
 main if __FILE__ == $PROGRAM_NAME

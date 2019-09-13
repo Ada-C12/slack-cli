@@ -15,18 +15,26 @@ module SlackCLI
     end
     
     def select_channel(name: nil, slack_id: nil)
+      @selected = nil
       @channels.each do |channel|
         if channel.name == name || channel.slack_id == slack_id
           @selected = channel
         end
       end
+      if @selected.nil? 
+        raise SlackApiError.new("Channel not found")
+      end
     end
     
     def select_user(user_name: nil, slack_id: nil)
+      @selected = nil
       @users.each do |user|
         if user.user_name == user_name || user.slack_id == slack_id
           @selected = user
         end
+      end
+      if @selected.nil?
+        raise SlackApiError.new("User not found")
       end
     end
     
