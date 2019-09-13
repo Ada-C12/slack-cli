@@ -1,7 +1,7 @@
 require_relative 'test_helper'
 
 describe 'workplace class' do
-
+  
   describe "workplace attributes" do
     it "recognizes that it's an instance of Workspace" do
       VCR.use_cassette("initialize") do
@@ -52,7 +52,7 @@ describe "make summaries of users and channels for slack.rb to use" do
       @test_workspace = Workspace.new
     end
   end
-
+  
   it "all_user_names compiles names of all users" do
     expected_number_of_users_postman = 3
     expected_first_user_postman = "slackbot"
@@ -60,18 +60,18 @@ describe "make summaries of users and channels for slack.rb to use" do
     expect(@test_workspace.all_user_names.length).must_equal expected_number_of_users_postman
     expect(@test_workspace.all_user_names[0]).must_equal expected_first_user_postman
   end
-
+  
   it "all_channel_names compiles names of all channels" do
     expected_number_of_channels_postman = 3
     expected_first_channel_postman = "random"
     expect(@test_workspace.all_channel_names).must_be_kind_of Array
-    expect(@test_workspace.all_channel_names.length).must_equal expected_number_of_users_postman
-    expect(@test_workspace.all_channel_names[0]).must_equal expected_first_user_postman
+    expect(@test_workspace.all_channel_names.length).must_equal expected_number_of_channels_postman
+    expect(@test_workspace.all_channel_names[0]).must_equal expected_first_channel_postman
   end
+  
+
+# test all_user_names
+
+# test all_channel_names
 
 end
-
-
-#  describe "list "
-#  # upon request, will use Slack API data to interact with / as a user or channel 
-#   end

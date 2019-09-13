@@ -1,6 +1,6 @@
 class User
   
-  attr_reader :name, :slack_id, :real_name, :status_text, :status_emoji
+  attr_reader :name, :slack_id, :real_name, :status_text, :status_emoji 
   
   def initialize(name:, slack_id:, real_name:, status_text:, status_emoji:)
     @name = name
@@ -20,15 +20,16 @@ class User
       raise ArgumentError.new "Wrong format for emoji input!"
     end 
     @status_emoji = status_emoji
+    
+    # @details = details
   end 
   
   def details
-    return_statement = "\n
-    \n \t Name: #{@name}
-    \n \t Slack id: #{@slack_id}
-    \n \t Status text: #{@status_text}
-    \n \t Status emoji: #{@status_emoji}"
-    return return_statement
+    return "Name: #{@name}
+    Slack id: #{@slack_id}
+    Status text: #{@status_text}
+    Status emoji: #{@status_emoji}
+    Real name: #{@real_name}"
     
   end 
   

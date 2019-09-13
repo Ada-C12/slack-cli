@@ -2,8 +2,6 @@ class Channel
   
   attr_reader :name, :slack_id, :topic, :member_count 
   
-  #If inheriting from parent class, do I need to include inherited keyword arguments? 
-  
   def initialize(name:, slack_id:, topic:, member_count:)
     
     if name.class != String
@@ -25,6 +23,14 @@ class Channel
       raise ArgumentError.new, "Wrong format for member count!"
     end 
     @member_count = member_count
+  end
+  
+  def details
+    return "\n
+    Name: #{@name}
+    Topic: #{@topic}
+    Slack id: #{@slack_id}
+    Member count: #{@member_count}"    
   end 
   
 end

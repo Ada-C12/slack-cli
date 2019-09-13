@@ -19,7 +19,6 @@ class Workspace
     api_call_list_channels 
   end
   
-  
   def all_user_names
     all_user_names = []
     
@@ -37,6 +36,21 @@ class Workspace
     end
     return all_channel_names
   end 
+  
+  def all_user_slack_ids
+    all_user_slack_ids = []
+    users.each do |user|
+      all_user_slack_ids << user.slack_id
+    end
+    return all_user_slack_ids
+  end
+  
+  def all_channel_slack_ids
+    all_channel_slack_ids = []
+    channels.each do |channel|
+      all_channel_slack_ids << channel.slack_id
+    end
+  end
   
   def api_call_list_users
     #This method takes in the entire listuser api

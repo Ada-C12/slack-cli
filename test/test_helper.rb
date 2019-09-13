@@ -1,6 +1,7 @@
 require 'simplecov'
 SimpleCov.start do
   add_filter 'test/'
+  add_filter 'lib/slack'
 end
 
 require 'minitest'
@@ -21,7 +22,7 @@ VCR.configure do |config|
   config.default_cassette_options = {
     record: :new_episodes, # record new data when we don't have it
   }
-
+  
   config.filter_sensitive_data "<SLACK_TOKEN>" do 
     ENV["SLACK_TOKEN"]
   end
