@@ -3,7 +3,6 @@ require_relative 'channel'
 require_relative 'recipient'
 require 'httparty'
 require 'dotenv'
-require 'pry'
 
 Dotenv.load
 
@@ -70,7 +69,6 @@ class Workspace < Recipient
       channel: @selected[0].id,
       text: message
     }
-    #binding.pry
     HTTParty.post(BASE_URL + "chat.postMessage", query: post_query)
   end
 end

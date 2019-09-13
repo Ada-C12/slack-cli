@@ -217,4 +217,76 @@ http_interactions:
       string: '{"ok":false,"error":"not_authed"}'
     http_version: 
   recorded_at: Fri, 13 Sep 2019 19:19:25 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=USLACKBOT&text=hello&token=<SLACK_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '160'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 22:04:25 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - c74ec2a0-0c0a-4dcd-b382-430043819893
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-4oho
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4db3f26ee4fd9a14a343fada3315105f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - YUYG9vmJdj9RAcXzIj5ViOQTDM6_dWmX__j8DtXQEJSjpSpct45Rrw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DNDT2SWVD","ts":"1568412265.000100","message":{"type":"message","subtype":"bot_message","text":"hello","ts":"1568412265.000100","username":"Diana''s
+        App","bot_id":"BN14ERJAV"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 22:04:25 GMT
 recorded_with: VCR 5.0.0
