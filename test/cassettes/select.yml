@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 22:12:42 GMT
+      - Fri, 13 Sep 2019 22:12:41 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 4c49cba7-8dfb-4bf8-9375-e37ad0346e8c
+      - f8d8b199-8eca-4d11-b2e0-83a53075ec7e
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-z6bk
+      - haproxy-www-vnia
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 ac69e760019b6a5dd323cb8c0aa440ef.cloudfront.net (CloudFront)
+      - 1.1 79f18dd6382f7347397cfbd42c438a75.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - HIO51-C1
       X-Amz-Cf-Id:
-      - FnWHmBGxwbka7k2c3fXlj-638nCVbUge4fQJgbQgZjlxVoSUaxXYMA==
+      - UQ2rDer3dq_-JThQwjp9oQWuOFIkYaQ6TU2-w7SxwcUvU2u04CW5VA==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"members":[{"id":"USLACKBOT","team_id":"TN69AJ2SU","name":"slackbot","deleted":false,"color":"757575","real_name":"Slackbot","tz":null,"tz_label":"Pacific
@@ -89,7 +89,88 @@ http_interactions:
         Schuler","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"gc6d02aa49cf","image_24":"https:\/\/secure.gravatar.com\/avatar\/c6d02aa49cf9d47142e8cfcb7e897b98.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/c6d02aa49cf9d47142e8cfcb7e897b98.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/c6d02aa49cf9d47142e8cfcb7e897b98.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/c6d02aa49cf9d47142e8cfcb7e897b98.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/c6d02aa49cf9d47142e8cfcb7e897b98.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/c6d02aa49cf9d47142e8cfcb7e897b98.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-512.png","status_text_canonical":"","team":"TN69AJ2SU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568071410},{"id":"UN69C37BJ","team_id":"TN69AJ2SU","name":"tiffanycee123","deleted":false,"color":"4bbe2e","real_name":"Tiffany
         Chio","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Tiffany
         Chio","real_name_normalized":"Tiffany Chio","display_name":"Tiffany Chio","display_name_normalized":"Tiffany
-        Chio","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"ge49485fcc1e","image_24":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-512.png","status_text_canonical":"","team":"TN69AJ2SU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568071504}],"cache_ts":1568412762,"response_metadata":{"next_cursor":""}}'
+        Chio","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"ge49485fcc1e","image_24":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/e49485fcc1e6f86f199952b8108015e0.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0015-512.png","status_text_canonical":"","team":"TN69AJ2SU"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568071504}],"cache_ts":1568412761,"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 22:12:42 GMT
+  recorded_at: Fri, 13 Sep 2019 22:12:41 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/channels.list?token=<SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '717'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 22:12:41 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 6ea8a3b1-a004-419b-afa8-37c7e7be6b06
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-zrg4
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 047c77cddf7ec99dc42ee0ce44304395.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - cVswTroGQdsguLRuGH9kfklbQyEXVLzD99Yp6YcB81_5XO7_6jwr_g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CMUR2JTNX","name":"random","is_channel":true,"created":1568071183,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN5R273J8","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTG0S5D0","UMUR43REX","UMZSUVBED","UN5R273J8","UN5R3N6P6","UN5R3NYUU","UN69C37BJ"],"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN5R273J8","last_set":1568071183},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UN5R273J8","last_set":1568071183},"previous_names":[],"num_members":7},{"id":"CN6A88SJZ","name":"turkey","is_channel":true,"created":1568073346,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UMUR43REX","name_normalized":"turkey","is_shared":false,"is_org_shared":false,"is_member":false,"is_private":false,"is_mpim":false,"members":["UMUR43REX","UN5R273J8","UN69C37BJ"],"topic":{"value":"To
+        collect images of turkeys and information about turkeys","creator":"UN5R273J8","last_set":1568232705},"purpose":{"value":"to
+        collect images of turkeys and information about turkeys","creator":"UMUR43REX","last_set":1568073347},"previous_names":[],"num_members":3},{"id":"CN85BSBQF","name":"slack-cli","is_channel":true,"created":1568071183,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN5R273J8","name_normalized":"slack-cli","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTG0S5D0","UMUR43REX","UMZSUVBED","UN5R273J8","UN5R3N6P6","UN5R3NYUU","UN69C37BJ"],"topic":{"value":"Posts
+        about the Slack CLI project","creator":"UN5R273J8","last_set":1568232665},"purpose":{"value":"Posts
+        about the Slack CLI project","creator":"UN5R273J8","last_set":1568232660},"previous_names":[],"num_members":7},{"id":"CN8FME7AS","name":"general","is_channel":true,"created":1568071183,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UN5R273J8","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTG0S5D0","UMUR43REX","UMZSUVBED","UN5R273J8","UN5R3N6P6","UN5R3NYUU","UN69C37BJ"],"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UN5R273J8","last_set":1568071183},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UN5R273J8","last_set":1568071183},"previous_names":[],"num_members":7}],"response_metadata":{"next_cursor":""}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 22:12:41 GMT
 recorded_with: VCR 5.0.0

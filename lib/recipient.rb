@@ -11,11 +11,6 @@ module Slack
       @name = name
     end
     
-    # pass down methods that will send messages 
-    # pass down: make a request to API (get)
-    # raise error if API is down or nil -- maybe do in another class?
-    # list all the users or channels
-    
     def self.send_msg(message, channel)
       # BASE_URL = "https://slack.com/api/chat.postMessage"
       response = HTTParty.post(

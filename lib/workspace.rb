@@ -40,7 +40,7 @@ module Slack
     end
     
     def send_message(message)
-      @selected.send_msg(message)
+      return @selected.send_msg(message)
     end
     
   end

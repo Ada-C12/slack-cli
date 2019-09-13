@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 04:09:45 GMT
+      - Fri, 13 Sep 2019 22:12:42 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 40ea07b9-093c-4435-a454-e342dc85fde0
+      - a28620fc-05a6-4b22-9fe6-1f87412a4165
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-1a8v
+      - haproxy-www-shlo
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 64f86ae1c24221f3a2e4d653d6dbc416.cloudfront.net (CloudFront)
+      - 1.1 a65ed239b1dc93560d93932663ec96bd.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C2
+      - HIO51-C1
       X-Amz-Cf-Id:
-      - Zi7slqYGWvO7QHrufIKMXhQfiJmSnfctlywZ3-Lklv-XGmMzBnlYzw==
+      - P8g4YWH3I1rRhRd7sXP-BRqxmCpIqZSW78F0mA8fYZPeIcLwahgMkQ==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CMUR2JTNX","name":"random","is_channel":true,"created":1568071183,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN5R273J8","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTG0S5D0","UMUR43REX","UMZSUVBED","UN5R273J8","UN5R3N6P6","UN5R3NYUU","UN69C37BJ"],"topic":{"value":"Non-work
@@ -80,5 +80,5 @@ http_interactions:
         channel is for workspace-wide communication and announcements. All members
         are in this channel.","creator":"UN5R273J8","last_set":1568071183},"previous_names":[],"num_members":7}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 04:09:45 GMT
+  recorded_at: Fri, 13 Sep 2019 22:12:42 GMT
 recorded_with: VCR 5.0.0

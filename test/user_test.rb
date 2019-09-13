@@ -17,16 +17,9 @@ describe "User Class" do
       end
     end
     
-    # before do  
-    #   VCR.use_cassette("lists_users") do 
-    #     testing_list = User.self.list
-    #     testing_object = testing_list[1]
-    #     # @user = Slack::User.new(
-    #     # user_basic = ["UMTG0S5D0", "samantha.collares", "Samantha Collares"]
-    #     # @user_test_list = @user.list
-    #     # @first_user = @user_test_list[1]
-    #   end
-    # end
+    it "has a name" do
+      expect(@user.name).must_equal "samantha.collares"
+    end
     
     it "lists the users" do
       VCR.use_cassette("lists_the_users_length") do 
@@ -51,8 +44,11 @@ describe "User Class" do
         end
       end
       
+      it "returns a hash" do
+        expect(@user.details).must_be_kind_of Hash
+      end
+      
       it "provides details" do 
-        # binding.pry
         expect(@user.details).must_equal ({"slack_id"=> "UMTG0S5D0", "name"=> "samantha.collares", "real_name"=> "Samantha Collares" })
       end
     end

@@ -34,17 +34,10 @@ module Slack
     
     
     def details
-      # users = self.class.list
-      
       user_details = {}
-      # identified_user = users.find do |member|
-      #   member == selected_user
-      # end
-      
       user_details["slack_id"] = self.slack_id
       user_details["name"] = self.name
       user_details["real_name"] = self.real_name
-      #user_details["display_name"] = self.display_name
       
       return user_details
     end

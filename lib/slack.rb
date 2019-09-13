@@ -9,8 +9,9 @@ Dotenv.load
 def main
   workspace = Slack::Workspace.new
   user_choice = nil
-  until user_choice == "quit"
-    puts "Welcome to the Ada Slack CLI!"
+  
+  until input == "quit" 
+    puts "Welcome to the Ada Slack CLI! Put quit to exit the program"
     
     user_choice = prompt(
       "What would you like to do?",
@@ -96,7 +97,7 @@ def main
       puts "Thank you for using the Ada Slack CLI"
     end
   end
-  
+  exit 
 end
 
 def prompt(message, options)
