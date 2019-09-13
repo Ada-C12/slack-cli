@@ -2,7 +2,6 @@
 require 'httparty'
 require 'awesome_print'
 require 'dotenv'
-require_relative "user"
 require_relative "recipient"
 Dotenv.load
 

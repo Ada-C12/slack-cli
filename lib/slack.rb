@@ -53,7 +53,7 @@ def main
         message = gets.chomp
         id = recipient.id
         Slack.send_msg(message, id)
-      else recipient == nil
+      else 
         puts "No recipient selected"
         sleep(2)
       end
