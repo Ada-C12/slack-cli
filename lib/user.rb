@@ -1,6 +1,5 @@
 require 'dotenv'
 require_relative 'recipient'
-require "pry"
 
 module Slack
   class User < Recipient 
@@ -9,7 +8,7 @@ module Slack
     def initialize(slack_id, name, real_name)
       super(slack_id, name)
       @real_name = real_name
-      @display_name = display_name
+      #@display_name = display_name
     end
     
     def self.list 
@@ -22,10 +21,15 @@ module Slack
       user_list = []
       user_objects["members"].each do |member|
         # @users << member 
-        user_basic = self.new(member["slack_id"], member["name"], member["real_name"])
+        user_basic = self.new(member["id"], member["name"], member["real_name"])
+        #member["display_name"], member["email"] add back in later
         user_list << user_basic
       end
       return user_list
+    end
+    
+    def send_msg(message)
+      Recipient.send_msg(message, @slack_id)
     end
     
     
@@ -41,16 +45,9 @@ module Slack
       user_details["name"] = self.name
       user_details["real_name"] = self.real_name
       #user_details["display_name"] = self.display_name
-      # user_details["email"] = identified_user["email"]
       
       return user_details
     end
-    
-    #depends on getting the select object?
-    #?
-    # id 
-    # user name
-    # real name
     
   end
   

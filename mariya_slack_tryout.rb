@@ -5,8 +5,9 @@ require_relative 'lib/user'
 
 def main
   #@channel = Slack::Channel.new("CMUR2JTNX", "random", {"value"=>"", "creator"=>"", "last_set"=>0}, 7)
-  @user_sam = Slack::User.new("UMTG0S5D0", "samantha.collares", "Samantha Collares")
-  @user_list = @user_sam.list
+  # @user_sam = Slack::User.new("UMTG0S5D0", "samantha.collares", "Samantha Collares")
+  # @user_list = @user_sam.list
+  main_workspace = Slack::Workspace.new()
   
   #binding.pry
   #binding.pry
