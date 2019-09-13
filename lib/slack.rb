@@ -10,7 +10,7 @@ KEY = ENV['KEY']
 #CHAT_URL = "https://slack.com/api/chat.postMessage"
 
 def main
-  recepient = nil
+  recipient = nil
   users = Slack::User.list_users
   channels = Slack::Channel.list_channels
   
@@ -35,35 +35,34 @@ def main
       # Wave 2: Selection Method
     when "Select User"
       puts "Please enter a username or slack id to continue."
-      recepient_selection = gets.chomp
-      recepient = users.find {| user | user.user_name == recepient_selection || user.slack_id == recepient_selection }
-      if recepient == nil
+      recipient_selection = gets.chomp
+      if recipient == nil
         puts "No username or slack id found. Returning you to main menu."
       end
       
     when "Select Channel"
       puts "Please enter a channel name or slack id to continue."
-      recepient_selection = gets.chomp
-      recepient = channels.find {| channel | channel.channel_name == recepient_selection || channel.slack_id == recepient_selection }
-      if recepient == nil
+      recipient_selection = gets.chomp
+      recipient = channels.find {| channel | channel.channel_name == recipient_selection || channel.slack_id == recipient_selection }
+      if recipient == nil
         puts "No channel name or slack id found. Returning you to main menu."
       end
       
     when "See Details"
-      if recepient == nil # if no recepient is selected, no details can be shown
-        puts "No recepient currently selected. Returning you to main menu."
+      if recipient == nil # if no recipient is selected, no details can be shown
+        puts "No recipient currently selected. Returning you to main menu."
       else 
-        puts recepient.details # if recepient selected, show details
+        puts recipient.details # if recipient selected, show details
       end
       
       # Wave 3: Send Message
     when "Send Message"
-      if recepient == nil 
-        puts "No recepient currently selected. Returning you to main menu."
+      if recipient == nil 
+        puts "No recipient currently selected. Returning you to main menu."
       else 
         puts "Please enter your new message now."
         message = gets.chomp # user's input becomes 'message'
-        recepient.send_message(message) # user's message is sent to our Slack recepient 
+        recipient.send_message(message) # user's message is sent to our Slack recipient 
       end
       
     when "Quit"

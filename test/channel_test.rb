@@ -30,7 +30,7 @@ describe "Channel class" do
   # # Send message test
   # # need to discuss this section
   # describe "Send message" do 
-  #   it "sends a message to selected recepient" do 
+  #   it "sends a message to selected recipient" do 
   #     VCR.use_cassette("send_message") do
   #       channels = Slack::Channel.list_channels
   #       # channel = Channel.new("name", "topic", 1, 1234)
@@ -54,16 +54,6 @@ end
 
 # Yasmin's updates: but I put select method inside slack.rb? How to test this?
 
-#     it "Select user" do
-#       VCR.use_cassette("workspace") do
-#         # Act
-#         user = @users.select_user
-#       # user.details
-#       expected_output = "#{user}"
-#       expect(user).must_equal expected_output
-#       end
-#     end
-#   end
 #  # added
 #   describe "Workspace select_channel" do
 

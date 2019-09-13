@@ -43,4 +43,16 @@ describe "User class" do
       end
     end
   end
+
+  describe "Select user" do
+    it "returns the selected user" do
+      VCR.use_cassette("Users_list") do
+        # Act
+        user = Slack::User.select_user("slackbot")
+      # user.details
+      expected_output = "#{user}"
+      expect(user.user_name).must_equal "slackbot"
+      end
+    end
+  end
 end

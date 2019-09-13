@@ -1,4 +1,4 @@
-require_relative 'recepient'
+require_relative 'recipient'
 require 'dotenv'
 Dotenv.load
 
@@ -36,6 +36,12 @@ module Slack
     def details 
       "The name is #{@name}, the user name is #{@user_name}, and the slack id is #{@slack_id}"
     end
+    
+    def select_user(recipient_selection)
+      recipient = users.find {| user | user.user_name == recipient_selection || user.slack_id == recipient_selection }
+      recipient == nil
+    end
+    
     
     # method for send message
     

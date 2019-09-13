@@ -12,8 +12,7 @@ require 'webmock/minitest'
 
 require_relative '../lib/user'
 require_relative '../lib/channel'
-require_relative '../lib/recepient'
-require_relative '../lib/workspace'
+require_relative '../lib/recipient'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 

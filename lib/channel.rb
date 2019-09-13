@@ -1,4 +1,4 @@
-require_relative 'recepient'
+require_relative 'recipient'
 require 'dotenv'
 Dotenv.load
 
