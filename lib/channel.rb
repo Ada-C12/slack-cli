@@ -19,13 +19,22 @@ module SlackCLI
         topic = channel["topic"]["value"]
         member_count = channel["members"].length
 
-        SlackCLI::Channel.new(slack_id: slack_id, name: name, topic: topic, member_count: member_count)
+        SlackCLI::Channel.new(
+          slack_id: slack_id, 
+          name: name, 
+          topic: topic, 
+          member_count: member_count
+        )
       end
       
       return channels
     end
 
-    # def details
-    # end
+    def details
+      "Slack ID: #{slack_id}\n
+      Name:  #{name}\n
+      Topic: #{topic}\n 
+      Member Count: #{member_count}"
+    end
   end
 end

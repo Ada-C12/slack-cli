@@ -18,6 +18,7 @@ describe "Channel" do
 
       expect(new_channel.class < SlackCLI::Recipient).must_equal true
     end
+  end
 
   describe "self.list" do
     it "creates a list of all channels" do
@@ -27,13 +28,29 @@ describe "Channel" do
         expect(channel_list).must_be_instance_of Array
         expect(channel_list.first).must_be_instance_of SlackCLI::Channel
       end
+    end
+  end
 
+  describe "details" do
+    before do
+      VCR.use_cassette("list_channels") do
+        @channel_list = SlackCLI::Channel.list
+      end
     end
 
+    it "returns a string" do
+      channel_details = @channel_list[2].details
+
+      expect(channel_details).must_be_instance_of String
+    end
+
+    it "returns accurate details about the channel" do
+      channel_details = @channel_list[2].details
+
+      expect(channel_details).must_include "CN9NG0YUE"
+      expect(channel_details).must_include "random"
+      expect(channel_details).must_include "Non-work banter and water cooler conversation"
+      expect(channel_details).must_include "2"
+    end
   end
-
-
-
-  end
-
 end

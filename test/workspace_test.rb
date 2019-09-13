@@ -101,6 +101,34 @@ describe "Workspace" do
       expect(before_selected).must_be_nil
       expect(@new_workspace.selected).must_equal selection
     end
+
+    it "reassigns a Channel to selected" do
+      old_selection = @new_workspace.select_channel("general")
+      new_selection = @new_workspace.select_channel("random")
+
+      expect(@new_workspace.selected).wont_equal old_selection
+      expect(@new_workspace.selected.name).must_equal "random"
+    end
   end
-  
+
+  describe "show_details" do
+    it "returns details for a selected recipient" do
+      channel_id = "CN9NG0YUE"
+      user_id = "USLACKBOT"
+
+      @new_workspace.select_channel(channel_id)
+      details_1 = @new_workspace.show_details
+      @new_workspace.select_user(user_id)
+      details_2 = @new_workspace.show_details
+
+      expect(details_1).must_include "random"
+      expect(details_2).must_include "slackbot"
+    end
+
+    it "returns nil if no user or channel is selected" do
+      @new_workspace.selected == nil
+
+      expect(@new_workspace.show_details).must_be_nil
+    end
+  end
 end

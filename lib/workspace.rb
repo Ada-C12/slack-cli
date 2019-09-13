@@ -35,9 +35,9 @@ module SlackCLI
       return @selected
     end
     
-    
-    # def show_details
-    # end
+    def show_details
+      selected ? selected.details : nil
+    end
     
     # def send_message
     # end
