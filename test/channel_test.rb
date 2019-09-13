@@ -5,8 +5,10 @@ describe "Channel class" do
   
   describe "Channel instantiation" do
     before do
+      VCR.use_cassette("Channel_instantiation") do
       @channels = Slack::Channel.channels_list
     end
+  end
     
     it "is an instance of Channel" do
       expect(@channels.first).must_be_kind_of Slack::Channel

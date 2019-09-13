@@ -5,7 +5,14 @@ describe "User class" do
   
   describe "User instantiation" do
     before do
-      @users = Slack::User.users_list
+      # In our tests, to use VCR, we do the following:
+      # 1. Find every line in the tests that will make a request
+      # (In this case, it's Slack::User.users_list)
+      
+      # 2. We wrap those lines in this syntax
+      VCR.use_cassette("User_instantiation") do
+        @users = Slack::User.users_list
+      end
     end
     
     it "is an instance of User" do

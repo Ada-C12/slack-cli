@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/channels.list?token=xoxp-756139939207-754324678816-756443124580-b643c8aae168abc8d04b89376a7ec93d
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '696'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 23:49:20 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 52bb1148-c6e0-4ca6-89a1-bba73e0aa56d
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-icfx
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 6b03f32d70ff9f666371f69d2672d273.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - DSBXVb8BdXUUSRD1m2HfNJUOlCcZG5GsN-NQbU6GoftYt6MIBn2wgg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CMUPUL1R9","name":"pupper-pics","is_channel":true,"created":1568067981,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UMTERDBPU","name_normalized":"pupper-pics","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTERDBPU","UMURAK10T","UMURAL35H","UN69JKYQ0","UN69RK75K","UN85KTCHM"],"topic":{"value":"doggy
+        photoshoot","creator":"UN69RK75K","last_set":1568239058},"purpose":{"value":"To
+        share darn cute pupper pics!","creator":"UMTERDBPU","last_set":1568081755},"previous_names":[],"num_members":6},{"id":"CMWARHPNF","name":"sploots","is_channel":true,"created":1568159409,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN69RK75K","name_normalized":"sploots","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTERDBPU","UMURAK10T","UMURAL35H","UN69JKYQ0","UN69RK75K","UN85KTCHM"],"topic":{"value":"doggy
+        butts and toes","creator":"UN69RK75K","last_set":1568239045},"purpose":{"value":"look
+        at cute doggy butts and toes","creator":"UN69RK75K","last_set":1568159410},"previous_names":[],"num_members":6},{"id":"CN5PU7BBN","name":"general","is_channel":true,"created":1568067980,"is_archived":false,"is_general":true,"unlinked":0,"creator":"UMTERDBPU","name_normalized":"general","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTERDBPU","UMURAK10T","UMURAL35H","UN69JKYQ0","UN69RK75K","UN85KTCHM"],"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UMTERDBPU","last_set":1568067980},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UMTERDBPU","last_set":1568067980},"previous_names":[],"num_members":6},{"id":"CN689KKBP","name":"random","is_channel":true,"created":1568067980,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UMTERDBPU","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTERDBPU","UMURAK10T","UMURAL35H","UN69JKYQ0","UN69RK75K","UN85KTCHM"],"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UMTERDBPU","last_set":1568067980},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UMTERDBPU","last_set":1568067980},"previous_names":[],"num_members":6}],"response_metadata":{"next_cursor":""}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 23:49:18 GMT
+recorded_with: VCR 5.0.0

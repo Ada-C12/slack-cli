@@ -12,10 +12,10 @@ require 'vcr'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-# VCR.configure do |config|
-#   config.cassette_library_dir = "test/cassettes"
-#   config.hook_into :webmock
-# end
+VCR.configure do |config|
+  config.cassette_library_dir = "test/cassettes"
+  config.hook_into :webmock
+end
 
 require_relative "../lib/recipient.rb"
 require_relative "../lib/user.rb"

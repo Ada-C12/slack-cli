@@ -1,11 +1,13 @@
 require_relative "test_helper"
-# VCR.use_cassette("location_find") do
+# VCR.use_cassette("location_find") do  
 
 describe "Workspace Class" do
   
   describe "Workspace Instantiation" do
     before do
-      @workspace = Slack::Workspace.new 
+      VCR.use_cassette("users_list") do
+        @workspace = Slack::Workspace.new 
+      end
     end
     
     it "will haver 7 users" do
@@ -27,7 +29,9 @@ describe "Workspace Class" do
   
   describe "Workspace's Select User" do
     before do
-      @workspace = Slack::Workspace.new 
+      VCR.use_cassette("select_users") do
+        @workspace = Slack::Workspace.new 
+      end
     end
     
     it "will find the selected user in the list" do
@@ -44,7 +48,9 @@ describe "Workspace Class" do
   
   describe "Workspace's Select Channel" do
     before do
-      @workspace = Slack::Workspace.new 
+      VCR.use_cassette("channels_list") do
+        @workspace = Slack::Workspace.new 
+      end
     end
     
     it "will find the selected channel in the list" do
@@ -57,6 +63,8 @@ describe "Workspace Class" do
       this_channel = @workspace.select_channel("GDFG")
       expect(this_channel).must_equal false
     end
+    
+
     
   end #end for workspace select channel
   
