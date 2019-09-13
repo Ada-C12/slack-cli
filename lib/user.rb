@@ -17,7 +17,6 @@ class User < Recipient
     super(id, name)
     @real_name = real_name
   end
-
 end
 
 

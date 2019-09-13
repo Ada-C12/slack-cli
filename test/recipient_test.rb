@@ -11,23 +11,6 @@ describe "Recipient class" do
     end
   end
 
-  # describe "get method" do
-  #   it "can return a valid response" do
-  #     BASE_URL = "https://slack.com/api/users.list"
-  #     TOKEN = ENV["SLACK_TOKEN"]
-  #     QUERY = {
-  #       token: TOKEN
-  #     }
-  #     # VCR.use_cassette("workspace") do
-
-  #     recipient = Recipient.new("USLACKBOT", "slackbot")
-  #     recipient.get(BASE_URL, QUERY)
-
-  #     expect(recipient.get).must_be_true
-  #     # end
-  #   end
-  # end
-
   describe "details method" do
     it "will raise an error if this method is called" do
       recipient = Recipient.new("USLACKBOT", "slackbot")
