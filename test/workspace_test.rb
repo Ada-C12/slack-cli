@@ -33,8 +33,32 @@ describe "Workspace Class" do
     it "will find the selected user in the list" do
       this_user = @workspace.select_user("dnsanche")
       expect(this_user).must_equal true
+      this_user = @workspace.select_user("USLACKBOT").must_equal true
+    end
+    
+    it "will return false if username entered is invalid" do
+      this_user = @workspace.select_user("GDFG")
+      expect(this_user).must_equal false
     end
   end #end of workspace select user block
+  
+  describe "Workspace's Select Channel" do
+    before do
+      @workspace = Slack::Workspace.new 
+    end
+    
+    it "will find the selected channel in the list" do
+      this_channel = @workspace.select_channel("random")
+      expect(this_channel).must_equal true
+      this_channel = @workspace.select_channel("CMUPUL1R9").must_equal true
+    end
+    
+    it "will return false if username entered is invalid" do
+      this_channel = @workspace.select_channel("GDFG")
+      expect(this_channel).must_equal false
+    end
+    
+  end #end for workspace select channel
   
   
 end #end of workspace class

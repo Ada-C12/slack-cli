@@ -25,7 +25,6 @@ module Slack
       if found == false
         puts "The provided name/id doesn't match any user"
         sleep(0.5)
-        main
       end
       return found
     end
@@ -44,6 +43,7 @@ module Slack
         puts "The provided name/id doesn't match any channel"
         sleep(0.5)
       end
+      return found
     end
     
     def show_details
