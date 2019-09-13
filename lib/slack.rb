@@ -43,7 +43,7 @@ def main
 
     when "details"
       if workspace.selected == nil
-        puts "No recipient selected! Enter another command: "
+        puts "No recipient selected!"
         #user_input = gets.chomp
       else
         workspace.show_details
@@ -52,7 +52,7 @@ def main
       
     when "send message"
       if workspace.selected == nil
-        puts "No recipient selected! Enter another command: "
+        puts "No recipient selected!"
       else
         puts "What do you want to send to #{workspace.selected[0].name}?"
         message = gets.chomp
