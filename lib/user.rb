@@ -2,7 +2,7 @@ require_relative 'recipient'
 
 module Slack
   class User < Recipient
-    attr_reader :real_name, :status_text, :status_emoji
+    attr_reader :status_text, :real_name, :status_emoji
     
     def initialize(slack_id:, name:, real_name:, status_text:, status_emoji:)
       super(slack_id: slack_id, name: name)
@@ -10,11 +10,10 @@ module Slack
       @real_name = real_name
       @status_text = status_text
       @status_emoji = status_emoji
-      
     end
     
     def details
-      return "Slack id: #{slack_id}, Name: #{name}, Real name: #{real_name}, Status: #{status_text} #{status_emoji}"
+      return "Slack id: #{slack_id}, Name: #{name}, Real name: #{real_name}, Status Text: #{status_text}, Status Emoji: #{status_emoji}"
     end
     
     def self.parse_response(response)
@@ -30,6 +29,5 @@ module Slack
       
       return users
     end
-    
   end
 end

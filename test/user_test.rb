@@ -19,7 +19,7 @@ describe "User" do
   
   describe "details" do
     it "will return details for a user" do
-      expect(@user.details).must_equal "Slack id: 1, Name: taro, Real name: taro the corgi, Status: borking :boop:"
+      expect(@user.details).must_equal "Slack id: 1, Name: taro, Real name: taro the corgi, Status Text: borking, Status Emoji: :boop:"
     end
   end
   

@@ -99,5 +99,58 @@ describe "Workspace" do
       end
     end
   end
+  
+  describe "set_profile_name" do
+    it "can change profile name" do
+      # need to select profile of token to confirm change
+      @workspace.select_user("rvesteinsdottir")
+      
+      VCR.use_cassette("profile_test") do
+        response = @workspace.set_profile_name("random_name")
+        
+        expect(response).must_equal true
+      end
+      
+      expect(@workspace.selected.real_name).must_equal "random_name"
+    end
+    
+    it "raises error if api returns invalid response" do
+      VCR.use_cassette("profile_test") do
+        expect{
+          @workspace.set_profile_name("")
+        }.must_raise SlackApiError
+      end
+    end
+  end
+  
+  describe "set_profile_emoji" do
+    before do
+      # need to select profile of token to confirm change
+      @workspace.select_user("rvesteinsdottir")
+    end
+    
+    it "can change profile emoji" do
+      VCR.use_cassette("emoji_test") do
+        response = @workspace.set_profile_emoji(":rainbow:")
+        
+        expect(response).must_equal true
+      end
+      
+      expect(@workspace.selected.status_emoji).must_equal ":rainbow:"
+    end
+    
+    it "raises error if not emoji syntax" do
+      VCR.use_cassette("new_emoji") do
+        @workspace.set_profile_emoji(":rainbow:")
+        
+        test_emoji = @workspace.selected.status_emoji
+        
+        @workspace.set_profile_emoji("cloud")
+        
+        # emoji will not change if given invalid emoji syntax
+        expect(@workspace.selected.status_emoji).must_equal test_emoji
+      end
+    end
+  end
 end
 

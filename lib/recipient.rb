@@ -20,19 +20,11 @@ module Slack
     end
     
     def details
-      raise NotImplementedError, "Can't implement"
+      raise NotImplementedError, "Can't implement from recipient class."
     end
     
     def self.parse_response(response)
-      raise NotImplementedError, "Can't implement"
+      raise NotImplementedError, "Can't implement recipient class."
     end
-    
-    # def self.list
-    #   raise NotImplementedError, "Can't implement"
-    # end
-    
-    # def send_message(message)
-    # end
-    
   end
 end

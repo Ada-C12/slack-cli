@@ -8,10 +8,8 @@ module Slack
       super(slack_id: slack_id, name: name)
       
       @topic = topic
-      @member_count = member_count
-      
+      @member_count = member_count 
     end
-    
     
     def details
       return "Slack id: #{slack_id}, Name: #{name}, Topic: #{topic}, Member_count: #{member_count}"
@@ -29,6 +27,5 @@ module Slack
       
       return channels
     end
-    
   end
 end
