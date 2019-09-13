@@ -12,21 +12,4 @@ class Channel < Recipient
     @topic = topic
     @member_count = member_count
   end
-
-  def details
-  end
-
-
-  def self.list
-  #   BASE_URL = "https://slack.com/api/channels.list"
-  #   TOKEN = ENV["SLACK_TOKEN"]
-  
-  #   query = {
-  #   token: TOKEN
-  #   }
-  
-  # response = HTTParty.get(BASE_URL, query: query)
-  
-  # response["slackbot"]["members".first]["id"]
-  end
 end

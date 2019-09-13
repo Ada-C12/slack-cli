@@ -10,9 +10,9 @@ Dotenv.load
 class Workspace < Recipient
   BASE_URL = "https://slack.com/api/"
   TOKEN = ENV["SLACK_TOKEN"]
-  
   QUERY = {
-    token: TOKEN}
+    token: TOKEN
+  }
 
   attr_reader :users, :channels
   attr_accessor :selected
@@ -31,7 +31,6 @@ class Workspace < Recipient
     end
 
     return users
-
   end
 
   def get_channels
@@ -42,7 +41,6 @@ class Workspace < Recipient
     end
 
     return channels
-
   end
 
   def display_users
@@ -50,27 +48,26 @@ class Workspace < Recipient
   end
 
   def display_channels
-  
     tp @channels, :id, :name, :topic, :member_count
   end
 
   def select_user(user_input)
     selected_user = users.select { |user| user.name == user_input || user.id == user_input }
 
-    if selected_user == []
-      raise IndexError, "No user found"
-    else
+    unless selected_user == []
       @selected = selected_user
+    else
+      raise IndexError, "No user found"
     end
   end
 
   def select_channel(user_input)
     selected_channel = channels.select { |channel| channel.name == user_input || channel.id == user_input }
 
-    if selected_channel == []
-      raise IndexError, "No channel found"
-    else
+    unless selected_channel == []
       @selected = selected_channel
+    else
+      raise IndexError, "No channel found"
     end
   end
 
@@ -78,6 +75,6 @@ class Workspace < Recipient
     tp @selected
   end
 
-  def send_message
-  end
+  # def send_message
+  # end
 end
