@@ -53,8 +53,6 @@ module SlackBot
       response = @selected.send_message(message: message, slack_id: @selected.slack_id)
       if response["ok"] == true
         return puts "message sent"
-      else
-        return puts "Failure: message did not send.".colorize(:red)
       end
     end
   end

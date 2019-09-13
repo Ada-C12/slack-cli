@@ -2,78 +2,6 @@
 http_interactions:
 - request:
     method: post
-    uri: https://slack.com/api/chat.postMessage?channel=UN69SF69K&text=hello&token=SLACK_TOKEN
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '174'
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 13 Sep 2019 21:40:09 GMT
-      Server:
-      - Apache
-      X-Content-Type-Options:
-      - nosniff
-      X-Slack-Req-Id:
-      - ca59dbf8-4c0a-4419-9969-5d64ae8bcb5a
-      X-Oauth-Scopes:
-      - identify,channels:read,users:read,chat:write:bot
-      Expires:
-      - Mon, 26 Jul 1997 05:00:00 GMT
-      Cache-Control:
-      - private, no-cache, no-store, must-revalidate
-      Access-Control-Expose-Headers:
-      - x-slack-req-id, retry-after
-      X-Xss-Protection:
-      - '0'
-      X-Accepted-Oauth-Scopes:
-      - chat:write:bot
-      Vary:
-      - Accept-Encoding
-      Pragma:
-      - no-cache
-      Access-Control-Allow-Headers:
-      - slack-route, x-slack-version-ts
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      Referrer-Policy:
-      - no-referrer
-      Access-Control-Allow-Origin:
-      - "*"
-      X-Via:
-      - haproxy-www-fyfw
-      X-Cache:
-      - Miss from cloudfront
-      Via:
-      - 1.1 48324d3b69a5418ddcbd1f772305eff1.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - HIO51-C1
-      X-Amz-Cf-Id:
-      - 0IUqorszU0xJ111V8YBDC64uCy-WGwVYci9CwwX1Gh2n5bkQjoH4DQ==
-    body:
-      encoding: ASCII-8BIT
-      string: '{"ok":true,"channel":"DMZT2AAV7","ts":"1568410809.000100","message":{"type":"message","subtype":"bot_message","text":"hello","ts":"1568410809.000100","username":"Leaves
-        - Hallie - API Project","bot_id":"BMURM3VNF"}}'
-    http_version: 
-  recorded_at: Fri, 13 Sep 2019 21:40:07 GMT
-- request:
-    method: post
     uri: https://slack.com/api/chat.postMessage?channel=CMURA7JFM&text=hello&token=SLACK_TOKEN
     body:
       encoding: UTF-8
@@ -93,17 +21,17 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '173'
+      - '172'
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 21:45:07 GMT
+      - Fri, 13 Sep 2019 23:24:30 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 6f7b994c-f712-40ee-a4c2-99430d860cae
+      - 422b5f30-a019-432b-8ac9-753f3f3e72fc
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -129,19 +57,19 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-7zhp
+      - haproxy-www-kftm
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 7de3eef800cf24f49094394d8b5e8d1a.cloudfront.net (CloudFront)
+      - 1.1 b838ef1ff22a4a994af82d5178c30e1d.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - HIO51-C1
+      - SEA19-C1
       X-Amz-Cf-Id:
-      - uHMc4xBR9kYnCj3di7E067t1s2vAjnDkJ2fkQf9R1HqyZssi-V2Chg==
+      - XFIWuCfrkrJy1wrG4dqjwL-9_YSdxvVMZ-T5-GCKZWTR8AjWeNMDgQ==
     body:
       encoding: ASCII-8BIT
-      string: '{"ok":true,"channel":"CMURA7JFM","ts":"1568411107.000100","message":{"type":"message","subtype":"bot_message","text":"hello","ts":"1568411107.000100","username":"Leaves
+      string: '{"ok":true,"channel":"CMURA7JFM","ts":"1568417070.000100","message":{"type":"message","subtype":"bot_message","text":"hello","ts":"1568417070.000100","username":"Leaves
         - Hallie - API Project","bot_id":"BMURM3VNF"}}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 21:45:05 GMT
+  recorded_at: Fri, 13 Sep 2019 23:24:27 GMT
 recorded_with: VCR 5.0.0

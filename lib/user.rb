@@ -13,7 +13,8 @@ module SlackBot
     end
     
     def details
-      tp self, "slack_id", "name", "real_name"
+      output =tp self, "slack_id", "name", "real_name"
+      return output
     end
     
     def self.list

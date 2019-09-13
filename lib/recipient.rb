@@ -27,7 +27,7 @@ module SlackBot
       response = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV["SLACK_TOKEN"], channel: slack_id, text: message})
       
       if response["ok"] == false
-        raise Exception
+        raise Exception, "Failure: message did not send.".colorize(:red)
       else
         return response
       end
