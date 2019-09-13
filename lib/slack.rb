@@ -3,7 +3,10 @@ require "httparty"
 require "awesome_print"
 require "colorize"
 require "table_print"
+require 'dotenv'
 require_relative "workspace"
+require_relative 'message'
+Dotenv.load
 
 def main
   @workspace = Slack::Workspace.new()
@@ -23,10 +26,10 @@ def main
     case option
     when "list users", "1"
       tp @workspace.users, "name", "id", "real_name"
-      sleep(3)
+      sleep(2)
     when "list channels", "2"
       tp @workspace.channels, "name", "id", "topic", "member_count"
-      sleep(3)
+      sleep(2)
     when "select user", "3"
       puts "Please enter username or Slack ID"
       user_selection = gets.chomp
@@ -37,9 +40,23 @@ def main
       @workspace.select_channel(channel_selection)
     when "details", "5"
       puts @workspace.show_details
-      sleep(3)
+      sleep(2)
     when "send message", "6"
-      
+    recipient = @workspace.recipient
+      if recipient.class == Slack::Channel
+        print "Please enter the message: "
+        message = gets.chomp
+        name = recipient.name
+        Slack.send_msg(message, name)
+      elsif recipient.class == Slack::User
+        print "Please enter the message: "
+        message = gets.chomp
+        name = recipient.name
+        Slack.send_msg(message, name)
+      else recipient == nil
+        puts "No recipient selected"
+        sleep(2)
+      end
     when "quit", "7"
       exit
     end
