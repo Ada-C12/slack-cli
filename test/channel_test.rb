@@ -39,18 +39,24 @@ describe "Channel" do
     end
 
     it "returns a string" do
-      channel_details = @channel_list[2].details
+      VCR.use_cassette("get_channel_info") do
+        channel_details = @channel_list[2].details
 
-      expect(channel_details).must_be_instance_of String
+        expect(channel_details).must_be_instance_of String
+      end
     end
 
     it "returns accurate details about the channel" do
-      channel_details = @channel_list[2].details
+      VCR.use_cassette("get_channel_info") do
+        channel_details = @channel_list[2].details
 
-      expect(channel_details).must_include "CN9NG0YUE"
-      expect(channel_details).must_include "random"
-      expect(channel_details).must_include "Non-work banter and water cooler conversation"
-      expect(channel_details).must_include "2"
+        expect(channel_details).must_include "CN9NG0YUE"
+        expect(channel_details).must_include "random"
+        expect(channel_details).must_include "Non-work banter and water cooler conversation"
+        expect(channel_details).must_include "2"
+        expect(channel_details).must_include "RANDOMNESS!!! YES!"
+        expect(channel_details).must_include "false"
+      end
     end
   end
 end

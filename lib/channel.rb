@@ -31,10 +31,21 @@ module SlackCLI
     end
 
     def details
+      key = ENV["API_TOKEN"]
+      response = HTTParty.get("https://slack.com/api/channels.info", query: {token: key , channel: @slack_id})
+      if response.keys.include? "error"  || response["ok"] == false
+        raise SlackCLI::SlackApiError
+      end
+
+      purpose = response["channel"]["purpose"]["value"]
+      is_private = response["channel"]["is_private"] ? "true" : "false"
+
       "Slack ID: #{slack_id}\n" +
       "Name:  #{name}\n" +
       "Topic: #{topic}\n" +
-      "Member Count: #{member_count}"
+      "Member Count: #{member_count}" +
+      "Purpose: #{purpose}" +
+      "Is Private? #{is_private}"
     end
   end
 end

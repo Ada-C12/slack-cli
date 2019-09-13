@@ -1,0 +1,151 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/users.info?token=<API_TOKEN>&user=USLACKBOT
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '484'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 22:07:12 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - c2897c03-e838-48b9-8c62-7da44a72faea
+      X-Oauth-Scopes:
+      - identify,read,post,client,apps,admin
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - users:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-xtep
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 73bd23077f64204bc8f5efea09d16ebd.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - bby2dVN_c7fJqTG6sTp1ex7MoD5p0B--z0NB-3Lfk1X2Lhr_AIJJ3A==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"user":{"id":"USLACKBOT","team_id":"TMW2GFQAF","name":"slackbot","deleted":false,"color":"757575","real_name":"Slackbot","tz":null,"tz_label":"Pacific
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Slackbot","real_name_normalized":"Slackbot","display_name":"Slackbot","display_name_normalized":"Slackbot","fields":null,"status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"sv41d8cd98f0","always_active":true,"first_name":"slackbot","last_name":"","image_24":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_24.png","image_32":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_32.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_72.png","image_192":"https:\/\/a.slack-edge.com\/80588\/marketing\/img\/avatars\/slackbot\/avatar-slackbot.png","image_512":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_512.png","status_text_canonical":"","team":"TMW2GFQAF"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":0,"has_2fa":false}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 22:07:12 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/channels.info?channel=CN9NG0YUE&token=<API_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '492'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 22:27:37 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - d6886f22-154b-46de-9bc9-3d65c878f05b
+      X-Oauth-Scopes:
+      - identify,read,post,client,apps,admin
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-rg8i
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 9f2fa0c5a611130a0b26673bb62c8388.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19
+      X-Amz-Cf-Id:
+      - gWLJ31KhQgRpf7mzeZmmQ_AMxpB0iDJ4NUUhKhRbplT9ea0sOji2hg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":{"id":"CN9NG0YUE","name":"random","is_channel":true,"created":1568143383,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN9NG04TG","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"last_read":"1568399587.000200","latest":{"type":"message","subtype":"bot_message","text":"trying
+        to send from recipient_test","ts":"1568399587.000200","username":"Slack API
+        Tester","bot_id":"BMXAJ972P"},"unread_count":0,"unread_count_display":0,"members":["UN9C6R7EK","UN9NG04TG"],"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN9NG04TG","last_set":1568143383},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UN9NG04TG","last_set":1568143383},"previous_names":[]}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 22:27:37 GMT
+recorded_with: VCR 5.0.0

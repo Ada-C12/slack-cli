@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/channels.info?channel=CN9NG0YUE&token=<API_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '408'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 22:28:29 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 404ec31c-a6a6-4b05-a0f4-fc44588bc115
+      X-Oauth-Scopes:
+      - identify,read,post,client,apps,admin
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-qdiq
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a2a7227d0a99f50bffb8ba79de64ab0f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19
+      X-Amz-Cf-Id:
+      - LUJ76hop7c0sYDZMAqjmBFynR6rJGBBFjHa-HEyLUSoWn-OSXP5C7g==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":{"id":"CN9NG0YUE","name":"random","is_channel":true,"created":1568143383,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN9NG04TG","name_normalized":"random","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"last_read":"1568413677.000100","latest":{"user":"UN9NG04TG","type":"message","subtype":"channel_purpose","ts":"1568413677.000100","text":"<@UN9NG04TG>
+        set the channel purpose: RANDOMNESS!!! YES!","purpose":"RANDOMNESS!!! YES!"},"unread_count":0,"unread_count_display":0,"members":["UN9C6R7EK","UN9NG04TG"],"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN9NG04TG","last_set":1568143383},"purpose":{"value":"RANDOMNESS!!!
+        YES!","creator":"UN9NG04TG","last_set":1568413677},"previous_names":[]}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 22:28:29 GMT
+recorded_with: VCR 5.0.0
