@@ -7,11 +7,10 @@ class Recipient
   end
 
 
-
   def get(url, query)
     return HTTParty.get(url, query)
   end
-
+  
 
   # ABSTRACT METHODS
   def details

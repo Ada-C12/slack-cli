@@ -40,38 +40,25 @@ class Workspace < Recipient
     channels = response["channels"].map do |channel|
       Channel.new(channel["id"], channel["name"], channel["topic"]["value"], channel["num_members"])
     end
-
     return channels
-
   end
 
   def display_users
-    return tp @users, :id, :name, :real_name
+    tp @users, :id, :name, :real_name
+    puts "\n\n"
   end
 
   def display_channels
-  
     tp @channels, :id, :name, :topic, :member_count
+    puts "\n\n"
   end
 
   def select_user(user_input)
-    selected_user = users.select { |user| user.name == user_input || user.id == user_input }
-
-    if selected_user == []
-      raise IndexError, "No user found"
-    else
-      @selected = selected_user
-    end
+    @selected = users.select { |user| user.name == user_input || user.id == user_input }
   end
 
   def select_channel(user_input)
-    selected_channel = channels.select { |channel| channel.name == user_input || channel.id == user_input }
-
-    if selected_channel == []
-      raise IndexError, "No channel found"
-    else
-      @selected = selected_channel
-    end
+    @selected = channels.select { |channel| channel.name == user_input || channel.id == user_input }
   end
 
   def show_details

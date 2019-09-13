@@ -30,7 +30,18 @@ describe "Workspace class" do
     expect(users[0].id).must_equal "USLACKBOT"
     expect(users[0].name).must_equal "slackbot"
     expect(users[0].real_name).must_equal "Slackbot"
-  
+    end
+  end
+
+  it "can return channel details" do
+    VCR.use_cassette("channel_list_generation") do
+      workspace = Workspace.new
+      channels = workspace.channels
+
+    expect(channels[2].id).must_equal "CN9N9ECF8"
+    expect(channels[2].name).must_equal "random"
+    expect(channels[2].topic).must_equal "Non-work banter and water cooler conversation"
+    expect(channels[2].member_count).must_equal 2
     end
   end
 
