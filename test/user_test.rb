@@ -2,7 +2,7 @@ require_relative 'test_helper'
 
 describe 'class user' do
   let(:user){Slack::User.new(id: "USLACKBOT", name: "slackbot", real_name: "Slackbot", status_text: "Print is dead", status_emoji: ":books:")}
-
+  
   describe 'initialize' do 
     
     it 'creates a new instance of User' do
@@ -30,7 +30,7 @@ describe 'class user' do
   
   describe 'self.list' do 
     it "returns an array of user objects" do 
-      VCR.use_cassette("list_users") do
+      VCR.use_cassette("user_list_cassette") do
         list = Slack::User.list
         expect(list).must_be_instance_of Array 
         list.each do |user|
@@ -39,18 +39,18 @@ describe 'class user' do
       end
     end
   end
-
+  
   describe 'details' do
     let(:result){user.details}
-
+    
     it 'returns a hash' do
       expect(result).must_be_instance_of Hash
     end
-
+    
     it 'returns a hash with length 5' do
       expect(result.length).must_equal 5
     end
-
+    
     it "accurately stores the current user's information" do
       expect(result[:username]).must_equal 'slackbot'
       expect(result[:id]).must_equal 'USLACKBOT'
@@ -58,7 +58,7 @@ describe 'class user' do
       expect(result[:status_text]).must_equal 'Print is dead'
       expect(result[:status_emoji]).must_equal ':books:'
     end
-
+    
   end
   
 end
