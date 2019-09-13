@@ -20,13 +20,16 @@ def main
   while user_answer != 5
     if user_answer == 1
       Channel.printed_channels_list
+
     elsif user_answer == 2
       puts User.printed_users_list
+
     elsif user_answer == 3
       puts User.printed_users_list
       puts "Please enter a username or Slack ID:"
       desired_person = gets.chomp
       puts User.select_user_details(desired_person)
+      
     elsif user_answer == 4      
       Channel.printed_channels_list
       puts "Please enter a channel name or Slack ID"
