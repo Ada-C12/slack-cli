@@ -21,21 +21,26 @@ def main
     option = gets.chomp.downcase
     
     case option
-    when "list users"
+    when "list users", "1"
       tp @workspace.users, "name", "id", "real_name"
-    when "list channels"
+      sleep(5)
+    when "list channels", "2"
       tp @workspace.channels, "name", "id", "topic", "member_count"
-    when "select user"
+      sleep(5)
+    when "select user", "3"
       puts "Please enter username or Slack ID"
       user_selection = gets.chomp.downcase
       puts @workspace.select_user(user_selection)
-    when "select channel"
+    when "select channel", "4"
       puts "Please enter channel name or Slack ID"
       channel_selection = gets.chomp.downcase
       puts @workspace.select_channel(channel_selection)
-    when "details"
+    when "details", "5"
       puts @workspace.show_details
-    when "quit"
+      sleep(5)
+    when "send message", "6"
+      
+    when "quit", "7"
       exit
     end
   end
