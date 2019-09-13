@@ -154,4 +154,67 @@ http_interactions:
         you''d prefer to keep out of more focused work-related channels.","creator":"UN7G5G4TF","last_set":1568143132},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
   recorded_at: Fri, 13 Sep 2019 01:45:21 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/users.list
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '53'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 19:19:26 GMT
+      Server:
+      - Apache
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Accepted-Oauth-Scopes:
+      - users:read
+      Vary:
+      - Accept-Encoding
+      X-Slack-Req-Id:
+      - '09de2226-d01b-45a5-9ede-33edc331f70e'
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-m81p
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 098a28c90e7d4eca5d6cebe57828e74d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - 8l0IxGRxUXxZy207w73clG56JlOPEF3Zt6lILPBAhHuJujZ1PU8epg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"not_authed"}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 19:19:25 GMT
 recorded_with: VCR 5.0.0
