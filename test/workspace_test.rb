@@ -67,14 +67,14 @@ describe 'select user' do
   it 'allows user to select user' do
     expect(workspace.select_user("Slackbot")).must_be_instance_of SlackCLI::User
   end
-  it "puts an 'invalid' msg when not a known user" do
-    expect(workspace.select_user("Mr. T")).must_include "Invalid"
+  it "returns nil when not a known user" do
+    expect(workspace.select_user("Mr. T")).must_be_nil
   end
   it 'allows user to select channel' do
     expect(workspace.select_channel("random")).must_be_instance_of SlackCLI::Channel
   end
-  it "puts an 'invalid' msg when not a known channel" do
-    expect(workspace.select_channel("MTV")).must_include "Invalid"
+  it "returns nil when not a known channel" do
+    expect(workspace.select_channel("MTV")).must_be_nil
   end
 end
 
@@ -88,13 +88,13 @@ describe 'prints details about selected user or channel' do
     selected = workspace.select_channel('random')
     expect(workspace.print_details(selected)).must_be_kind_of Array
     selected = workspace.select_channel('random')
-    expect(workspace.print_details(selected).length).must_equal 5
+    expect(workspace.print_details(selected)[0].length).must_equal 4
     selected = workspace.select_user('Slackbot')
     expect(workspace.print_details(selected)).must_be_kind_of Array
     selected = workspace.select_user('Slackbot')
-    expect(workspace.print_details(selected).length).must_equal 4
+    expect(workspace.print_details(selected)[0].length).must_equal 5
   end
-  it 'complains when no user or channel is selected' do
-    expect(workspace.print_details(@selected)).must_include "Invalid"
+  it 'returns nil no user or channel is selected' do
+    expect(workspace.print_details(@selected)).must_be_nil
   end
 end

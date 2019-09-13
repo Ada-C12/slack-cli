@@ -31,7 +31,7 @@ def main
       tp tsu.list_users
     when "list channels"
       tp tsu.list_channels
-      ## make helper method for validation to DRY up code
+      ## make helper method for validation to DRY up code, here (select user and channel) and in print details
     when "select user"
       print "Please select a user (by Slack ID or Display Name): "
       user_chosen = gets.chomp
