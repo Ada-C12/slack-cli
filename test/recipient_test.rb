@@ -1,11 +1,18 @@
 require_relative 'test_helper'
 
-describe "user class tests" do 
-    before do 
-      @recipient1 = SlackCli::Recipient.new(name:"Sara", id: "6")
+describe "recipent class tests" do 
+  before do 
+    @selected_recipient =  SlackCli::User.new(
+      name: "monick.keo",
+      real_name: "monick.keo",
+      id: "UN8JZT96J"
+    )
+    message = "IT WORKS!"
+  end 
+
+  it "should send a message to selected recipient" do 
+    VCR.use_cassette("slack_details") do
+      expect(SlackCli::Recipient.send_message(channel:@selected_recipient.id, text:message)).must_equal "IT WORKS!"
     end 
-  
-    it "should instanitate as SlackCli::User" do
-      expect(@recipient1).must_be_kind_of SlackCli::Recipient
-    end 
+  end 
 end 

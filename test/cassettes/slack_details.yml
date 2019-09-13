@@ -306,4 +306,146 @@ http_interactions:
         you''d prefer to keep out of more focused work-related channels.","creator":"UN8JZT96J","last_set":1568082002},"previous_names":[],"num_members":2},{"id":"CN88Q9RAB","name":"slack-cli","is_channel":true,"created":1568082003,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UN8JZT96J","name_normalized":"slack-cli","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UN8JZT96J","UN8LCAGES"],"topic":{"value":"","creator":"","last_set":0},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
   recorded_at: Wed, 11 Sep 2019 22:34:47 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UN8JZT96J&text=%23%3CProc:0x00007ff717d91d48@/Users/monick/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/minitest-5.11.3/lib/minitest/assertions.rb:518%3E&token=<SLACK_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '253'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 18:16:26 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - f03e4575-eaee-44b3-8d97-f0122bbe2edf
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-m81p
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d2bb0dc1233d3ab1747a4a160c14c25b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - 8pPuh_jIEJnMki58UfBwWt43lRELTV9MD2GCt9JCau9swws1qskDgg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DN6CP2UKS","ts":"1568398586.000100","message":{"type":"message","subtype":"bot_message","text":"#&lt;Proc:0x00007ff717d91d48@\/Users\/monick\/.rbenv\/versions\/2.5.5\/lib\/ruby\/gems\/2.5.0\/gems\/minitest-5.11.3\/lib\/minitest\/assertions.rb:518&gt;","ts":"1568398586.000100","username":"slack-cli","bot_id":"BN7MB352R"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 18:16:26 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage?channel=UN8JZT96J&text=%23%3CProc:0x00007fb378674f98@/Users/monick/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/minitest-5.11.3/lib/minitest/assertions.rb:518%3E&token=<SLACK_TOKEN>
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '253'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 13 Sep 2019 18:17:28 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - b7573b4b-9fc1-4dcf-86bf-9d360a800291
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-wsq7
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 bf747dc419d7840e37c22083d04ecd8e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - HIO51-C1
+      X-Amz-Cf-Id:
+      - 8ZnIAnloArrm-ub8AboKbUMeAYuWYrNxP4olEqUvi1KluKkgad9zxA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"DN6CP2UKS","ts":"1568398648.000200","message":{"type":"message","subtype":"bot_message","text":"#&lt;Proc:0x00007fb378674f98@\/Users\/monick\/.rbenv\/versions\/2.5.5\/lib\/ruby\/gems\/2.5.0\/gems\/minitest-5.11.3\/lib\/minitest\/assertions.rb:518&gt;","ts":"1568398648.000200","username":"slack-cli","bot_id":"BN7MB352R"}}'
+    http_version: 
+  recorded_at: Fri, 13 Sep 2019 18:17:28 GMT
 recorded_with: VCR 5.0.0

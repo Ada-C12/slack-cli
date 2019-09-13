@@ -5,16 +5,15 @@ Dotenv.load
 
 module SlackCli
   class Recipient
-    def self.send_message(channel:, text:)
+    def self.send_message(recipient:, message:)
       method_url = "https://slack.com/api/chat.postMessage"
       query_params = {
         token: ENV["SLACK_TOKEN"],
-        channel: channel,
-        text: text  
+        channel: recipient,
+        text: message
       }
       slack_post = HTTParty.post(method_url, query: query_params)
-      puts slack_post
-      puts channel
+      return slack_post
     end 
   end 
 

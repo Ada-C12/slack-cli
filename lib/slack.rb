@@ -10,7 +10,7 @@ require_relative 'user'
 
 def start_program
   ap "Welcome to the Ada Slack CLI!"
-  print "What would you like to do? Type one of the following:\n list channels\n list users\n select user\n select channel\n details\n quit\n"
+  print "What would you like to do? Type one of the following:\n list channels\n list users\n select user\n select channel\n details\n send message\n quit\n"
   user_input = gets.chomp.downcase
   while user_input != "quit"  
     case user_input 
@@ -31,6 +31,23 @@ def start_program
           name: selected_recipient[:user_name],
           real_name: selected_recipient[:real_name],
           id: selected_recipient[:id]
+        )
+        ap "Recipient has been selected."
+      end
+    when "select channel"
+      ap "Type a username or Slack ID."
+      search_channel = gets.chomp
+      selected_recipient = SlackCli::Channel.list.find do |i|
+        i[:name]== search_channel || i[:id] == search_channel
+      end
+      if selected_recipient == nil 
+        ap "Channel not found"
+      else 
+        selected_recipient = SlackCli::Channel.new(
+          name: selected_recipient[:name],
+          topic: selected_recipient[:topic],
+          id: selected_recipient[:id],
+          num_members: selected_recipient[:num_members]
         )
         ap "Recipient has been selected."
       end
@@ -58,7 +75,7 @@ def start_program
       ap "Type a message to send:"
       message = gets.chomp
       #send the message in recipient class method send_message
-      SlackCli::Recipient.send_message(channel:selected_recipient.id, text:message)
+      SlackCli::Recipient.send_message(recipient:selected_recipient.id, message:message)
     else 
       ap "Not a valid command"
     end 
