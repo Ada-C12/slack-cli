@@ -2,6 +2,7 @@ require_relative 'channel'
 require_relative 'user'
 require_relative 'slack'
 require "table_print"
+require 'pry'
 
 
 class Workspace
@@ -15,28 +16,36 @@ class Workspace
   
   
   def select_channel(selection)
-    # tp Channel.list, :slack_id, :name, :topic, :member_count
+
+      
+    end
+    
+    
+    def select_user(selection)
+      @selected = @users.find do |user|
+        user.user_name == selection || user.slack_id == selection
+      end
+      
+    end
+    
+    
+    
+    def show_details
+      
+      
+    end
+    
+    
+    def send_message
+      
+      
+      
+    end
     
   end
   
   
-  def select_user
-    
-    
-  end
+  a = Workspace.new
+  p a.select_user("erika.maust")
+  # p a.selected
   
-  
-  def show_details
-    
-    
-  end
-  
-  
-  def send_message
-    
-    
-    
-  end
-  
-  
-end

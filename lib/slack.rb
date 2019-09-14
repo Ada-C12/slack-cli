@@ -34,7 +34,16 @@ def main
         #{channel.member_count}
         """
       end
+      
+    when "select user"
+      puts "Please give me the username or ID"
+      selection = gets.chomp.downcase
+      if workspace.select_user(selection) != nil
+        puts "Invalid input. Username or ID does not exist"
+      end
+      
     end
+    
     puts "Please select one of the following: \'list users\', \'list channels\', or \'quit\': "
     user_input = gets.chomp.downcase
   end
