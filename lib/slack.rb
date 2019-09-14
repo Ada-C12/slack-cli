@@ -11,7 +11,7 @@ def main
   user_choice = nil
   
   until user_choice == "3"
-    puts "Welcome to the Ada Slack CLI! Put quit to exit the program"
+    puts "\nWelcome to the Ada Slack CLI! Put quit to exit the program"
     
     # user can list users, chanels, or quit
     user_choice = prompt(
@@ -55,6 +55,7 @@ def main
       
       # sends messages or shows details for selected client
       if communication_choice == "1"
+        puts "\n---DETAILS---"
         workspace.show_details
       elsif communication_choice == "2"
         puts "Please enter a message: "
@@ -91,9 +92,10 @@ def main
       )
       
       if communication_choice == "1"
+        puts "\n---DETAILS---"
         workspace.show_details
       elsif communication_choice == "2"
-        print "Please enter a message: > "
+        "\nPlease enter a message: > "
         message = gets.chomp
         workspace.send_message(message)
       end
@@ -106,6 +108,7 @@ def main
 end
 
 def prompt(message, options)
+  puts
   puts message
   options.each_with_index do |option, index|
     puts "#{index + 1}. #{option}"
