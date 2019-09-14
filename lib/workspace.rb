@@ -34,6 +34,8 @@ class Workspace
     if @selected != nil
       if @selected.class == Channel
         return @selected.purpose
+      elsif @selected.class == User
+        return @selected.status_text
       end
     else
       return nil
@@ -51,7 +53,7 @@ class Workspace
 end
 
 
-a = Workspace.new
-a.select_channel("general")
-p a.show_details
+# a = Workspace.new
+# a.select_channel("general")
+# p a.show_details
 # p a.selected

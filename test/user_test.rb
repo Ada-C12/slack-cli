@@ -14,12 +14,12 @@ describe "User class" do
   
   it "instantiate the User class" do
     
-    expect(User.new(slack_id: 234, user_name: "thewho", real_name:"The What")).must_be_instance_of User
+    expect(User.new(slack_id: 234, user_name: "thewho", real_name:"The What", status_text: "Well, well, well")).must_be_instance_of User
     
   end
   
   it "assigns correct value to instance variables" do
-    users = User.new(slack_id: 234, user_name: "thewho", real_name:"The What")
+    users = User.new(slack_id: 234, user_name: "thewho", real_name:"The What", status_text: "Well, well, well")
     
     expect(users.slack_id).must_equal 234
     expect(users.user_name).must_equal "thewho"

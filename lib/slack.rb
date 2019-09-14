@@ -61,28 +61,6 @@ def main
   end
   
   
-  
-  
-  
-  #   puts "Please select one of the following: \'list user\', \'list channels\', or \'quit\': "
-  #   user_input = gets.chomp.downcase
-  # case 
-  
-  #   Workspace.select_channel(user_input)
-  
-  
-  # when "list channels"
-  
-  
-  #   puts "Please select one of the following: \'list user\', \'list channels\', or \'quit\': "
-  #   user_input = gets.chomp.downcase
-  # when "quit"
-  #   break
-  # else
-  
-  # puts "Invalid input. Please select \'list user\', \'list channels\', or \'quit\': "
-  # user_input = gets.chomp.downcase
-  
   puts "Thank you for using the Ada Slack CLI"
   # puts response['members'].first.keys
   
