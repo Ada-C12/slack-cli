@@ -1,18 +1,11 @@
-class Channel
+require_relative 'recipient'
+
+class Channel < Recipient
   
-  attr_reader :name, :slack_id, :topic, :member_count 
+  attr_reader :topic, :member_count 
   
   def initialize(name:, slack_id:, topic:, member_count:)
-    
-    if name.class != String
-      raise ArgumentError.new, "wrong format for initiating name"
-    end
-    @name = name
-    
-    if slack_id.class != String 
-      raise ArgumentError.new, "wrong format for initiating id"
-    end
-    @slack_id = slack_id
+    super(name: name, slack_id: slack_id)
     
     if topic.class != String
       raise ArgumentError.new, "Wrong format for topic!"

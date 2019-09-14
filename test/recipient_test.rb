@@ -38,27 +38,3 @@ describe "fleshed-out methods of being able to provide a detailed summary" do
     expect{detail_free_recipient.details}.must_raise NotImplementedError
   end
 end
-
-describe "fleshed-out methods of being able to make a list of instances of itself" do
-  it "does not implement a self.list method" do
-    expect{Recipient.list}.must_raise NotImplementedError
-  end
-end
-
-
-
-xdescribe "recipient implemented methods" do
-  it "responds to needing to send messages" do
-    #add guts later, for now, acknowledge request 
-  end
-  
-  it "has a class method to fetch its own URL" do
-    # Clara thinks this might be send messages? Who knows? ? 
-  end
-  
-  it "has a class method to fetch its own params" do
-    # Clara thinks this might be send messages? Who knows? ? 
-  end
-  
-  
-end

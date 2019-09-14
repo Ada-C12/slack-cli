@@ -16,12 +16,9 @@ class Recipient
     
   end
   
-  
+
   def details
     raise NotImplementedError.new "not implemented in recipient class"
   end
   
-  def self.list
-    raise NotImplementedError.new "not implemented in recipient class"
-  end
 end

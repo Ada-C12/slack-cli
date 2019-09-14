@@ -1,22 +1,12 @@
-class User
+require_relative 'recipient'
+
+class User < Recipient
   
-  attr_reader :name, :slack_id, :real_name, :status_text, :status_emoji 
+  attr_reader :real_name, :status_text, :status_emoji 
   
   def initialize(name:, slack_id:, real_name:, status_text:, status_emoji:)
-    
-    if name.class != String
-      raise ArgumentError.new, "Wrong format for real name initialization"
-    else 
-      @name = name
-    end 
-    
-    if slack_id.class != String
-      raise ArgumentError.new, "Wrong format for real name initialization"
-    else 
-      @slack_id = slack_id
-    end 
-    
-    
+    super(name: name, slack_id: slack_id)
+
     if real_name.class != String
       raise ArgumentError.new, "Wrong format for real name initialization"
     else 
