@@ -88,7 +88,7 @@ def main_menu(workspace)
 end
 
 def make_a_selection(workspace)
-  print "\n If you would like to select a user or channel, please enter their corresponding name or Slack ID. You may type \'QUIT\' to  quit.: "
+  print "\n You will be able to see details or send a message soon! Please select a user or channel by entering their corresponding name or Slack ID. If you'd like to exit, you may type \'QUIT\' to  quit the program.: "
   second_input = gets.chomp.downcase  
   
   if second_input == "quit" 
@@ -123,10 +123,11 @@ def make_a_selection(workspace)
 end 
 
 def display_selected(workspace, selection) 
-  
   puts "\n What would you like to know?
-  \n \t * Details
-  \n \t * Quit"
+  \t * Details
+  \t * Send message
+  \t * Quit"
+  
   third_input = gets.chomp.downcase
   if third_input == "quit"
     return nil
@@ -140,8 +141,24 @@ def display_selected(workspace, selection)
     elsif selection[1] == "channel"
       return selection_text.details
     end
+  elsif third_input == "send message" 
+    success_of_messaging = sending_message(workspace, selection)
+    if success_of_messaging == true
+      puts "You successfully sent your message. Great"
+    else
+      puts "Your message did not send. Sorry."
+    end
   end
 end 
+
+def sending_message(workspace, selection)
+  puts "What message do you want to send to #{selection[0].name}? \n Type it here: "
+  message = gets.chomp
+  
+  success_of_sending = workspace.api_message_send(message, selection[0])
+  return success_of_sending
+  
+end
 
 
 main if __FILE__ == $PROGRAM_NAME

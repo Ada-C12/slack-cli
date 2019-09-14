@@ -66,6 +66,22 @@ class Workspace
     return user_response["ok"] == true 
   end
   
+  def api_message_send(message, recipient)
+    url = "https://api.slack.com/api/chat.postMessage"
+    api_key = ENV['SLACK_TOKEN']
+    text = message 
+    
+    being_messaged = recipient.slack_id 
+    query_parameters = {"token" => api_key,
+      "channel" => being_messaged,
+      "text" => text 
+    }
+    
+    response = HTTParty.post(url, query: query_parameters)
+    
+    return response["ok"] == true 
+  end 
+  
   def make_users(response)
     total_users = response["members"].length
     i = 0
@@ -111,4 +127,5 @@ class Workspace
       i += 1
     end
   end
+  
 end
