@@ -36,7 +36,7 @@ module Slack
     end
     
     def user_message(message, slack_id)
-      response = @selected.send_message(@selected.slack_id, message)
+      @selected.send_message(@selected.slack_id, message)
       return puts "Ok. Message sent."      
     end 
   end

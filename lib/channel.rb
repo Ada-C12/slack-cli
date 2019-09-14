@@ -22,23 +22,13 @@ module Slack
       
       response["channels"].each do |channel|
         channels << Channel.new(
-        slack_id = channel["id"],
-        name = channel["name"],
-        topic = channel["topic"]["value"],
-        member_count = channel["num_members"],
+          slack_id = channel["id"],
+          name = channel["name"],
+          topic = channel["topic"]["value"],
+          member_count = channel["num_members"],
         )
       end
       return channels
-      #p channels
     end 
   end
-end 
-
-
-#   channel_hash = {}
-#   channel_hash[:slack_id] = channel["id"]
-#   channel_hash[:name] = channel["name"]
-#   channel_hash[:topic] = channel["topic"]["value"]
-#   channel_hash[:member_count] = channel["num_members"]
-
-#   channels << channel_hash
+end

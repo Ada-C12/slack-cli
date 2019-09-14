@@ -81,3 +81,14 @@ describe "select channel" do
     end 
   end
 end
+
+# describe "show details method" do  
+#   it "returns an instance of user"
+#   VCR.use_cassette("workspace-info") do
+#     workspace = Slack::Workspace.new
+#     #selected = user
+
+#     selected = workspace.show_details
+#     expect(selected).must_be_kind_of String
+#   end
+# end

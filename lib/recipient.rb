@@ -13,7 +13,7 @@ module Slack
     
     def details
       raise NotImplementedError, 'Implement me in a child class!'
-    end 
+    end
     
     def self.list
       raise NotImplementedError, 'Implement me in a child class!'
@@ -34,5 +34,3 @@ module Slack
     end
   end  
 end
-
-# slackID = CMUR2JTNX

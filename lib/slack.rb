@@ -7,15 +7,18 @@ require_relative "user"
 require_relative "channel"
 require_relative "workspace"
 
-# !/usr/bin/env ruby
 Dotenv.load
 
 def main
   workspace = Slack::Workspace.new 
   puts "Welcome to the Ada Slack CLI!"
   
-  options1 = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
-  user_input = nil
+  options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
+  user_input = gets.chomp
+  
+  # while !options.include?(user_input)
+  #   raise ArgumentError, "Invalid input."
+  # end 
   
   until user_input == "quit"  
     print "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit: "
@@ -59,7 +62,6 @@ def main
       print "Please enter your message: "
       message = gets.chomp
       slack_id = workspace.select_channel(name_or_id)
-      
       workspace.user_message(message, slack_id)
     end 
   end

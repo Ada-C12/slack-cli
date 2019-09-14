@@ -29,5 +29,4 @@ module Slack
       return users
     end 
   end
-end 
-
+end
