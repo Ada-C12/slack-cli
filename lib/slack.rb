@@ -13,7 +13,7 @@ def main
   workspace = Slack::Workspace.new 
   puts "\n"
   puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels. Press enter to continue."
-   
+  
   user_input = gets.chomp
   
   until user_input == "quit"  

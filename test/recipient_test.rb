@@ -25,7 +25,7 @@ describe "Recipient" do
       end
     end
   end
-
+  
   describe "self.list" do
     it "raises an error if implementation attempted within Recipient class" do
       VCR.use_cassette("recipient-info") do      
@@ -56,10 +56,36 @@ describe "Recipient" do
       VCR.use_cassette("recipient-info") do
         
         slack_id = "INVALID"
-        message = "I exist only in the ether"
+        message = "I exist only in the ether."
+        
         expect{ Slack::Recipient.send_message(slack_id, message)
         }.must_raise Exception
       end
     end 
-  end 
+    
+    it "raises an error if response code isn't 200" do
+      VCR.use_cassette("recipient-info") do
+        
+        slack_id = "USLACKBOT"
+        message = "Woe upon your Cylon heart."
+        { "ok": false, "error": "too_many_attachments" }
+
+        expect{ Slack::Recipient.send_message(slack_id, message)
+        }.must_raise Exception
+      end
+    end 
+    
+    it "returns an instance of HTTParty when successful" do
+      VCR.use_cassette("recipient-info") do
+        
+        slack_id = "USLACKBOT"
+        message = "Woe upon your Cylon heart."
+        
+        api_response = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV['SLACK_API_TOKEN'], channel: slack_id, text: message})
+        
+        expect(api_response).must_be_kind_of HTTParty::Response
+      end
+    end 
+  end
+  
 end
