@@ -1,5 +1,5 @@
-require 'httparty'
-require 'dotenv'
+# require 'httparty'
+# require 'dotenv'
 require_relative 'workspace'
 # require_relative 'user'
 Dotenv.load
@@ -11,7 +11,7 @@ def main
   workspace = Workspace.new  
   
   puts "Welcome to the Ada Slack CLI!"
-  puts "Please select one of the following: \'list users\', \'list channels\', \'select user\', \'select channel\', or \'quit\': "
+  puts "Please select one of the following: \'list users\', \'list channels\', \'select user\', \'select channel\', \'details\' or \'quit\': "
   user_input = gets.chomp.downcase
   until user_input == "quit"
     case user_input
@@ -48,9 +48,15 @@ def main
         puts "Invalid input. Channel name or ID does not exist"
       end
       
+    when "details"
+      if workspace.show_details == nil
+        puts "No recipient (user/channel) has been selected"
+      end
+      puts workspace.show_details
+      
     end
     
-    puts "Please select one of the following: \'list users\', \'list channels\', \'select user\', \'select channel\', or \'quit\': "
+    puts "Please select one of the following: \'list users\', \'list channels\', \'select user\', \'select channel\',  \'details\' or \'quit\': "
     user_input = gets.chomp.downcase
   end
   

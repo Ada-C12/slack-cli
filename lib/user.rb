@@ -1,25 +1,20 @@
 require_relative 'recipient'
-
-require 'httparty'
-require 'dotenv'
-require 'awesome_print'
-require 'table_print'
 require 'pry'
-require 'awesome_print'
-Dotenv.load
+
 
 class User < Recipient
   
   attr_reader :slack_id, :user_name, :real_name
   
-  URL = "https://slack.com/api/users.list"
-  KEY = ENV['SLACK_TOKEN']
+  # URL = "https://slack.com/api/users.list"
+  # KEY = ENV['SLACK_TOKEN']
   
   def initialize(slack_id:, user_name:, real_name:) 
     # super(slack_id, name)
     @user_name = user_name
     @real_name = real_name
     @slack_id = slack_id
+    # @
   end
   
   def details
@@ -30,7 +25,7 @@ class User < Recipient
     
   end
   
-
+  
   
   
   def self.list

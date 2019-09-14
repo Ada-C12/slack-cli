@@ -1,7 +1,6 @@
 require_relative 'channel'
 require_relative 'user'
 require_relative 'slack'
-require "table_print"
 require 'pry'
 
 
@@ -17,7 +16,7 @@ class Workspace
   
   def select_channel(selection)
     @selected = @channels.find do |channel|
-      channel.name == selection || channel.slack_id == selection
+      channel.name == selection || channel.slack_id == selection.upcase
     end
     
   end
@@ -25,14 +24,20 @@ class Workspace
   
   def select_user(selection)
     @selected = @users.find do |user|
-      user.user_name == selection || user.slack_id == selection
+      user.user_name == selection || user.slack_id == selection.upcase
     end
   end
   
   
   
   def show_details
-    
+    if @selected != nil
+      if @selected.class == Channel
+        return @selected.purpose
+      end
+    else
+      return nil
+    end
     
   end
   
@@ -47,5 +52,6 @@ end
 
 
 a = Workspace.new
-p a.select_channel("gen")
+a.select_channel("general")
+p a.show_details
 # p a.selected

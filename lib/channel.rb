@@ -12,27 +12,20 @@ class Channel < Recipient
   end
   
   
-  def details
-    if Workspace.selected != nil
-      Workspace.selected
-      
-    end
+  
+  # Source Citation Paige and Angele
+  def self.list
+    channels = self.get("https://slack.com/api/conversations.list")["channels"]
     
-    # Source Citation Paige and Angele
-    def self.list
-      channels = self.get("https://slack.com/api/conversations.list")["channels"]
+    channels.map do |channel|
+      name = channel["name"]
+      topic = channel["topic"]["value"]
+      member_count = channel["num_members"]
+      slack_id = channel["id"]
+      purpose = channel["purpose"]["value"]
       
-      channels.map do |channel|
-        name = channel["name"]
-        topic = channel["topic"]["value"]
-        member_count = channel["num_members"]
-        slack_id = channel["id"]
-        purpose = channel["purpose"]
-        
-        Channel.new(slack_id: slack_id, name: name, topic: topic, member_count: member_count, purpose: purpose)
-      end
+      Channel.new(slack_id: slack_id, name: name, topic: topic, member_count: member_count, purpose: purpose)
     end
   end
-  
-  
-  
+end
+
