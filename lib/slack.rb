@@ -13,19 +13,12 @@ def main
   workspace = Slack::Workspace.new 
   puts "\n"
   puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels. Press enter to continue."
-  
-  # options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
-  
-  # print "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit: "
-  
+   
   user_input = gets.chomp
   
   until user_input == "quit"  
     print "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit: "
     user_input = gets.chomp.downcase
-    # while !options.include?(user_input)
-    #   raise ArgumentError, "Sorry, I didn't understand that. Please try again."
-    # end 
     
     case user_input
     when "list users"
@@ -73,12 +66,12 @@ def main
         puts "\n"
       end
     else
-      "Sorry, I didn't understand your requet. Please try again."
+      puts "Sorry, I didn't understand your request. Please try again."
       puts "\n"
     end
-    puts "Thank you for using the ADA Slack CLI!"
-    puts "\n"
   end 
+  puts "Thank you for using the ADA Slack CLI!"
+  puts "\n"
 end
 
 main if __FILE__ == $PROGRAM_NAME
