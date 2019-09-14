@@ -37,7 +37,7 @@ module Slack
       raise Slack::Slack_Api_Error.new("Error! You must enter either a valid channel name or ID.") if channel_name.nil? && id.nil?
       selected_channel = @channels.find {|channel| channel.name == channel_name || channel.id == id}
       
-      raise ArgumentError.new("Error! The channel you searched for does not exist") if selected_channel.nil?
+      raise ArgumentError.new "Error! The channel you searched for does not exist." if selected_channel.nil?
       
       @selected = selected_channel
       return @selected

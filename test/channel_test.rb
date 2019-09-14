@@ -45,7 +45,6 @@ describe 'class channel' do
     it "returns an array of Channel objects" do
       VCR.use_cassette("channel_list_cassette") do
         list = Slack::Channel.list
-        
         expect(list).must_be_instance_of Array
         list.each do |channel|
           expect(channel).must_be_instance_of Slack::Channel
@@ -58,7 +57,7 @@ describe 'class channel' do
     before do
       @details = channel.details
     end
-
+    
     it "must return a hash with length 4" do 
       expect(@details).must_be_instance_of Hash
       expect(@details.length).must_equal 4
