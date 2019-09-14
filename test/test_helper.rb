@@ -20,8 +20,8 @@ VCR.configure do |config|
     :match_requests_on => [:method, :uri, :body], # The http method, URI and body of a request all need to match
   }
   # Don't leave our token lying around in a cassette file.
-  config.filter_sensitive_data("<API_TOKEN>") do
-    ENV["API_TOKEN"]
+  config.filter_sensitive_data("API_KEY") do
+    ENV["API_KEY"]
   end
 end
 
