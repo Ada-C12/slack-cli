@@ -12,26 +12,35 @@ def main
   workspace = Workspace.new  
   
   puts "Welcome to the Ada Slack CLI!"
-  
-  # TODO project
   puts "Please select one of the following: \'list users\', \'list channels\', or \'quit\': "
   user_input = gets.chomp.downcase
-  
-  case user_input
-  when "list users"
-    workspace.users.each do |user|
-      puts """
-      #{user.slack_id}
-      #{user.real_name}
-      #{user.user_name}
-      """
+  until user_input == "quit"
+    case user_input
+    when "list users"
+      workspace.users.each do |user|
+        puts """
+        #{user.slack_id}
+        #{user.real_name}
+        #{user.user_name}
+        """
+      end
+      
+    when "list channels"
+      workspace.channels.each do |channel|
+        puts """
+        #{channel.slack_id}
+        #{channel.name}
+        #{channel.topic}
+        #{channel.member_count}
+        """
+      end
     end
-  when "list channels"
-    tp workspace.channels, :slack_id, :name, :topic, :member_count
-  when "quit"
-    exit
+    puts "Please select one of the following: \'list users\', \'list channels\', or \'quit\': "
+    user_input = gets.chomp.downcase
   end
-  # when "list users"
+  
+  
+  
   
   
   #   puts "Please select one of the following: \'list user\', \'list channels\', or \'quit\': "
