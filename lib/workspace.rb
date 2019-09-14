@@ -19,37 +19,14 @@ class Workspace
     api_call_list_channels 
   end
   
-  def all_user_names
-    all_user_names = []
-    
-    users.each do |user|
-      all_user_names << user.name 
-    end 
-    return all_user_names 
-  end 
-  
-  def all_channel_names
-    all_channel_names = []
-    
-    channels.each do |channel| 
-      all_channel_names << channel.name
-    end
-    return all_channel_names
-  end 
-  
-  def all_user_slack_ids
-    all_user_slack_ids = []
-    users.each do |user|
-      all_user_slack_ids << user.slack_id
-    end
-    return all_user_slack_ids
-  end
-  
-  def all_channel_slack_ids
-    all_channel_slack_ids = []
-    channels.each do |channel|
-      all_channel_slack_ids << channel.slack_id
-    end
+  def api_call_list_channels
+    #This method takes in the entire listuser api
+    url = "https://slack.com/api/conversations.list"
+    api_key = ENV['SLACK_TOKEN']
+    query_parameters = {"token" => api_key}
+    channel_response = HTTParty.get(url, query: query_parameters)
+    make_channels(channel_response)
+    return channel_response["ok"] == true 
   end
   
   def api_call_list_users
@@ -66,21 +43,22 @@ class Workspace
     return user_response["ok"] == true 
   end
   
-  def api_message_send(message, recipient)
-    url = "https://api.slack.com/api/chat.postMessage"
-    api_key = ENV['SLACK_TOKEN']
-    text = message 
-    
-    being_messaged = recipient.slack_id 
-    query_parameters = {"token" => api_key,
-      "channel" => being_messaged,
-      "text" => text 
-    }
-    
-    response = HTTParty.post(url, query: query_parameters)
-    
-    return response["ok"] == true 
-  end 
+  def make_channels(response)
+    total_channels = response["channels"].length
+    i = 0
+    until i == total_channels
+      channel_name = response["channels"][i]["name"]
+      channel_slack_id = response["channels"][i]["id"]
+      channel_topic = response["channels"][i]["topic"]["value"]
+      channel_member_count = response["channels"][i]["num_members"]
+      
+      new_channel = Channel.new(name: channel_name, slack_id: channel_slack_id, topic: channel_topic, member_count: channel_member_count)
+      
+      @channels << new_channel
+      
+      i += 1
+    end
+  end
   
   def make_users(response)
     total_users = response["members"].length
@@ -100,32 +78,54 @@ class Workspace
     end
   end
   
-  def api_call_list_channels
-    #This method takes in the entire listuser api
-    url = "https://slack.com/api/conversations.list"
-    api_key = ENV['SLACK_TOKEN']
-    query_parameters = {"token" => api_key}
-    channel_response = HTTParty.get(url, query: query_parameters)
-    make_channels(channel_response)
-    return channel_response["ok"] == true 
-  end
+  def all_channel_names
+    all_channel_names = []
+    
+    channels.each do |channel| 
+      all_channel_names << channel.name
+    end
+    return all_channel_names
+  end 
   
   
-  def make_channels(response)
-    total_channels = response["channels"].length
-    i = 0
-    until i == total_channels
-      channel_name = response["channels"][i]["name"]
-      channel_slack_id = response["channels"][i]["id"]
-      channel_topic = response["channels"][i]["topic"]["value"]
-      channel_member_count = response["channels"][i]["num_members"]
-      
-      new_channel = Channel.new(name: channel_name, slack_id: channel_slack_id, topic: channel_topic, member_count: channel_member_count)
-      
-      @channels << new_channel
-      
-      i += 1
+  def all_user_names
+    all_user_names = []
+    
+    users.each do |user|
+      all_user_names << user.name 
+    end 
+    return all_user_names 
+  end 
+  
+  def all_channel_slack_ids
+    all_channel_slack_ids = []
+    channels.each do |channel|
+      all_channel_slack_ids << channel.slack_id
     end
   end
+
+  def all_user_slack_ids
+    all_user_slack_ids = []
+    users.each do |user|
+      all_user_slack_ids << user.slack_id
+    end
+    return all_user_slack_ids
+  end
+  
+  def api_message_send(message, recipient)
+    url = "https://api.slack.com/api/chat.postMessage"
+    api_key = ENV['SLACK_TOKEN']
+    text = message 
+    
+    being_messaged = recipient.slack_id 
+    query_parameters = {"token" => api_key,
+      "channel" => being_messaged,
+      "text" => text 
+    }
+    
+    response = HTTParty.post(url, query: query_parameters)
+    
+    return response["ok"] == true 
+  end 
   
 end

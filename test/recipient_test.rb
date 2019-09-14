@@ -25,8 +25,8 @@ end
 describe "recipient blocks initialization if incorrect format" do
   it "allows initialization with name and id as instances of string to match API" do
     VCR.use_cassette("slack_info") do
-      expect{test_recipient = Recipient.new(name: "0001", id: 15.999)}.must_raise ArgumentError
-      expect{test_recipient = Recipient.new(name: 0001, id: "15.999")}.must_raise ArgumentError
+      expect{@test_recipient = Recipient.new(name: "0001", id: 15.999)}.must_raise ArgumentError
+      expect{@test_recipient = Recipient.new(name: 0001, id: "15.999")}.must_raise ArgumentError
     end
   end
   

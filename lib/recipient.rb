@@ -2,7 +2,7 @@ class Recipient
   
   attr_reader :name, :slack_id
   
-  def initialize (name:, slack_id:)
+  def initialize(name:, slack_id:)
     
     if name.class != String
       raise ArgumentError.new, "wrong format for initiating name"
