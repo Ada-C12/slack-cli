@@ -19,7 +19,6 @@ def list_options
 end
 
 def handle_bad_input(user_input)
-  
   until VALID_INPUT.include? user_input
     puts "Error! Your input (#{user_input}) is invalid. Please choose one of the following options and try again."
     puts list_options
@@ -35,10 +34,6 @@ def id_or_name(list, user_choice)
   end
 end
 
-def channel_or_user
-  
-end
-
 def main
   current_workspace = Slack::Workspace.new
   
@@ -47,11 +42,9 @@ def main
   
   puts "Welcome to the Ada Slack CLI!"
   puts "#{channel_list.length} channels and #{user_list.length} users were loaded. What would you like to do?"
-  
   puts list_options
   
   user_input = gets.chomp.downcase
-  
   user_input = handle_bad_input(user_input)
   
   until user_input == "quit"
@@ -75,11 +68,9 @@ def main
           puts message
         end
       end
-      
     when "select channel"
       print "Which channel would you like to select? Please provide the name or ID: "
       user_choice = gets.chomp
-      
       type = id_or_name(channel_list, user_choice)
       if type == "name"
         selected_channel = current_workspace.select_channel(channel_name: user_choice)
@@ -91,8 +82,7 @@ def main
         rescue ArgumentError => message
           puts message
         end
-      end
-      
+      end 
     when "details"
       details = current_workspace.show_details
       if current_workspace.selected.class == Slack::User
@@ -114,18 +104,6 @@ def main
     user_input = gets.chomp.downcase
     user_input = handle_bad_input(user_input)
   end
-  
-  # list three options for how to interact with the program: list users, list channels, quit
-  
-  # handle invalid input
-  
-  # list users - see a list of all users in the slack workspace. include username, real name, and slack id
-  
-  # list channels - list of all channels in the workspace. include channel name, topic, member count, slack id
-  
-  # quit - exit program
-  
-  # after completing other commands, reprint the list of commands and ask for another input
   
   puts "Thank you for using the Ada Slack CLI"
 end
