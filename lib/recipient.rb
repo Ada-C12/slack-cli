@@ -28,7 +28,7 @@ module Slack
       response = HTTParty.post("https://slack.com/api/chat.postMessage", query: {token: ENV['SLACK_API_TOKEN'], channel: slack_id, text: message})
       
       unless response.code ==  200
-        raise ArgumentError, "Message not sent."
+        raise ExceptionError, "Message not sent."
       end 
       return response
     end

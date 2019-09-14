@@ -31,9 +31,17 @@ describe "Recipient" do
         end
       end 
       
-      # describe "send message" do
-      #   it "returns "
-      # end
+      describe "send message" do
+        it "raises an error if invalid ID is provided" do
+          VCR.use_cassette("recipient-info") do
+            
+            slack_id = "INVALID"
+            message = "I exist only in the ether"
+            expect{ response = Slack::Recipient.send_message(slack_id, message)
+            }.must_raise Exception
+          end
+        end
+      end 
     end 
-  end 
+  end
 end

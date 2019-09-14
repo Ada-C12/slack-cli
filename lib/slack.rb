@@ -11,7 +11,8 @@ Dotenv.load
 
 def main
   workspace = Slack::Workspace.new 
-  puts "Welcome to the Ada Slack CLI! Press enter to continue."
+  puts "\n"
+  puts "Welcome to the Ada Slack CLI! This Slack workspace currently has #{workspace.users.count} users and #{workspace.channels.count} channels. Press enter to continue."
   
   # options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
   
@@ -59,7 +60,6 @@ def main
         user_input = nil
         puts "\n"
       end 
-      
     when "send message"
       if workspace.selected == nil
         puts "Please select a user or channel."
@@ -70,10 +70,14 @@ def main
         message = gets.chomp
         slack_id = workspace.select(name_or_id)
         workspace.user_message(message, slack_id)
+        puts "\n"
       end
     else
-      "Sorry, I didn't understand that. Please try again."
+      "Sorry, I didn't understand your requet. Please try again."
+      puts "\n"
     end
+    puts "Thank you for using the ADA Slack CLI!"
+    puts "\n"
   end 
 end
 

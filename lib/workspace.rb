@@ -27,17 +27,7 @@ module Slack
       end
       puts "Sorry, I couldn't find that user or channel."
     end
-    
-    # def select_user(name_or_id)
-    #   @users.each do |user|
-    #     if user.name == name_or_id || user.slack_id == name_or_id
-    #       @selected = user
-    #       return "User #{@selected.name} is selected."
-    #     end
-    #   end  
-    #   puts "Sorry, I couldn't find that user."
-    # end
-    
+        
     def show_details
       @selected.details
     end
