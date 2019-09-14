@@ -11,18 +11,20 @@ Dotenv.load
 
 def main
   workspace = Slack::Workspace.new 
-  puts "Welcome to the Ada Slack CLI!"
+  puts "Welcome to the Ada Slack CLI! Press enter to continue."
   
-  options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
+  # options = ["list users", "list channels", "select user", "select channel", "details", "send message", "quit"]
+  
+  # print "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit: "
+  
   user_input = gets.chomp
-  
-  # while !options.include?(user_input)
-  #   raise ArgumentError, "Invalid input."
-  # end 
   
   until user_input == "quit"  
     print "Please choose an option: list users, list channels, select user, select channel, details, send message, or quit: "
     user_input = gets.chomp.downcase
+    # while !options.include?(user_input)
+    #   raise ArgumentError, "Sorry, I didn't understand that. Please try again."
+    # end 
     
     case user_input
     when "list users"
@@ -38,13 +40,13 @@ def main
     when "select user"
       print "Please enter the user name or ID: "
       name_or_id = gets.chomp
-      puts workspace.select_user(name_or_id)
+      puts workspace.select(name_or_id)
       puts "\n"
       
     when "select channel"
       print "Please enter the channel name or ID: "
       name_or_id = gets.chomp
-      puts workspace.select_channel(name_or_id)
+      puts workspace.select(name_or_id)
       puts "\n"
       
     when "details"
@@ -59,12 +61,20 @@ def main
       end 
       
     when "send message"
-      print "Please enter your message: "
-      message = gets.chomp
-      slack_id = workspace.select_channel(name_or_id)
-      workspace.user_message(message, slack_id)
-    end 
-  end
-end 
+      if workspace.selected == nil
+        puts "Please select a user or channel."
+        user_input = nil
+        puts "\n"
+      else
+        print "Please enter your message: "
+        message = gets.chomp
+        slack_id = workspace.select(name_or_id)
+        workspace.user_message(message, slack_id)
+      end
+    else
+      "Sorry, I didn't understand that. Please try again."
+    end
+  end 
+end
 
 main if __FILE__ == $PROGRAM_NAME
