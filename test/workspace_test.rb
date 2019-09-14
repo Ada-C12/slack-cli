@@ -109,12 +109,12 @@ describe 'class workspace' do
     
     it "must return a hash" do
       VCR.use_cassette("channel_list_cassette") do
-        selected_channel = workspace.select_channel(channel_name: 'random')
+        workspace.select_channel(channel_name: 'random')
         expect(workspace.show_details).must_be_instance_of Hash
       end
       
       VCR.use_cassette("user_list_cassette") do
-        selected_user = workspace.select_user(username: 'slackbot')
+        workspace.select_user(username: 'slackbot')
         expect(workspace.show_details).must_be_instance_of Hash
       end
     end
@@ -143,7 +143,7 @@ describe 'class workspace' do
     
     it "must return a valid response" do
       VCR.use_cassette("user_list_cassette") do 
-        selected_user = workspace.select_user(username: 'slackbot')
+        workspace.select_user(username: 'slackbot')
       end
       
       VCR.use_cassette("user_chat_post_cassette") do
