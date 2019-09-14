@@ -4,6 +4,32 @@ describe 'class workspace' do
   
   let(:workspace){ Slack::Workspace.new }
   
+  describe "initialize" do
+    it "must initialize @users as an array of users" do 
+      VCR.use_cassette("user_list_cassette") do
+        expect(workspace.users).must_be_instance_of Array 
+        workspace.users.each do |user|
+          expect(user).must_be_instance_of Slack::User
+        end
+      end
+    end
+    
+    it "must initialize @channels as an array of channels" do 
+      VCR.use_cassette("channel_list_cassette") do
+        expect(workspace.channels).must_be_instance_of Array
+        workspace.channels.each do |channel|
+          expect(channel).must_be_instance_of Slack::Channel
+        end
+      end
+    end
+    
+    it "must initialize @selected as nil" do
+      VCR.use_cassette("channel_list_cassette") do
+        expect(workspace.selected).must_be_nil
+      end
+    end
+  end
+  
   describe 'select_user' do
     it "must return an instance of Slack::User" do
       VCR.use_cassette("user_list_cassette") do
@@ -12,7 +38,7 @@ describe 'class workspace' do
       end
     end
     
-    it "must raise Slack_Api_Error if if you provide neither a channel name or an id" do
+    it "must raise Slack_Api_Error if you provide neither a channel name or an id" do
       VCR.use_cassette("user_list_cassette") do
         expect{workspace.select_user}.must_raise Slack::Slack_Api_Error
       end
@@ -37,7 +63,6 @@ describe 'class workspace' do
         expect(selected_user_1).must_equal selected_user_3
       end
     end
-    
   end
   
   describe 'select_channel' do
@@ -73,7 +98,6 @@ describe 'class workspace' do
         expect(selected_channel_1).must_equal selected_channel_3
       end
     end
-    
   end
   
   describe "show details" do 
@@ -134,7 +158,5 @@ describe 'class workspace' do
         expect{workspace_2.send_message(message: user_message)}.must_raise Slack::Slack_Api_Error
       end
     end
-    
   end
-  
 end
