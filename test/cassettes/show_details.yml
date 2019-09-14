@@ -21,17 +21,17 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1508'
+      - '1507'
       Connection:
       - keep-alive
       Date:
-      - Sat, 14 Sep 2019 02:03:40 GMT
+      - Sat, 14 Sep 2019 02:08:01 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 2941ff17-0ebd-433c-a835-cb064315a9ef
+      - 11be461c-7766-4265-8a8b-471b7cc493d5
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-gha7
+      - haproxy-www-hdxt
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 61bc723adb3b1884ed759711e84e13a9.cloudfront.net (CloudFront)
+      - 1.1 aef00f14752da9aa504d392fd46eff94.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C2
       X-Amz-Cf-Id:
-      - hhNwtLFzovOvJ7-7A6U3cqNQWRg8qH10NWtvhubnzfojQMy-qBErIA==
+      - glOfyX6ECLZFjOfiKxvox0ABWZ_1rpQ-wY6bKlI2JD_CM9xc9wkXWw==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"members":[{"id":"USLACKBOT","team_id":"TN843TM63","name":"slackbot","deleted":false,"color":"757575","real_name":"Slackbot","tz":null,"tz_label":"Pacific
@@ -80,9 +80,9 @@ http_interactions:
         Lopez","real_name_normalized":"Cloudy Lopez","display_name":"Cloudy Lopez","display_name_normalized":"Cloudy
         Lopez","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g877656756b0","image_24":"https:\/\/secure.gravatar.com\/avatar\/877656756b0aed370014507bf3552664.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0009-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/877656756b0aed370014507bf3552664.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0009-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/877656756b0aed370014507bf3552664.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0009-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/877656756b0aed370014507bf3552664.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0009-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/877656756b0aed370014507bf3552664.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0009-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/877656756b0aed370014507bf3552664.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0009-512.png","status_text_canonical":"","team":"TN843TM63"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568272045},{"id":"UN69RK75K","team_id":"TN843TM63","name":"gyjinn","deleted":false,"color":"4bbe2e","real_name":"Ga-Young","tz":"America\/Los_Angeles","tz_label":"Pacific
         Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Ga-Young","real_name_normalized":"Ga-Young","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g816359af264","image_24":"https:\/\/secure.gravatar.com\/avatar\/816359af2646dc0038a37f6704efd389.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/816359af2646dc0038a37f6704efd389.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/816359af2646dc0038a37f6704efd389.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/816359af2646dc0038a37f6704efd389.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/816359af2646dc0038a37f6704efd389.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/816359af2646dc0038a37f6704efd389.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0005-512.png","status_text_canonical":"","team":"TN843TM63"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568130004},{"id":"UN85KTCHM","team_id":"TN843TM63","name":"alicesunhi","deleted":false,"color":"e7392d","real_name":"jack","tz":"America\/Los_Angeles","tz_label":"Pacific
-        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"jack","real_name_normalized":"jack","display_name":"taro","display_name_normalized":"taro","status_text":"","status_emoji":":dog:","status_expiration":0,"avatar_hash":"gb68b3fce35e","first_name":"jack","image_24":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-512.png","status_text_canonical":"","team":"TN843TM63"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568242931}],"cache_ts":1568426620,"response_metadata":{"next_cursor":""}}'
+        Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"jack","real_name_normalized":"jack","display_name":"taro","display_name_normalized":"taro","status_text":"","status_emoji":":dog:","status_expiration":0,"avatar_hash":"gb68b3fce35e","first_name":"jack","image_24":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/b68b3fce35eedec31832996b6e7a6bd3.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0017-512.png","status_text_canonical":"","team":"TN843TM63"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568242931}],"cache_ts":1568426881,"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Sat, 14 Sep 2019 02:03:39 GMT
+  recorded_at: Sat, 14 Sep 2019 02:08:01 GMT
 - request:
     method: get
     uri: https://slack.com/api/channels.list?token=API_KEY
@@ -108,13 +108,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 14 Sep 2019 02:03:40 GMT
+      - Sat, 14 Sep 2019 02:08:01 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 4923c828-84f0-41c9-b79f-fe927246796b
+      - a7a11ac3-61e2-44e9-b899-3d49a43c14cc
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -140,15 +140,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-tucf
+      - haproxy-www-ay2f
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 61bc723adb3b1884ed759711e84e13a9.cloudfront.net (CloudFront)
+      - 1.1 1a53057db389e96b4ef1bfbc925dde1c.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C2
       X-Amz-Cf-Id:
-      - NZNrQG1CFV47NJ3FrKcw7S6Hos6N-vjUjM6lU1YtaYH2aJpe3IBHXA==
+      - L_AVnl8PVzkmF_zuZ7WG-8u-WLSOYI_9MQ97P3sMmESArhzxqQ86RA==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CMUPUL1R9","name":"pupper-pics","is_channel":true,"created":1568067981,"is_archived":false,"is_general":false,"unlinked":0,"creator":"UMTERDBPU","name_normalized":"pupper-pics","is_shared":false,"is_org_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"members":["UMTERDBPU","UMURAK10T","UMURAL35H","UN69JKYQ0","UN69RK75K","UN85KTCHM"],"topic":{"value":"doggy
@@ -163,5 +163,5 @@ http_interactions:
         place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
         you''d prefer to keep out of more focused work-related channels.","creator":"UMTERDBPU","last_set":1568067980},"previous_names":[],"num_members":6}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Sat, 14 Sep 2019 02:03:39 GMT
+  recorded_at: Sat, 14 Sep 2019 02:08:01 GMT
 recorded_with: VCR 5.0.0

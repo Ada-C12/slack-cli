@@ -47,20 +47,17 @@ module Slack
     end
 
     def show_details
+      details = ""
       if @recipient != nil
         if @recipient.class == Slack::User
-          puts "Name: #{@recipient.name}"
-          puts "Id: #{@recipient.id}"
-          puts "Real name: #{@recipient.real_name}\n\n"
+          details = "Name: #{@recipient.name}, Id: #{@recipient.id}, Real name: #{@recipient.real_name}\n\n"
         else 
-          puts "Name: #{@recipient.name}"
-          puts "Id: #{@recipient.id}"
-          puts "Topic: #{@recipient.topic}"
-          puts "Member count: #{@recipient.member_count}\n\n"
+          details = "Name: #{@recipient.name}, Id: #{@recipient.id}, Topic: #{@recipient.topic}, Member count: #{@recipient.member_count}\n\n"
         end
       else 
-        puts "No recipient is currently selected."
+        details = "No recipient is currently selected."
       end
+    return details
     end
   end
 end 
