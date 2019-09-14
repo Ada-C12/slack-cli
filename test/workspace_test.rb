@@ -90,36 +90,6 @@ describe "Workspace Class" do
       details = "No recipient is currently selected."
       expect(@workspace.show_details).must_equal details
     end 
-  
+  end #end show details
 
-  # describe "Show details" do
-  #   before do
-  #     # VCR.use_cassette("show_details") do
-  #       @workspace = Slack::Workspace.new 
-  #     end
-  #   # end
-    
-  #   it "shows details for selected user" do
-  #     @workspace.select_user("dnsanche")
-  #     details = "Name: dnsanche, Id: UMURAL35H, Real name: Daniela Sanchez\n\n"
-  #     expect(@workspace.show_details).must_equal details
-  #   end
-
-  #   it "shows details for selected channel" do
-  #     @workspace.select_channel("sploots")
-  #     details = "Name: dnsanche, Id: UMURAL35H, Real name: Daniela Sanchez\n\n"
-  #     expect(@workspace.show_details).must_equal details
-  #   end
-
-  #   it "shows invalid if there is no selected recipient" do
-  #     details = "No recipient is currently selected."
-  #     expect(@workspace.show_details).must_equal details
-  #   end 
-  # end
-  
-  end 
 end
-
-# the name is the name if the cassete we want to specify. If we don't have that cassete created, it will be created automatically.
-# i'm using location based on the example of the class, but we need to update it.
-

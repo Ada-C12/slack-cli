@@ -6,8 +6,6 @@ require_relative "recipient"
 Dotenv.load
 
 module Slack
-  USERS_URI = 'https://slack.com/api'
-  USERS_KEY = ENV['API_KEY']
   class  User < Recipient
     attr_reader :real_name
     def initialize(name, id, real_name)
@@ -17,7 +15,7 @@ module Slack
     
     def self.users_list
       users = []
-      response = HTTParty.get("#{USERS_URI}/users.list", query: {token: USERS_KEY}) 
+      response = HTTParty.get("https://slack.com/api/users.list", query: {token: ENV['API_KEY']}) 
       response.parsed_response["members"].each do |member|
         name =  member["name"]
         id =  member["id"]

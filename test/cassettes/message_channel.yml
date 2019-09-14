@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=API_KEY&text=Goodbye%21&channel=sploots
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Sep 2019 05:00:45 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 98bcbd07-42da-49b0-823d-290fd7c9679c
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-7zhp
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4c4ed81695980f3c6829b9fd229bd0f8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19
+      X-Amz-Cf-Id:
+      - c7zq5H0yTz5G4mSQRW1f5QU3eX_vx7Ii3bRKf2T_996oY_p9cJgJLw==
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"CMWARHPNF","ts":"1568437245.000100","message":{"type":"message","subtype":"bot_message","text":"Goodbye!","ts":"1568437245.000100","username":"Leaves
+        - DaniSanchez - API Project","bot_id":"BMURJKEH1"}}'
+    http_version: 
+  recorded_at: Sat, 14 Sep 2019 05:00:44 GMT
+recorded_with: VCR 5.0.0
