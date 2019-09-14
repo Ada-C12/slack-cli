@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://slack.com/api/conversations.list?token=xoxp-753860877300-756190538999-756306121159-7fd6a837cf077791528a2509bff4e4d8
+    uri: https://slack.com/api/conversations.list?token=xoxp-753860877300-754325648512-759393088870-3e98d043f2b01b9210d9c6e789de55ac
     body:
       encoding: US-ASCII
       string: ''
@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 23:25:59 GMT
+      - Sat, 14 Sep 2019 19:34:05 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 261dde0d-95db-4aaf-965b-cb479b42951f
+      - 8e616b8e-05e6-4699-a112-b47341e3fcde
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-u9rp
+      - haproxy-www-x8wy
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8ae6af4d17aae7471e5fe2792eb6abcd.cloudfront.net (CloudFront)
+      - 1.1 760139201585481b26f947c5f776103a.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - _CX-zMX1Slbuidw8E88PWvMkLDAMN3puoInqDQKAHcj3wN2z2sSmOA==
+      - yeorljD3-vm7jW-hK6jSBlh8-Sxe8RvSLXLbj32plQEuQNxapJOeeQ==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
@@ -78,10 +78,10 @@ http_interactions:
         API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
         API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 23:25:59 GMT
+  recorded_at: Sat, 14 Sep 2019 19:34:05 GMT
 - request:
     method: get
-    uri: https://slack.com/api/conversations.list?token=xoxp-753860877300-756190538999-756306121159-7fd6a837cf077791528a2509bff4e4d8
+    uri: https://slack.com/api/conversations.list?token=xoxp-753860877300-754325648512-759393088870-3e98d043f2b01b9210d9c6e789de55ac
     body:
       encoding: US-ASCII
       string: ''
@@ -104,13 +104,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 23:25:59 GMT
+      - Sat, 14 Sep 2019 19:34:05 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 1afda482-afdb-42c3-8416-9f0557912215
+      - 21ddac77-9a62-4c8b-a72d-03c32928acac
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -136,15 +136,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-gxt6
+      - haproxy-www-nxmy
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 49cdeca097624936e070b73619df7da9.cloudfront.net (CloudFront)
+      - 1.1 98aedae6661e3904540676966998ed89.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - Rpo8CEj_e_jGf_xDncyn6rjh1aMutSoWfxV6LF9lNSq1UExIbQPAUA==
+      - VN9uRmVhdWBMdGdKTPnQR5ann6jD6k9hnlT-anMkflV6BWfuW4qXMA==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
@@ -157,5 +157,5 @@ http_interactions:
         API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
         API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 23:25:59 GMT
+  recorded_at: Sat, 14 Sep 2019 19:34:05 GMT
 recorded_with: VCR 5.0.0

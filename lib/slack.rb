@@ -1,6 +1,5 @@
 require 'httparty'
 require 'dotenv'
-require 'table_print'
 require_relative 'workspace'
 # require_relative 'user'
 Dotenv.load
