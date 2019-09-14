@@ -16,7 +16,9 @@ class Workspace
   
   
   def select_channel(selection)
-    
+    @selected = @channels.find do |channel|
+      channel.name == selection || channel.slack_id == selection
+    end
     
   end
   
@@ -25,7 +27,6 @@ class Workspace
     @selected = @users.find do |user|
       user.user_name == selection || user.slack_id == selection
     end
-    return @selected
   end
   
   
@@ -46,5 +47,5 @@ end
 
 
 a = Workspace.new
-p a.select_user("erika.maust")
+p a.select_channel("gen")
 # p a.selected

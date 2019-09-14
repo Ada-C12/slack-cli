@@ -11,7 +11,7 @@ def main
   workspace = Workspace.new  
   
   puts "Welcome to the Ada Slack CLI!"
-  puts "Please select one of the following: \'list users\', \'list channels\', or \'quit\': "
+  puts "Please select one of the following: \'list users\', \'list channels\', \'select user\', \'select channel\', or \'quit\': "
   user_input = gets.chomp.downcase
   until user_input == "quit"
     case user_input
@@ -35,15 +35,22 @@ def main
       end
       
     when "select user"
-      puts "Please give me the username or ID"
+      puts "Please give me the user's name or ID"
       selection = gets.chomp.downcase
-      if workspace.select_user(selection) != nil
+      if workspace.select_user(selection) == nil
         puts "Invalid input. Username or ID does not exist"
+      end
+      
+    when "select channel"
+      puts "Please give me the channel name or ID"
+      selection = gets.chomp.downcase
+      if workspace.select_channel(selection) == nil
+        puts "Invalid input. Channel name or ID does not exist"
       end
       
     end
     
-    puts "Please select one of the following: \'list users\', \'list channels\', or \'quit\': "
+    puts "Please select one of the following: \'list users\', \'list channels\', \'select user\', \'select channel\', or \'quit\': "
     user_input = gets.chomp.downcase
   end
   

@@ -1,0 +1,161 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '619'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Sep 2019 20:51:17 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 4e4b7c25-511d-41de-9541-faf414a25d67
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-u916
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 0bb842bd5868b86440983b936bb0adef.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - mAAmCLfDPV0HE9Dkca1LPjCFVAzlRYR8yI9zYltX5_JjNjwp9TZbwg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UN85LFUVD","last_set":1568071913},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UN85LFUVD","last_set":1568071913},"previous_names":[],"num_members":2},{"id":"CN69K7FK2","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN85LFUVD","last_set":1568071913},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UN85LFUVD","last_set":1568071913},"previous_names":[],"num_members":2},{"id":"CN69S86TX","name":"slack-api","is_channel":true,"is_group":false,"is_im":false,"created":1568071914,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"slack-api","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Ada
+        API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
+        API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
+    http_version: 
+  recorded_at: Sat, 14 Sep 2019 20:51:17 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=SLACK_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '619'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Sep 2019 20:51:17 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 47c33509-2f96-46e8-8182-49bc649899e1
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-4phi
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 8ae6af4d17aae7471e5fe2792eb6abcd.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C1
+      X-Amz-Cf-Id:
+      - sPyWK30xCte0X1-v_w5vzJwMsj7Y8KAD8dTF82BljlHP0JVeMkmZ5w==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UN85LFUVD","last_set":1568071913},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UN85LFUVD","last_set":1568071913},"previous_names":[],"num_members":2},{"id":"CN69K7FK2","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN85LFUVD","last_set":1568071913},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UN85LFUVD","last_set":1568071913},"previous_names":[],"num_members":2},{"id":"CN69S86TX","name":"slack-api","is_channel":true,"is_group":false,"is_im":false,"created":1568071914,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"slack-api","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Ada
+        API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
+        API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
+    http_version: 
+  recorded_at: Sat, 14 Sep 2019 20:51:17 GMT
+recorded_with: VCR 5.0.0
