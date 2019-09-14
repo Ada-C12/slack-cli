@@ -1,0 +1,315 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SUPER-SECRET!>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '621'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Sep 2019 00:20:39 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - fd150704-5772-420d-bc7d-052f8c63d303
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-lyqo
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 caf6806821bc479b28a6f1ce3043b8a6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - Jq8uW876k64QJJnDvxa66LAE0jqh-OeADtu4CyXMTKYfmSYAq7Fihw==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CN5R2SQ8L","name":"slack-cli","is_channel":true,"is_group":false,"is_im":false,"created":1568071237,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"slack-cli","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"fake
+        topic haha","creator":"UN5R2S6GL","last_set":1568157692},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2},{"id":"CN69B7XMW","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071236,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UN5R2S6GL","last_set":1568071236},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UN5R2S6GL","last_set":1568071236},"previous_names":[],"num_members":2},{"id":"CN85CG01M","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1568071236,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN5R2S6GL","last_set":1568071236},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UN5R2S6GL","last_set":1568071236},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
+    http_version: 
+  recorded_at: Sat, 14 Sep 2019 00:20:39 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SUPER-SECRET!>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '621'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Sep 2019 00:20:43 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 44a584b8-3a58-41d1-a607-7f9aa8aa246f
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-sjev
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4c7c693b007dfce603c83f138e31bccb.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - U7w5NK9Mc3_iFvA5tXQWU5ASRW9MABKyh-d2TrZxAWFsds-TP-97DQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CN5R2SQ8L","name":"slack-cli","is_channel":true,"is_group":false,"is_im":false,"created":1568071237,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"slack-cli","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"fake
+        topic haha","creator":"UN5R2S6GL","last_set":1568157692},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2},{"id":"CN69B7XMW","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071236,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UN5R2S6GL","last_set":1568071236},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UN5R2S6GL","last_set":1568071236},"previous_names":[],"num_members":2},{"id":"CN85CG01M","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1568071236,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN5R2S6GL","last_set":1568071236},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UN5R2S6GL","last_set":1568071236},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
+    http_version: 
+  recorded_at: Sat, 14 Sep 2019 00:20:43 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SUPER-SECRET!>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '621'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Sep 2019 00:20:45 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - c1d42c12-3b2b-493f-9c54-b78af1975268
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-rsdr
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 324a68a6c25ee50d774953f3e15a611d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - EAFW2KhRS03hqR855QnBzBHtlRSVKyJkg14ym-CWQVz7u-orZjgZbg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CN5R2SQ8L","name":"slack-cli","is_channel":true,"is_group":false,"is_im":false,"created":1568071237,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"slack-cli","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"fake
+        topic haha","creator":"UN5R2S6GL","last_set":1568157692},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2},{"id":"CN69B7XMW","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071236,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UN5R2S6GL","last_set":1568071236},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UN5R2S6GL","last_set":1568071236},"previous_names":[],"num_members":2},{"id":"CN85CG01M","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1568071236,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN5R2S6GL","last_set":1568071236},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UN5R2S6GL","last_set":1568071236},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
+    http_version: 
+  recorded_at: Sat, 14 Sep 2019 00:20:45 GMT
+- request:
+    method: get
+    uri: https://slack.com/api/conversations.list?token=<SUPER-SECRET!>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '621'
+      Connection:
+      - keep-alive
+      Date:
+      - Sat, 14 Sep 2019 00:20:46 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Slack-Req-Id:
+      - 997e81f5-6205-43b8-b1cd-12e94da36000
+      X-Oauth-Scopes:
+      - identify,channels:read,users:read,chat:write:bot
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - channels:read,groups:read,mpim:read,im:read,read
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Via:
+      - haproxy-www-fc14
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1b74ccf4cb51eacf97a0e6d60ae46a3f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - SEA19-C2
+      X-Amz-Cf-Id:
+      - U8hBllsaJ0a-ch5f5aGHI12yhXUjkJDAMwk4-ylUJ6QF3h2UT0hFgQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channels":[{"id":"CN5R2SQ8L","name":"slack-cli","is_channel":true,"is_group":false,"is_im":false,"created":1568071237,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"slack-cli","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"fake
+        topic haha","creator":"UN5R2S6GL","last_set":1568157692},"purpose":{"value":"","creator":"","last_set":0},"previous_names":[],"num_members":2},{"id":"CN69B7XMW","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071236,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
+        announcements and work-based matters","creator":"UN5R2S6GL","last_set":1568071236},"purpose":{"value":"This
+        channel is for workspace-wide communication and announcements. All members
+        are in this channel.","creator":"UN5R2S6GL","last_set":1568071236},"previous_names":[],"num_members":2},{"id":"CN85CG01M","name":"random","is_channel":true,"is_group":false,"is_im":false,"created":1568071236,"is_archived":false,"is_general":false,"unlinked":0,"name_normalized":"random","is_shared":false,"parent_conversation":null,"creator":"UN5R2S6GL","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5R2S66Q"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Non-work
+        banter and water cooler conversation","creator":"UN5R2S6GL","last_set":1568071236},"purpose":{"value":"A
+        place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber
+        you''d prefer to keep out of more focused work-related channels.","creator":"UN5R2S6GL","last_set":1568071236},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
+    http_version: 
+  recorded_at: Sat, 14 Sep 2019 00:20:46 GMT
+recorded_with: VCR 5.0.0
