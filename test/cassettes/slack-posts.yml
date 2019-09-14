@@ -5,7 +5,7 @@ http_interactions:
     uri: https://slack.com/api/chat.postMessage
     body:
       encoding: UTF-8
-      string: token=<SLACK_TOKEN>&text=Hey%20I%20can%20post%20messages%21&channel=UN5R3NYUU
+      string: token=<SLACK_TOKEN>&text=Hey%20I%20can%20post%20messages%21&channel=general
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
@@ -21,13 +21,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 22:12:40 GMT
+      - Sat, 14 Sep 2019 03:27:32 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - cb81c2c1-ced4-4531-b431-adabe602189e
+      - 99fcc0c4-b20a-4023-b1b0-6da9b53a16ab
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -53,28 +53,28 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-1ir4
+      - haproxy-www-0t0n
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 202c6c81b156ef839c9523323064951d.cloudfront.net (CloudFront)
+      - 1.1 400e19a7f70282e0817451f6606ca8f9.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - HIO51-C1
+      - SEA19
       X-Amz-Cf-Id:
-      - YEb19ZVlRkWai9KqLEDmv3S4I0V1qMZ0kdajZjb00aJEsmCXHVSO9g==
+      - rLOo1oye0nz4KICIgiPiHsp4Q6CX9j_9mzV8Hzpy0g_GlFM1Vxzm9Q==
     body:
       encoding: UTF-8
-      string: '{"ok":true,"channel":"DN69K4UH3","ts":"1568412760.000100","message":{"type":"message","subtype":"bot_message","text":"Hey
-        I can post messages!","ts":"1568412760.000100","username":"Leaves - Mariya
+      string: '{"ok":true,"channel":"CN8FME7AS","ts":"1568431652.000100","message":{"type":"message","subtype":"bot_message","text":"Hey
+        I can post messages!","ts":"1568431652.000100","username":"Leaves - Mariya
         - API Project","bot_id":"BMW5VR8TV"}}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 22:12:40 GMT
+  recorded_at: Sat, 14 Sep 2019 03:27:32 GMT
 - request:
     method: post
     uri: https://slack.com/api/chat.postMessage
     body:
       encoding: UTF-8
-      string: token=<SLACK_TOKEN>&text=Hey%20I%20can%20post%20messages%21&channel=general
+      string: token=<SLACK_TOKEN>&text=This%20post%20should%20not%20work&channel=invalid
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
@@ -90,13 +90,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 22:12:40 GMT
+      - Sat, 14 Sep 2019 03:27:32 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 397ba8fa-7005-4397-a0e3-3331bbb863aa
+      - f3cd144d-a8b6-4c98-bcd6-8fb9c475e209
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -126,24 +126,22 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 3cc149abcbd8cb50553c09666247bcfa.cloudfront.net (CloudFront)
+      - 1.1 a8a06e035420932f2808c2efee52f455.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - HIO51-C1
+      - SEA19
       X-Amz-Cf-Id:
-      - 07deNe0bDgHyYNhlMBd88l8Tw5--iQHkDhjnrB_w4gqqHbIrdXU1oQ==
+      - RvhV_CAYB-jG-3K_z0qo2tfxSKqWa32jC3L2tDetOYgRBlysScOLrQ==
     body:
       encoding: UTF-8
-      string: '{"ok":true,"channel":"CN8FME7AS","ts":"1568412760.000600","message":{"type":"message","subtype":"bot_message","text":"Hey
-        I can post messages!","ts":"1568412760.000600","username":"Leaves - Mariya
-        - API Project","bot_id":"BMW5VR8TV"}}'
+      string: '{"ok":false,"error":"channel_not_found"}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 22:12:40 GMT
+  recorded_at: Sat, 14 Sep 2019 03:27:32 GMT
 - request:
     method: post
     uri: https://slack.com/api/chat.postMessage
     body:
       encoding: UTF-8
-      string: token=<SLACK_TOKEN>&text=This%20post%20should%20not%20work&channel=invalid
+      string: token=<SLACK_TOKEN>&text=Hey%20I%20can%20post%20messages%21&channel=UN5R3NYUU
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
@@ -159,13 +157,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 13 Sep 2019 22:12:40 GMT
+      - Sat, 14 Sep 2019 03:27:32 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 31ffd42b-f547-4e8f-a3bf-95d202df982d
+      - 0eb9b6d3-9c61-402a-80b1-2402b64892c4
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -191,18 +189,20 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-o786
+      - haproxy-www-e5lk
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 c3d327d7fba3cf3679ba86e6faf3a795.cloudfront.net (CloudFront)
+      - 1.1 3403c96e1b1db500ff6526f1a7bc6813.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - HIO51-C1
+      - SEA19
       X-Amz-Cf-Id:
-      - byMO_RJXtgmrR9RMvtYQKHtH-4cxujHYnFfL86AqppwHZzj_NCCH0w==
+      - uBarDga2Wbpf-44iBqUx2vUvOGQPcH-LZJpUl1pFUC9XQ96ZVSLCHA==
     body:
       encoding: UTF-8
-      string: '{"ok":false,"error":"channel_not_found"}'
+      string: '{"ok":true,"channel":"DN69K4UH3","ts":"1568431652.000100","message":{"type":"message","subtype":"bot_message","text":"Hey
+        I can post messages!","ts":"1568431652.000100","username":"Leaves - Mariya
+        - API Project","bot_id":"BMW5VR8TV"}}'
     http_version: 
-  recorded_at: Fri, 13 Sep 2019 22:12:40 GMT
+  recorded_at: Sat, 14 Sep 2019 03:27:32 GMT
 recorded_with: VCR 5.0.0

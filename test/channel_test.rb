@@ -4,7 +4,7 @@ describe "Channel Class" do
   describe "New instance of Slack::Channel" do
     before do 
       VCR.use_cassette("lists_channels") do 
-        @channel = Slack::Channel.new("CMUR2JTNX", "random", {"value"=>"", "creator"=>"", "last_set"=>0}, 7)
+        @channel = Slack::Channel.new("CMUR2JTNX", "random", {"value"=>"", "creator"=>"", "last_set"=>0}, 7, "UN5R273J8", false)
         @list = Slack::Channel.list
       end
     end
@@ -15,6 +15,10 @@ describe "Channel Class" do
     
     it "has a topic" do 
       expect(@channel.topic).must_equal ({"value"=>"", "creator"=>"", "last_set"=>0})
+    end
+    
+    it "lists member count" do 
+      expect(@channel.members).must_equal 7
     end
     
     it "lists the channels" do 
@@ -28,7 +32,7 @@ describe "Channel Class" do
   describe "details" do
     before do 
       VCR.use_cassette("lists_channels") do 
-        @channel = Slack::Channel.new("CMUR2JTNX", "random", {"value"=>"", "creator"=>"", "last_set"=>0}, 7)
+        @channel = Slack::Channel.new("CMUR2JTNX", "random", {"value"=>"", "creator"=>"", "last_set"=>0}, 7, "UN5R273J8", false)
       end
       
       it "returns a hash" do

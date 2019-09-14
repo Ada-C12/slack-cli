@@ -3,12 +3,14 @@ require_relative 'recipient'
 
 module Slack
   class Channel < Recipient 
-    attr_reader :topic, :members
+    attr_reader :topic, :members, :creator, :privacy_status
     
-    def initialize(slack_id, name, topic, members)
+    def initialize(slack_id, name, topic, members, creator, privacy_status)
       super(slack_id, name)
       @topic = topic
       @members = members
+      @creator = creator 
+      @privacy_status = privacy_status
     end
     
     def self.list
@@ -20,8 +22,7 @@ module Slack
       
       channel_list = []
       channel_objects["channels"].each do |channel|
-        channel_basic = self.new(channel["id"], channel["name"], channel["topic"], channel["members"])
-        #member["display_name"], member["email"] add back in later
+        channel_basic = self.new(channel["id"], channel["name"], channel["topic"], channel["members"].length, channel["creator"], channel["is_private"])
         channel_list << channel_basic
       end
       return channel_list
@@ -34,12 +35,12 @@ module Slack
     def details      
       channel_details = {}
       
-      
       channel_details["slack_id"] = self.slack_id
       channel_details["name"] = self.name
       channel_details["topic"] = self.topic
       channel_details["members"] = self.members
-      
+      channel_details["creator"] = self.creator
+      channel_details["privacy_status"] = self.privacy_status
       
       return channel_details
     end
