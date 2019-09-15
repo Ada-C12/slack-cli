@@ -63,21 +63,42 @@ describe "Workspace" do
       VCR.use_cassette("workspace-info") do
         workspace = Slack::Workspace.new
         name_or_id = "nonexistentname"
-        
         user = workspace.select(name_or_id)
         assert_nil user
       end 
     end 
   end
-end 
-
-# describe "show details method" do  
-#   it "returns an instance of user"
-#   VCR.use_cassette("workspace-info") do
-#     workspace = Slack::Workspace.new
-#     #selected = user
-
-#     selected = workspace.show_details
-#     expect(selected).must_be_kind_of String
-#   end
-# end
+  
+  describe "show details" do  
+    it "returns a table for the selected user or channel" do
+      VCR.use_cassette("workspace-info") do
+        workspace = Slack::Workspace.new
+        name_or_id = "random"
+        @selected = workspace.select(name_or_id)
+        expect(workspace.show_details).must_be_kind_of TablePrint::Returnable
+      end
+    end
+    
+  end
+  
+  describe "user_message" do  
+    it "returns a message string when a message is sent successfully" do
+      VCR.use_cassette("workspace-info") do
+        # instantiate workspace
+        workspace = Slack::Workspace.new
+        # pass in channel name
+        name_or_id = "random"
+        # use channel name argument to select that channel
+        @selected = workspace.select(name_or_id)
+        # provide method variables
+        message = "The bots are pleased."
+        slack_id = "CMUR2JTNX"
+        
+        expect(workspace.user_message(message, slack_id)).must_equal 
+        String
+      end
+    end
+    
+  end
+  
+end

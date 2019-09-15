@@ -20,8 +20,9 @@ describe "Recipient" do
   describe "details" do
     it "raises an error if implementation attempted within Recipient class" do
       VCR.use_cassette("recipient-info") do      
-        expect{ Slack::Recipient.details
-        }.must_raise Exception
+        recipient = Slack::Recipient.new(1, "spongebob")
+        expect{ recipient.details
+        }.must_raise API_Error
       end
     end
   end
@@ -29,8 +30,8 @@ describe "Recipient" do
   describe "self.list" do
     it "raises an error if implementation attempted within Recipient class" do
       VCR.use_cassette("recipient-info") do      
-        expect{ Slack::Recipient.self.list
-        }.must_raise Exception
+        expect{ Slack::Recipient.list
+        }.must_raise API_Error
       end
     end
   end
@@ -69,7 +70,7 @@ describe "Recipient" do
         slack_id = "USLACKBOT"
         message = "Woe upon your Cylon heart."
         { "ok": false, "error": "too_many_attachments" }
-
+        
         expect{ Slack::Recipient.send_message(slack_id, message)
         }.must_raise Exception
       end

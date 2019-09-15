@@ -27,9 +27,9 @@ module Slack
       end
       puts "Sorry, I couldn't find that user or channel."
     end
-        
+    
     def show_details
-      @selected.details
+      return @selected.details
     end
     
     def user_message(message, slack_id)

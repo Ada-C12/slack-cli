@@ -1,6 +1,8 @@
 require "httparty"
 require 'pry'
 
+class API_Error < StandardError
+end
 module Slack
   class Recipient
     URL = "https://slack.com/api/users.list"
@@ -12,11 +14,11 @@ module Slack
     end
     
     def details
-      raise NotImplementedError, 'Implement me in a child class!'
+      raise API_Error.new, 'Implement me in a child class!'
     end
     
     def self.list
-      raise NotImplementedError, 'Implement me in a child class!'
+      raise API_Error.new, 'Implement me in a child class!'
     end
     
     def self.get(url)     
