@@ -19,14 +19,6 @@ describe "User" do
         expect(user.real_name).must_be_kind_of String
       end
     end 
-    
-    # describe "details method" do 
-    #   it "return an array" do
-    #     #VCR.use_cassette("user-info") do
-    #     user = Slack::User.new("CS50", "spongebob", "bob smith")
-    #     # user_list = Slack::User.detail
-    #     expect(user.details).must_be_kind_of String
-    #   end
-    # end 
   end
+
 end

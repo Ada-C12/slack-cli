@@ -84,16 +84,11 @@ describe "Workspace" do
   describe "user_message" do  
     it "returns a message string when a message is sent successfully" do
       VCR.use_cassette("workspace-info") do
-        # instantiate workspace
         workspace = Slack::Workspace.new
-        # pass in channel name
         name_or_id = "random"
-        # use channel name argument to select that channel
         @selected = workspace.select(name_or_id)
-        # provide method variables
         message = "The bots are pleased."
         slack_id = "CMUR2JTNX"
-        
         expect(workspace.user_message(message, slack_id)).must_equal 
         String
       end
