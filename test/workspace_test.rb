@@ -89,11 +89,8 @@ describe "Workspace" do
         @selected = workspace.select(name_or_id)
         message = "The bots are pleased."
         slack_id = "CMUR2JTNX"
-        expect(workspace.user_message(message, slack_id)).must_equal 
-        String
+        expect(workspace.user_message(message, slack_id)).must_be_kind_of String
       end
     end
-    
-  end
-  
+  end 
 end

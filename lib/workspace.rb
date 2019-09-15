@@ -34,7 +34,7 @@ module Slack
     
     def user_message(message, slack_id)
       @selected.send_message(@selected.slack_id, message)
-      return puts "Success! Message sent to #{@selected.name}."      
+      return "Success! Message sent to #{@selected.name}."      
     end 
     
   end
