@@ -1,6 +1,5 @@
 require_relative 'channel'
 require_relative 'user'
-require_relative 'slack'
 require 'dotenv'
 
 Dotenv.load
@@ -58,9 +57,3 @@ class Workspace
   end
   
 end
-
-
-# a = Workspace.new
-# a.select_channel("general")
-# p a.show_details
-# p a.selected

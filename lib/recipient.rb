@@ -15,23 +15,10 @@ class Recipient
     
     
   end
-  
-  
-  def send_message(message)
-    
-    
-  end
-  
+
   
   def self.get(url)
     HTTParty.get(url, query: {token: KEY})
-  end
-  
-  
-  def details
-    raise NotImplementedError 'Children implement this'
-    
-    
   end
   
   
@@ -40,10 +27,5 @@ class Recipient
     
     
   end
-  
-  
-  
-  
-  
-  
+
 end
