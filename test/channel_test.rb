@@ -28,7 +28,6 @@ describe "Channel class" do
   end 
   
   # Send message test
-  # need to discuss this section
   describe "Send message" do 
     it "sends a message to selected recipient" do 
       VCR.use_cassette("send_message") do

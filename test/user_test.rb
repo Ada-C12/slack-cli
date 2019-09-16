@@ -29,8 +29,15 @@ describe "User class" do
     end
   end 
   
-  # send message test
+  # Send message test
   describe "Send message" do 
+    it "sends a message to selected recipient" do 
+      VCR.use_cassette("send_message") do
+        users = Slack::User.list_users
+        user = users.first
+        expect(user.send_message("popcorn")).must_equal true 
+      end
+    end
   end
   
   # Test to check user count
