@@ -27,16 +27,18 @@ describe "Channel class" do
     end
   end 
   
-  # # Send message test
-  # # need to discuss this section
-  # describe "Send message" do 
-  #   it "sends a message to selected recipient" do 
-  #     VCR.use_cassette("send_message") do
-  #       channels = Slack::Channel.list_channels
-  #       # channel = Channel.new("name", "topic", 1, 1234)
-  #       channel = channels.first
-  #       expect(channel.send_message).must_
-  #     end
+  # Send message test
+  # need to discuss this section
+  describe "Send message" do 
+    it "sends a message to selected recipient" do 
+      VCR.use_cassette("send_message") do
+        channels = Slack::Channel.list_channels
+        # channel = Channel.new("name", "topic", 1, 1234)
+        channel = channels.first
+        expect(channel.send_message("popcorn")).must_equal true 
+      end
+    end
+  end
   
   # Test to check channel count
   describe "Channel list" do
