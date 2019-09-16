@@ -30,9 +30,4 @@ class Recipient
     raise NotImplementedError 'Children implement this'
   end
   
-  
-  
-  
-  
-  
 end

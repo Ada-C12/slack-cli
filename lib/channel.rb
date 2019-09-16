@@ -13,7 +13,7 @@ class Channel < Recipient
   
   
   
-  # Source Citation Paige and Angele
+  # Source Citation: lines 20-23 & 27 with Paige and Angele
   def self.list
     channels = self.get("https://slack.com/api/conversations.list")["channels"]
     

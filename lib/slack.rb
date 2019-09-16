@@ -1,11 +1,4 @@
-# require 'httparty'
-# require 'dotenv'
 require_relative 'workspace'
-# require_relative 'user'
-Dotenv.load
-
-
-# !/usr/bin/env ruby
 
 def main
   workspace = Workspace.new  
@@ -76,7 +69,6 @@ def main
   
   
   puts "Thank you for using the Ada Slack CLI"
-  # puts response['members'].first.keys
   
 end
 
