@@ -36,16 +36,15 @@ module Slack
     def details 
       "The channel name is #{channel_name} and the slack id is #{slack_id}"
     end
-  
+    
     # method for select channel
+    # returns an instance of channel
     def self.select_channel(recipient_selection)
       channels = list_channels
-      recipient = channels.find { |channel| channel.channel_name == recipient_selection || channel.slack_id == recipient_selection }
+      recipient = channels.find {| channel | channel.channel_name == recipient_selection.channel_name || channel.slack_id == recipient_selection.slack_id }
       return recipient
     end
   end
-  
-  # put API documentation here for send message 
 end
 
 

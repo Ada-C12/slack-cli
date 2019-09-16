@@ -31,10 +31,6 @@ def main
       channels.each do |channel|
         puts "Channel's name: #{channel.channel_name}, Member Count: #{channel.member_count}, and Slack ID: #{channel.slack_id}."
       end
-    when "Send Message"
-      recipient.each do |channel|
-        puts "Channel's name: #{channel.channel_name}, Member Count: #{channel.member_count}, and Slack ID: #{channel.slack_id}."
-      end
       
       # Wave 2: Selection Method
     when "Select User"
@@ -63,16 +59,13 @@ def main
       # Wave 3: Send Message to selected user
     when "Send Message"
       puts "Please enter your new message now."
-      message_recipient = gets.chomp
-      message_recipient = Slack::Channel.select_channel(message_recipient)
+      message = gets.chomp
       if recipient == nil 
         puts "No recipient currently selected. Returning you to main menu."
-      elsif recipient.class == User 
+      elsif recipient.class == Slack::User 
+        # channel = Slack::Channel.select_channel(recipient)
+        recipient.send_message(message)
       end
-      
-      Slack.send_message(message_recipient)
-      # puts message (in case above doesn't work)
-      #   recipient.send_message(message) # user's message is sent to our Slack recipient 
       
     when "Quit"
       puts "Exiting program"

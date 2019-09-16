@@ -9,7 +9,6 @@ module Slack
     USERS_LIST = "https://slack.com/api/users.list"
     CHAT_URL = "https://slack.com/api/chat.postMessage"
     
-    
     def initialize(slack_id, name, user_name)
       @slack_id = slack_id
       @name = name
@@ -43,25 +42,18 @@ module Slack
       return recipient
     end
     
-    module Slack
-      CHAT_URL = "https://slack.com/api/chat.postMessage"
+    def send_message(message)
+      response = HTTParty.post(
+        CHAT_URL,
+        body:  {
+          token: ENV["SLACK_API_TOKEN"],
+          text: message,
+          channel: @user_name, 
+          as_user: true # allows you to pass in a user_name
+        },
+      )
       
-      API_KEY = ENV['SLACK_TOKEN']
-      
-      def self.send_msg(message, channel)
-        
-        response = HTTParty.post(
-          CHAT_URL,
-          
-          body:  {
-            token: API_KEY,
-            text: message,
-            channel: channel
-          },
-        )
-        
-        return response.code == 200 && response.parsed_response["ok"]
-      end
+      return response.code == 200 && response.parsed_response["ok"]
     end
   end
 end
