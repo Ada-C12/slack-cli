@@ -7,7 +7,6 @@ require_relative './channel'
 Dotenv.load('../.env')
 
 KEY = ENV['KEY']
-#CHAT_URL = "https://slack.com/api/chat.postMessage"
 
 def main
   recipient = nil
@@ -56,14 +55,13 @@ def main
         puts recipient.details # if recipient selected, show details
       end
       
-      # Wave 3: Send Message to selected user
+      # Wave 3: Send Message to selected user. Send_message method works for User and Channel
     when "Send Message"
       puts "Please enter your new message now."
       message = gets.chomp
       if recipient == nil 
         puts "No recipient currently selected. Returning you to main menu."
-      elsif recipient.class == Slack::User 
-        # channel = Slack::Channel.select_channel(recipient)
+      else 
         recipient.send_message(message)
       end
       
