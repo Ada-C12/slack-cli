@@ -21,17 +21,17 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '941'
+      - '942'
       Connection:
       - keep-alive
       Date:
-      - Mon, 16 Sep 2019 02:00:38 GMT
+      - Mon, 16 Sep 2019 03:32:46 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 3e0e13c5-1089-40a3-b0f6-4798b9565890
+      - '09ecd180-f8a1-473f-a0ff-b6350ca6e20f'
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,24 +57,24 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-x8wy
+      - haproxy-www-lzki
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 570075675953459325e00b7bcd171df3.cloudfront.net (CloudFront)
+      - 1.1 591683988172c7980c4ebb318cbf18a9.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C2
       X-Amz-Cf-Id:
-      - e-Sp_1yoo_7J9O_iuChmXd50I4PZdBvlFOpXlYQ5emCjyCQ0zyrF2w==
+      - qEsM6WIpNqC5f4JPX-oSmmAqFFwgpQZ_B9kUi1zejSC08TOL6VLWtg==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"members":[{"id":"USLACKBOT","team_id":"TN5RART8U","name":"slackbot","deleted":false,"color":"757575","real_name":"Slackbot","tz":null,"tz_label":"Pacific
         Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Slackbot","real_name_normalized":"Slackbot","display_name":"Slackbot","display_name_normalized":"Slackbot","fields":null,"status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"sv41d8cd98f0","always_active":true,"first_name":"slackbot","last_name":"","image_24":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_24.png","image_32":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_32.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_72.png","image_192":"https:\/\/a.slack-edge.com\/80588\/marketing\/img\/avatars\/slackbot\/avatar-slackbot.png","image_512":"https:\/\/a.slack-edge.com\/80588\/img\/slackbot_512.png","status_text_canonical":"","team":"TN5RART8U"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":0},{"id":"UN69KK2F2","team_id":"TN5RART8U","name":"erika.maust","deleted":false,"color":"e7392d","real_name":"Erika","tz":"America\/Los_Angeles","tz_label":"Pacific
         Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Erika","real_name_normalized":"Erika","display_name":"","display_name_normalized":"","status_text":"","status_emoji":"","status_expiration":0,"avatar_hash":"g2539b84ab53","image_24":"https:\/\/secure.gravatar.com\/avatar\/2539b84ab53590f6b93b9310311fa161.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0026-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/2539b84ab53590f6b93b9310311fa161.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0026-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/2539b84ab53590f6b93b9310311fa161.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0026-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/2539b84ab53590f6b93b9310311fa161.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0026-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/2539b84ab53590f6b93b9310311fa161.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0026-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/2539b84ab53590f6b93b9310311fa161.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0026-512.png","status_text_canonical":"","team":"TN5RART8U"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568072826,"has_2fa":false},{"id":"UN85LFUVD","team_id":"TN5RART8U","name":"li.dora05","deleted":false,"color":"9f69e7","real_name":"Dora
         Li","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"title":"","phone":"","skype":"","real_name":"Dora
-        Li","real_name_normalized":"Dora Li","display_name":"","display_name_normalized":"","status_text":"#AdaLife","status_emoji":":speech_balloon:","status_expiration":0,"avatar_hash":"g358a2f5e308","first_name":"Dora","last_name":"Li","image_24":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-512.png","status_text_canonical":"","team":"TN5RART8U"},"is_admin":true,"is_owner":true,"is_primary_owner":true,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568589675,"has_2fa":false}],"cache_ts":1568599238,"response_metadata":{"next_cursor":""}}'
+        Li","real_name_normalized":"Dora Li","display_name":"","display_name_normalized":"","status_text":"#AdaLife","status_emoji":":speech_balloon:","status_expiration":0,"avatar_hash":"g358a2f5e308","first_name":"Dora","last_name":"Li","image_24":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=24&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-24.png","image_32":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=32&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-32.png","image_48":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-48.png","image_72":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-72.png","image_192":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-192.png","image_512":"https:\/\/secure.gravatar.com\/avatar\/358a2f5e3088174b0d14d8236f4da5d1.jpg?s=512&d=https%3A%2F%2Fa.slack-edge.com%2F80588%2Fimg%2Favatars%2Fuser_shapes%2Fava_0025-512.png","status_text_canonical":"","team":"TN5RART8U"},"is_admin":true,"is_owner":true,"is_primary_owner":true,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"is_app_user":false,"updated":1568589675,"has_2fa":false}],"cache_ts":1568604766,"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Mon, 16 Sep 2019 02:00:38 GMT
+  recorded_at: Mon, 16 Sep 2019 03:32:46 GMT
 - request:
     method: get
     uri: https://slack.com/api/conversations.list?token=SLACK_TOKEN>
@@ -100,13 +100,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 16 Sep 2019 02:00:39 GMT
+      - Mon, 16 Sep 2019 03:32:46 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 1f9981ba-dc28-49ce-90ee-393b848218d6
+      - 9618a827-6a23-410f-85f8-96893fadfc6c
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -132,15 +132,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-f6kp
+      - haproxy-www-nvih
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 7eb3b782ab09047ce0d11ee03763894c.cloudfront.net (CloudFront)
+      - 1.1 f9d716a351f14a0ac1fac2449734849b.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C2
       X-Amz-Cf-Id:
-      - NWJzQmPPAEE9Dvbl6vGv0udrehum4huU7ow2-niHzGuvQg8TjQPVTw==
+      - 429A7SpOVZzfrQUUjKzlO-iGKlY6KI6xEKBx9YyM_YMN3ec5Mw48KA==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
@@ -153,5 +153,5 @@ http_interactions:
         API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
         API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Mon, 16 Sep 2019 02:00:39 GMT
+  recorded_at: Mon, 16 Sep 2019 03:32:46 GMT
 recorded_with: VCR 5.0.0

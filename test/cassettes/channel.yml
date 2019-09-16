@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 16 Sep 2019 02:00:39 GMT
+      - Mon, 16 Sep 2019 03:32:43 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 7ac0ab05-11d4-4950-a788-72faebe1d09e
+      - 5e7af0ea-5d0c-485e-9737-217cd6df2e2e
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-rm1u
+      - haproxy-www-20wj
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 760139201585481b26f947c5f776103a.cloudfront.net (CloudFront)
+      - 1.1 98aedae6661e3904540676966998ed89.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C2
       X-Amz-Cf-Id:
-      - SNCIQ-q5MZEe21ryeJrJshgqLYsFfBmVo5eVE6OM_9gRPTQLQejSfw==
+      - "-CIwjTngj3ru2Zwe98oGwRXVREG-NIzqeK-ZY9MvUyTaavy1E9y0Bg=="
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
@@ -78,7 +78,7 @@ http_interactions:
         API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
         API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Mon, 16 Sep 2019 02:00:39 GMT
+  recorded_at: Mon, 16 Sep 2019 03:32:43 GMT
 - request:
     method: get
     uri: https://slack.com/api/conversations.list?token=SLACK_TOKEN>
@@ -104,13 +104,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 16 Sep 2019 02:00:39 GMT
+      - Mon, 16 Sep 2019 03:32:43 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 45855d44-29ed-4431-8361-b3a282f7219d
+      - ffed7435-cd02-4dca-b3c7-dbac46a4616e
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -136,15 +136,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-0m7t
+      - haproxy-www-abbx
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 2bedbeaa49b4a77447d30097858cb81a.cloudfront.net (CloudFront)
+      - 1.1 0732be5515ffeda639cfe5f22fb04df6.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - SEA19-C2
       X-Amz-Cf-Id:
-      - W3bh8UCF5WvIm_46vHUB_0Xs-fWHQLI8QjItqmbApsFx-kbfzAgH2A==
+      - Yuy2h0wQxq0pOQdtBHxCWA2w9hmHK4hLdQbEA8mkq45BEFKmJI-ZUw==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
@@ -157,5 +157,5 @@ http_interactions:
         API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
         API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Mon, 16 Sep 2019 02:00:39 GMT
+  recorded_at: Mon, 16 Sep 2019 03:32:43 GMT
 recorded_with: VCR 5.0.0

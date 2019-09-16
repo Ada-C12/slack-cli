@@ -21,10 +21,6 @@ class Recipient
   end
   
   
-  def details
-    raise NotImplementedError 'Children implement this'
-  end
-  
   
   def self.list
     raise NotImplementedError 'Children implement this'
