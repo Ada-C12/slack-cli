@@ -1,11 +1,13 @@
 require_relative 'channel'
 require_relative 'user'
 require_relative 'slack'
-require 'pry'
+require 'dotenv'
 
+Dotenv.load
 
 class Workspace
   attr_reader :users, :channels, :selected
+  KEY = ENV['SLACK_TOKEN']
   
   def initialize
     @users = User.list
@@ -44,10 +46,15 @@ class Workspace
   end
   
   
-  def send_message
-    
-    
-    
+  def send_message(message, channel)
+    response = HTTParty.post("https://slack.com/api/chat.postMessage", 
+      body: {
+        token: ENV["SLACK_TOKEN"],
+        channel: channel,
+        text: message
+      },
+      headers: { 'Content-type' => 'application/x-www-form-urlencoded' }
+    )
   end
   
 end
