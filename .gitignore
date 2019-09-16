@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+*.yml
 /.config
 /coverage/
 /InstalledFiles
@@ -52,5 +53,3 @@ build-iPhoneSimulator/
 # Ignore environemnt variables
 .env
 
-# Ignore cassette files
-/specs/cassettes/
