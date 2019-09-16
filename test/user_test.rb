@@ -53,5 +53,14 @@ describe "User class" do
         expect(user.user_name).must_equal "USLACKBOT"
       end
     end
-  end
+    
+    it "raises an Argument for invalid selected user" do
+      VCR.use_cassette("users_list") do
+        user = Slack::User.select_user("slackbot")
+        expect {
+          user.user_name("hgjguv")
+        }.must_raise ArgumentError
+      end
+    end
+  end 
 end

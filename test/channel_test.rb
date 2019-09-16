@@ -60,5 +60,14 @@ describe "Channel class" do
         expect(channel.channel_name).must_equal "slack-cli"
       end
     end
+    
+    it "raises an Argument for invalid selected channel" do
+      VCR.use_cassette("channel_list") do
+        channel = Slack::Channel.select_channel("slack-cli")
+        expect {
+          channel.channel_name("hgjguv")
+        }.must_raise ArgumentError
+      end
+    end
   end
 end
