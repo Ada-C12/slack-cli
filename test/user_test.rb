@@ -11,11 +11,8 @@ Dotenv.load
 
 describe "User class" do
   
-  
-  it "instantiate the User class" do
-    
+  it "initializes User" do
     expect(User.new(slack_id: 234, user_name: "thewho", real_name:"The What", detail: "Well, well, well")).must_be_instance_of User
-    
   end
   
   it "assigns correct value to instance variables" do
@@ -26,16 +23,11 @@ describe "User class" do
     expect(users.real_name).must_equal "The What"
   end
   
-  
-  describe "user.list method" do
-    
-    it "creates array of users" do
-      VCR.use_cassette("user") do
-        expect(User.list).must_be_kind_of Array
-        expect(User.list).wont_be_empty
-      end
+  it "creates an array of instances of users" do
+    VCR.use_cassette("user") do
+      expect(User.list).must_be_kind_of Array
+      expect(User.list).wont_be_empty
     end
-    
-
   end
+  
 end
