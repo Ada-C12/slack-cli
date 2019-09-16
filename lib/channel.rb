@@ -2,13 +2,13 @@ require_relative 'recipient'
 
 
 class Channel < Recipient
-  attr_reader :topic, :member_count, :purpose
+  attr_reader :topic, :member_count, :detail
   
-  def initialize(slack_id:, name:, topic:, member_count:, purpose:)
+  def initialize(slack_id:, name:, topic:, member_count:, detail:)
     super(slack_id: slack_id, name: name)
     @topic = topic
     @member_count = member_count
-    @purpose = purpose
+    @detail = detail
   end
   
   
@@ -22,9 +22,9 @@ class Channel < Recipient
       topic = channel["topic"]["value"]
       member_count = channel["num_members"]
       slack_id = channel["id"]
-      purpose = channel["purpose"]["value"]
+      detail = channel["purpose"]["value"]
       
-      Channel.new(slack_id: slack_id, name: name, topic: topic, member_count: member_count, purpose: purpose)
+      Channel.new(slack_id: slack_id, name: name, topic: topic, member_count: member_count, detail: detail)
     end
   end
 end

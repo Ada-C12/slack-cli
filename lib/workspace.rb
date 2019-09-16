@@ -33,9 +33,9 @@ class Workspace
   def show_details
     if @selected != nil
       if @selected.class == Channel
-        return @selected.purpose
+        return @selected
       elsif @selected.class == User
-        return @selected.status_text
+        return @selected
       end
     else
       return nil

@@ -4,17 +4,17 @@ require 'pry'
 
 class User < Recipient
   
-  attr_reader :slack_id, :user_name, :real_name, :status_text
+  attr_reader :slack_id, :user_name, :real_name, :detail
   
   # URL = "https://slack.com/api/users.list"
   # KEY = ENV['SLACK_TOKEN']
   
-  def initialize(slack_id:, user_name:, real_name:, status_text:) 
-    # super(slack_id, name)
+  def initialize(slack_id:, user_name:, real_name:, detail:) 
+    # super(slack_id:, name:)
     @user_name = user_name
     @real_name = real_name
     @slack_id = slack_id
-    @status_text = status_text
+    @detail = detail
   end
   
   
@@ -29,7 +29,7 @@ class User < Recipient
     
     users = []
     response.each do |member|
-      user = self.new(slack_id: member["id"], real_name: member["real_name"], user_name: member["name"], status_text: member["profile"]["status_text"])
+      user = self.new(slack_id: member["id"], real_name: member["real_name"], user_name: member["name"], detail: member["profile"]["status_text"])
       users << user
     end
     return users

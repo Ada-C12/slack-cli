@@ -52,7 +52,10 @@ def main
       if workspace.show_details == nil
         puts "No recipient (user/channel) has been selected"
       end
-      puts workspace.show_details
+      puts """
+      #{workspace.show_details.slack_id}
+      #{workspace.show_details.detail}
+      """
       
     end
     

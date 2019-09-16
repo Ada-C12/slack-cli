@@ -1,0 +1,36 @@
+  
+  def send_message(message)
+    response = HTTParty.post("https://slack.com/api/chat.postMessage",
+      headers: { 'Content-Type' => 'application/x-www-form-urlencoded' },
+      body: {
+        token: KEY,
+        channel: @selected,
+        text: message
+      }
+    )
+    
+    if response["ok"] == false
+      return response["error"]
+    else
+      return true
+    end
+  end
+  
+  
+  
+  
+  
+  
+  
+  describe "send_message method" do
+    it "returns true if message correctly posted to designated user or channel" do
+      VCR.use_cassette("workspace_send_message") do
+      workspace = Workspace.new.select_channel("random")
+      response = workspace.send_message("It's WORKING!")
+      expect(response).must_equal true
+      
+      end
+    end
+  end
+
+

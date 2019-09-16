@@ -25,13 +25,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 14 Sep 2019 20:51:17 GMT
+      - Mon, 16 Sep 2019 00:36:01 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 4e4b7c25-511d-41de-9541-faf414a25d67
+      - 6203152c-c1f2-4969-a782-68532b4efb4e
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -57,15 +57,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-u916
+      - haproxy-www-j6ch
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 0bb842bd5868b86440983b936bb0adef.cloudfront.net (CloudFront)
+      - 1.1 57a21088b36c69a83578b5a5579df58f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - mAAmCLfDPV0HE9Dkca1LPjCFVAzlRYR8yI9zYltX5_JjNjwp9TZbwg==
+      - RUdP1OxMc8ESgkHc6f5vzINGluLGHsVFD2umFFZc_HaKNTm74Jzr3Q==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
@@ -78,7 +78,7 @@ http_interactions:
         API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
         API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Sat, 14 Sep 2019 20:51:17 GMT
+  recorded_at: Mon, 16 Sep 2019 00:36:01 GMT
 - request:
     method: get
     uri: https://slack.com/api/conversations.list?token=SLACK_TOKEN>
@@ -104,13 +104,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 14 Sep 2019 20:51:17 GMT
+      - Mon, 16 Sep 2019 00:36:01 GMT
       Server:
       - Apache
       X-Content-Type-Options:
       - nosniff
       X-Slack-Req-Id:
-      - 47c33509-2f96-46e8-8182-49bc649899e1
+      - eb807bfd-9983-40ba-8b40-8a2b395e2ea1
       X-Oauth-Scopes:
       - identify,channels:read,users:read,chat:write:bot
       Expires:
@@ -136,15 +136,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Via:
-      - haproxy-www-4phi
+      - haproxy-www-qj5i
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 8ae6af4d17aae7471e5fe2792eb6abcd.cloudfront.net (CloudFront)
+      - 1.1 559326ad73233233a9e52cb9e8601ede.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - SEA19-C1
+      - SEA19-C2
       X-Amz-Cf-Id:
-      - sPyWK30xCte0X1-v_w5vzJwMsj7Y8KAD8dTF82BljlHP0JVeMkmZ5w==
+      - fZzKgmRp0mZZB-YV7R4GuDgSsU8nYqwgGmsbyEBGiq8BpLIICMsnNQ==
     body:
       encoding: ASCII-8BIT
       string: '{"ok":true,"channels":[{"id":"CN69K7ERE","name":"general","is_channel":true,"is_group":false,"is_im":false,"created":1568071913,"is_archived":false,"is_general":true,"unlinked":0,"name_normalized":"general","is_shared":false,"parent_conversation":null,"creator":"UN85LFUVD","is_ext_shared":false,"is_org_shared":false,"shared_team_ids":["TN5RART8U"],"pending_shared":[],"pending_connected_team_ids":[],"is_pending_ext_shared":false,"is_member":true,"is_private":false,"is_mpim":false,"topic":{"value":"Company-wide
@@ -157,5 +157,5 @@ http_interactions:
         API project","creator":"UN85LFUVD","last_set":1568171578},"purpose":{"value":"Ada
         API project","creator":"UN85LFUVD","last_set":1568171529},"previous_names":[],"num_members":2}],"response_metadata":{"next_cursor":""}}'
     http_version: 
-  recorded_at: Sat, 14 Sep 2019 20:51:17 GMT
+  recorded_at: Mon, 16 Sep 2019 00:36:01 GMT
 recorded_with: VCR 5.0.0

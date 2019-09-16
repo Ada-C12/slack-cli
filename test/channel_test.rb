@@ -14,12 +14,12 @@ describe "Channel class" do
   
   it "instantiate the Channel class" do
     
-    expect(Channel.new(slack_id: 123, name: "John", topic: "Smiths", member_count: 4, purpose: "Whovians")).must_be_instance_of Channel
+    expect(Channel.new(slack_id: 123, name: "John", topic: "Smiths", member_count: 4, detail: "Whovians")).must_be_instance_of Channel
     
   end
   
   it "assigns correct value to instance variables" do
-    channels = Channel.new(slack_id: 123, name: "John", topic: "Smiths", member_count: 4, purpose: "Whovians")
+    channels = Channel.new(slack_id: 123, name: "John", topic: "Smiths", member_count: 4, detail: "Whovians")
     
     expect(channels.slack_id).must_equal 123
     expect(channels.name).must_equal "John"

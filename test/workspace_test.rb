@@ -28,4 +28,23 @@ describe "Workspace" do
       end
     end
   end
+  
+  # describe "show_details method" do
+  #   it "" do
+  #     VCR.use_cassette("workspace_show_details") do
+  #       workspace = Workspace.new
+  #       selected_channel = "general"
+  #       selected_user = "slackbot"
+
+  #       workspace.select_channel(selected_channel)
+  #       channel_detail = @new_workspace.show_details
+  #       @new_workspace.select_user(selected_user)
+  #       user_detail = @new_workspace.show_details
+
+  #       expect(channel_detail).must_include "CN69K7ERE"
+  #       expect(details_2).must_include "USLACKBOT"
+        
+  #     end
+  #   end
+  # end 
 end
