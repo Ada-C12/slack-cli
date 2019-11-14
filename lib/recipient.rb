@@ -1,23 +1,26 @@
-class Recipient
-  attr_reader :id, :name
+module Slack
+  class Recipient
+    URL = "https://slack.com/api/chat.postMessage"
 
-  def initialize(id, name)
-    @id = id
-    @name = name
-  end
+    attr_reader :id, :name
 
-  def get(url, query)
-    return HTTParty.get(url, query)
-  end
+    def initialize(id, name)
+      @id = id
+      @name = name
+    end
 
-  # ABSTRACT METHODS
-  def details
-    raise NotImplementedError, "Implement me in a child class!"
-  end
+    def get(url, query)
+      return HTTParty.get(url, query)
+    end
 
-  def self.list
-    raise NotImplementedError, "Implement me in a child class!"
+    # ABSTRACT METHODS
+    def details
+      raise NotImplementedError, "Implement me in a child class!"
+    end
+
+    def self.list
+      raise NotImplementedError, "Implement me in a child class!"
+    end
   end
 end
-
 

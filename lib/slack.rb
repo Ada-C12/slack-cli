@@ -3,7 +3,7 @@ require 'table_print'
 require 'colorize'
 
 def main
-  workspace = Workspace.new
+  workspace = Slack::Workspace.new
 
   command_table = [{command: 'list users', description: 'lists all users'}, {command: 'list channels', description: 'lists all channels'}, {command: 'select user', description: 'selects a user'}, {command: 'select channel', description: 'selects a channel'}, {command: 'details', description: 'shows recipient details'}, {command: 'send message', description: 'sends message to recipient'}]
   
